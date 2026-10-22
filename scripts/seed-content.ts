@@ -446,6 +446,9 @@ export const DOMAINS: {
 /* Partners                                                            */
 /* ------------------------------------------------------------------ */
 
+/** SAAGDO presentation video on the official Facebook page (shared by ACIEA, 22/10/2026). */
+export const SAAGDO_VIDEO_URL = 'https://www.facebook.com/share/v/1KcjUkUPh5/'
+
 export const GWP_PARTNER = {
   slug: 'gwp-afrique-de-l-ouest',
   name: {

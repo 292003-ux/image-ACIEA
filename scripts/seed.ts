@@ -800,6 +800,7 @@ async function main() {
       partnershipText: S.partnershipText.fr,
       partnershipSourceUrl: C.GWP_URL,
       platformUrl: '',
+      videoUrl: C.SAAGDO_VIDEO_URL,
       showDemo: true,
     } as never,
   })

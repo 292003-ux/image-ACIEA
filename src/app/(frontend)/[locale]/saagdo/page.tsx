@@ -1,4 +1,4 @@
-import { ExternalLink, FlaskConical, Lock } from 'lucide-react'
+import { ExternalLink, FlaskConical, Lock, PlayCircle } from 'lucide-react'
 import NextLink from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { NetworkField } from '@/components/decor/network-field'
@@ -56,6 +56,7 @@ export default async function SaagdoPage({ params }: Props) {
   const mouPhoto = asMedia(mouNews?.coverImage)
   const gwp = partners.find((p) => p.slug === 'gwp-afrique-de-l-ouest')
   const platformUrl = isSafeExternalUrl(page?.platformUrl) ? page.platformUrl : null
+  const videoUrl = isSafeExternalUrl(page?.videoUrl) ? page.videoUrl : null
 
   return (
     <div className="bg-night text-white">
@@ -132,6 +133,21 @@ export default async function SaagdoPage({ params }: Props) {
               </div>
               {!platformUrl && (
                 <p className="mt-4 text-sm text-white/55">{t('platformUnavailable')}</p>
+              )}
+              {videoUrl && (
+                <a
+                  href={videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-8 inline-flex items-center gap-3 font-semibold text-white hover:text-digital"
+                >
+                  <PlayCircle
+                    className="size-10 text-digital transition-transform group-hover:scale-110"
+                    aria-hidden="true"
+                  />
+                  {t('watchVideo')}
+                  <span className="sr-only">{tc('openInNewTab')}</span>
+                </a>
               )}
             </div>
             <div className="lg:col-span-6">

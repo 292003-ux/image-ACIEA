@@ -368,7 +368,8 @@
       "contribute": "Simulate a contribution",
       "contributeHelp": "In the app, a contributor describes and geolocates an observation. Here, nothing is sent.",
       "added": "Simulated contribution added locally (not saved)."
-    }
+    },
+    "watchVideo": "Watch the presentation video"
   },
   "forms": {
     "required": "required",

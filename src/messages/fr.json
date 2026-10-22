@@ -368,7 +368,8 @@
       "contribute": "Simuler une contribution",
       "contributeHelp": "Dans l’application, un contributeur décrit et géolocalise une observation. Ici, rien n’est envoyé.",
       "added": "Contribution simulée ajoutée localement (non enregistrée)."
-    }
+    },
+    "watchVideo": "Voir la vidéo de présentation"
   },
   "forms": {
     "required": "obligatoire",
