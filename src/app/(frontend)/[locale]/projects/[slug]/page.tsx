@@ -92,11 +92,13 @@ export default async function ProjectPage({ params }: Props) {
       value: formatDate(project.endDate, locale),
     },
     place && { icon: MapPin, label: tc('location'), value: place },
-    project.location?.scope && {
-      icon: Globe2,
-      label: t('mapScope'),
-      value: t(`scope.${project.location.scope}`),
-    },
+    // The scale is left out when it only repeats the location (e.g. "West Africa").
+    project.location?.scope &&
+      t(`scope.${project.location.scope}`) !== place && {
+        icon: Globe2,
+        label: t('mapScope'),
+        value: t(`scope.${project.location.scope}`),
+      },
     project.targetAudience && { icon: Users, label: t('audience'), value: project.targetAudience },
   ].filter(Boolean) as { icon: typeof Target; label: string; value: React.ReactNode }[]
 
@@ -321,7 +323,7 @@ export default async function ProjectPage({ params }: Props) {
           <ul className="mt-8 grid gap-6 md:grid-cols-2">
             {partners.map((p) => (
               <li key={p.id}>
-                <PartnerCard partner={p} />
+                <PartnerCard partner={p} compact />
               </li>
             ))}
           </ul>

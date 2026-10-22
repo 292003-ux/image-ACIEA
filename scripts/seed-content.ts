@@ -583,8 +583,8 @@ export const OTHER_PARTNERS = [
     slug: 'mairie-centrale-de-ouagadougou',
     name: { fr: 'Mairie centrale de Ouagadougou', en: 'Ouagadougou Central Town Hall' },
     description: {
-      fr: 'Partenaire institutionnel de l’ACIEA. Le 22 juillet 2025, l’ACIEA a présenté sa mission et ses domaines d’intervention au président de la Délégation spéciale de la commune de Ouagadougou et à son directeur technique.',
-      en: 'Institutional partner of ACIEA. On 22 July 2025, ACIEA presented its mission and areas of work to the President of the Special Delegation of the Municipality of Ouagadougou and his Technical Director.',
+      fr: 'Le 22 juillet 2025, l’ACIEA a présenté sa mission et ses domaines d’intervention au président de la Délégation spéciale de la commune de Ouagadougou et à son directeur technique.',
+      en: 'On 22 July 2025, ACIEA presented its mission and areas of work to the President of the Special Delegation of the Municipality of Ouagadougou and his Technical Director.',
     },
   },
   {
@@ -593,10 +593,7 @@ export const OTHER_PARTNERS = [
       fr: 'Ministère de l’Agriculture, de l’Eau, des Ressources animales et halieutiques',
       en: 'Ministry of Agriculture, Water, Animal and Fisheries Resources',
     },
-    description: {
-      fr: 'Partenaire institutionnel de l’ACIEA (Burkina Faso).',
-      en: 'Institutional partner of ACIEA (Burkina Faso).',
-    },
+    description: { fr: '', en: '' },
   },
 ]
 
@@ -1055,22 +1052,8 @@ The camp set out to show that with few resources but strong commitment, local so
         { title: 'Tree planting', description: 'Field action carried out by participants.' },
       ],
     },
-    achievements: {
-      fr: [
-        {
-          text: 'Camp organisé du 2 au 8 septembre 2025 à Komsilga avec des ateliers pratiques et une action de reboisement',
-          verified: true,
-          sourceUrl: FB_URL,
-        },
-      ],
-      en: [
-        {
-          text: 'Camp held from 2 to 8 September 2025 in Komsilga with hands-on workshops and a tree-planting action',
-          verified: true,
-          sourceUrl: FB_URL,
-        },
-      ],
-    },
+    // Dates, place and activities are already on the page: no separate achievement line.
+    achievements: { fr: [], en: [] },
     audience: { fr: 'Jeunes.', en: 'Young people.' },
   },
 }

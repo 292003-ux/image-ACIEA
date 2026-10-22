@@ -53,8 +53,7 @@ export default async function PartnersPage({ params }: Props) {
       </PageHero>
 
       <Section tone="white">
-        <SectionHeading title={t('officialTitle')} description={t('officialText')} />
-        <div className="mt-12">
+        <div>
           {partners.length ? (
             <ul className="grid gap-6 lg:grid-cols-2">
               {partners.map((p) => (
