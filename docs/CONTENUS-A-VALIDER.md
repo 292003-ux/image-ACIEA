@@ -41,8 +41,6 @@ son contenu n’a pas pu être repris ni vérifié.
 - **Équipe** : seul le bureau exécutif est publié (voir « Équipe : bureau exécutif » ci-dessous).
   Les autres portraits de `assets/source/photos/` restent non publiés. Pour en ajouter : _Institution → Équipe_
   (cocher le consentement pour publier).
-- **Indicateurs d’impact** : aucun chiffre publié ; la section affiche un état « en cours de consolidation »
-  et les jalons documentés.
 - **Témoignages** : aucun.
 - **Publications / rapports** : aucun document institutionnel fourni (statuts, rapports d’activité).
 - **Événements à venir** : aucun annoncé.
@@ -66,12 +64,12 @@ son contenu n’a pas pu être repris ni vérifié.
 
 ## Ajouts du 22/10/2026 (deuxième passe, à la demande de l’ACIEA)
 
-| Ajout                                                                                                                        | Base                                            | À vérifier par l’ACIEA                        |
-| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| **Indicateurs** : 1 partenariat formalisé, 5 rencontres institutionnelles documentées, 7 jours de camp, 3 ateliers pratiques | comptage à partir des publications officielles  | confirmer les chiffres (champ « Validé par ») |
-| **Projet** « Reboisement et Journée nationale de l’arbre 2025 »                                                              | vidéo et photos publiées sur la page officielle | lieu et date exacts                           |
-| **Actualité WaterAid** publiée avec la date au mois (mai 2025)                                                               | publication Facebook (jour exact tronqué)       | jour exact                                    |
-| **Carte** : camp de Komsilga placé au chef-lieu de la commune (12,1865° N ; 1,6338° O)                                       | Wikipédia (Komsilga, Kadiogo)                   | emplacement précis du camp                    |
+| Ajout                                                                                                                        | Base                                            | À vérifier par l’ACIEA              |
+| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------------------------------- |
+| **Indicateurs** : 1 partenariat formalisé, 5 rencontres institutionnelles documentées, 7 jours de camp, 3 ateliers pratiques | comptage à partir des publications officielles  | confirmés par l’ACIEA le 22/10/2026 |
+| **Projet** « Reboisement et Journée nationale de l’arbre 2025 »                                                              | vidéo et photos publiées sur la page officielle | lieu et date exacts                 |
+| **Actualité WaterAid** publiée avec la date au mois (mai 2025)                                                               | publication Facebook (jour exact tronqué)       | jour exact                          |
+| **Carte** : camp de Komsilga placé au chef-lieu de la commune (12,1865° N ; 1,6338° O)                                       | Wikipédia (Komsilga, Kadiogo)                   | emplacement précis du camp          |
 
 ### Équipe : bureau exécutif (confirmé par l’ACIEA le 22/10/2026)
 

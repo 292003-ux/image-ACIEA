@@ -556,7 +556,6 @@ async function main() {
   }
 
   // Documented counts (sources: official Facebook page, GWP-WA announcement).
-  const today = new Date().toISOString()
   for (const [i, m] of C.METRICS.entries()) {
     await upsert(
       payload,
@@ -569,8 +568,8 @@ async function main() {
         icon: m.icon,
         order: i + 1,
         sourceUrl: m.sourceUrl,
-        verifiedBy: 'Comptage d’après les publications officielles — à confirmer par l’ACIEA',
-        verificationDate: today,
+        verifiedBy: 'Comptage d’après les publications officielles, confirmé par l’ACIEA',
+        verificationDate: '2026-10-22T12:00:00.000Z',
       },
       { label: m.label.en, period: m.period.en },
     )
