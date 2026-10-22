@@ -32,9 +32,57 @@ export type MediaSeed = {
   gallery?: boolean
   /** Focal point (%) kept visible when the image is cropped. */
   focal?: { x: number; y: number }
+  /** File lives in assets/source/videos. */
+  video?: boolean
 }
 
 export const MEDIA: MediaSeed[] = [
+  {
+    key: 'video-aciea',
+    file: 'presentation-aciea.mp4',
+    video: true,
+    alt: {
+      fr: 'Vidéo : des membres de l’ACIEA, dont Doriane SAMBORE, présentent l’Alliance (1 min 35)',
+      en: 'Video: ACIEA members, including Doriane SAMBORE, present the Alliance (1 min 35, in French)',
+    },
+    caption: {
+      fr: 'Des membres de l’ACIEA présentent l’Alliance',
+      en: 'ACIEA members present the Alliance (in French)',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'video-aciea-affiche',
+    file: 'video-aciea-affiche.jpg',
+    alt: {
+      fr: 'Deux membres de l’ACIEA en tenue blanche devant un monument de Ouagadougou',
+      en: 'Two ACIEA members dressed in white in front of a Ouagadougou monument',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'video-saagdo-affiche',
+    file: 'video-saagdo-affiche.jpg',
+    alt: {
+      fr: 'Un membre de l’équipe SAAGDO s’adresse à la caméra dans un parc',
+      en: 'A SAAGDO team member speaks to the camera in a park',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'video-saagdo',
+    file: 'presentation-saagdo.mp4',
+    video: true,
+    alt: {
+      fr: 'Vidéo : l’équipe SAAGDO présente l’application et son fonctionnement (3 min, en anglais, sous-titrée)',
+      en: 'Video: the SAAGDO team presents the app and how it works (3 min, in English, subtitled)',
+    },
+    caption: {
+      fr: 'L’équipe SAAGDO présente l’application (en anglais, sous-titrée)',
+      en: 'The SAAGDO team presents the app (subtitled)',
+    },
+    provenance: 'official',
+  },
   {
     key: 'signature-gwp',
     file: 'signature-protocole-gwp-ao.jpg',
@@ -445,9 +493,6 @@ export const DOMAINS: {
 /* ------------------------------------------------------------------ */
 /* Partners                                                            */
 /* ------------------------------------------------------------------ */
-
-/** SAAGDO presentation video on the official Facebook page (shared by ACIEA, 22/10/2026). */
-export const SAAGDO_VIDEO_URL = 'https://www.facebook.com/share/v/1KcjUkUPh5/'
 
 export const GWP_PARTNER = {
   slug: 'gwp-afrique-de-l-ouest',

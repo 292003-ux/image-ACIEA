@@ -14,6 +14,7 @@ import { lexical } from './lexical'
 import * as C from './seed-content'
 
 const PHOTOS = path.resolve(process.cwd(), 'assets/source/photos')
+const VIDEOS = path.resolve(process.cwd(), 'assets/source/videos')
 const ctx = { skipAudit: true }
 
 async function upsert<
@@ -78,9 +79,9 @@ async function upsert<
 async function seedMedia(payload: Payload) {
   const ids: Record<string, number> = {}
   for (const m of C.MEDIA) {
-    const filePath = path.join(PHOTOS, m.file)
+    const filePath = path.join(m.video ? VIDEOS : PHOTOS, m.file)
     if (!fs.existsSync(filePath)) {
-      payload.logger.warn(`Missing photo ${m.file}, skipped`)
+      payload.logger.warn(`Missing file ${m.file}, skipped`)
       continue
     }
     const existing = await payload.find({
@@ -675,6 +676,8 @@ async function main() {
         mission: H.intro.mission.fr,
         image: media.plantation,
         secondaryImage: media.mairie,
+        video: media['video-aciea'] ?? null,
+        videoPoster: media['video-aciea-affiche'] ?? null,
       },
       saagdo: { title: H.saagdo.title.fr, text: H.saagdo.text.fr },
       cta: { title: H.cta.title.fr, text: H.cta.text.fr },
@@ -800,7 +803,10 @@ async function main() {
       partnershipText: S.partnershipText.fr,
       partnershipSourceUrl: C.GWP_URL,
       platformUrl: '',
-      videoUrl: C.SAAGDO_VIDEO_URL,
+      // The same presentation is played on the page from `video`.
+      video: media['video-saagdo'] ?? null,
+      videoPoster: media['video-saagdo-affiche'] ?? null,
+      videoUrl: '',
       showDemo: true,
     } as never,
   })

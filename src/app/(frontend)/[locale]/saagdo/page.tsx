@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { NetworkField } from '@/components/decor/network-field'
 import { Icon } from '@/components/icon'
 import { CmsImage } from '@/components/media/cms-image'
+import { VideoPlayer } from '@/components/media/video-player'
 import { Reveal } from '@/components/motion/reveal'
 import { SaagdoDemoLoader } from '@/components/saagdo/demo-loader'
 import { FlowDiagram } from '@/components/saagdo/flow-diagram'
@@ -53,6 +54,7 @@ export default async function SaagdoPage({ params }: Props) {
   // Real photos come from the SAAGDO project and the MoU article, edited there.
   const asMedia = (m: unknown) => (m && typeof m === 'object' ? (m as Media) : null)
   const teamPhoto = asMedia(project?.coverImage)
+  const video = asMedia(page?.video)
   const mouPhoto = asMedia(mouNews?.coverImage)
   const gwp = partners.find((p) => p.slug === 'gwp-afrique-de-l-ouest')
   const platformUrl = isSafeExternalUrl(page?.platformUrl) ? page.platformUrl : null
@@ -157,21 +159,33 @@ export default async function SaagdoPage({ params }: Props) {
         </div>
       </section>
 
-      {teamPhoto && (
+      {video ? (
         <section className="pb-24 md:pb-28">
-          <figure className="container-page">
-            <CmsImage
-              media={teamPhoto}
-              size="hero"
-              sizes="(min-width: 1280px) 1200px, 100vw"
-              className="aspect-[16/9] rounded-[1.75rem] ring-1 ring-white/10 md:aspect-[21/9]"
-              showProvenance={false}
-            />
-            {teamPhoto.caption && (
-              <figcaption className="mt-4 text-sm text-white/70">{teamPhoto.caption}</figcaption>
-            )}
-          </figure>
+          <VideoPlayer
+            video={video}
+            poster={asMedia(page?.videoPoster) ?? teamPhoto}
+            className="mx-auto w-full max-w-4xl px-4 sm:px-6"
+            videoClassName="aspect-video rounded-[1.75rem] ring-1 ring-white/10"
+            captionClassName="mt-4 text-sm text-white/70"
+          />
         </section>
+      ) : (
+        teamPhoto && (
+          <section className="pb-24 md:pb-28">
+            <figure className="container-page">
+              <CmsImage
+                media={teamPhoto}
+                size="hero"
+                sizes="(min-width: 1280px) 1200px, 100vw"
+                className="aspect-[16/9] rounded-[1.75rem] ring-1 ring-white/10 md:aspect-[21/9]"
+                showProvenance={false}
+              />
+              {teamPhoto.caption && (
+                <figcaption className="mt-4 text-sm text-white/70">{teamPhoto.caption}</figcaption>
+              )}
+            </figure>
+          </section>
+        )
       )}
 
       {/* B. Problem */}

@@ -101,6 +101,12 @@ de la page Facebook). À la demande de l’ACIEA, les mentions légales n’affi
 ni directeur·rice de publication, ni adresse postale (siège indiqué : Ouagadougou). L’hébergeur reste à
 renseigner à la mise en production.
 
+### Vidéos (fournies par l’ACIEA le 22/10/2026)
+
+- Accueil, bloc « Qui sommes-nous » : présentation de l’ACIEA par ses membres (1 min 35, `assets/source/videos/presentation-aciea.mp4`).
+- Page SAAGDO : présentation de l’application par l’équipe (3 min, en anglais sous-titré, `presentation-saagdo.mp4`).
+- Réencodées en MP4 H.264 léger (8 et 10 Mo) ; rien n’est téléchargé avant que le visiteur appuie sur lecture.
+
 Toujours non publiés faute d’information : rapports et documents, événements à venir,
 témoignages, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
 (fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).

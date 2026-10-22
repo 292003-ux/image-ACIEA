@@ -68,6 +68,25 @@ export const SaagdoPage: GlobalConfig = {
               },
             },
             {
+              name: 'video',
+              type: 'upload',
+              relationTo: 'media',
+              filterOptions: { mimeType: { contains: 'video' } },
+              label: { fr: 'Vidéo de présentation (fichier)', en: 'Presentation video (file)' },
+              admin: {
+                description: {
+                  fr: 'Lue directement sur la page, sous l’introduction (MP4 léger, chargée seulement au clic).',
+                  en: 'Played on the page, under the intro (light MP4, only loaded on click).',
+                },
+              },
+            },
+            {
+              name: 'videoPoster',
+              type: 'upload',
+              relationTo: 'media',
+              label: { fr: 'Image d’aperçu de la vidéo', en: 'Video poster image' },
+            },
+            {
               name: 'videoUrl',
               type: 'text',
               label: {

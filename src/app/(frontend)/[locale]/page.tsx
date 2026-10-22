@@ -7,6 +7,7 @@ import { HomeHero } from '@/components/home/hero'
 import { SaagdoFeature } from '@/components/home/saagdo-feature'
 import { Icon } from '@/components/icon'
 import { CmsImage } from '@/components/media/cms-image'
+import { VideoPlayer } from '@/components/media/video-player'
 import { Reveal } from '@/components/motion/reveal'
 import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import { Section } from '@/components/ui/container'
@@ -16,6 +17,7 @@ import { pathFor, pathForSlug } from '@/lib/navigation'
 import { getDomains, getFeaturedProjects, getHomepage, getNews, getPartners } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { cn } from '@/lib/utils'
+import type { Media } from '@/payload-types'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -39,6 +41,8 @@ export default async function HomePage({ params }: Props) {
     getNews(locale, { limit: 3 }),
   ])
   const intro = home?.intro
+  const asMedia = (m: unknown) => (m && typeof m === 'object' ? (m as Media) : null)
+  const introVideo = asMedia(intro?.video)
   // SAAGDO has its own section just below: keep it out of the project cards.
   const otherProjects = projects.filter((p) => p.slug !== 'saagdo').slice(0, 3)
 
@@ -76,19 +80,31 @@ export default async function HomePage({ params }: Props) {
                 aria-hidden="true"
                 className="absolute -bottom-8 -left-8 size-56 rounded-full bg-leaf/12 blur-3xl"
               />
-              <CmsImage
-                media={intro?.image}
-                className="relative aspect-[4/5] rounded-[2rem] shadow-lift"
-                sizes="(min-width: 1024px) 520px, 100vw"
-                placeholderSeed="intro"
-              />
-              {intro?.secondaryImage && typeof intro.secondaryImage === 'object' && (
-                <CmsImage
-                  media={intro.secondaryImage}
-                  size="thumbnail"
-                  className="absolute -bottom-10 left-2 aspect-square w-36 rounded-2xl shadow-lift ring-8 ring-ivory sm:-left-6 sm:w-48"
-                  sizes="192px"
+              {introVideo ? (
+                <VideoPlayer
+                  video={introVideo}
+                  poster={asMedia(intro?.videoPoster)}
+                  className="relative mx-auto max-w-[22rem]"
+                  videoClassName="aspect-[9/16] rounded-[2rem] shadow-lift"
+                  captionClassName="mt-4 text-center text-sm text-ink-muted"
                 />
+              ) : (
+                <>
+                  <CmsImage
+                    media={intro?.image}
+                    className="relative aspect-[4/5] rounded-[2rem] shadow-lift"
+                    sizes="(min-width: 1024px) 520px, 100vw"
+                    placeholderSeed="intro"
+                  />
+                  {intro?.secondaryImage && typeof intro.secondaryImage === 'object' && (
+                    <CmsImage
+                      media={intro.secondaryImage}
+                      size="thumbnail"
+                      className="absolute -bottom-10 left-2 aspect-square w-36 rounded-2xl shadow-lift ring-8 ring-ivory sm:-left-6 sm:w-48"
+                      sizes="192px"
+                    />
+                  )}
+                </>
               )}
             </div>
           </Reveal>

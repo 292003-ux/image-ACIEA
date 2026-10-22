@@ -71,3 +71,9 @@ limitées par adresse IP.
   Les pièces jointes ne sont téléchargeables que par les administrateurs connectés.
 - **Durée de conservation** : Paramètres → Formulaires & données (purge automatique quotidienne).
 - **Menus** : Paramètres → Menus (laisser vide pour la navigation par défaut : À propos · Nos actions · SAAGDO · Actualités · Contact, plus le bouton « Devenir partenaire »). Dans le pied de page, Événements, Publications et Galerie n’apparaissent que lorsqu’ils ont du contenu publié.
+
+## Vidéos
+
+- Téléverser le fichier dans **Médias** (MP4, idéalement moins de 15 Mo ; réencoder les vidéos de téléphone trop lourdes).
+- Accueil → Présentation → « Vidéo de présentation » (elle remplace alors les images) et « Image d’aperçu ».
+- Page SAAGDO → Partenariat & accès → « Vidéo de présentation (fichier) » et « Image d’aperçu ». Le champ « lien » sert pour une vidéo hébergée ailleurs (Facebook, YouTube) : il affiche un bouton qui l’ouvre.
