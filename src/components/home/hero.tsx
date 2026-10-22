@@ -101,7 +101,7 @@ export async function HomeHero({
               {t('ctaExplore')}
             </NextLink>
           </div>
-          <dl className="mt-12 grid max-w-xl grid-cols-2 gap-4 border-t border-white/12 pt-6 sm:grid-cols-3 sm:gap-6">
+          <dl className="mt-12 flex max-w-xl flex-wrap gap-x-10 gap-y-4 border-t border-white/12 pt-6">
             {foundedYear && (
               <div className="flex flex-col-reverse gap-1">
                 <dt className="text-xs tracking-wide text-white/60">{t('foundedLabel')}</dt>
@@ -112,7 +112,7 @@ export async function HomeHero({
             )}
             <div className="flex flex-col-reverse gap-1">
               <dt className="text-xs tracking-wide text-white/60">{t('hqLabel')}</dt>
-              <dd className="font-display text-lg font-semibold break-words text-white sm:text-2xl">
+              <dd className="font-display text-lg font-semibold text-white sm:text-2xl">
                 Ouagadougou
               </dd>
             </div>
