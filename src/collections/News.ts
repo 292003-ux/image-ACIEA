@@ -78,6 +78,23 @@ export const News: CollectionConfig = {
       },
     },
     {
+      name: 'datePrecision',
+      type: 'select',
+      defaultValue: 'day',
+      label: { fr: 'Précision de la date', en: 'Date precision' },
+      options: [
+        { value: 'day', label: { fr: 'Jour exact', en: 'Exact day' } },
+        { value: 'month', label: { fr: 'Mois seulement', en: 'Month only' } },
+      ],
+      admin: {
+        position: 'sidebar',
+        description: {
+          fr: 'Choisir « Mois seulement » quand le jour exact n’est pas connu.',
+          en: 'Use “Month only” when the exact day is unknown.',
+        },
+      },
+    },
+    {
       name: 'authorName',
       type: 'text',
       label: { fr: 'Auteur (affiché)', en: 'Author (displayed)' },

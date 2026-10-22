@@ -65,3 +65,6 @@ Pour utiliser un Chromium déjà installé : `PLAYWRIGHT_CHROMIUM_PATH=/chemin/v
 2. `pnpm generate:types` puis `pnpm generate:importmap` si des composants admin changent.
 3. `pnpm migrate:create description-du-changement` et committer le fichier généré dans `src/migrations/`.
 4. En production, `pnpm migrate` est exécuté automatiquement par le service `migrate` de Docker Compose.
+
+> Note : quand `pnpm seed` est lancé alors que le site tourne déjà, les pages publiques se mettent à jour
+> dans les 5 minutes (cache), ou immédiatement après n’importe quel enregistrement dans l’administration.

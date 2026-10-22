@@ -47,7 +47,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             )}
             {socials.length > 0 && (
               <div className="mt-8">
-                <p className="mb-3 eyebrow text-white/50">{t('follow')}</p>
+                <p className="mb-3 eyebrow text-white/70">{t('follow')}</p>
                 <ul className="flex gap-2">
                   {socials.map((s) => (
                     <li key={s.url}>

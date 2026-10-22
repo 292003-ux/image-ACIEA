@@ -83,7 +83,11 @@ export default async function NewsArticlePage({ params }: Props) {
           <div className="mt-8 flex flex-wrap items-center gap-3 text-sm">
             <Badge tone="gold">{t(`categories.${article.category}`)}</Badge>
             <time dateTime={article.publishedAt} className="text-white/70">
-              {formatDate(article.publishedAt, locale)}
+              {formatDate(
+                article.publishedAt,
+                locale,
+                article.datePrecision === 'month' ? 'month' : 'day',
+              )}
             </time>
             {article.authorName && (
               <span className="text-white/60">· {t('by', { author: article.authorName })}</span>

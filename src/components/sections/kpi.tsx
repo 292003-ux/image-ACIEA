@@ -62,7 +62,7 @@ export function KpiCard({
         {unit && <span className="ml-1 text-xl text-gold">{unit}</span>}
       </p>
       <p className="mt-3 text-sm font-medium text-white/80">{label}</p>
-      {period && <p className="mt-1 text-xs text-white/50">{period}</p>}
+      {period && <p className="mt-1 text-xs text-white/75">{period}</p>}
     </div>
   )
 }

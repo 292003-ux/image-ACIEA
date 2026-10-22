@@ -89,7 +89,7 @@ export function FlowDiagram({ steps, disclaimer }: { steps: Step[]; disclaimer: 
           )}
         </div>
       </div>
-      <p className="mt-4 text-xs text-white/50 italic">{disclaimer}</p>
+      <p className="mt-4 text-xs text-white/70 italic">{disclaimer}</p>
     </div>
   )
 }

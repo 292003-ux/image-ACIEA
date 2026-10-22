@@ -50,7 +50,11 @@ export async function NewsCard({
         <div className="flex flex-wrap items-center gap-2.5 text-xs">
           <Badge tone="gold">{t(`categories.${article.category}`)}</Badge>
           <time dateTime={article.publishedAt} className="text-ink-muted">
-            {formatDate(article.publishedAt, locale)}
+            {formatDate(
+              article.publishedAt,
+              locale,
+              article.datePrecision === 'month' ? 'month' : 'day',
+            )}
           </time>
           {article._isFallback && <Badge tone="neutral">{tc('fallbackBadge')}</Badge>}
         </div>

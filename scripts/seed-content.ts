@@ -711,28 +711,6 @@ Both parties expressed their wish to build partnerships for sustainable developm
     sourceUrl: FB_URL,
   },
   {
-    slug: 'rencontre-directeur-pays-wateraid',
-    publishedAt: '2025-05-21T12:00:00.000Z',
-    category: 'institutional',
-    cover: 'wateraid',
-    draft: true,
-    reviewNote:
-      'Date exacte à confirmer (publication Facebook tronquée : « Le mercredi 2… »). Contenu à compléter.',
-    title: {
-      fr: 'Rencontre entre l’ACIEA et le Directeur pays de WaterAid',
-      en: 'ACIEA meets the WaterAid Country Director',
-    },
-    excerpt: {
-      fr: 'Une opportunité de collaboration prometteuse. (Brouillon — date et contenu à confirmer.)',
-      en: 'A promising collaboration opportunity. (Draft — date and content to be confirmed.)',
-    },
-    content: {
-      fr: 'Contenu à compléter à partir de la publication officielle.',
-      en: 'Content to be completed from the official post.',
-    },
-    sourceUrl: FB_URL,
-  },
-  {
     slug: 'audience-ambassade-bresil',
     publishedAt: '2025-05-01T12:00:00.000Z',
     category: 'institutional',
@@ -1594,3 +1572,146 @@ ACIEA may amend these terms at any time. *Document to be validated by ACIEA.*`,
     },
   },
 ]
+
+/* ------------------------------------------------------------------ */
+/* Additions (second pass): team portraits, documented counts, extra  */
+/* items drawn from the photos supplied in the repository.            */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Portraits supplied by ACIEA. Names come from the file names (often a first
+ * name or surname only); positions are not documented and are shown generically.
+ * Full names, roles and consent must be confirmed in the admin (review note set).
+ */
+export const TEAM: { file: string; name: string }[] = [
+  { file: 'mohamine.jpg', name: 'Abdoul Mohamine Passere' },
+  { file: 'carine.jpeg', name: 'Carine' },
+  { file: 'cherifa.jpeg', name: 'Cherifa' },
+  { file: 'diebre.jpg', name: 'Diébré' },
+  { file: 'HANA.jpeg', name: 'Hana' },
+  { file: 'ido.jpeg', name: 'Ido' },
+  { file: 'kevin.jpg', name: 'Kevin' },
+  { file: 'KININ.jpeg', name: 'Kinin' },
+  { file: 'landry.jpg', name: 'Landry' },
+  { file: 'lio.jpeg', name: 'Lio' },
+  { file: 'MATHIEU.jpeg', name: 'Mathieu' },
+  { file: 'MIEREINE.jpeg', name: 'Mireine' },
+  { file: 'MIKA.jpeg', name: 'Mika' },
+  { file: 'nabaloum.jpeg', name: 'Nabaloum' },
+  { file: 'PHILIPE.jpeg', name: 'Philipe' },
+  { file: 'pierrette.jpeg', name: 'Pierrette' },
+  { file: 'romuald.jpg', name: 'Romuald' },
+  { file: 'SAMO.jpeg', name: 'Samo' },
+  { file: 'sidibe.jpeg', name: 'Sidibé' },
+  { file: 'simbore.jpg', name: 'Simboré' },
+  { file: 'sirimaa.jpeg', name: 'Sirima' },
+  { file: 'sisi.jpeg', name: 'Sisi' },
+  { file: 'zemodo.jpg', name: 'Zemodo' },
+]
+
+/** Counts derived only from the documented sources above (no estimate). */
+export const METRICS = [
+  {
+    icon: 'handshake',
+    value: 1,
+    label: {
+      fr: 'Partenariat formalisé par protocole d’accord',
+      en: 'Partnership formalised by MoU',
+    },
+    period: { fr: 'GWP Afrique de l’Ouest, juillet 2026', en: 'GWP West Africa, July 2026' },
+    sourceUrl: GWP_URL,
+  },
+  {
+    icon: 'globe',
+    value: 5,
+    label: {
+      fr: 'Rencontres institutionnelles documentées',
+      en: 'Documented institutional meetings',
+    },
+    period: { fr: 'Mai – juillet 2025', en: 'May – July 2025' },
+    sourceUrl: FB_URL,
+  },
+  {
+    icon: 'graduation-cap',
+    value: 7,
+    label: {
+      fr: 'Jours de formation et d’action au Camp Éco-Citoyen',
+      en: 'Days of training and action at the Eco-Citizen Camp',
+    },
+    period: { fr: 'Komsilga, septembre 2025', en: 'Komsilga, September 2025' },
+    sourceUrl: FB_URL,
+  },
+  {
+    icon: 'sprout',
+    value: 3,
+    label: {
+      fr: 'Ateliers pratiques proposés aux jeunes',
+      en: 'Hands-on workshops offered to young people',
+    },
+    period: {
+      fr: 'Hors-sol, recyclage des pneus, éco-citoyenneté',
+      en: 'Soilless farming, tyre recycling, eco-citizenship',
+    },
+    sourceUrl: FB_URL,
+  },
+]
+
+export const REFORESTATION = {
+  slug: 'reboisement-journee-nationale-arbre-2025',
+  title: {
+    fr: 'Reboisement et Journée nationale de l’arbre 2025',
+    en: 'Tree planting and National Tree Day 2025',
+  },
+  excerpt: {
+    fr: 'Actions de mise en terre de plants menées par les membres et les jeunes de l’Alliance, dont la participation à la Journée nationale de l’arbre 2025.',
+    en: 'Tree-planting actions carried out by the Alliance’s members and young people, including participation in National Tree Day 2025.',
+  },
+  context: {
+    fr: `Le reboisement est l’une des actions concrètes par lesquelles l’ACIEA mobilise les jeunes en faveur de la nature et de la résilience climatique.
+
+L’Alliance a publié sur sa page officielle une vidéo consacrée à sa participation à la **Journée nationale de l’arbre 2025**, ainsi que des photos de membres mettant en terre de jeunes plants.`,
+    en: `Tree planting is one of the practical ways ACIEA mobilises young people for nature and climate resilience.
+
+The Alliance published on its official page a video about its participation in **National Tree Day 2025**, along with photos of members planting seedlings.`,
+  },
+  achievements: {
+    fr: [
+      {
+        text: 'Participation à la Journée nationale de l’arbre 2025 (vidéo publiée sur la page officielle de l’ACIEA)',
+        verified: true,
+        sourceUrl: FB_URL,
+      },
+    ],
+    en: [
+      {
+        text: 'Participation in National Tree Day 2025 (video published on ACIEA’s official page)',
+        verified: true,
+        sourceUrl: FB_URL,
+      },
+    ],
+  },
+}
+
+export const WATERAID_NEWS = {
+  slug: 'rencontre-directeur-pays-wateraid',
+  publishedAt: '2025-05-25T12:00:00.000Z',
+  title: {
+    fr: 'Rencontre entre l’ACIEA et le Directeur pays de WaterAid : une opportunité de collaboration prometteuse',
+    en: 'ACIEA meets the WaterAid Country Director: a promising collaboration opportunity',
+  },
+  excerpt: {
+    fr: 'En mai 2025, une délégation de l’ACIEA a été reçue par le Directeur pays de WaterAid pour un échange autour de l’eau, de l’assainissement et des possibilités de collaboration.',
+    en: 'In May 2025, an ACIEA delegation was received by the WaterAid Country Director to discuss water, sanitation and collaboration opportunities.',
+  },
+  content: {
+    fr: `En mai 2025, une délégation de l’ACIEA a été reçue par le Directeur pays de WaterAid, organisation internationale engagée pour l’accès à l’eau, à l’assainissement et à l’hygiène.
+
+L’Alliance a présenté cette rencontre comme une opportunité de collaboration prometteuse, en cohérence avec son domaine d’intervention « Eau et assainissement ».`,
+    en: `In May 2025, an ACIEA delegation was received by the Country Director of WaterAid, an international organisation working for access to water, sanitation and hygiene.
+
+The Alliance described this meeting as a promising collaboration opportunity, in line with its “Water and sanitation” focus area.`,
+  },
+}
+
+/** Komsilga (Kadiogo), commune-level position — Wikipedia: 12°11′11″N 1°38′01″W. */
+export const KOMSILGA = { latitude: 12.1865, longitude: -1.6338, region: 'Kadiogo' }
