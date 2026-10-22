@@ -487,27 +487,48 @@ async function main() {
     { title: W.title.en, excerpt: W.excerpt.en, content: lexical(W.content.en) },
   )
 
-  // Team portraits supplied in the repository.
+  // Executive office (confirmed by ACIEA). Any other profile is unpublished.
   for (const [i, m] of C.TEAM.entries()) {
-    const photo = await ensureMedia(payload, m.file, {
-      fr: `Portrait de ${m.name}`,
-      en: `Portrait of ${m.name}`,
-    })
+    const photo = m.file
+      ? await ensureMedia(payload, m.file, {
+          fr: `Portrait de ${m.name}`,
+          en: `Portrait of ${m.name}`,
+        })
+      : null
     await upsert(
       payload,
       'team-members',
       { name: { equals: m.name } },
       {
         name: m.name,
-        position: 'Membre de l’ACIEA',
-        group: 'team',
+        position: m.position.fr,
+        group: 'executive',
         photo,
         consentToPublish: true,
-        order: 100 + i,
-        reviewNotes: 'Nom complet, fonction et consentement à confirmer.',
+        order: i + 1,
+        reviewNotes: m.file ? '' : 'Portrait à fournir.',
       },
-      { position: 'ACIEA member' },
+      { position: m.position.en },
     )
+  }
+  const others = await payload.find({
+    collection: 'team-members',
+    where: {
+      and: [
+        { name: { not_in: C.TEAM.map((m) => m.name) } },
+        { consentToPublish: { equals: true } },
+      ],
+    },
+    limit: 200,
+    depth: 0,
+  })
+  for (const doc of others.docs) {
+    await payload.update({
+      collection: 'team-members',
+      id: doc.id,
+      data: { consentToPublish: false },
+      context: ctx,
+    })
   }
 
   // Documented counts (sources: official Facebook page, GWP-WA announcement).
