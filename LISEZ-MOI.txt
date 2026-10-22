@@ -1,8 +1,2 @@
-Aperçu statique du site ACIEA
-
-1. Décompressez ce dossier.
-2. Double-cliquez sur index.html.
-
-Les liens entre les pages fonctionnent. Les menus déroulants s'ouvrent au survol.
-Inactifs dans cet aperçu : menu mobile, carte, formulaires, démonstration SAAGDO, version anglaise.
-Pour le site complet, voir docs/INSTALLATION.md dans le dépôt GitHub.
+Aperçu statique du site ACIEA (FR/EN). Ouvrez index.html.
+Inactifs : carte interactive, formulaires, démonstration SAAGDO, administration.
