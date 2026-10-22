@@ -1,4 +1,4 @@
-import { ExternalLink, FileSignature } from 'lucide-react'
+import { ExternalLink, FileSignature, Landmark } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { CmsImage } from '@/components/media/cms-image'
 import { Badge } from '@/components/ui/badge'
@@ -28,10 +28,12 @@ export async function PartnerCard({
               sizes="80px"
               showProvenance={false}
             />
-          ) : (
+          ) : partner.acronym ? (
             <span className="px-1 text-center font-display text-sm leading-tight font-bold text-forest">
-              {partner.acronym || partner.name.slice(0, 3)}
+              {partner.acronym}
             </span>
+          ) : (
+            <Landmark className="size-8 text-forest/70" aria-hidden="true" />
           )}
         </div>
         <div className="min-w-0">

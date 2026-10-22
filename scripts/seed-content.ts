@@ -446,6 +446,32 @@ export const GWP_PARTNER = {
   sourceUrl: GWP_URL,
 }
 
+/**
+ * Further institutional partners named by ACIEA on 22/10/2026. No agreement
+ * type, date or website was supplied, so none is shown.
+ */
+export const OTHER_PARTNERS = [
+  {
+    slug: 'mairie-centrale-de-ouagadougou',
+    name: { fr: 'Mairie centrale de Ouagadougou', en: 'Ouagadougou Central Town Hall' },
+    description: {
+      fr: 'Partenaire institutionnel de l’ACIEA. Le 22 juillet 2025, l’ACIEA a présenté sa mission et ses domaines d’intervention au président de la Délégation spéciale de la commune de Ouagadougou et à son directeur technique.',
+      en: 'Institutional partner of ACIEA. On 22 July 2025, ACIEA presented its mission and areas of work to the President of the Special Delegation of the Municipality of Ouagadougou and his Technical Director.',
+    },
+  },
+  {
+    slug: 'ministere-agriculture-eau-ressources-animales-halieutiques',
+    name: {
+      fr: 'Ministère de l’Agriculture, de l’Eau, des Ressources animales et halieutiques',
+      en: 'Ministry of Agriculture, Water, Animal and Fisheries Resources',
+    },
+    description: {
+      fr: 'Partenaire institutionnel de l’ACIEA (Burkina Faso).',
+      en: 'Institutional partner of ACIEA (Burkina Faso).',
+    },
+  },
+]
+
 /* ------------------------------------------------------------------ */
 /* News (verified posts from the official Facebook page + GWP)         */
 /* ------------------------------------------------------------------ */

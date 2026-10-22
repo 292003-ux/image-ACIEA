@@ -89,6 +89,13 @@ Les 23 profils créés auparavant à partir des noms de fichiers sont dépublié
 Publié tel quel en français sur « À propos » (premier paragraphe) et « Gouvernance » (texte complet),
 signé ILBOUDO Dieudonné, Président. **La traduction anglaise est à valider** par l’ACIEA.
 
+### Partenaires ajoutés (indiqués par l’ACIEA le 22/10/2026)
+
+- **Mairie centrale de Ouagadougou** et **Ministère de l’Agriculture, de l’Eau, des Ressources animales et halieutiques**
+  (nom repris de la presse burkinabè de 2026 : à confirmer).
+- À fournir : type d’accord (convention, protocole…), date de signature, logo, site officiel. Sans ces éléments,
+  la fiche n’affiche ni accord ni date, et l’indicateur « partenariat formalisé par protocole d’accord » reste à 1.
+
 Toujours non publiés faute d’information : rapports et documents, événements à venir,
 témoignages, mentions légales complètes, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
 (fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).

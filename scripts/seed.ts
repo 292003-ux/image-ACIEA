@@ -308,6 +308,22 @@ async function main() {
     },
   )
 
+  for (const [i, op] of C.OTHER_PARTNERS.entries()) {
+    await upsert(
+      payload,
+      'partners',
+      { slug: { equals: op.slug } },
+      {
+        slug: op.slug,
+        name: op.name.fr,
+        category: 'institutional',
+        description: op.description.fr,
+        order: 2 + i,
+      },
+      { name: op.name.en, description: op.description.en },
+    )
+  }
+
   // 6. News
   const newsIds: Record<string, number | string> = {}
   for (const n of C.NEWS) {
