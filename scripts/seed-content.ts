@@ -38,6 +38,36 @@ export type MediaSeed = {
 
 export const MEDIA: MediaSeed[] = [
   {
+    key: 'meea',
+    file: 'rencontre-ministere-environnement.jpg',
+    alt: {
+      fr: 'Délégation de l’ACIEA reçue au Ministère de l’Environnement, de l’Eau et de l’Assainissement',
+      en: 'ACIEA delegation received at the Ministry of Environment, Water and Sanitation',
+    },
+    caption: {
+      fr: 'Rencontre avec le Ministère de l’Environnement, de l’Eau et de l’Assainissement',
+      en: 'Meeting with the Ministry of Environment, Water and Sanitation',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 45 },
+  },
+  {
+    key: 'pays-bas',
+    file: 'rencontre-ambassade-pays-bas.jpg',
+    alt: {
+      fr: 'Délégation de l’ACIEA reçue à l’Ambassade du Royaume des Pays-Bas au Burkina Faso',
+      en: 'ACIEA delegation received at the Embassy of the Kingdom of the Netherlands in Burkina Faso',
+    },
+    caption: {
+      fr: 'Rencontre à l’Ambassade du Royaume des Pays-Bas',
+      en: 'Meeting at the Embassy of the Kingdom of the Netherlands',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 40 },
+  },
+  {
     key: 'saagdo-capture-plateforme',
     file: 'saagdo-capture-plateforme.png',
     alt: {
@@ -733,6 +763,7 @@ The discussions revealed a shared interest in concrete solutions for a sustainab
     slug: 'rencontre-ministere-environnement-eau-assainissement',
     publishedAt: '2025-07-08T12:00:00.000Z',
     category: 'institutional',
+    cover: 'meea',
     title: {
       fr: 'Rencontre entre l’ACIEA et le Ministère de l’Environnement, de l’Eau et de l’Assainissement',
       en: 'ACIEA meets the Ministry of Environment, Water and Sanitation',
@@ -786,6 +817,7 @@ Both sides expressed a shared wish to build a partnership based on complementary
     slug: 'echange-ambassade-pays-bas',
     publishedAt: '2025-05-20T12:00:00.000Z',
     category: 'institutional',
+    cover: 'pays-bas',
     title: {
       fr: 'Rencontre stratégique pour le climat : l’Ambassade des Pays-Bas reçoit l’ACIEA',
       en: 'Strategic climate meeting: the Embassy of the Netherlands receives ACIEA',
