@@ -235,9 +235,9 @@ export const SETTINGS = {
     fr: 'ACIEA, organisation à but non lucratif basée à Ouagadougou (Burkina Faso) : innovation climatique, eau et assainissement, biodiversité, numérique et engagement des jeunes.',
     en: 'ACIEA, a non-profit based in Ouagadougou (Burkina Faso): climate innovation, water and sanitation, biodiversity, digital tools and youth engagement.',
   },
-  // Published on the official Facebook page [FB].
+  // Confirmed by ACIEA on 22/10/2026 as the site's official contact details.
   email: 'aciea662@gmail.com',
-  phone: '+226 79 87 42 99',
+  phone: '+226 73 42 14 75',
 }
 
 /* ------------------------------------------------------------------ */
@@ -445,6 +445,32 @@ export const GWP_PARTNER = {
   },
   sourceUrl: GWP_URL,
 }
+
+/**
+ * Further institutional partners named by ACIEA on 22/10/2026. No agreement
+ * type, date or website was supplied, so none is shown.
+ */
+export const OTHER_PARTNERS = [
+  {
+    slug: 'mairie-centrale-de-ouagadougou',
+    name: { fr: 'Mairie centrale de Ouagadougou', en: 'Ouagadougou Central Town Hall' },
+    description: {
+      fr: 'Partenaire institutionnel de l’ACIEA. Le 22 juillet 2025, l’ACIEA a présenté sa mission et ses domaines d’intervention au président de la Délégation spéciale de la commune de Ouagadougou et à son directeur technique.',
+      en: 'Institutional partner of ACIEA. On 22 July 2025, ACIEA presented its mission and areas of work to the President of the Special Delegation of the Municipality of Ouagadougou and his Technical Director.',
+    },
+  },
+  {
+    slug: 'ministere-agriculture-eau-ressources-animales-halieutiques',
+    name: {
+      fr: 'Ministère de l’Agriculture, de l’Eau, des Ressources animales et halieutiques',
+      en: 'Ministry of Agriculture, Water, Animal and Fisheries Resources',
+    },
+    description: {
+      fr: 'Partenaire institutionnel de l’ACIEA (Burkina Faso).',
+      en: 'Institutional partner of ACIEA (Burkina Faso).',
+    },
+  },
+]
 
 /* ------------------------------------------------------------------ */
 /* News (verified posts from the official Facebook page + GWP)         */
@@ -1401,11 +1427,7 @@ export const PAGES: { slug: string; title: L; intro: L; content: L }[] = [
 
 Siège : Ouagadougou, Burkina Faso.
 
-Numéro de récépissé / d’enregistrement : *à compléter par l’ACIEA*.
-
-Directeur·rice de la publication : *à compléter par l’ACIEA*.
-
-Contact : via la page Contact du site.
+Contact : aciea662@gmail.com — +226 73 42 14 75.
 
 ## Hébergement
 
@@ -1426,11 +1448,7 @@ L’ACIEA s’efforce de publier des informations exactes et vérifiées. Les co
 
 Headquarters: Ouagadougou, Burkina Faso.
 
-Registration number: *to be completed by ACIEA*.
-
-Publication director: *to be completed by ACIEA*.
-
-Contact: via the website’s Contact page.
+Contact: aciea662@gmail.com — +226 73 42 14 75.
 
 ## Hosting
 
@@ -1592,11 +1610,14 @@ export const TEAM: {
   name: string
   position: { fr: string; en: string }
   file?: string
+  /** Focal point (%) on the face, used by round crops such as the message signature. */
+  focal?: { x: number; y: number }
 }[] = [
   {
     name: 'ILBOUDO Dieudonné',
     position: { fr: 'Président', en: 'President' },
     file: 'president-ilboudo-dieudonne.jpg',
+    focal: { x: 55, y: 5 },
   },
   {
     name: 'SAMBORE Daho Nadia Doriane Leslie',
@@ -1716,3 +1737,33 @@ The Alliance described this meeting as a promising collaboration opportunity, in
 
 /** Komsilga (Kadiogo), commune-level position — Wikipedia: 12°11′11″N 1°38′01″W. */
 export const KOMSILGA = { latitude: 12.1865, longitude: -1.6338, region: 'Kadiogo' }
+
+/**
+ * President's message, text supplied and approved by ACIEA on 22/10/2026
+ * (French original verbatim; English translation to be validated).
+ * Paragraphs are separated by a blank line. Signed by TEAM[0].
+ */
+export const PRESIDENT_MESSAGE = {
+  fr: `Créée en 2024 à Ouagadougou, l’Alliance pour l’innovation climatique et l’action écologique (ACIEA) est née de notre volonté de contribuer à la protection de l’environnement, au bien-être des populations et au développement durable, en utilisant notamment les possibilités offertes par la technologie et le numérique.
+
+Face aux défis du changement climatique, de l’accès à l’eau potable, de l’assainissement et des besoins humanitaires, nous sommes convaincus que la science, l’innovation et les outils numériques peuvent nous aider à trouver des solutions concrètes et adaptées aux réalités de nos communautés.
+
+Notre ambition est de faire de l’ACIEA une organisation reconnue au Burkina Faso et au-delà, engagée dans la protection de l’environnement, la gestion durable des ressources en eau, l’amélioration des conditions d’hygiène et d’assainissement, ainsi que l’accompagnement des populations vulnérables.
+
+Nous accordons également une place importante à la jeunesse, car nous croyons en sa créativité, ses compétences et sa capacité à utiliser les nouvelles technologies pour répondre aux besoins de notre société.
+
+Nous invitons les partenaires, les chercheurs, les professionnels et les jeunes à nous rejoindre afin de développer ensemble des initiatives utiles aux populations et respectueuses de l’environnement.
+
+Ensemble, mettons la science, la technologie, le numérique et la solidarité au service de l’être humain et d’un avenir durable.`,
+  en: `Founded in 2024 in Ouagadougou, the Alliance for Climate Innovation and Ecological Action (ACIEA) was born of our desire to contribute to protecting the environment, to people’s well-being and to sustainable development, notably by drawing on the possibilities offered by technology and digital tools.
+
+Faced with the challenges of climate change, access to drinking water, sanitation and humanitarian needs, we are convinced that science, innovation and digital tools can help us find concrete solutions suited to the realities of our communities.
+
+Our ambition is to make ACIEA a recognised organisation in Burkina Faso and beyond, committed to protecting the environment, managing water resources sustainably, improving hygiene and sanitation, and supporting vulnerable people.
+
+We also give young people an important place, because we believe in their creativity, their skills and their ability to use new technologies to meet the needs of our society.
+
+We invite partners, researchers, professionals and young people to join us so that, together, we can develop initiatives that serve people and respect the environment.
+
+Together, let us put science, technology, digital tools and solidarity at the service of humanity and a sustainable future.`,
+}

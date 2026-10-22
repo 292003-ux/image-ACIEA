@@ -1,14 +1,15 @@
-import { FileText, Quote } from 'lucide-react'
+import { FileText } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { DocumentLink } from '@/components/cards/document-card'
 import { RichText } from '@/components/rich-text'
 import { PageHero } from '@/components/sections/page-hero'
+import { PresidentMessage } from '@/components/sections/president-message'
 import { Section } from '@/components/ui/container'
 import { EmptyState } from '@/components/ui/empty-state'
 import type { Locale } from '@/i18n/routing'
 import { getAboutPage } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
-import type { Document, TeamMember } from '@/payload-types'
+import type { Document } from '@/payload-types'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -28,11 +29,6 @@ export default async function GovernancePage({ params }: Props) {
   const docs = (about?.institutionalDocuments ?? []).filter(
     (d): d is Document => typeof d === 'object',
   )
-  const president = about?.presidentMessage
-  const author =
-    president?.author && typeof president.author === 'object'
-      ? (president.author as TeamMember)
-      : null
   return (
     <>
       <PageHero
@@ -45,26 +41,15 @@ export default async function GovernancePage({ params }: Props) {
       />
       <Section tone="ivory">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-5">
             <RichText data={about?.governance} />
           </div>
-          <aside className="lg:col-span-5">
-            <div className="rounded-[1.75rem] bg-white p-8 shadow-soft">
-              <Quote className="size-9 text-gold" aria-hidden="true" />
-              <h2 className="mt-5 eyebrow text-leaf">{t('presidentTitle')}</h2>
-              {president?.enabled && president.text ? (
-                <>
-                  <blockquote className="mt-4 font-serif text-lg leading-relaxed whitespace-pre-line text-forest">
-                    {president.text}
-                  </blockquote>
-                  {author && (
-                    <p className="mt-5 text-sm font-semibold text-forest">{author.name}</p>
-                  )}
-                </>
-              ) : (
-                <p className="mt-3 text-ink-muted">{t('presidentPending')}</p>
-              )}
-            </div>
+          <aside className="lg:col-span-7">
+            <PresidentMessage
+              message={about?.presidentMessage}
+              locale={locale}
+              className="bg-white shadow-soft"
+            />
           </aside>
         </div>
       </Section>

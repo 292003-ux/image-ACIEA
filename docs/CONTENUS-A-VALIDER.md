@@ -13,19 +13,19 @@ son contenu n’a pas pu être repris ni vérifié.
 
 ## Contenus publiés par le seed (faits documentés)
 
-| Contenu                                                                                                                                                                                                                                                                                                    | Source                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Nom, sigle, statut d’organisation à but non lucratif, Ouagadougou, création 2024, devise « Innovons ensemble pour un avenir durable »                                                                                                                                                                      | [BRIEF] [FB]                                                                  |
-| Valeurs : écologie, innovation, salubrité, énergie durable                                                                                                                                                                                                                                                 | [FB] (vidéo de présentation)                                                  |
-| Mission et modes d’action (solutions adaptées aux réalités locales, renforcement des capacités, sensibilisation, projets participatifs, entrepreneuriat vert des jeunes et des femmes)                                                                                                                     | [FB] (publication du 20 mai 2025)                                             |
-| Vision (formulée à partir des publications)                                                                                                                                                                                                                                                                | [FB] — **formulation à valider**                                              |
-| Email `aciea662@gmail.com`, téléphone `79 87 42 99`                                                                                                                                                                                                                                                        | [FB] (rubrique Intro) — **à confirmer comme coordonnées officielles du site** |
-| Réseaux sociaux : Facebook, LinkedIn                                                                                                                                                                                                                                                                       | [FB] [BRIEF]                                                                  |
-| Actualités : audience Ambassade d’Arabie saoudite (06/05/2025), Ambassade des Pays-Bas (20/05/2025), SP/CNDD (30/05/2025), MEEA (08/07/2025), Mairie centrale de Ouagadougou (22/07/2025), message du 65e anniversaire de l’indépendance (05/08/2025), Camp Vacances Éco-Citoyen de Komsilga (2–8/09/2025) | [FB]                                                                          |
-| Protocole d’accord ACIEA – GWP-AO (03/07/2026), partenaire GWP-AO, description de SAAGDO                                                                                                                                                                                                                   | [GWP]                                                                         |
-| Projets : SAAGDO (en cours), Camp Vacances Éco-Citoyen 2025 (achevé)                                                                                                                                                                                                                                       | [GWP] [FB]                                                                    |
-| Six domaines d’intervention                                                                                                                                                                                                                                                                                | [BRIEF] — textes de présentation rédigés, **à relire**                        |
-| Photos d’activités (camp, rencontres institutionnelles, reboisement) et logo officiel                                                                                                                                                                                                                      | Fichiers fournis dans le dépôt (`assets/source/photos/`)                      |
+| Contenu                                                                                                                                                                                                                                                                                                    | Source                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Nom, sigle, statut d’organisation à but non lucratif, Ouagadougou, création 2024, devise « Innovons ensemble pour un avenir durable »                                                                                                                                                                      | [BRIEF] [FB]                                             |
+| Valeurs : écologie, innovation, salubrité, énergie durable                                                                                                                                                                                                                                                 | [FB] (vidéo de présentation)                             |
+| Mission et modes d’action (solutions adaptées aux réalités locales, renforcement des capacités, sensibilisation, projets participatifs, entrepreneuriat vert des jeunes et des femmes)                                                                                                                     | [FB] (publication du 20 mai 2025)                        |
+| Vision (formulée à partir des publications)                                                                                                                                                                                                                                                                | [FB] — **formulation à valider**                         |
+| Email `aciea662@gmail.com`, téléphone `73 42 14 75`                                                                                                                                                                                                                                                        | confirmés par l’ACIEA le 22/10/2026                      |
+| Réseaux sociaux : Facebook, LinkedIn                                                                                                                                                                                                                                                                       | [FB] [BRIEF]                                             |
+| Actualités : audience Ambassade d’Arabie saoudite (06/05/2025), Ambassade des Pays-Bas (20/05/2025), SP/CNDD (30/05/2025), MEEA (08/07/2025), Mairie centrale de Ouagadougou (22/07/2025), message du 65e anniversaire de l’indépendance (05/08/2025), Camp Vacances Éco-Citoyen de Komsilga (2–8/09/2025) | [FB]                                                     |
+| Protocole d’accord ACIEA – GWP-AO (03/07/2026), partenaire GWP-AO, description de SAAGDO                                                                                                                                                                                                                   | [GWP]                                                    |
+| Projets : SAAGDO (en cours), Camp Vacances Éco-Citoyen 2025 (achevé)                                                                                                                                                                                                                                       | [GWP] [FB]                                               |
+| Six domaines d’intervention                                                                                                                                                                                                                                                                                | [BRIEF] — textes de présentation rédigés, **à relire**   |
+| Photos d’activités (camp, rencontres institutionnelles, reboisement) et logo officiel                                                                                                                                                                                                                      | Fichiers fournis dans le dépôt (`assets/source/photos/`) |
 
 ## Brouillons créés (non publiés) — à compléter
 
@@ -41,9 +41,6 @@ son contenu n’a pas pu être repris ni vérifié.
 - **Équipe** : seul le bureau exécutif est publié (voir « Équipe : bureau exécutif » ci-dessous).
   Les autres portraits de `assets/source/photos/` restent non publiés. Pour en ajouter : _Institution → Équipe_
   (cocher le consentement pour publier).
-- **Message du président** : en attente du texte officiel (À propos → Gouvernance).
-- **Indicateurs d’impact** : aucun chiffre publié ; la section affiche un état « en cours de consolidation »
-  et les jalons documentés.
 - **Témoignages** : aucun.
 - **Publications / rapports** : aucun document institutionnel fourni (statuts, rapports d’activité).
 - **Événements à venir** : aucun annoncé.
@@ -56,7 +53,7 @@ son contenu n’a pas pu être repris ni vérifié.
 ## À valider ou compléter par l’ACIEA
 
 1. Traductions anglaises (puis cocher _Paramètres → SEO & langues → traductions validées_).
-2. Mentions légales : numéro de récépissé, directeur·rice de publication, hébergeur.
+2. Mentions légales : hébergeur (à la mise en production).
 3. Politique de confidentialité et durée de conservation des données.
 4. Adresse postale du siège (actuellement « Ouagadougou, Burkina Faso »).
 5. URL officielle de la plateforme SAAGDO lorsqu’elle sera publique.
@@ -67,12 +64,12 @@ son contenu n’a pas pu être repris ni vérifié.
 
 ## Ajouts du 22/10/2026 (deuxième passe, à la demande de l’ACIEA)
 
-| Ajout                                                                                                                        | Base                                            | À vérifier par l’ACIEA                        |
-| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| **Indicateurs** : 1 partenariat formalisé, 5 rencontres institutionnelles documentées, 7 jours de camp, 3 ateliers pratiques | comptage à partir des publications officielles  | confirmer les chiffres (champ « Validé par ») |
-| **Projet** « Reboisement et Journée nationale de l’arbre 2025 »                                                              | vidéo et photos publiées sur la page officielle | lieu et date exacts                           |
-| **Actualité WaterAid** publiée avec la date au mois (mai 2025)                                                               | publication Facebook (jour exact tronqué)       | jour exact                                    |
-| **Carte** : camp de Komsilga placé au chef-lieu de la commune (12,1865° N ; 1,6338° O)                                       | Wikipédia (Komsilga, Kadiogo)                   | emplacement précis du camp                    |
+| Ajout                                                                                                                        | Base                                            | À vérifier par l’ACIEA              |
+| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------------------------------- |
+| **Indicateurs** : 1 partenariat formalisé, 5 rencontres institutionnelles documentées, 7 jours de camp, 3 ateliers pratiques | comptage à partir des publications officielles  | confirmés par l’ACIEA le 22/10/2026 |
+| **Projet** « Reboisement et Journée nationale de l’arbre 2025 »                                                              | vidéo et photos publiées sur la page officielle | lieu et date exacts                 |
+| **Actualité WaterAid** publiée avec la date au mois (mai 2025)                                                               | publication Facebook (jour exact tronqué)       | jour exact                          |
+| **Carte** : camp de Komsilga placé au chef-lieu de la commune (12,1865° N ; 1,6338° O)                                       | Wikipédia (Komsilga, Kadiogo)                   | emplacement précis du camp          |
 
 ### Équipe : bureau exécutif (confirmé par l’ACIEA le 22/10/2026)
 
@@ -85,6 +82,25 @@ Les 23 profils créés auparavant à partir des noms de fichiers sont dépublié
 | Vice-présidente     | SAMBORE Daho Nadia Doriane Leslie | `vice-presidente-sambore-doriane.jpg` (recadrage d’une photo fournie) |
 | Secrétaire générale | TASSEMBEDO Fonzia                 | `secretariat-tassembedo-fonzia.jpg` (recadrage d’une photo fournie)   |
 
-Toujours non publiés faute d’information : message du président, rapports et documents, événements à venir,
-témoignages, mentions légales complètes, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
+### Mot du président (fourni par l’ACIEA le 22/10/2026)
+
+Publié tel quel en français sur « À propos » (premier paragraphe) et « Gouvernance » (texte complet),
+signé ILBOUDO Dieudonné, Président. **La traduction anglaise est à valider** par l’ACIEA.
+
+### Partenaires ajoutés (indiqués par l’ACIEA le 22/10/2026)
+
+- **Mairie centrale de Ouagadougou** et **Ministère de l’Agriculture, de l’Eau, des Ressources animales et halieutiques**
+  (nom repris de la presse burkinabè de 2026 : à confirmer).
+- À fournir : type d’accord (convention, protocole…), date de signature, logo, site officiel. Sans ces éléments,
+  la fiche n’affiche ni accord ni date, et l’indicateur « partenariat formalisé par protocole d’accord » reste à 1.
+
+### Coordonnées et mentions légales (22/10/2026)
+
+Coordonnées officielles confirmées : `aciea662@gmail.com` et `+226 73 42 14 75` (remplace le `79 87 42 99`
+de la page Facebook). À la demande de l’ACIEA, les mentions légales n’affichent ni numéro de récépissé,
+ni directeur·rice de publication, ni adresse postale (siège indiqué : Ouagadougou). L’hébergeur reste à
+renseigner à la mise en production.
+
+Toujours non publiés faute d’information : rapports et documents, événements à venir,
+témoignages, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
 (fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).

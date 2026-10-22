@@ -64,7 +64,7 @@ limitées par adresse IP.
 - **Changer le logo / favicon** : Paramètres du site → Identité.
 - **Images de l’accueil** : Pages du site → Accueil → onglet Hero (image principale, mosaïque, vidéo légère facultative).
 - **Lier la vraie plateforme SAAGDO** : Pages du site → SAAGDO → « URL officielle de la plateforme » (le bouton s’active).
-- **Publier un message du président** : À propos → Gouvernance → cocher « Afficher » et saisir le texte officiel.
+- **Message du président** : À propos → Gouvernance → « Afficher » coché, texte officiel (un paragraphe par bloc, séparés par une ligne vide ; le premier paragraphe sert d’extrait sur la page « À propos ») et signataire choisi dans l’équipe.
 - **Ajouter un document institutionnel** : Médiathèque → Documents, puis l’associer dans À propos → Gouvernance
   ou dans une Publication.
 - **Traiter une demande** : Demandes reçues → ouvrir → changer le statut (Nouveau, En cours, Répondu, Clôturé, Spam).

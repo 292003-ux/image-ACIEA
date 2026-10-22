@@ -83,7 +83,7 @@ en haute définition optimisée. À re-mesurer sur le serveur de production avec
 
 ## Limites connues
 
-- **Contenus** : équipe, message du président, indicateurs d’impact, publications, coordonnées des
+- **Contenus** : indicateurs d’impact, publications, coordonnées des
   projets et traductions anglaises restent à fournir/valider (voir `CONTENUS-A-VALIDER.md`).
 - **Photos** : résolution d’origine 600–1 080 px ; prévoir des visuels HD pour les grands écrans.
 - **Site actuel** `aciea-burkina.org` non consulté (inaccessible depuis l’environnement) : aucune

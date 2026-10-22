@@ -308,6 +308,22 @@ async function main() {
     },
   )
 
+  for (const [i, op] of C.OTHER_PARTNERS.entries()) {
+    await upsert(
+      payload,
+      'partners',
+      { slug: { equals: op.slug } },
+      {
+        slug: op.slug,
+        name: op.name.fr,
+        category: 'institutional',
+        description: op.description.fr,
+        order: 2 + i,
+      },
+      { name: op.name.en, description: op.description.en },
+    )
+  }
+
   // 6. News
   const newsIds: Record<string, number | string> = {}
   for (const n of C.NEWS) {
@@ -495,6 +511,14 @@ async function main() {
           en: `Portrait of ${m.name}`,
         })
       : null
+    if (photo && m.focal) {
+      await payload.update({
+        collection: 'media',
+        id: photo,
+        data: { focalX: m.focal.x, focalY: m.focal.y },
+        context: ctx,
+      })
+    }
     await upsert(
       payload,
       'team-members',
@@ -532,7 +556,6 @@ async function main() {
   }
 
   // Documented counts (sources: official Facebook page, GWP-WA announcement).
-  const today = new Date().toISOString()
   for (const [i, m] of C.METRICS.entries()) {
     await upsert(
       payload,
@@ -545,8 +568,8 @@ async function main() {
         icon: m.icon,
         order: i + 1,
         sourceUrl: m.sourceUrl,
-        verifiedBy: 'Comptage d’après les publications officielles — à confirmer par l’ACIEA',
-        verificationDate: today,
+        verifiedBy: 'Comptage d’après les publications officielles, confirmé par l’ACIEA',
+        verificationDate: '2026-10-22T12:00:00.000Z',
       },
       { label: m.label.en, period: m.period.en },
     )
@@ -665,6 +688,12 @@ async function main() {
   })
 
   const A = C.ABOUT
+  const president = await payload.find({
+    collection: 'team-members',
+    where: { name: { equals: C.TEAM[0]!.name } },
+    limit: 1,
+    depth: 0,
+  })
   const aboutFr = {
     ...published,
     hero: {
@@ -692,7 +721,11 @@ async function main() {
     })),
     commitments: A.commitments.fr.map((text) => ({ text })),
     governance: lexical(A.governance.fr),
-    presidentMessage: { enabled: false },
+    presidentMessage: {
+      enabled: true,
+      text: C.PRESIDENT_MESSAGE.fr,
+      author: president.docs[0]?.id ?? null,
+    },
   }
   await payload.updateGlobal({
     slug: 'about-page',
@@ -728,6 +761,7 @@ async function main() {
         text: A.commitments.en[i],
       })),
       governance: lexical(A.governance.en),
+      presidentMessage: { ...aboutCurrent.presidentMessage, text: C.PRESIDENT_MESSAGE.en },
     } as never,
   })
 
