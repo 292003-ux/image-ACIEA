@@ -51,13 +51,9 @@ test.describe('navigation', () => {
     await expect(page).toHaveURL(/\/fr\/a-propos$/)
     await page
       .getByRole('navigation', { name: 'Navigation principale' })
-      .getByRole('button', { name: /Nos actions/ })
+      .getByRole('link', { name: 'Nos actions' })
       .click()
-    await page
-      .getByRole('link', { name: /Domaines d’intervention/ })
-      .first()
-      .click()
-    await expect(page).toHaveURL(/\/fr\/domaines-intervention$/)
+    await expect(page).toHaveURL(/\/fr\/projets$/)
   })
 
   test('returns a real 404 with a branded page', async ({ page }) => {
