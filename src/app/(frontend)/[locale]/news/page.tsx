@@ -35,21 +35,15 @@ export default async function NewsPage({ params, searchParams }: Props) {
   const sp = await searchParams
   const page = Math.max(1, Number.parseInt(sp.page ?? '1', 10) || 1)
   const category = NEWS_CATEGORIES.includes(sp.category as never) ? sp.category : undefined
-  const [t, tn, news] = await Promise.all([
+  const [t, news] = await Promise.all([
     getTranslations({ locale, namespace: 'news' }),
-    getTranslations({ locale, namespace: 'nav' }),
     getNews(locale, { category, page, limit: 10 }),
   ])
   const [first, ...rest] = news.docs
   const featureFirst = page === 1 && !category && first
   return (
     <>
-      <PageHero
-        eyebrow={tn('news')}
-        title={t('title')}
-        description={t('intro')}
-        crumbs={[{ label: t('title') }]}
-      />
+      <PageHero title={t('title')} description={t('intro')} crumbs={[{ label: t('title') }]} />
       <Section tone="ivory">
         <FilterChips
           pathname="/news"

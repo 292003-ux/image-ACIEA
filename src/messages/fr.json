@@ -43,6 +43,7 @@
   "nav": {
     "home": "Accueil",
     "about": "À propos",
+    "actions": "Nos actions",
     "aboutOverview": "Présentation",
     "history": "Notre histoire",
     "mission": "Mission, vision et valeurs",
@@ -64,7 +65,7 @@
     "becomePartner": "Devenir partenaire",
     "join": "Rejoindre ACIEA",
     "contact": "Contact",
-    "collaborate": "Collaborer",
+    "collaborate": "Devenir partenaire",
     "search": "Recherche",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
@@ -87,12 +88,14 @@
       "events": "Rencontres passées et à venir",
       "publications": "Rapports, études, notes et guides",
       "reports": "Bibliothèque documentaire",
-      "gallery": "Photos et vidéos validées"
+      "gallery": "Photos et vidéos validées",
+      "domains": "Les six domaines dans lesquels nous agissons"
     }
   },
   "footer": {
     "about": "Organisation à but non lucratif basée à Ouagadougou, l’ACIEA mobilise l’innovation, la science et l’engagement citoyen au service du climat et des écosystèmes.",
     "navigation": "Navigation",
+    "getInvolved": "Participer",
     "domains": "Domaines",
     "contact": "Contact",
     "follow": "Suivez-nous",
@@ -140,7 +143,7 @@
   },
   "projects": {
     "title": "Projets & Impact",
-    "intro": "Un catalogue vivant des initiatives portées par l’ACIEA, avec leur statut, leur localisation et leurs réalisations vérifiées.",
+    "intro": "Les initiatives portées par l’ACIEA, avec leur statut et leur localisation.",
     "searchPlaceholder": "Rechercher un projet…",
     "domain": "Domaine",
     "region": "Région",
@@ -156,7 +159,7 @@
     "listView": "Vue liste",
     "empty": "Aucun projet ne correspond à ces critères.",
     "mapTitle": "Carte des interventions",
-    "mapText": "Seules les localisations vérifiées sont affichées.",
+    "mapText": "Où l’ACIEA agit.",
     "mapEmpty": "Les localisations précises des projets seront affichées dès leur validation.",
     "mapHq": "Siège de l’ACIEA (Ouagadougou)",
     "mapLegendProject": "Projet",
@@ -168,7 +171,7 @@
     "objectives": "Objectifs",
     "audience": "Public cible",
     "activities": "Activités",
-    "achievements": "Réalisations vérifiées",
+    "achievements": "Réalisations",
     "indicators": "Indicateurs",
     "partners": "Partenaires",
     "gallery": "Galerie",
@@ -260,7 +263,7 @@
     "intro": "L’ACIEA construit des coopérations exigeantes avec les institutions, organisations techniques, scientifiques et communautaires qui partagent sa vision.",
     "whyTitle": "Pourquoi les partenariats sont essentiels",
     "officialTitle": "Partenaires officiels",
-    "officialText": "Ne figurent ici que les partenariats confirmés par l’ACIEA. Le type d’accord et sa date sont indiqués lorsqu’ils sont documentés.",
+    "officialText": "Les institutions avec lesquelles l’ACIEA travaille.",
     "typesTitle": "Types de coopération",
     "frameworkTitle": "Exemple de cadre de collaboration",
     "opportunitiesTitle": "Possibilités de partenariat",
@@ -365,7 +368,8 @@
       "contribute": "Simuler une contribution",
       "contributeHelp": "Dans l’application, un contributeur décrit et géolocalise une observation. Ici, rien n’est envoyé.",
       "added": "Contribution simulée ajoutée localement (non enregistrée)."
-    }
+    },
+    "watchVideo": "Voir la vidéo de présentation"
   },
   "forms": {
     "required": "obligatoire",

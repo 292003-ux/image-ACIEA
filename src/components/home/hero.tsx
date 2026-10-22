@@ -14,13 +14,9 @@ import { HeroMotion } from './hero-motion'
 export async function HomeHero({
   hero,
   locale,
-  foundedYear,
-  domainsCount,
 }: {
   hero: Homepage['hero'] | undefined
   locale: Locale
-  foundedYear?: number | null
-  domainsCount: number
 }) {
   const t = await getTranslations({ locale, namespace: 'home' })
   const mosaic = (hero?.mosaic ?? []).filter((m): m is Media => typeof m === 'object' && !!m)
@@ -101,28 +97,6 @@ export async function HomeHero({
               {t('ctaExplore')}
             </NextLink>
           </div>
-          <dl className="mt-12 flex max-w-xl flex-wrap gap-x-10 gap-y-4 border-t border-white/12 pt-6">
-            {foundedYear && (
-              <div className="flex flex-col-reverse gap-1">
-                <dt className="text-xs tracking-wide text-white/60">{t('foundedLabel')}</dt>
-                <dd className="font-display text-lg font-semibold text-white sm:text-2xl">
-                  {foundedYear}
-                </dd>
-              </div>
-            )}
-            <div className="flex flex-col-reverse gap-1">
-              <dt className="text-xs tracking-wide text-white/60">{t('hqLabel')}</dt>
-              <dd className="font-display text-lg font-semibold text-white sm:text-2xl">
-                Ouagadougou
-              </dd>
-            </div>
-            {domainsCount > 0 && (
-              <div className="hidden flex-col-reverse gap-1 sm:flex">
-                <dt className="text-xs tracking-wide text-white/60">{t('domainsCountLabel')}</dt>
-                <dd className="font-display text-2xl font-semibold text-gold">{domainsCount}</dd>
-              </div>
-            )}
-          </dl>
         </HeroMotion>
 
         {mosaic.length > 0 && (

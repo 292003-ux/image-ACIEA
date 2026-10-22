@@ -19,20 +19,14 @@ export async function generateMetadata({ params }: Props) {
 export default async function GalleryPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const [t, tn, media] = await Promise.all([
+  const [t, media] = await Promise.all([
     getTranslations({ locale, namespace: 'gallery' }),
-    getTranslations({ locale, namespace: 'nav' }),
     getGalleryMedia(locale),
   ])
   const images = media.filter((m) => m.mimeType?.startsWith('image/'))
   return (
     <>
-      <PageHero
-        eyebrow={tn('news')}
-        title={t('title')}
-        description={t('intro')}
-        crumbs={[{ label: t('title') }]}
-      />
+      <PageHero title={t('title')} description={t('intro')} crumbs={[{ label: t('title') }]} />
       <Section tone="ivory">
         {images.length ? (
           <GalleryGrid items={images} columns={4} />

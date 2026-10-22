@@ -46,13 +46,18 @@ test.describe('navigation', () => {
     await expect(page).toHaveURL(/\/fr\/saagdo$/)
     await page
       .getByRole('navigation', { name: 'Navigation principale' })
-      .getByRole('button', { name: /À propos/ })
+      .getByRole('link', { name: 'À propos' })
+      .click()
+    await expect(page).toHaveURL(/\/fr\/a-propos$/)
+    await page
+      .getByRole('navigation', { name: 'Navigation principale' })
+      .getByRole('button', { name: /Nos actions/ })
       .click()
     await page
-      .getByRole('link', { name: /Notre histoire/ })
+      .getByRole('link', { name: /Domaines d’intervention/ })
       .first()
       .click()
-    await expect(page).toHaveURL(/\/fr\/a-propos\/notre-histoire$/)
+    await expect(page).toHaveURL(/\/fr\/domaines-intervention$/)
   })
 
   test('returns a real 404 with a branded page', async ({ page }) => {

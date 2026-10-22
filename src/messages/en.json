@@ -43,6 +43,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "actions": "Our work",
     "aboutOverview": "Overview",
     "history": "Our history",
     "mission": "Mission, vision and values",
@@ -64,7 +65,7 @@
     "becomePartner": "Become a partner",
     "join": "Join ACIEA",
     "contact": "Contact",
-    "collaborate": "Collaborate",
+    "collaborate": "Become a partner",
     "search": "Search",
     "legal": "Legal notice",
     "privacy": "Privacy policy",
@@ -87,12 +88,14 @@
       "events": "Past and upcoming gatherings",
       "publications": "Reports, studies, notes and guides",
       "reports": "Document library",
-      "gallery": "Approved photos and videos"
+      "gallery": "Approved photos and videos",
+      "domains": "The six areas in which we act"
     }
   },
   "footer": {
     "about": "A non-profit organisation based in Ouagadougou, ACIEA brings together innovation, science and civic engagement for the climate and ecosystems.",
     "navigation": "Navigation",
+    "getInvolved": "Get involved",
     "domains": "Focus areas",
     "contact": "Contact",
     "follow": "Follow us",
@@ -140,7 +143,7 @@
   },
   "projects": {
     "title": "Projects & Impact",
-    "intro": "A living catalogue of ACIEA’s initiatives, with their status, location and verified achievements.",
+    "intro": "The initiatives led by ACIEA, with their status and location.",
     "searchPlaceholder": "Search a project…",
     "domain": "Focus area",
     "region": "Region",
@@ -156,7 +159,7 @@
     "listView": "List view",
     "empty": "No project matches these criteria.",
     "mapTitle": "Map of interventions",
-    "mapText": "Only verified locations are displayed.",
+    "mapText": "Where ACIEA works.",
     "mapEmpty": "Precise project locations will be displayed once validated.",
     "mapHq": "ACIEA headquarters (Ouagadougou)",
     "mapLegendProject": "Project",
@@ -168,7 +171,7 @@
     "objectives": "Objectives",
     "audience": "Target audience",
     "activities": "Activities",
-    "achievements": "Verified achievements",
+    "achievements": "Achievements",
     "indicators": "Indicators",
     "partners": "Partners",
     "gallery": "Gallery",
@@ -260,7 +263,7 @@
     "intro": "ACIEA builds demanding partnerships with institutions and with technical, scientific and community organisations that share its vision.",
     "whyTitle": "Why partnerships matter",
     "officialTitle": "Official partners",
-    "officialText": "Only partnerships confirmed by ACIEA are listed here. The type of agreement and its date are shown where documented.",
+    "officialText": "The institutions ACIEA works with.",
     "typesTitle": "Types of cooperation",
     "frameworkTitle": "Example of a collaboration framework",
     "opportunitiesTitle": "Partnership opportunities",
@@ -365,7 +368,8 @@
       "contribute": "Simulate a contribution",
       "contributeHelp": "In the app, a contributor describes and geolocates an observation. Here, nothing is sent.",
       "added": "Simulated contribution added locally (not saved)."
-    }
+    },
+    "watchVideo": "Watch the presentation video"
   },
   "forms": {
     "required": "required",

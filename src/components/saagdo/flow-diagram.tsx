@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 type Step = { title: string; description?: string | null; icon?: string | null }
 
 /** Interactive explanatory diagram (not an audited architecture). */
-export function FlowDiagram({ steps, disclaimer }: { steps: Step[]; disclaimer: string }) {
+export function FlowDiagram({ steps, disclaimer }: { steps: Step[]; disclaimer?: string }) {
   const [active, setActive] = React.useState(0)
   const current = steps[active]
   return (
@@ -89,7 +89,7 @@ export function FlowDiagram({ steps, disclaimer }: { steps: Step[]; disclaimer: 
           )}
         </div>
       </div>
-      <p className="mt-4 text-xs text-white/70 italic">{disclaimer}</p>
+      {disclaimer && <p className="mt-4 text-xs text-white/70 italic">{disclaimer}</p>}
     </div>
   )
 }

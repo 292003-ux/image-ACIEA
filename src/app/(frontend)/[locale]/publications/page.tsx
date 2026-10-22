@@ -26,18 +26,10 @@ export async function generateMetadata({ params, searchParams }: Props) {
 export default async function PublicationsPage({ params, searchParams }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const [t, tn] = await Promise.all([
-    getTranslations({ locale, namespace: 'publications' }),
-    getTranslations({ locale, namespace: 'nav' }),
-  ])
+  const [t] = await Promise.all([getTranslations({ locale, namespace: 'publications' })])
   return (
     <>
-      <PageHero
-        eyebrow={tn('news')}
-        title={t('title')}
-        description={t('intro')}
-        crumbs={[{ label: t('title') }]}
-      />
+      <PageHero title={t('title')} description={t('intro')} crumbs={[{ label: t('title') }]} />
       <Section tone="ivory">
         <PublicationsLibrary
           locale={locale}

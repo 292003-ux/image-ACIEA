@@ -68,6 +68,20 @@ export const SaagdoPage: GlobalConfig = {
               },
             },
             {
+              name: 'videoUrl',
+              type: 'text',
+              label: {
+                fr: 'Vidéo de présentation (lien)',
+                en: 'Presentation video (link)',
+              },
+              admin: {
+                description: {
+                  fr: 'Lien vers la vidéo publiée (Facebook, YouTube…). Affiche un bouton « Voir la vidéo » ; laisser vide pour le masquer.',
+                  en: 'Link to the published video (Facebook, YouTube…). Shows a “Watch the video” button; leave empty to hide it.',
+                },
+              },
+            },
+            {
               name: 'showDemo',
               type: 'checkbox',
               defaultValue: true,

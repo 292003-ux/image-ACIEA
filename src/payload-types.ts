@@ -2082,6 +2082,10 @@ export interface SaagdoPage {
    * Leave empty until the platform is publicly available: the button stays disabled.
    */
   platformUrl?: string | null;
+  /**
+   * Link to the published video (Facebook, YouTube…). Shows a “Watch the video” button; leave empty to hide it.
+   */
+  videoUrl?: string | null;
   showDemo?: boolean | null;
   _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
@@ -2425,6 +2429,7 @@ export interface SaagdoPageSelect<T extends boolean = true> {
   partnershipText?: T;
   partnershipSourceUrl?: T;
   platformUrl?: T;
+  videoUrl?: T;
   showDemo?: T;
   _status?: T;
   updatedAt?: T;

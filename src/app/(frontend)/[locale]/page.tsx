@@ -1,35 +1,19 @@
-import { Handshake, LineChart } from 'lucide-react'
+import { Landmark } from 'lucide-react'
 import NextLink from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { DomainCard } from '@/components/cards/domain-card'
 import { NewsCard } from '@/components/cards/news-card'
-import { PartnerCard } from '@/components/cards/partner-card'
 import { ProjectCard } from '@/components/cards/project-card'
 import { HomeHero } from '@/components/home/hero'
 import { SaagdoFeature } from '@/components/home/saagdo-feature'
+import { Icon } from '@/components/icon'
 import { CmsImage } from '@/components/media/cms-image'
 import { Reveal } from '@/components/motion/reveal'
-import { CtaBanner } from '@/components/sections/cta-banner'
-import { KpiCard } from '@/components/sections/kpi'
-import { Testimonials } from '@/components/sections/testimonials'
-import { Milestones } from '@/components/sections/milestones'
 import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import { Section } from '@/components/ui/container'
-import { EmptyState } from '@/components/ui/empty-state'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { isLocale, type Locale } from '@/i18n/routing'
-import { pathFor } from '@/lib/navigation'
-import {
-  getAboutPage,
-  getDomains,
-  getFeaturedProjects,
-  getHomepage,
-  getImpactMetrics,
-  getNews,
-  getPartners,
-  getSiteSettings,
-  getTestimonials,
-} from '@/lib/queries'
+import { pathFor, pathForSlug } from '@/lib/navigation'
+import { getDomains, getFeaturedProjects, getHomepage, getNews, getPartners } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 
@@ -45,29 +29,22 @@ export default async function HomePage({ params }: Props) {
   const { locale: raw } = await params
   const locale = raw as Locale
   setRequestLocale(locale)
-  const [t, home, settings, domains, projects, metrics, about, partners, news, testimonials] =
-    await Promise.all([
-      getTranslations({ locale, namespace: 'home' }),
-      getHomepage(locale),
-      getSiteSettings(locale),
-      getDomains(locale),
-      getFeaturedProjects(locale, 3),
-      getImpactMetrics(locale),
-      getAboutPage(locale),
-      getPartners(locale),
-      getNews(locale, { limit: 3 }),
-      getTestimonials(locale),
-    ])
+  const [t, tn, home, domains, projects, partners, news] = await Promise.all([
+    getTranslations({ locale, namespace: 'home' }),
+    getTranslations({ locale, namespace: 'nav' }),
+    getHomepage(locale),
+    getDomains(locale),
+    getFeaturedProjects(locale, 4),
+    getPartners(locale),
+    getNews(locale, { limit: 3 }),
+  ])
   const intro = home?.intro
+  // SAAGDO has its own section just below: keep it out of the project cards.
+  const otherProjects = projects.filter((p) => p.slug !== 'saagdo').slice(0, 3)
 
   return (
     <>
-      <HomeHero
-        hero={home?.hero}
-        locale={locale}
-        foundedYear={settings?.foundedYear}
-        domainsCount={domains.length}
-      />
+      <HomeHero hero={home?.hero} locale={locale} />
 
       {/* Presentation */}
       <Section id="presentation" tone="ivory" className="overflow-hidden">
@@ -80,12 +57,6 @@ export default async function HomePage({ params }: Props) {
                   <p key={i}>{p}</p>
                 ))}
               </div>
-            )}
-            {intro?.mission && (
-              <blockquote className="relative mt-10 rounded-2xl border-l-2 border-gold bg-white p-6 shadow-soft">
-                <p className="mb-2 eyebrow text-gold-600">{t('missionLabel')}</p>
-                <p className="font-serif text-xl leading-snug text-forest">{intro.mission}</p>
-              </blockquote>
             )}
             <NextLink
               href={pathFor('/about', locale)}
@@ -119,20 +90,12 @@ export default async function HomePage({ params }: Props) {
                   sizes="192px"
                 />
               )}
-              {settings?.foundedYear && (
-                <div className="absolute top-8 left-3 rounded-2xl bg-forest px-5 py-4 text-white shadow-lift sm:-left-10">
-                  <p className="font-display text-3xl font-semibold text-gold">
-                    {settings.foundedYear}
-                  </p>
-                  <p className="text-xs text-white/70">{t('foundedLabel')}</p>
-                </div>
-              )}
             </div>
           </Reveal>
         </div>
       </Section>
 
-      {/* Focus areas */}
+      {/* Our work: focus areas + projects */}
       <section className="relative bg-white py-20 md:py-28">
         <div
           aria-hidden="true"
@@ -140,37 +103,9 @@ export default async function HomePage({ params }: Props) {
         />
         <div className="relative container-page">
           <SectionHeading
-            eyebrow={t('domainsEyebrow')}
+            eyebrow={tn('actions')}
             title={t('domainsTitle')}
             description={t('domainsText')}
-            action={
-              <NextLink
-                href={pathFor('/domains', locale)}
-                className={buttonVariants({ variant: 'outline' })}
-              >
-                {t('domainsEyebrow')}
-                <ArrowGlyph />
-              </NextLink>
-            }
-          />
-          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {domains.map((d, i) => (
-              <Reveal as="li" key={d.id} delay={(i % 3) * 0.07}>
-                <DomainCard domain={d} index={i} />
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <SaagdoFeature locale={locale} title={home?.saagdo?.title} text={home?.saagdo?.text} />
-
-      {/* Projects */}
-      {projects.length > 0 && (
-        <Section tone="ivory">
-          <SectionHeading
-            eyebrow={t('projectsEyebrow')}
-            title={t('projectsTitle')}
             action={
               <NextLink
                 href={pathFor('/projects', locale)}
@@ -181,146 +116,106 @@ export default async function HomePage({ params }: Props) {
               </NextLink>
             }
           />
-          <ul className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p, i) => (
-              <Reveal as="li" key={p.id} delay={i * 0.08}>
-                <ProjectCard project={p} />
-              </Reveal>
+          <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {domains.map((d) => (
+              <li key={d.id}>
+                <NextLink
+                  href={pathForSlug('/domains/[slug]', d.slug, locale)}
+                  className="group flex h-full items-center gap-4 rounded-2xl bg-ivory p-4 ring-1 ring-forest/5 transition-all hover:bg-white hover:shadow-soft"
+                >
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-leaf-50 text-leaf transition-colors group-hover:bg-forest group-hover:text-gold">
+                    <Icon name={d.icon} className="size-5" />
+                  </span>
+                  <span className="font-display leading-snug font-semibold text-forest">
+                    {d.title}
+                  </span>
+                  <ArrowGlyph className="ml-auto size-4 shrink-0 text-leaf opacity-0 transition-opacity group-hover:opacity-100" />
+                </NextLink>
+              </li>
             ))}
           </ul>
-        </Section>
-      )}
-
-      {/* Impact */}
-      <section className="relative isolate overflow-hidden bg-forest py-20 text-white md:py-28">
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-dots opacity-60" />
-        <div
-          aria-hidden="true"
-          className="absolute -top-40 left-1/3 -z-10 size-[30rem] rounded-full bg-digital/10 blur-[120px]"
-        />
-        <div className="container-page">
-          <SectionHeading
-            tone="dark"
-            eyebrow={t('impactEyebrow')}
-            title={t('impactTitle')}
-            description={t('impactText')}
-          />
-          {metrics.length > 0 ? (
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {metrics.map((m) => (
-                <KpiCard
-                  key={m.id}
-                  value={m.value}
-                  label={m.label}
-                  unit={m.unit}
-                  period={m.period}
-                  icon={m.icon}
-                  locale={locale}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12">
-              <div className="lg:col-span-5">
-                <EmptyState
-                  tone="dark"
-                  icon={<LineChart className="size-7" aria-hidden="true" />}
-                  title={t('impactEmptyTitle')}
-                  description={t('impactEmptyText')}
-                  className="text-left lg:sticky lg:top-28"
-                />
-              </div>
-              {about?.milestones && about.milestones.length > 0 && (
-                <div className="lg:col-span-7">
-                  <p className="mb-8 eyebrow text-gold">{t('milestonesTitle')}</p>
-                  <Milestones items={about.milestones} tone="dark" limit={5} />
-                </div>
+          {otherProjects.length > 0 && (
+            <ul
+              className={cn(
+                'mt-14 grid gap-6 md:grid-cols-2',
+                otherProjects.length > 2 && 'lg:grid-cols-3',
               )}
-            </div>
+            >
+              {otherProjects.map((p, i) => (
+                <Reveal as="li" key={p.id} delay={i * 0.08}>
+                  <ProjectCard project={p} />
+                </Reveal>
+              ))}
+            </ul>
           )}
         </div>
       </section>
 
-      {/* Partners */}
-      <Section tone="white">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <SectionHeading eyebrow={t('partnersEyebrow')} title={t('partnersTitle')} />
-            <NextLink
-              href={pathFor('/partners/become', locale)}
-              className={cn(buttonVariants({ variant: 'primary', size: 'lg' }), 'mt-10')}
-            >
-              <Handshake aria-hidden="true" />
-              {t('partnersCta')}
-            </NextLink>
-          </div>
-          <div className="grid gap-6 lg:col-span-7">
-            {partners.slice(0, 2).map((p) => (
-              <Reveal key={p.id}>
-                <PartnerCard partner={p} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </Section>
+      <SaagdoFeature locale={locale} title={home?.saagdo?.title} text={home?.saagdo?.text} />
 
-      <Testimonials
-        items={testimonials}
-        eyebrow={t('testimonialsEyebrow')}
-        title={t('testimonialsTitle')}
-      />
-
-      {/* News */}
-      {news.docs.length > 0 && (
-        <Section tone="ivory">
-          <SectionHeading
-            eyebrow={t('newsEyebrow')}
-            title={t('newsTitle')}
-            action={
-              <NextLink
-                href={pathFor('/news', locale)}
-                className={buttonVariants({ variant: 'outline' })}
-              >
-                {t('newsCta')}
-                <ArrowGlyph />
-              </NextLink>
-            }
-          />
-          <ul className="mt-14 grid gap-6 lg:grid-cols-3">
-            {news.docs.map((n, i) => (
-              <Reveal as="li" key={n.id} delay={i * 0.08}>
-                <NewsCard article={n} />
-              </Reveal>
-            ))}
-          </ul>
-        </Section>
-      )}
-
-      <CtaBanner
-        title={
-          home?.cta?.title ||
-          'Construisons ensemble des solutions durables pour les générations futures.'
-        }
-        text={home?.cta?.text}
-        className="bg-white"
-        actions={
+      {/* News + partners */}
+      <Section tone="ivory">
+        {news.docs.length > 0 && (
           <>
-            <NextLink
-              href={pathFor('/partners/become', locale)}
-              className={buttonVariants({ variant: 'gold', size: 'lg' })}
-            >
-              {t('ctaPartner')}
-              <ArrowGlyph />
-            </NextLink>
-            <NextLink
-              href={pathFor('/join', locale)}
-              className={buttonVariants({ variant: 'light', size: 'lg' })}
-            >
-              {t('ctaNetwork')}
-            </NextLink>
+            <SectionHeading
+              eyebrow={t('newsEyebrow')}
+              title={t('newsTitle')}
+              action={
+                <NextLink
+                  href={pathFor('/news', locale)}
+                  className={buttonVariants({ variant: 'outline' })}
+                >
+                  {t('newsCta')}
+                  <ArrowGlyph />
+                </NextLink>
+              }
+            />
+            <ul className="mt-14 grid gap-6 lg:grid-cols-3">
+              {news.docs.map((n, i) => (
+                <Reveal as="li" key={n.id} delay={i * 0.08}>
+                  <NewsCard article={n} />
+                </Reveal>
+              ))}
+            </ul>
           </>
-        }
-      />
+        )}
+        {partners.length > 0 && (
+          <div
+            className={cn(
+              'flex flex-col gap-6 md:flex-row md:items-center',
+              news.docs.length > 0 && 'mt-20 border-t border-forest/10 pt-12',
+            )}
+          >
+            <p className="shrink-0 eyebrow text-leaf">{t('partnersEyebrow')}</p>
+            <ul className="flex flex-wrap gap-3">
+              {partners.map((p) => (
+                <li key={p.id}>
+                  <NextLink
+                    href={pathFor('/partners', locale)}
+                    className="flex items-center gap-3 rounded-full bg-white py-2 pr-5 pl-2 text-sm font-semibold text-forest ring-1 ring-forest/8 transition-shadow hover:shadow-soft"
+                  >
+                    <span className="grid size-9 shrink-0 place-items-center overflow-hidden rounded-full bg-ivory">
+                      {p.logo && typeof p.logo === 'object' ? (
+                        <CmsImage
+                          media={p.logo}
+                          size="thumbnail"
+                          sizes="36px"
+                          className="size-full"
+                          imgClassName="object-contain p-1"
+                          showProvenance={false}
+                        />
+                      ) : (
+                        <Landmark className="size-4 text-forest/70" aria-hidden="true" />
+                      )}
+                    </span>
+                    {p.acronym || p.name}
+                  </NextLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </Section>
     </>
   )
 }

@@ -1,8 +1,9 @@
-import { ExternalLink, FlaskConical, Lock } from 'lucide-react'
+import { ExternalLink, FlaskConical, Lock, PlayCircle } from 'lucide-react'
 import NextLink from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { NetworkField } from '@/components/decor/network-field'
 import { Icon } from '@/components/icon'
+import { CmsImage } from '@/components/media/cms-image'
 import { Reveal } from '@/components/motion/reveal'
 import { SaagdoDemoLoader } from '@/components/saagdo/demo-loader'
 import { FlowDiagram } from '@/components/saagdo/flow-diagram'
@@ -19,9 +20,10 @@ import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import { SectionHeading } from '@/components/ui/section-heading'
 import type { Locale } from '@/i18n/routing'
 import { pathFor, pathForSlug } from '@/lib/navigation'
-import { getFaqs, getPartners, getSaagdoPage } from '@/lib/queries'
+import { getFaqs, getNewsBySlug, getPartners, getProjectBySlug, getSaagdoPage } from '@/lib/queries'
 import { buildMetadata, jsonLd } from '@/lib/seo'
 import { cn, isSafeExternalUrl } from '@/lib/utils'
+import type { Media } from '@/payload-types'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -39,15 +41,22 @@ export async function generateMetadata({ params }: Props) {
 export default async function SaagdoPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const [t, tc, page, faqs, partners] = await Promise.all([
+  const [t, tc, page, faqs, partners, project, mouNews] = await Promise.all([
     getTranslations({ locale, namespace: 'saagdo' }),
     getTranslations({ locale, namespace: 'common' }),
     getSaagdoPage(locale),
     getFaqs(locale, 'saagdo'),
     getPartners(locale),
+    getProjectBySlug('saagdo', locale),
+    getNewsBySlug('protocole-accord-gwp-afrique-de-l-ouest', locale),
   ])
+  // Real photos come from the SAAGDO project and the MoU article, edited there.
+  const asMedia = (m: unknown) => (m && typeof m === 'object' ? (m as Media) : null)
+  const teamPhoto = asMedia(project?.coverImage)
+  const mouPhoto = asMedia(mouNews?.coverImage)
   const gwp = partners.find((p) => p.slug === 'gwp-afrique-de-l-ouest')
   const platformUrl = isSafeExternalUrl(page?.platformUrl) ? page.platformUrl : null
+  const videoUrl = isSafeExternalUrl(page?.videoUrl) ? page.videoUrl : null
 
   return (
     <div className="bg-night text-white">
@@ -125,6 +134,21 @@ export default async function SaagdoPage({ params }: Props) {
               {!platformUrl && (
                 <p className="mt-4 text-sm text-white/55">{t('platformUnavailable')}</p>
               )}
+              {videoUrl && (
+                <a
+                  href={videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-8 inline-flex items-center gap-3 font-semibold text-white hover:text-digital"
+                >
+                  <PlayCircle
+                    className="size-10 text-digital transition-transform group-hover:scale-110"
+                    aria-hidden="true"
+                  />
+                  {t('watchVideo')}
+                  <span className="sr-only">{tc('openInNewTab')}</span>
+                </a>
+              )}
             </div>
             <div className="lg:col-span-6">
               <SaagdoMockup label={tc('fictitious')} locale={locale} />
@@ -132,6 +156,23 @@ export default async function SaagdoPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {teamPhoto && (
+        <section className="pb-24 md:pb-28">
+          <figure className="container-page">
+            <CmsImage
+              media={teamPhoto}
+              size="hero"
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              className="aspect-[16/9] rounded-[1.75rem] ring-1 ring-white/10 md:aspect-[21/9]"
+              showProvenance={false}
+            />
+            {teamPhoto.caption && (
+              <figcaption className="mt-4 text-sm text-white/70">{teamPhoto.caption}</figcaption>
+            )}
+          </figure>
+        </section>
+      )}
 
       {/* B. Problem */}
       <section
@@ -196,7 +237,6 @@ export default async function SaagdoPage({ params }: Props) {
                 description: f.description,
                 icon: f.icon,
               }))}
-              disclaimer={t('flowDisclaimer')}
             />
           </div>
         </div>
@@ -266,22 +306,27 @@ export default async function SaagdoPage({ params }: Props) {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-forest to-night-700 p-8 ring-1 ring-gold/25">
-              <p className="eyebrow text-gold">{gwp?.agreementType ?? 'MoU'}</p>
-              <p className="mt-4 font-display text-4xl font-semibold sm:text-5xl">03.07.2026</p>
-              <p className="mt-4 text-white/75">{gwp?.name ?? 'Global Water Partnership'}</p>
-              <ul className="mt-6 space-y-2 border-t border-white/10 pt-5 text-sm text-white/70">
-                {(gwp?.collaborationAreas ?? []).slice(0, 3).map((a) => (
-                  <li key={a.id} className="flex gap-2">
-                    <span
-                      aria-hidden="true"
-                      className="mt-2 size-1.5 shrink-0 rounded-full bg-digital"
-                    />
-                    {a.text}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {mouPhoto ? (
+              <figure className="relative">
+                <CmsImage
+                  media={mouPhoto}
+                  sizes="(min-width: 1024px) 480px, 100vw"
+                  className="aspect-[4/5] rounded-[1.75rem] ring-1 ring-gold/25"
+                  showProvenance={false}
+                />
+                <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl bg-night/85 px-5 py-4 backdrop-blur-md">
+                  <span className="eyebrow text-gold">{gwp?.agreementType ?? 'MoU'}</span>
+                  <span className="mt-1 block font-display text-2xl font-semibold">03.07.2026</span>
+                  <span className="text-sm text-white/75">{mouPhoto.caption}</span>
+                </figcaption>
+              </figure>
+            ) : (
+              <div className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-forest to-night-700 p-8 ring-1 ring-gold/25">
+                <p className="eyebrow text-gold">{gwp?.agreementType ?? 'MoU'}</p>
+                <p className="mt-4 font-display text-4xl font-semibold sm:text-5xl">03.07.2026</p>
+                <p className="mt-4 text-white/75">{gwp?.name ?? 'Global Water Partnership'}</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
