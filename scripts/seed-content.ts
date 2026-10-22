@@ -1586,7 +1586,7 @@ ACIEA may amend these terms at any time. *Document to be validated by ACIEA.*`,
 /**
  * Executive office shown on the team page. Names, roles and consent to
  * publication confirmed by ACIEA on 22/10/2026. `file` is a portrait in
- * assets/source/photos (omitted until supplied: a neutral placeholder shows).
+ * assets/source/photos (a neutral placeholder shows when omitted).
  */
 export const TEAM: {
   name: string
@@ -1606,6 +1606,7 @@ export const TEAM: {
   {
     name: 'TASSEMBEDO Fonzia',
     position: { fr: 'Secrétaire général·e', en: 'Secretary General' },
+    file: 'secretariat-tassembedo-fonzia.jpg',
   },
 ]
 
