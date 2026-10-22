@@ -235,9 +235,9 @@ export const SETTINGS = {
     fr: 'ACIEA, organisation à but non lucratif basée à Ouagadougou (Burkina Faso) : innovation climatique, eau et assainissement, biodiversité, numérique et engagement des jeunes.',
     en: 'ACIEA, a non-profit based in Ouagadougou (Burkina Faso): climate innovation, water and sanitation, biodiversity, digital tools and youth engagement.',
   },
-  // Published on the official Facebook page [FB].
+  // Confirmed by ACIEA on 22/10/2026 as the site's official contact details.
   email: 'aciea662@gmail.com',
-  phone: '+226 79 87 42 99',
+  phone: '+226 73 42 14 75',
 }
 
 /* ------------------------------------------------------------------ */
@@ -1427,11 +1427,7 @@ export const PAGES: { slug: string; title: L; intro: L; content: L }[] = [
 
 Siège : Ouagadougou, Burkina Faso.
 
-Numéro de récépissé / d’enregistrement : *à compléter par l’ACIEA*.
-
-Directeur·rice de la publication : *à compléter par l’ACIEA*.
-
-Contact : via la page Contact du site.
+Contact : aciea662@gmail.com — +226 73 42 14 75.
 
 ## Hébergement
 
@@ -1452,11 +1448,7 @@ L’ACIEA s’efforce de publier des informations exactes et vérifiées. Les co
 
 Headquarters: Ouagadougou, Burkina Faso.
 
-Registration number: *to be completed by ACIEA*.
-
-Publication director: *to be completed by ACIEA*.
-
-Contact: via the website’s Contact page.
+Contact: aciea662@gmail.com — +226 73 42 14 75.
 
 ## Hosting
 
