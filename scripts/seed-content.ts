@@ -1583,30 +1583,30 @@ ACIEA may amend these terms at any time. *Document to be validated by ACIEA.*`,
  * name or surname only); positions are not documented and are shown generically.
  * Full names, roles and consent must be confirmed in the admin (review note set).
  */
-export const TEAM: { file: string; name: string }[] = [
-  { file: 'mohamine.jpg', name: 'Abdoul Mohamine Passere' },
-  { file: 'carine.jpeg', name: 'Carine' },
-  { file: 'cherifa.jpeg', name: 'Cherifa' },
-  { file: 'diebre.jpg', name: 'Diébré' },
-  { file: 'HANA.jpeg', name: 'Hana' },
-  { file: 'ido.jpeg', name: 'Ido' },
-  { file: 'kevin.jpg', name: 'Kevin' },
-  { file: 'KININ.jpeg', name: 'Kinin' },
-  { file: 'landry.jpg', name: 'Landry' },
-  { file: 'lio.jpeg', name: 'Lio' },
-  { file: 'MATHIEU.jpeg', name: 'Mathieu' },
-  { file: 'MIEREINE.jpeg', name: 'Mireine' },
-  { file: 'MIKA.jpeg', name: 'Mika' },
-  { file: 'nabaloum.jpeg', name: 'Nabaloum' },
-  { file: 'PHILIPE.jpeg', name: 'Philipe' },
-  { file: 'pierrette.jpeg', name: 'Pierrette' },
-  { file: 'romuald.jpg', name: 'Romuald' },
-  { file: 'SAMO.jpeg', name: 'Samo' },
-  { file: 'sidibe.jpeg', name: 'Sidibé' },
-  { file: 'simbore.jpg', name: 'Simboré' },
-  { file: 'sirimaa.jpeg', name: 'Sirima' },
-  { file: 'sisi.jpeg', name: 'Sisi' },
-  { file: 'zemodo.jpg', name: 'Zemodo' },
+/**
+ * Executive office shown on the team page. Names, roles and consent to
+ * publication confirmed by ACIEA on 22/10/2026. `file` is a portrait in
+ * assets/source/photos (omitted until supplied: a neutral placeholder shows).
+ */
+export const TEAM: {
+  name: string
+  position: { fr: string; en: string }
+  file?: string
+}[] = [
+  {
+    name: 'ILBOUDO Dieudonné',
+    position: { fr: 'Président', en: 'President' },
+    file: 'president-ilboudo-dieudonne.jpg',
+  },
+  {
+    name: 'SAMBORE Daho Nadia Doriane Leslie',
+    position: { fr: 'Vice-présidente', en: 'Vice-President' },
+    file: 'vice-presidente-sambore-doriane.jpg',
+  },
+  {
+    name: 'TASSEMBEDO Fonzia',
+    position: { fr: 'Secrétaire général·e', en: 'Secretary General' },
+  },
 ]
 
 /** Counts derived only from the documented sources above (no estimate). */
