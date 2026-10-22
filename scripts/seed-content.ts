@@ -32,9 +32,105 @@ export type MediaSeed = {
   gallery?: boolean
   /** Focal point (%) kept visible when the image is cropped. */
   focal?: { x: number; y: number }
+  /** File lives in assets/source/videos. */
+  video?: boolean
 }
 
 export const MEDIA: MediaSeed[] = [
+  {
+    key: 'meea',
+    file: 'rencontre-ministere-environnement.jpg',
+    alt: {
+      fr: 'Délégation de l’ACIEA reçue au Ministère de l’Environnement, de l’Eau et de l’Assainissement',
+      en: 'ACIEA delegation received at the Ministry of Environment, Water and Sanitation',
+    },
+    caption: {
+      fr: 'Rencontre avec le Ministère de l’Environnement, de l’Eau et de l’Assainissement',
+      en: 'Meeting with the Ministry of Environment, Water and Sanitation',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 45 },
+  },
+  {
+    key: 'pays-bas',
+    file: 'rencontre-ambassade-pays-bas.jpg',
+    alt: {
+      fr: 'Délégation de l’ACIEA reçue à l’Ambassade du Royaume des Pays-Bas au Burkina Faso',
+      en: 'ACIEA delegation received at the Embassy of the Kingdom of the Netherlands in Burkina Faso',
+    },
+    caption: {
+      fr: 'Rencontre à l’Ambassade du Royaume des Pays-Bas',
+      en: 'Meeting at the Embassy of the Kingdom of the Netherlands',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 40 },
+  },
+  {
+    key: 'saagdo-capture-plateforme',
+    file: 'saagdo-capture-plateforme.png',
+    alt: {
+      fr: 'Plateforme de gestion SAAGDO : carte des signalements à Ouagadougou, avec leur statut (en attente, en cours, terminé, police, rejeté)',
+      en: 'SAAGDO management platform: map of reports in Ouagadougou with their status (pending, in progress, done, police, rejected)',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'saagdo-capture-application',
+    file: 'saagdo-capture-application.png',
+    alt: {
+      fr: 'Application mobile SAAGDO : accueil avec « Signaler un déchet », « Brigade LAABAL » et la carte des toilettes publiques',
+      en: 'SAAGDO mobile app: home screen with “Report waste”, “LAABAL brigade” and the public toilets map',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'video-aciea',
+    file: 'presentation-aciea.mp4',
+    video: true,
+    alt: {
+      fr: 'Vidéo : des membres de l’ACIEA, dont Doriane SAMBORE, présentent l’Alliance (1 min 35)',
+      en: 'Video: ACIEA members, including Doriane SAMBORE, present the Alliance (1 min 35, in French)',
+    },
+    caption: {
+      fr: 'Des membres de l’ACIEA présentent l’Alliance',
+      en: 'ACIEA members present the Alliance (in French)',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'video-aciea-affiche',
+    file: 'video-aciea-affiche.jpg',
+    alt: {
+      fr: 'Deux membres de l’ACIEA en tenue blanche devant un monument de Ouagadougou',
+      en: 'Two ACIEA members dressed in white in front of a Ouagadougou monument',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'video-saagdo-affiche',
+    file: 'video-saagdo-affiche.jpg',
+    alt: {
+      fr: 'Un membre de l’équipe SAAGDO s’adresse à la caméra dans un parc',
+      en: 'A SAAGDO team member speaks to the camera in a park',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'video-saagdo',
+    file: 'presentation-saagdo.mp4',
+    video: true,
+    alt: {
+      fr: 'Vidéo : l’équipe SAAGDO présente l’application et son fonctionnement (3 min, en anglais, sous-titrée)',
+      en: 'Video: the SAAGDO team presents the app and how it works (3 min, in English, subtitled)',
+    },
+    caption: {
+      fr: 'L’équipe SAAGDO présente l’application (en anglais, sous-titrée)',
+      en: 'The SAAGDO team presents the app (subtitled)',
+    },
+    provenance: 'official',
+  },
   {
     key: 'signature-gwp',
     file: 'signature-protocole-gwp-ao.jpg',
@@ -446,9 +542,6 @@ export const DOMAINS: {
 /* Partners                                                            */
 /* ------------------------------------------------------------------ */
 
-/** SAAGDO presentation video on the official Facebook page (shared by ACIEA, 22/10/2026). */
-export const SAAGDO_VIDEO_URL = 'https://www.facebook.com/share/v/1KcjUkUPh5/'
-
 export const GWP_PARTNER = {
   slug: 'gwp-afrique-de-l-ouest',
   name: {
@@ -670,6 +763,7 @@ The discussions revealed a shared interest in concrete solutions for a sustainab
     slug: 'rencontre-ministere-environnement-eau-assainissement',
     publishedAt: '2025-07-08T12:00:00.000Z',
     category: 'institutional',
+    cover: 'meea',
     title: {
       fr: 'Rencontre entre l’ACIEA et le Ministère de l’Environnement, de l’Eau et de l’Assainissement',
       en: 'ACIEA meets the Ministry of Environment, Water and Sanitation',
@@ -723,6 +817,7 @@ Both sides expressed a shared wish to build a partnership based on complementary
     slug: 'echange-ambassade-pays-bas',
     publishedAt: '2025-05-20T12:00:00.000Z',
     category: 'institutional',
+    cover: 'pays-bas',
     title: {
       fr: 'Rencontre stratégique pour le climat : l’Ambassade des Pays-Bas reçoit l’ACIEA',
       en: 'Strategic climate meeting: the Embassy of the Netherlands receives ACIEA',

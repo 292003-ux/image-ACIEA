@@ -2,21 +2,26 @@ import NextLink from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { Reveal } from '@/components/motion/reveal'
 import { SaagdoMockup } from '@/components/saagdo/mockup'
+import { SaagdoScreens } from '@/components/saagdo/screens'
 import { Badge } from '@/components/ui/badge'
 import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import { SectionHeading } from '@/components/ui/section-heading'
 import type { Locale } from '@/i18n/routing'
 import { pathFor } from '@/lib/navigation'
 import { cn } from '@/lib/utils'
+import type { Media } from '@/payload-types'
 
 export async function SaagdoFeature({
   locale,
   title,
   text,
+  screens,
 }: {
   locale: Locale
   title?: string | null
   text?: string | null
+  /** Real screenshots; the illustrative mock-up is shown until they are set. */
+  screens?: { platform: Media | null; app: Media | null }
 }) {
   const t = await getTranslations({ locale, namespace: 'home' })
   const tc = await getTranslations({ locale, namespace: 'common' })
@@ -69,7 +74,11 @@ export async function SaagdoFeature({
           </div>
         </div>
         <Reveal className="lg:col-span-6" delay={0.1}>
-          <SaagdoMockup label={tc('fictitious')} locale={locale} />
+          {screens?.platform ? (
+            <SaagdoScreens platform={screens.platform} app={screens.app} />
+          ) : (
+            <SaagdoMockup label={tc('fictitious')} locale={locale} />
+          )}
         </Reveal>
       </div>
     </section>

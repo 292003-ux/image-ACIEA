@@ -38,7 +38,8 @@
     "share": "Partager",
     "provisional": "Contenu provisoire",
     "translationFallback": "Ce contenu n’est pas encore traduit : la version originale est affichée.",
-    "fallbackBadge": "Version originale"
+    "fallbackBadge": "Version originale",
+    "unmute": "Activer le son"
   },
   "nav": {
     "home": "Accueil",

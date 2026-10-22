@@ -56,6 +56,25 @@ export const Homepage: GlobalConfig = {
               relationTo: 'media',
               label: { fr: 'Image secondaire', en: 'Secondary image' },
             },
+            {
+              name: 'video',
+              type: 'upload',
+              relationTo: 'media',
+              filterOptions: { mimeType: { contains: 'video' } },
+              label: { fr: 'Vidéo de présentation', en: 'Presentation video' },
+              admin: {
+                description: {
+                  fr: 'Si une vidéo est choisie, elle remplace les images (MP4 léger, lue seulement au clic).',
+                  en: 'When set, the video replaces the images (light MP4, only loaded on click).',
+                },
+              },
+            },
+            {
+              name: 'videoPoster',
+              type: 'upload',
+              relationTo: 'media',
+              label: { fr: 'Image d’aperçu de la vidéo', en: 'Video poster image' },
+            },
           ],
         },
         {

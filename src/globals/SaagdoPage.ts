@@ -68,6 +68,49 @@ export const SaagdoPage: GlobalConfig = {
               },
             },
             {
+              name: 'screenshotPlatform',
+              type: 'upload',
+              relationTo: 'media',
+              label: {
+                fr: 'Capture de la plateforme (ordinateur)',
+                en: 'Platform screenshot (desktop)',
+              },
+              admin: {
+                description: {
+                  fr: 'Avec la capture de l’application, remplace la maquette illustrative (accueil et page SAAGDO).',
+                  en: 'With the app screenshot, replaces the illustrative mock-up (home and SAAGDO page).',
+                },
+              },
+            },
+            {
+              name: 'screenshotApp',
+              type: 'upload',
+              relationTo: 'media',
+              label: {
+                fr: 'Capture de l’application (téléphone)',
+                en: 'App screenshot (phone)',
+              },
+            },
+            {
+              name: 'video',
+              type: 'upload',
+              relationTo: 'media',
+              filterOptions: { mimeType: { contains: 'video' } },
+              label: { fr: 'Vidéo de présentation (fichier)', en: 'Presentation video (file)' },
+              admin: {
+                description: {
+                  fr: 'Lue directement sur la page, sous l’introduction (MP4 léger, chargée seulement au clic).',
+                  en: 'Played on the page, under the intro (light MP4, only loaded on click).',
+                },
+              },
+            },
+            {
+              name: 'videoPoster',
+              type: 'upload',
+              relationTo: 'media',
+              label: { fr: 'Image d’aperçu de la vidéo', en: 'Video poster image' },
+            },
+            {
               name: 'videoUrl',
               type: 'text',
               label: {

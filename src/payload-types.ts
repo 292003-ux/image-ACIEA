@@ -1820,6 +1820,11 @@ export interface Homepage {
     mission?: string | null;
     image?: (number | null) | Media;
     secondaryImage?: (number | null) | Media;
+    /**
+     * When set, the video replaces the images (light MP4, only loaded on click).
+     */
+    video?: (number | null) | Media;
+    videoPoster?: (number | null) | Media;
   };
   saagdo?: {
     title?: string | null;
@@ -2083,6 +2088,16 @@ export interface SaagdoPage {
    */
   platformUrl?: string | null;
   /**
+   * With the app screenshot, replaces the illustrative mock-up (home and SAAGDO page).
+   */
+  screenshotPlatform?: (number | null) | Media;
+  screenshotApp?: (number | null) | Media;
+  /**
+   * Played on the page, under the intro (light MP4, only loaded on click).
+   */
+  video?: (number | null) | Media;
+  videoPoster?: (number | null) | Media;
+  /**
    * Link to the published video (Facebook, YouTube…). Shows a “Watch the video” button; leave empty to hide it.
    */
   videoUrl?: string | null;
@@ -2313,6 +2328,8 @@ export interface HomepageSelect<T extends boolean = true> {
         mission?: T;
         image?: T;
         secondaryImage?: T;
+        video?: T;
+        videoPoster?: T;
       };
   saagdo?:
     | T
@@ -2429,6 +2446,10 @@ export interface SaagdoPageSelect<T extends boolean = true> {
   partnershipText?: T;
   partnershipSourceUrl?: T;
   platformUrl?: T;
+  screenshotPlatform?: T;
+  screenshotApp?: T;
+  video?: T;
+  videoPoster?: T;
   videoUrl?: T;
   showDemo?: T;
   _status?: T;
