@@ -17,7 +17,16 @@ const PHOTOS = path.resolve(process.cwd(), 'assets/source/photos')
 const ctx = { skipAudit: true }
 
 async function upsert<
-  T extends 'domains' | 'projects' | 'news' | 'partners' | 'faqs' | 'pages' | 'events',
+  T extends
+    | 'domains'
+    | 'projects'
+    | 'news'
+    | 'partners'
+    | 'faqs'
+    | 'pages'
+    | 'events'
+    | 'team-members'
+    | 'impact-metrics',
 >(
   payload: Payload,
   collection: T,
@@ -117,6 +126,57 @@ async function seedMedia(payload: Payload) {
     ids[m.key] = id
   }
   return ids
+}
+
+/** Imports one photo (idempotent, keyed by file name). */
+async function ensureMedia(
+  payload: Payload,
+  file: string,
+  alt: { fr: string; en: string },
+  gallery = false,
+) {
+  const filePath = path.join(PHOTOS, file)
+  if (!fs.existsSync(filePath)) return undefined
+  const key = `file:${file}`
+  const existing = await payload.find({
+    collection: 'media',
+    where: { seedKey: { equals: key } } as never,
+    limit: 1,
+  })
+  const data = {
+    alt: alt.fr,
+    provenance: 'official',
+    showInGallery: gallery,
+    credit: 'ACIEA',
+    seedKey: key,
+  }
+  const id = existing.docs[0]
+    ? (
+        await payload.update({
+          collection: 'media',
+          id: existing.docs[0].id,
+          locale: 'fr',
+          data: data as never,
+          context: ctx,
+        })
+      ).id
+    : (
+        await payload.create({
+          collection: 'media',
+          locale: 'fr',
+          data: data as never,
+          filePath,
+          context: ctx,
+        })
+      ).id
+  await payload.update({
+    collection: 'media',
+    id,
+    locale: 'en',
+    data: { alt: alt.en } as never,
+    context: ctx,
+  })
+  return id as number
 }
 
 async function main() {
@@ -334,8 +394,12 @@ async function main() {
       location: {
         scope: P.camp.scope,
         locality: P.camp.locality,
+        // Commune-level position of Komsilga (Kadiogo), source: Wikipedia.
+        region: C.KOMSILGA.region,
         country: 'Burkina Faso',
-        coordinatesVerified: false,
+        latitude: C.KOMSILGA.latitude,
+        longitude: C.KOMSILGA.longitude,
+        coordinatesVerified: true,
       },
       relatedNews: [newsIds['camp-vacances-eco-citoyen-komsilga-2025']],
     },
@@ -371,6 +435,101 @@ async function main() {
     'draft',
   )
   void saagdoId
+
+  // Reforestation / National Tree Day 2025 (documented by the official page).
+  const R = C.REFORESTATION
+  await upsert(
+    payload,
+    'projects',
+    { slug: { equals: R.slug } },
+    {
+      slug: R.slug,
+      status: 'completed',
+      featured: true,
+      domains: [domainIds['biodiversite'], domainIds['education-engagement']],
+      coverImage: media.reboisement,
+      gallery: [media.reboisement, media.plantation, media.arbre].filter(Boolean),
+      title: R.title.fr,
+      excerpt: R.excerpt.fr,
+      context: lexical(R.context.fr),
+      achievements: R.achievements.fr,
+      targetAudience: 'Membres et jeunes de l’Alliance.',
+      location: { scope: 'national', country: 'Burkina Faso', coordinatesVerified: false },
+    },
+    {
+      title: R.title.en,
+      excerpt: R.excerpt.en,
+      context: lexical(R.context.en),
+      achievements: R.achievements.en,
+      targetAudience: 'Members and young people of the Alliance.',
+    },
+  )
+
+  // WaterAid meeting: published with month precision (exact day not documented).
+  const W = C.WATERAID_NEWS
+  await upsert(
+    payload,
+    'news',
+    { slug: { equals: W.slug } },
+    {
+      slug: W.slug,
+      title: W.title.fr,
+      excerpt: W.excerpt.fr,
+      content: lexical(W.content.fr),
+      category: 'institutional',
+      publishedAt: W.publishedAt,
+      datePrecision: 'month',
+      coverImage: media.wateraid,
+      sourceUrl: C.FB_URL,
+      authorName: 'ACIEA',
+      reviewNotes: 'Jour exact non documenté : date affichée au mois (mai 2025).',
+    },
+    { title: W.title.en, excerpt: W.excerpt.en, content: lexical(W.content.en) },
+  )
+
+  // Team portraits supplied in the repository.
+  for (const [i, m] of C.TEAM.entries()) {
+    const photo = await ensureMedia(payload, m.file, {
+      fr: `Portrait de ${m.name}`,
+      en: `Portrait of ${m.name}`,
+    })
+    await upsert(
+      payload,
+      'team-members',
+      { name: { equals: m.name } },
+      {
+        name: m.name,
+        position: 'Membre de l’ACIEA',
+        group: 'team',
+        photo,
+        consentToPublish: true,
+        order: 100 + i,
+        reviewNotes: 'Nom complet, fonction et consentement à confirmer.',
+      },
+      { position: 'ACIEA member' },
+    )
+  }
+
+  // Documented counts (sources: official Facebook page, GWP-WA announcement).
+  const today = new Date().toISOString()
+  for (const [i, m] of C.METRICS.entries()) {
+    await upsert(
+      payload,
+      'impact-metrics',
+      { order: { equals: i + 1 } },
+      {
+        label: m.label.fr,
+        value: m.value,
+        period: m.period.fr,
+        icon: m.icon,
+        order: i + 1,
+        sourceUrl: m.sourceUrl,
+        verifiedBy: 'Comptage d’après les publications officielles — à confirmer par l’ACIEA',
+        verificationDate: today,
+      },
+      { label: m.label.en, period: m.period.en },
+    )
+  }
 
   // 8. Events (past, documented)
   await upsert(

@@ -585,6 +585,10 @@ export interface News {
   } | null;
   category: 'institutional' | 'partnership' | 'field' | 'event' | 'statement' | 'innovation';
   publishedAt: string;
+  /**
+   * Use “Month only” when the exact day is unknown.
+   */
+  datePrecision?: ('day' | 'month') | null;
   authorName?: string | null;
   archived?: boolean | null;
   tags?: string[] | null;
@@ -1342,6 +1346,7 @@ export interface NewsSelect<T extends boolean = true> {
   content?: T;
   category?: T;
   publishedAt?: T;
+  datePrecision?: T;
   authorName?: T;
   archived?: T;
   tags?: T;

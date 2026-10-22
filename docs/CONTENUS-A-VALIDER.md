@@ -64,3 +64,17 @@ son contenu n’a pas pu être repris ni vérifié.
    une photo ≥ 1 920 px améliorerait le rendu sur grand écran).
 7. Statut exact et date de lancement du projet SAAGDO.
 8. Crédits photo (actuellement « ACIEA »).
+
+## Ajouts du 22/10/2026 (deuxième passe, à la demande de l’ACIEA)
+
+| Ajout                                                                                                                        | Base                                                                           | À vérifier par l’ACIEA                                                                         |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| **Équipe** : 23 membres publiés avec leur portrait                                                                           | photos fournies dans `assets/source/photos/` ; noms tirés des noms de fichiers | noms complets, fonctions, consentement de chaque personne (note de relecture sur chaque fiche) |
+| **Indicateurs** : 1 partenariat formalisé, 5 rencontres institutionnelles documentées, 7 jours de camp, 3 ateliers pratiques | comptage à partir des publications officielles                                 | confirmer les chiffres (champ « Validé par »)                                                  |
+| **Projet** « Reboisement et Journée nationale de l’arbre 2025 »                                                              | vidéo et photos publiées sur la page officielle                                | lieu et date exacts                                                                            |
+| **Actualité WaterAid** publiée avec la date au mois (mai 2025)                                                               | publication Facebook (jour exact tronqué)                                      | jour exact                                                                                     |
+| **Carte** : camp de Komsilga placé au chef-lieu de la commune (12,1865° N ; 1,6338° O)                                       | Wikipédia (Komsilga, Kadiogo)                                                  | emplacement précis du camp                                                                     |
+
+Toujours non publiés faute d’information : message du président, rapports et documents, événements à venir,
+témoignages, mentions légales complètes, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
+(fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).
