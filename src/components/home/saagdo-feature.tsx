@@ -26,14 +26,28 @@ export async function SaagdoFeature({
     { icon: Smartphone, label: fr ? 'Application mobile' : 'Mobile application' },
     { icon: MapPinned, label: fr ? 'Cartographie participative' : 'Participatory mapping' },
     { icon: Radar, label: fr ? 'Surveillance environnementale' : 'Environmental monitoring' },
-    { icon: Droplets, label: fr ? 'Anticipation des risques de pollution (eau et assainissement)' : 'Anticipating water & sanitation pollution risks' },
+    {
+      icon: Droplets,
+      label: fr
+        ? 'Anticipation des risques de pollution (eau et assainissement)'
+        : 'Anticipating water & sanitation pollution risks',
+    },
   ]
   return (
-    <section className="relative isolate overflow-hidden bg-night py-24 text-white md:py-32" aria-labelledby="saagdo-home-title">
+    <section
+      className="relative isolate overflow-hidden bg-night py-24 text-white md:py-32"
+      aria-labelledby="saagdo-home-title"
+    >
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-grid" />
-      <div aria-hidden="true" className="absolute top-1/3 -left-40 -z-10 size-[36rem] rounded-full bg-digital/12 blur-[140px]" />
-      <div aria-hidden="true" className="absolute -right-20 bottom-0 -z-10 size-[28rem] rounded-full bg-leaf/20 blur-[120px]" />
-      <div className="container-page grid items-center gap-16 lg:grid-cols-12">
+      <div
+        aria-hidden="true"
+        className="absolute top-1/3 -left-40 -z-10 size-[36rem] rounded-full bg-digital/12 blur-[140px]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -right-20 bottom-0 -z-10 size-[28rem] rounded-full bg-leaf/20 blur-[120px]"
+      />
+      <div className="container-page grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <SectionHeading
             id="saagdo-home-title"
@@ -44,7 +58,10 @@ export async function SaagdoFeature({
                 title
               ) : (
                 <>
-                  <span className="text-digital">SAAGDO</span> — {fr ? 'l’innovation numérique au service de la surveillance environnementale.' : 'digital innovation for environmental monitoring.'}
+                  <span className="text-digital">SAAGDO</span> —{' '}
+                  {fr
+                    ? 'l’innovation numérique au service de la surveillance environnementale.'
+                    : 'digital innovation for environmental monitoring.'}
                 </>
               )
             }
@@ -63,11 +80,16 @@ export async function SaagdoFeature({
             ))}
           </ul>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <NextLink href={pathFor('/saagdo', locale)} className={cn(buttonVariants({ variant: 'digital', size: 'lg' }))}>
+            <NextLink
+              href={pathFor('/saagdo', locale)}
+              className={cn(buttonVariants({ variant: 'digital', size: 'lg' }))}
+            >
               {t('saagdoCta')}
               <ArrowGlyph />
             </NextLink>
-            <Badge tone="night">{fr ? 'Partenariat GWP-AO · 3 juillet 2026' : 'GWP-WA partnership · 3 July 2026'}</Badge>
+            <Badge tone="night">
+              {fr ? 'Partenariat GWP-AO · 3 juillet 2026' : 'GWP-WA partnership · 3 July 2026'}
+            </Badge>
           </div>
         </div>
         <Reveal className="lg:col-span-6" delay={0.1}>

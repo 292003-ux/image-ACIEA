@@ -4,14 +4,9 @@ import { seoField } from '@/fields/seo'
 import { slugField } from '@/fields/slug'
 import { contentGroup, editorialCollection } from './_shared'
 
-export const NEWS_CATEGORIES = [
-  'institutional',
-  'partnership',
-  'field',
-  'event',
-  'statement',
-  'innovation',
-] as const
+import { NEWS_CATEGORIES } from '@/lib/constants'
+
+export { NEWS_CATEGORIES }
 
 export const News: CollectionConfig = {
   slug: 'news',
@@ -33,7 +28,13 @@ export const News: CollectionConfig = {
     },
   },
   fields: [
-    { name: 'title', type: 'text', required: true, localized: true, label: { fr: 'Titre', en: 'Title' } },
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      localized: true,
+      label: { fr: 'Titre', en: 'Title' },
+    },
     {
       name: 'excerpt',
       type: 'textarea',
@@ -42,7 +43,12 @@ export const News: CollectionConfig = {
       maxLength: 320,
       label: { fr: 'Résumé', en: 'Summary' },
     },
-    { name: 'coverImage', type: 'upload', relationTo: 'media', label: { fr: 'Image', en: 'Image' } },
+    {
+      name: 'coverImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: { fr: 'Image', en: 'Image' },
+    },
     { name: 'content', type: 'richText', localized: true, label: { fr: 'Contenu', en: 'Content' } },
     {
       name: 'category',
@@ -66,9 +72,17 @@ export const News: CollectionConfig = {
       required: true,
       index: true,
       label: { fr: 'Date', en: 'Date' },
-      admin: { position: 'sidebar', date: { pickerAppearance: 'dayOnly', displayFormat: 'dd/MM/yyyy' } },
+      admin: {
+        position: 'sidebar',
+        date: { pickerAppearance: 'dayOnly', displayFormat: 'dd/MM/yyyy' },
+      },
     },
-    { name: 'authorName', type: 'text', label: { fr: 'Auteur (affiché)', en: 'Author (displayed)' }, admin: { position: 'sidebar' } },
+    {
+      name: 'authorName',
+      type: 'text',
+      label: { fr: 'Auteur (affiché)', en: 'Author (displayed)' },
+      admin: { position: 'sidebar' },
+    },
     {
       name: 'archived',
       type: 'checkbox',
@@ -82,8 +96,20 @@ export const News: CollectionConfig = {
       hasMany: true,
       label: { fr: 'Mots-clés', en: 'Tags' },
     },
-    { name: 'relatedProjects', type: 'relationship', relationTo: 'projects', hasMany: true, label: { fr: 'Projets liés', en: 'Related projects' } },
-    { name: 'gallery', type: 'upload', relationTo: 'media', hasMany: true, label: { fr: 'Galerie', en: 'Gallery' } },
+    {
+      name: 'relatedProjects',
+      type: 'relationship',
+      relationTo: 'projects',
+      hasMany: true,
+      label: { fr: 'Projets liés', en: 'Related projects' },
+    },
+    {
+      name: 'gallery',
+      type: 'upload',
+      relationTo: 'media',
+      hasMany: true,
+      label: { fr: 'Galerie', en: 'Gallery' },
+    },
     sourceField,
     slugField(),
     seoField,

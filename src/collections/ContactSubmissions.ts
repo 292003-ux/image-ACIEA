@@ -23,7 +23,11 @@ export const inboxMetaFields: Field[] = [
     ],
     admin: { position: 'sidebar' },
   },
-  { name: 'internalNotes', type: 'textarea', label: { fr: 'Notes internes', en: 'Internal notes' } },
+  {
+    name: 'internalNotes',
+    type: 'textarea',
+    label: { fr: 'Notes internes', en: 'Internal notes' },
+  },
   {
     name: 'locale',
     type: 'text',
@@ -45,7 +49,10 @@ export const inboxMetaFields: Field[] = [
     options: [
       { value: 'sent', label: { fr: 'Envoyée', en: 'Sent' } },
       { value: 'failed', label: { fr: 'Échec', en: 'Failed' } },
-      { value: 'not-configured', label: { fr: 'Service email non configuré', en: 'Email not configured' } },
+      {
+        value: 'not-configured',
+        label: { fr: 'Service email non configuré', en: 'Email not configured' },
+      },
     ],
   },
 ]
@@ -64,9 +71,20 @@ export const ContactSubmissions: CollectionConfig = {
   // Personal data: admins only. Public creation goes through the validated server action.
   access: { read: adminsOnly, create: nobody, update: adminsOnly, delete: adminsOnly },
   fields: [
-    { name: 'name', type: 'text', required: true, label: { fr: 'Nom', en: 'Name' }, admin: { readOnly: true } },
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+      label: { fr: 'Nom', en: 'Name' },
+      admin: { readOnly: true },
+    },
     { name: 'email', type: 'email', required: true, admin: { readOnly: true } },
-    { name: 'organization', type: 'text', label: { fr: 'Organisation', en: 'Organisation' }, admin: { readOnly: true } },
+    {
+      name: 'organization',
+      type: 'text',
+      label: { fr: 'Organisation', en: 'Organisation' },
+      admin: { readOnly: true },
+    },
     {
       name: 'subject',
       type: 'select',
@@ -75,7 +93,12 @@ export const ContactSubmissions: CollectionConfig = {
       options: CONTACT_SUBJECTS.map((value) => ({ value, label: value })),
       admin: { readOnly: true },
     },
-    { name: 'subjectLine', type: 'text', label: { fr: 'Titre', en: 'Title' }, admin: { readOnly: true } },
+    {
+      name: 'subjectLine',
+      type: 'text',
+      label: { fr: 'Titre', en: 'Title' },
+      admin: { readOnly: true },
+    },
     { name: 'message', type: 'textarea', required: true, admin: { readOnly: true } },
     ...inboxMetaFields,
   ],

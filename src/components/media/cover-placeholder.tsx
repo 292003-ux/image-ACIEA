@@ -10,7 +10,13 @@ function hash(seed: string): number {
  * Elegant generative cover used when no validated image exists.
  * Deterministic per seed: topographic contours over a forest/night gradient.
  */
-export function CoverPlaceholder({ seed = 'aciea', className }: { seed?: string; className?: string }) {
+export function CoverPlaceholder({
+  seed = 'aciea',
+  className,
+}: {
+  seed?: string
+  className?: string
+}) {
   const h = hash(seed)
   const cx = 30 + (h % 40)
   const cy = 30 + ((h >> 5) % 40)
@@ -24,7 +30,11 @@ export function CoverPlaceholder({ seed = 'aciea', className }: { seed?: string;
   const id = `g${h % 100000}`
   return (
     <div aria-hidden="true" className={cn('relative overflow-hidden', className)}>
-      <svg viewBox="0 0 100 62" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 size-full">
+      <svg
+        viewBox="0 0 100 62"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 size-full"
+      >
         <defs>
           <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor={gradients[0]} />

@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { cn } from '@/lib/utils'
-import { HONEYPOT_FIELD_NAME, STARTED_AT_FIELD_NAME } from './constants'
+import { HONEYPOT_FIELD_NAME } from './constants'
 
 type FieldProps = {
   id: string
@@ -13,7 +13,12 @@ type FieldProps = {
   hint?: string
   className?: string
   tone?: 'light' | 'dark'
-  children: (props: { id: string; 'aria-invalid'?: boolean; 'aria-describedby'?: string; className: string }) => React.ReactNode
+  children: (props: {
+    id: string
+    'aria-invalid'?: boolean
+    'aria-describedby'?: string
+    className: string
+  }) => React.ReactNode
 }
 
 export function inputClass(tone: 'light' | 'dark' = 'light', invalid = false) {
@@ -27,18 +32,40 @@ export function inputClass(tone: 'light' | 'dark' = 'light', invalid = false) {
   )
 }
 
-export function Field({ id, label, error, required, hint, className, tone = 'light', children }: FieldProps) {
+export function Field({
+  id,
+  label,
+  error,
+  required,
+  hint,
+  className,
+  tone = 'light',
+  children,
+}: FieldProps) {
   const t = useTranslations('forms')
   const te = useTranslations('forms.errors')
-  const describedBy = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(' ') || undefined
+  const describedBy =
+    [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(' ') || undefined
   return (
     <div className={cn('flex flex-col gap-2', className)}>
-      <label htmlFor={id} className={cn('text-sm font-medium', tone === 'light' ? 'text-forest' : 'text-white')}>
+      <label
+        htmlFor={id}
+        className={cn('text-sm font-medium', tone === 'light' ? 'text-forest' : 'text-white')}
+      >
         {label}
         {required ? (
-          <span className="ml-1 text-danger" aria-hidden="true">*</span>
+          <span className="ml-1 text-danger" aria-hidden="true">
+            *
+          </span>
         ) : (
-          <span className="ml-1.5 text-xs font-normal opacity-60">({t('optional')})</span>
+          <span
+            className={cn(
+              'ml-1.5 text-xs font-normal',
+              tone === 'light' ? 'text-ink-muted' : 'text-white/75',
+            )}
+          >
+            ({t('optional')})
+          </span>
         )}
         {required && <span className="sr-only"> ({t('required')})</span>}
       </label>
@@ -49,7 +76,10 @@ export function Field({ id, label, error, required, hint, className, tone = 'lig
         className: inputClass(tone, !!error),
       })}
       {hint && (
-        <p id={`${id}-hint`} className={cn('text-xs', tone === 'light' ? 'text-ink-muted' : 'text-white/60')}>
+        <p
+          id={`${id}-hint`}
+          className={cn('text-xs', tone === 'light' ? 'text-ink-muted' : 'text-white/60')}
+        >
           {hint}
         </p>
       )}
@@ -62,22 +92,31 @@ export function Field({ id, label, error, required, hint, className, tone = 'lig
   )
 }
 
-/** Invisible anti-spam fields: a honeypot and the time the form was displayed. */
+/** Invisible honeypot field: humans never fill it, naive bots do. */
 export function AntiSpamFields() {
-  const [startedAt, setStartedAt] = React.useState('')
-  React.useEffect(() => setStartedAt(String(Date.now())), [])
+  const id = React.useId()
   return (
-    <>
-      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label htmlFor={HONEYPOT_FIELD_NAME}>Website</label>
-        <input id={HONEYPOT_FIELD_NAME} name={HONEYPOT_FIELD_NAME} type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
-      </div>
-      <input type="hidden" name={STARTED_AT_FIELD_NAME} value={startedAt} readOnly />
-    </>
+    <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+      <label htmlFor={id}>Website</label>
+      <input
+        id={id}
+        name={HONEYPOT_FIELD_NAME}
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        defaultValue=""
+      />
+    </div>
   )
 }
 
-export function FormAlert({ tone, children }: { tone: 'success' | 'error'; children: React.ReactNode }) {
+export function FormAlert({
+  tone,
+  children,
+}: {
+  tone: 'success' | 'error'
+  children: React.ReactNode
+}) {
   return (
     <div
       role={tone === 'error' ? 'alert' : 'status'}

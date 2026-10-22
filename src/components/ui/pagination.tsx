@@ -23,11 +23,19 @@ export async function Pagination({ pathname, page, totalPages, query = {} }: Pro
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1).filter(
     (p) => p === 1 || p === totalPages || Math.abs(p - page) <= 1,
   )
-  const item = 'grid size-11 place-items-center rounded-full text-sm font-semibold transition-colors'
+  const item =
+    'grid size-11 place-items-center rounded-full text-sm font-semibold transition-colors'
   return (
-    <nav aria-label={t('page', { page, total: totalPages })} className="mt-14 flex items-center justify-center gap-2">
+    <nav
+      aria-label={t('page', { page, total: totalPages })}
+      className="mt-14 flex items-center justify-center gap-2"
+    >
       {page > 1 ? (
-        <Link href={hrefFor(page - 1)} className={cn(item, 'border border-forest/15 hover:bg-white')} aria-label={t('previous')}>
+        <Link
+          href={hrefFor(page - 1)}
+          className={cn(item, 'border border-forest/15 hover:bg-white')}
+          aria-label={t('previous')}
+        >
           <ChevronLeft className="size-4" />
         </Link>
       ) : (
@@ -37,7 +45,11 @@ export async function Pagination({ pathname, page, totalPages, query = {} }: Pro
       )}
       {pages.map((p, i) => (
         <span key={p} className="flex items-center gap-2">
-          {i > 0 && p - (pages[i - 1] ?? p) > 1 && <span aria-hidden="true" className="text-ink-muted">…</span>}
+          {i > 0 && p - (pages[i - 1] ?? p) > 1 && (
+            <span aria-hidden="true" className="text-ink-muted">
+              …
+            </span>
+          )}
           {p === page ? (
             <span aria-current="page" className={cn(item, 'bg-forest text-white')}>
               {p}
@@ -50,7 +62,11 @@ export async function Pagination({ pathname, page, totalPages, query = {} }: Pro
         </span>
       ))}
       {page < totalPages ? (
-        <Link href={hrefFor(page + 1)} className={cn(item, 'border border-forest/15 hover:bg-white')} aria-label={t('next')}>
+        <Link
+          href={hrefFor(page + 1)}
+          className={cn(item, 'border border-forest/15 hover:bg-white')}
+          aria-label={t('next')}
+        >
           <ChevronRight className="size-4" />
         </Link>
       ) : (

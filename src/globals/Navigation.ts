@@ -30,7 +30,13 @@ export const NAV_ROUTES = [
 ] as const
 
 const linkFields: Field[] = [
-  { name: 'label', type: 'text', required: true, localized: true, label: { fr: 'Libellé', en: 'Label' } },
+  {
+    name: 'label',
+    type: 'text',
+    required: true,
+    localized: true,
+    label: { fr: 'Libellé', en: 'Label' },
+  },
   {
     type: 'row',
     fields: [
@@ -43,7 +49,12 @@ const linkFields: Field[] = [
       { name: 'url', type: 'text', label: { fr: 'ou URL externe', en: 'or external URL' } },
     ],
   },
-  { name: 'description', type: 'text', localized: true, label: { fr: 'Description (sous-menu)', en: 'Description (submenu)' } },
+  {
+    name: 'description',
+    type: 'text',
+    localized: true,
+    label: { fr: 'Description (sous-menu)', en: 'Description (submenu)' },
+  },
 ]
 
 export const Navigation: GlobalConfig = {
@@ -65,7 +76,12 @@ export const Navigation: GlobalConfig = {
       maxRows: 9,
       fields: [
         ...linkFields,
-        { name: 'children', type: 'array', label: { fr: 'Sous-menu', en: 'Submenu' }, fields: linkFields },
+        {
+          name: 'children',
+          type: 'array',
+          label: { fr: 'Sous-menu', en: 'Submenu' },
+          fields: linkFields,
+        },
       ],
     },
     {

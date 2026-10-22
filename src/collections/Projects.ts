@@ -8,9 +8,15 @@ export const PROJECT_STATUSES = ['planned', 'ongoing', 'completed'] as const
 export type ProjectStatus = (typeof PROJECT_STATUSES)[number]
 
 const latitude = (v: unknown) =>
-  v === null || v === undefined || (typeof v === 'number' && v >= -90 && v <= 90) || 'Latitude invalide'
+  v === null ||
+  v === undefined ||
+  (typeof v === 'number' && v >= -90 && v <= 90) ||
+  'Latitude invalide'
 const longitude = (v: unknown) =>
-  v === null || v === undefined || (typeof v === 'number' && v >= -180 && v <= 180) || 'Longitude invalide'
+  v === null ||
+  v === undefined ||
+  (typeof v === 'number' && v >= -180 && v <= 180) ||
+  'Longitude invalide'
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
@@ -33,7 +39,13 @@ export const Projects: CollectionConfig = {
         {
           label: { fr: 'Présentation', en: 'Overview' },
           fields: [
-            { name: 'title', type: 'text', required: true, localized: true, label: { fr: 'Titre', en: 'Title' } },
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+              localized: true,
+              label: { fr: 'Titre', en: 'Title' },
+            },
             {
               name: 'excerpt',
               type: 'textarea',
@@ -42,7 +54,12 @@ export const Projects: CollectionConfig = {
               maxLength: 400,
               label: { fr: 'Résumé exécutif', en: 'Executive summary' },
             },
-            { name: 'coverImage', type: 'upload', relationTo: 'media', label: { fr: 'Image de couverture', en: 'Cover image' } },
+            {
+              name: 'coverImage',
+              type: 'upload',
+              relationTo: 'media',
+              label: { fr: 'Image de couverture', en: 'Cover image' },
+            },
             {
               name: 'context',
               type: 'richText',
@@ -54,7 +71,9 @@ export const Projects: CollectionConfig = {
               type: 'array',
               localized: true,
               label: { fr: 'Objectifs', en: 'Objectives' },
-              fields: [{ name: 'text', type: 'text', required: true }],
+              fields: [
+                { name: 'text', type: 'text', required: true, label: { fr: 'Texte', en: 'Text' } },
+              ],
             },
             {
               name: 'targetAudience',
@@ -91,7 +110,11 @@ export const Projects: CollectionConfig = {
             {
               type: 'row',
               fields: [
-                { name: 'startDate', type: 'date', label: { fr: 'Date de lancement', en: 'Start date' } },
+                {
+                  name: 'startDate',
+                  type: 'date',
+                  label: { fr: 'Date de lancement', en: 'Start date' },
+                },
                 { name: 'endDate', type: 'date', label: { fr: 'Date de fin', en: 'End date' } },
               ],
             },
@@ -114,9 +137,18 @@ export const Projects: CollectionConfig = {
                 {
                   type: 'row',
                   fields: [
-                    { name: 'locality', type: 'text', label: { fr: 'Commune / localité', en: 'Municipality / locality' } },
+                    {
+                      name: 'locality',
+                      type: 'text',
+                      label: { fr: 'Commune / localité', en: 'Municipality / locality' },
+                    },
                     { name: 'region', type: 'text', label: { fr: 'Région', en: 'Region' } },
-                    { name: 'country', type: 'text', defaultValue: 'Burkina Faso', label: { fr: 'Pays', en: 'Country' } },
+                    {
+                      name: 'country',
+                      type: 'text',
+                      defaultValue: 'Burkina Faso',
+                      label: { fr: 'Pays', en: 'Country' },
+                    },
                   ],
                 },
                 {
@@ -148,8 +180,17 @@ export const Projects: CollectionConfig = {
               localized: true,
               label: { fr: 'Activités', en: 'Activities' },
               fields: [
-                { name: 'title', type: 'text', required: true },
-                { name: 'description', type: 'textarea' },
+                {
+                  name: 'title',
+                  type: 'text',
+                  required: true,
+                  label: { fr: 'Activité', en: 'Activity' },
+                },
+                {
+                  name: 'description',
+                  type: 'textarea',
+                  label: { fr: 'Description', en: 'Description' },
+                },
               ],
             },
             {
@@ -164,8 +205,13 @@ export const Projects: CollectionConfig = {
                 },
               },
               fields: [
-                { name: 'text', type: 'text', required: true },
-                { name: 'verified', type: 'checkbox', defaultValue: false },
+                { name: 'text', type: 'text', required: true, label: { fr: 'Texte', en: 'Text' } },
+                {
+                  name: 'verified',
+                  type: 'checkbox',
+                  defaultValue: false,
+                  label: { fr: 'Vérifié', en: 'Verified' },
+                },
                 sourceField,
               ],
             },
@@ -178,12 +224,27 @@ export const Projects: CollectionConfig = {
                 {
                   type: 'row',
                   fields: [
-                    { name: 'label', type: 'text', required: true },
-                    { name: 'value', type: 'text', required: true },
-                    { name: 'unit', type: 'text' },
+                    {
+                      name: 'label',
+                      type: 'text',
+                      required: true,
+                      label: { fr: 'Libellé', en: 'Label' },
+                    },
+                    {
+                      name: 'value',
+                      type: 'text',
+                      required: true,
+                      label: { fr: 'Valeur', en: 'Value' },
+                    },
+                    { name: 'unit', type: 'text', label: { fr: 'Unité', en: 'Unit' } },
                   ],
                 },
-                { name: 'verified', type: 'checkbox', defaultValue: false },
+                {
+                  name: 'verified',
+                  type: 'checkbox',
+                  defaultValue: false,
+                  label: { fr: 'Vérifié', en: 'Verified' },
+                },
                 sourceField,
               ],
             },
@@ -219,8 +280,13 @@ export const Projects: CollectionConfig = {
               localized: true,
               label: { fr: 'Liens associés', en: 'Related links' },
               fields: [
-                { name: 'label', type: 'text', required: true },
-                { name: 'url', type: 'text', required: true },
+                {
+                  name: 'label',
+                  type: 'text',
+                  required: true,
+                  label: { fr: 'Libellé', en: 'Label' },
+                },
+                { name: 'url', type: 'text', required: true, label: 'URL' },
               ],
             },
             {

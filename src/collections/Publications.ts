@@ -4,15 +4,9 @@ import { seoField } from '@/fields/seo'
 import { slugField } from '@/fields/slug'
 import { contentGroup, editorialCollection } from './_shared'
 
-export const PUBLICATION_TYPES = [
-  'report',
-  'study',
-  'technical-note',
-  'guide',
-  'scientific',
-  'press-release',
-  'public-document',
-] as const
+import { PUBLICATION_TYPES } from '@/lib/constants'
+
+export { PUBLICATION_TYPES }
 
 export const Publications: CollectionConfig = {
   slug: 'publications',
@@ -28,7 +22,13 @@ export const Publications: CollectionConfig = {
     defaultColumns: ['title', 'type', 'publishedAt', '_status'],
   },
   fields: [
-    { name: 'title', type: 'text', required: true, localized: true, label: { fr: 'Titre', en: 'Title' } },
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      localized: true,
+      label: { fr: 'Titre', en: 'Title' },
+    },
     {
       name: 'type',
       type: 'select',
@@ -41,7 +41,10 @@ export const Publications: CollectionConfig = {
         { value: 'guide', label: { fr: 'Guide', en: 'Guide' } },
         { value: 'scientific', label: { fr: 'Publication scientifique', en: 'Scientific paper' } },
         { value: 'press-release', label: { fr: 'Communiqué', en: 'Press release' } },
-        { value: 'public-document', label: { fr: 'Document institutionnel', en: 'Institutional document' } },
+        {
+          value: 'public-document',
+          label: { fr: 'Document institutionnel', en: 'Institutional document' },
+        },
       ],
     },
     {
@@ -51,14 +54,29 @@ export const Publications: CollectionConfig = {
       localized: true,
       label: { fr: 'Description', en: 'Description' },
     },
-    { name: 'body', type: 'richText', localized: true, label: { fr: 'Présentation détaillée', en: 'Details' } },
-    { name: 'file', type: 'upload', relationTo: 'documents', label: { fr: 'Fichier téléchargeable', en: 'Downloadable file' } },
+    {
+      name: 'body',
+      type: 'richText',
+      localized: true,
+      label: { fr: 'Présentation détaillée', en: 'Details' },
+    },
+    {
+      name: 'file',
+      type: 'upload',
+      relationTo: 'documents',
+      label: { fr: 'Fichier téléchargeable', en: 'Downloadable file' },
+    },
     {
       name: 'externalUrl',
       type: 'text',
       label: { fr: 'Ou lien externe (DOI, dépôt…)', en: 'Or external link (DOI, repository…)' },
     },
-    { name: 'coverImage', type: 'upload', relationTo: 'media', label: { fr: 'Couverture', en: 'Cover' } },
+    {
+      name: 'coverImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: { fr: 'Couverture', en: 'Cover' },
+    },
     { name: 'authors', type: 'text', label: { fr: 'Auteurs', en: 'Authors' } },
     {
       name: 'documentLanguage',
@@ -80,7 +98,13 @@ export const Publications: CollectionConfig = {
       label: { fr: 'Date de publication', en: 'Publication date' },
       admin: { position: 'sidebar', date: { pickerAppearance: 'dayOnly' } },
     },
-    { name: 'relatedProjects', type: 'relationship', relationTo: 'projects', hasMany: true, label: { fr: 'Projets liés', en: 'Related projects' } },
+    {
+      name: 'relatedProjects',
+      type: 'relationship',
+      relationTo: 'projects',
+      hasMany: true,
+      label: { fr: 'Projets liés', en: 'Related projects' },
+    },
     slugField(),
     seoField,
     ...editorialFields,

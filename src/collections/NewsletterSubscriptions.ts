@@ -16,7 +16,14 @@ export const NewsletterSubscriptions: CollectionConfig = {
   },
   access: { read: adminsOnly, create: nobody, update: adminsOnly, delete: adminsOnly },
   fields: [
-    { name: 'email', type: 'email', required: true, unique: true, index: true, admin: { readOnly: true } },
+    {
+      name: 'email',
+      type: 'email',
+      required: true,
+      unique: true,
+      index: true,
+      admin: { readOnly: true },
+    },
     {
       name: 'status',
       type: 'select',
@@ -27,7 +34,11 @@ export const NewsletterSubscriptions: CollectionConfig = {
       ],
     },
     { name: 'locale', type: 'text', admin: { readOnly: true } },
-    { name: 'consentAt', type: 'date', admin: { readOnly: true, date: { pickerAppearance: 'dayAndTime' } } },
+    {
+      name: 'consentAt',
+      type: 'date',
+      admin: { readOnly: true, date: { pickerAppearance: 'dayAndTime' } },
+    },
     { name: 'unsubscribedAt', type: 'date', admin: { readOnly: true } },
     {
       name: 'unsubscribeToken',

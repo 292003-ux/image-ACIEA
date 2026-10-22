@@ -37,25 +37,24 @@ export function SectionHeading({
         {eyebrow && (
           <p
             className={cn(
-              'eyebrow mb-4 inline-flex items-center gap-3',
+              'mb-4 inline-flex items-center gap-3 eyebrow',
               dark ? 'text-gold' : 'text-leaf',
             )}
           >
-            <span aria-hidden="true" className={cn('h-px w-8', dark ? 'bg-gold/70' : 'bg-leaf/60')} />
+            <span
+              aria-hidden="true"
+              className={cn('h-px w-8', dark ? 'bg-gold/70' : 'bg-leaf/60')}
+            />
             {eyebrow}
           </p>
         )}
-        <Tag
-          id={id}
-          className={cn(
-            'text-h2 font-semibold',
-            dark ? 'text-white' : 'text-forest',
-          )}
-        >
+        <Tag id={id} className={cn('text-h2 font-semibold', dark ? 'text-white' : 'text-forest')}>
           {title}
         </Tag>
         {description && (
-          <p className={cn('mt-5 text-lead', dark ? 'text-white/72' : 'text-ink-muted')}>{description}</p>
+          <p className={cn('mt-5 text-lead', dark ? 'text-white/72' : 'text-ink-muted')}>
+            {description}
+          </p>
         )}
       </div>
       {action && <div className="shrink-0">{action}</div>}

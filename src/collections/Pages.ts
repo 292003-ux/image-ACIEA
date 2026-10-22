@@ -14,8 +14,19 @@ export const Pages: CollectionConfig = {
   labels: { singular: { fr: 'Page', en: 'Page' }, plural: { fr: 'Pages', en: 'Pages' } },
   admin: { useAsTitle: 'title', group: contentGroup, defaultColumns: ['title', 'slug', '_status'] },
   fields: [
-    { name: 'title', type: 'text', required: true, localized: true, label: { fr: 'Titre', en: 'Title' } },
-    { name: 'intro', type: 'textarea', localized: true, label: { fr: 'Introduction', en: 'Introduction' } },
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      localized: true,
+      label: { fr: 'Titre', en: 'Title' },
+    },
+    {
+      name: 'intro',
+      type: 'textarea',
+      localized: true,
+      label: { fr: 'Introduction', en: 'Introduction' },
+    },
     { name: 'content', type: 'richText', localized: true, label: { fr: 'Contenu', en: 'Content' } },
     {
       name: 'lastReviewed',

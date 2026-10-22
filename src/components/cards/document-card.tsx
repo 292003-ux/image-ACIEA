@@ -20,20 +20,37 @@ export async function PublicationCard({ publication }: { publication: Publicatio
         <Badge tone="leaf">{t(`types.${publication.type}`)}</Badge>
       </div>
       <h3 className="mt-5 font-display text-lg leading-snug font-semibold text-forest">
-        <Link href={{ pathname: '/publications/[slug]', params: { slug: publication.slug } }} className="hover:text-leaf">
+        <Link
+          href={{ pathname: '/publications/[slug]', params: { slug: publication.slug } }}
+          className="hover:text-leaf"
+        >
           {publication.title}
         </Link>
       </h3>
-      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-muted">{publication.description}</p>
+      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-muted">
+        {publication.description}
+      </p>
       <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-forest/8 pt-5 text-xs text-ink-muted">
-        <time dateTime={publication.publishedAt}>{formatDate(publication.publishedAt, locale)}</time>
+        <time dateTime={publication.publishedAt}>
+          {formatDate(publication.publishedAt, locale)}
+        </time>
         {file?.url ? (
-          <a href={file.url} download className="inline-flex items-center gap-1.5 rounded-full bg-forest px-3.5 py-2 font-semibold text-white hover:bg-forest-700">
+          <a
+            href={file.url}
+            download
+            className="inline-flex items-center gap-1.5 rounded-full bg-forest px-3.5 py-2 font-semibold text-white hover:bg-forest-700"
+          >
             <Download className="size-3.5" aria-hidden="true" />
-            {tc('download')} {ext && `· ${ext}`} {file.filesize ? `· ${formatFileSize(file.filesize, locale)}` : ''}
+            {tc('download')} {ext && `· ${ext}`}{' '}
+            {file.filesize ? `· ${formatFileSize(file.filesize, locale)}` : ''}
           </a>
         ) : isSafeExternalUrl(publication.externalUrl) ? (
-          <a href={publication.externalUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-leaf">
+          <a
+            href={publication.externalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-semibold text-leaf"
+          >
             {t('consult')} <ExternalLink className="size-3.5" aria-hidden="true" />
           </a>
         ) : null}
@@ -62,7 +79,10 @@ export async function DocumentLink({ document }: { document: Document }) {
           {ext} {document.filesize ? `· ${formatFileSize(document.filesize, locale)}` : ''}
         </span>
       </span>
-      <Download className="size-4 text-ink-muted transition-colors group-hover:text-forest" aria-hidden="true" />
+      <Download
+        className="size-4 text-ink-muted transition-colors group-hover:text-forest"
+        aria-hidden="true"
+      />
       <span className="sr-only">{tc('download')}</span>
     </a>
   )

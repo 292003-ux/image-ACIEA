@@ -4,7 +4,7 @@ import type * as React from 'react'
 import { cn } from '@/lib/utils'
 
 export const buttonVariants = cva(
-  'group/btn relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-display font-semibold tracking-tight transition-all duration-300 ease-[var(--ease-out-soft)] focus-visible:outline-3 focus-visible:outline-offset-3 disabled:pointer-events-none disabled:opacity-55 aria-disabled:pointer-events-none aria-disabled:opacity-55 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-300',
+  'group/btn relative inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold tracking-tight whitespace-nowrap transition-all duration-300 ease-[var(--ease-out-soft)] focus-visible:outline-3 focus-visible:outline-offset-3 disabled:pointer-events-none disabled:opacity-55 aria-disabled:pointer-events-none aria-disabled:opacity-55 [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-300',
   {
     variants: {
       variant: {
@@ -15,8 +15,7 @@ export const buttonVariants = cva(
           'border border-forest/20 bg-white/60 text-forest backdrop-blur hover:border-forest/50 hover:bg-white',
         light:
           'border border-white/25 bg-white/5 text-white backdrop-blur-md hover:border-white/60 hover:bg-white/12',
-        digital:
-          'bg-digital text-night shadow-glow hover:bg-digital-300 active:translate-y-px',
+        digital: 'bg-digital text-night shadow-glow hover:bg-digital-300 active:translate-y-px',
         ghost: 'text-forest hover:bg-forest/5',
         link: 'h-auto rounded-none px-0 text-leaf underline-offset-4 hover:underline',
       },
@@ -48,7 +47,13 @@ export function ArrowGlyph({ className }: { className?: string }) {
       fill="none"
       className={cn('group-hover/btn:translate-x-0.5', className)}
     >
-      <path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }

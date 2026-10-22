@@ -1,0 +1,14 @@
+.git
+node_modules
+.next
+media
+uploads
+backups
+test-results
+playwright-report
+coverage
+.env
+.env.*
+!.env.example
+assets/source/facebook-export
+*.log

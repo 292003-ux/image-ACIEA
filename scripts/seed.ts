@@ -16,7 +16,9 @@ import * as C from './seed-content'
 const PHOTOS = path.resolve(process.cwd(), 'assets/source/photos')
 const ctx = { skipAudit: true }
 
-async function upsert<T extends 'domains' | 'projects' | 'news' | 'partners' | 'faqs' | 'pages' | 'events'>(
+async function upsert<
+  T extends 'domains' | 'projects' | 'news' | 'partners' | 'faqs' | 'pages' | 'events',
+>(
   payload: Payload,
   collection: T,
   where: Record<string, unknown>,
@@ -24,17 +26,43 @@ async function upsert<T extends 'domains' | 'projects' | 'news' | 'partners' | '
   en: Record<string, unknown>,
   status: 'published' | 'draft' = 'published',
 ) {
-  const existing = await payload.find({ collection, where: where as never, limit: 1, depth: 0, draft: true })
+  const existing = await payload.find({
+    collection,
+    where: where as never,
+    limit: 1,
+    depth: 0,
+    draft: true,
+  })
   const common = { _status: status, reviewStatus: status === 'published' ? 'approved' : 'draft' }
   let id: number | string
   if (existing.docs[0]) {
     id = existing.docs[0].id
-    await payload.update({ collection, id, locale: 'fr', data: { ...fr, ...common } as never, context: ctx, draft: status === 'draft' })
+    await payload.update({
+      collection,
+      id,
+      locale: 'fr',
+      data: { ...fr, ...common } as never,
+      context: ctx,
+      draft: status === 'draft',
+    })
   } else {
-    const doc = await payload.create({ collection, locale: 'fr', data: { ...fr, ...common } as never, context: ctx, draft: status === 'draft' })
+    const doc = await payload.create({
+      collection,
+      locale: 'fr',
+      data: { ...fr, ...common } as never,
+      context: ctx,
+      draft: status === 'draft',
+    })
     id = doc.id
   }
-  await payload.update({ collection, id, locale: 'en', data: { ...en, ...common } as never, context: ctx, draft: status === 'draft' })
+  await payload.update({
+    collection,
+    id,
+    locale: 'en',
+    data: { ...en, ...common } as never,
+    context: ctx,
+    draft: status === 'draft',
+  })
   return id
 }
 
@@ -46,7 +74,11 @@ async function seedMedia(payload: Payload) {
       payload.logger.warn(`Missing photo ${m.file}, skipped`)
       continue
     }
-    const existing = await payload.find({ collection: 'media', where: { seedKey: { equals: m.key } } as never, limit: 1 })
+    const existing = await payload.find({
+      collection: 'media',
+      where: { seedKey: { equals: m.key } } as never,
+      limit: 1,
+    })
     const data = {
       alt: m.alt.fr,
       caption: m.caption?.fr,
@@ -58,12 +90,30 @@ async function seedMedia(payload: Payload) {
     let id: number
     if (existing.docs[0]) {
       id = existing.docs[0].id as number
-      await payload.update({ collection: 'media', id, locale: 'fr', data: data as never, context: ctx })
+      await payload.update({
+        collection: 'media',
+        id,
+        locale: 'fr',
+        data: data as never,
+        context: ctx,
+      })
     } else {
-      const doc = await payload.create({ collection: 'media', locale: 'fr', data: data as never, filePath, context: ctx })
+      const doc = await payload.create({
+        collection: 'media',
+        locale: 'fr',
+        data: data as never,
+        filePath,
+        context: ctx,
+      })
       id = doc.id as number
     }
-    await payload.update({ collection: 'media', id, locale: 'en', data: { alt: m.alt.en, caption: m.caption?.en } as never, context: ctx })
+    await payload.update({
+      collection: 'media',
+      id,
+      locale: 'en',
+      data: { alt: m.alt.en, caption: m.caption?.en } as never,
+      context: ctx,
+    })
     ids[m.key] = id
   }
   return ids
@@ -77,9 +127,17 @@ async function main() {
   const email = process.env.SEED_ADMIN_EMAIL
   const password = process.env.SEED_ADMIN_PASSWORD
   if (email && password) {
-    const found = await payload.find({ collection: 'users', where: { email: { equals: email } }, limit: 1 })
+    const found = await payload.find({
+      collection: 'users',
+      where: { email: { equals: email } },
+      limit: 1,
+    })
     if (!found.docs[0]) {
-      await payload.create({ collection: 'users', data: { email, password, name: 'Super administrateur', role: 'superadmin' }, context: ctx })
+      await payload.create({
+        collection: 'users',
+        data: { email, password, name: 'Super administrateur', role: 'superadmin' },
+        context: ctx,
+      })
       payload.logger.info(`Super administrator created: ${email}`)
     }
   } else {
@@ -146,8 +204,19 @@ async function main() {
       payload,
       'domains',
       { slug: { equals: d.slug } },
-      { ...shared, title: d.title.fr, summary: d.summary.fr, body: lexical(d.body.fr), focusPoints: d.points.fr.map((text) => ({ text })) },
-      { title: d.title.en, summary: d.summary.en, body: lexical(d.body.en), focusPoints: d.points.en.map((text) => ({ text })) },
+      {
+        ...shared,
+        title: d.title.fr,
+        summary: d.summary.fr,
+        body: lexical(d.body.fr),
+        focusPoints: d.points.fr.map((text) => ({ text })),
+      },
+      {
+        title: d.title.en,
+        summary: d.summary.en,
+        body: lexical(d.body.en),
+        focusPoints: d.points.en.map((text) => ({ text })),
+      },
     )
   }
 
@@ -221,7 +290,11 @@ async function main() {
       targetAudience: P.saagdo.audience.fr,
       activities: P.saagdo.activities.fr,
       achievements: P.saagdo.achievements.fr,
-      location: { scope: P.saagdo.scope, country: 'Afrique de l’Ouest', coordinatesVerified: false },
+      location: {
+        scope: P.saagdo.scope,
+        country: 'Afrique de l’Ouest',
+        coordinatesVerified: false,
+      },
       partners: [gwpId],
       relatedNews: [newsIds['protocole-accord-gwp-afrique-de-l-ouest']],
       links: [{ label: 'Annonce officielle du GWP-AO', url: C.GWP_URL }],
@@ -258,7 +331,12 @@ async function main() {
       startDate: P.camp.startDate,
       endDate: P.camp.endDate,
       // Coordinates intentionally left empty until validated by ACIEA.
-      location: { scope: P.camp.scope, locality: P.camp.locality, country: 'Burkina Faso', coordinatesVerified: false },
+      location: {
+        scope: P.camp.scope,
+        locality: P.camp.locality,
+        country: 'Burkina Faso',
+        coordinatesVerified: false,
+      },
       relatedNews: [newsIds['camp-vacances-eco-citoyen-komsilga-2025']],
     },
     {
@@ -280,10 +358,13 @@ async function main() {
       slug: 'modele-fiche-projet',
       status: 'planned',
       title: 'Modèle de fiche projet — à dupliquer',
-      excerpt: 'Modèle non publié : dupliquez cette fiche, complétez chaque onglet avec des informations validées, puis soumettez-la à relecture.',
+      excerpt:
+        'Modèle non publié : dupliquez cette fiche, complétez chaque onglet avec des informations validées, puis soumettez-la à relecture.',
       objectives: [{ text: 'Objectif 1 (à compléter)' }],
       activities: [{ title: 'Activité (à compléter)', description: 'Description' }],
-      achievements: [{ text: 'Réalisation — cocher « vérifiée » uniquement avec une source', verified: false }],
+      achievements: [
+        { text: 'Réalisation — cocher « vérifiée » uniquement avec une source', verified: false },
+      ],
       location: { scope: 'local', country: 'Burkina Faso', coordinatesVerified: false },
     },
     { title: 'Project sheet template — duplicate me', excerpt: 'Unpublished template.' },
@@ -320,7 +401,8 @@ async function main() {
     {
       slug: 'signature-protocole-gwp-ao',
       title: 'Signature du protocole d’accord ACIEA – GWP Afrique de l’Ouest',
-      summary: 'Signature au Secrétariat du GWP-AO à Ouagadougou d’un protocole d’accord autour de l’eau, du climat et de l’innovation numérique.',
+      summary:
+        'Signature au Secrétariat du GWP-AO à Ouagadougou d’un protocole d’accord autour de l’eau, du climat et de l’innovation numérique.',
       startDate: '2026-07-03T09:00:00.000Z',
       location: 'Secrétariat du GWP-AO, Ouagadougou',
       format: 'in-person',
@@ -328,7 +410,8 @@ async function main() {
     },
     {
       title: 'Signing of the ACIEA – GWP West Africa MoU',
-      summary: 'Signing at the GWP-WA Secretariat in Ouagadougou of an MoU on water, climate and digital innovation.',
+      summary:
+        'Signing at the GWP-WA Secretariat in Ouagadougou of an MoU on water, climate and digital innovation.',
       location: 'GWP-WA Secretariat, Ouagadougou',
     },
   )
@@ -390,7 +473,12 @@ async function main() {
     data: {
       ...published,
       hero: { eyebrow: H.hero.eyebrow.en, title: H.hero.title.en, subtitle: H.hero.subtitle.en },
-      intro: { eyebrow: H.intro.eyebrow.en, title: H.intro.title.en, text: H.intro.text.en, mission: H.intro.mission.en },
+      intro: {
+        eyebrow: H.intro.eyebrow.en,
+        title: H.intro.title.en,
+        text: H.intro.text.en,
+        mission: H.intro.mission.en,
+      },
       saagdo: { title: H.saagdo.title.en, text: H.saagdo.text.en },
       cta: { title: H.cta.title.en, text: H.cta.text.en },
     } as never,
@@ -399,7 +487,12 @@ async function main() {
   const A = C.ABOUT
   const aboutFr = {
     ...published,
-    hero: { eyebrow: A.hero.eyebrow.fr, title: A.hero.title.fr, subtitle: A.hero.subtitle.fr, image: media.camp },
+    hero: {
+      eyebrow: A.hero.eyebrow.fr,
+      title: A.hero.title.fr,
+      subtitle: A.hero.subtitle.fr,
+      image: media.camp,
+    },
     presentation: lexical(A.presentation.fr),
     presentationImage: media.arbre,
     historyIntro: lexical(A.historyIntro.fr),
@@ -412,12 +505,21 @@ async function main() {
     })),
     mission: A.mission.fr,
     vision: A.vision.fr,
-    values: A.values.map((v) => ({ title: v.title.fr, description: v.description.fr, icon: v.icon })),
+    values: A.values.map((v) => ({
+      title: v.title.fr,
+      description: v.description.fr,
+      icon: v.icon,
+    })),
     commitments: A.commitments.fr.map((text) => ({ text })),
     governance: lexical(A.governance.fr),
     presidentMessage: { enabled: false },
   }
-  await payload.updateGlobal({ slug: 'about-page', locale: 'fr', context: ctx, data: aboutFr as never })
+  await payload.updateGlobal({
+    slug: 'about-page',
+    locale: 'fr',
+    context: ctx,
+    data: aboutFr as never,
+  })
   const aboutCurrent = await payload.findGlobal({ slug: 'about-page', locale: 'fr', depth: 0 })
   await payload.updateGlobal({
     slug: 'about-page',
@@ -436,15 +538,28 @@ async function main() {
       })),
       mission: A.mission.en,
       vision: A.vision.en,
-      values: (aboutCurrent.values ?? []).map((row, i) => ({ ...row, title: A.values[i]?.title.en, description: A.values[i]?.description.en })),
-      commitments: (aboutCurrent.commitments ?? []).map((row, i) => ({ ...row, text: A.commitments.en[i] })),
+      values: (aboutCurrent.values ?? []).map((row, i) => ({
+        ...row,
+        title: A.values[i]?.title.en,
+        description: A.values[i]?.description.en,
+      })),
+      commitments: (aboutCurrent.commitments ?? []).map((row, i) => ({
+        ...row,
+        text: A.commitments.en[i],
+      })),
       governance: lexical(A.governance.en),
     } as never,
   })
 
   const S = C.SAAGDO
-  const cards = (list: { icon: string; title: { fr: string; en: string }; description: { fr: string; en: string } }[], l: 'fr' | 'en') =>
-    list.map((c) => ({ icon: c.icon, title: c.title[l], description: c.description[l] }))
+  const cards = (
+    list: {
+      icon: string
+      title: { fr: string; en: string }
+      description: { fr: string; en: string }
+    }[],
+    l: 'fr' | 'en',
+  ) => list.map((c) => ({ icon: c.icon, title: c.title[l], description: c.description[l] }))
   await payload.updateGlobal({
     slug: 'saagdo-page',
     locale: 'fr',
@@ -465,7 +580,11 @@ async function main() {
   })
   const saagdoCurrent = await payload.findGlobal({ slug: 'saagdo-page', locale: 'fr', depth: 0 })
   const relocalize = (rows: { id?: string | null }[] | null | undefined, src: typeof S.problems) =>
-    (rows ?? []).map((row, i) => ({ ...row, title: src[i]?.title.en, description: src[i]?.description.en }))
+    (rows ?? []).map((row, i) => ({
+      ...row,
+      title: src[i]?.title.en,
+      description: src[i]?.description.en,
+    }))
   await payload.updateGlobal({
     slug: 'saagdo-page',
     locale: 'en',

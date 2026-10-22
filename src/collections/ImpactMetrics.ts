@@ -39,22 +39,47 @@ export const ImpactMetrics: CollectionConfig = {
     },
   },
   fields: [
-    { name: 'label', type: 'text', required: true, localized: true, label: { fr: 'Libellé', en: 'Label' } },
+    {
+      name: 'label',
+      type: 'text',
+      required: true,
+      localized: true,
+      label: { fr: 'Libellé', en: 'Label' },
+    },
     {
       type: 'row',
       fields: [
         { name: 'value', type: 'number', required: true, label: { fr: 'Valeur', en: 'Value' } },
-        { name: 'unit', type: 'text', localized: true, label: { fr: 'Unité / suffixe', en: 'Unit / suffix' } },
+        {
+          name: 'unit',
+          type: 'text',
+          localized: true,
+          label: { fr: 'Unité / suffixe', en: 'Unit / suffix' },
+        },
       ],
     },
-    { name: 'description', type: 'textarea', localized: true, label: { fr: 'Précision', en: 'Details' } },
-    { name: 'period', type: 'text', localized: true, label: { fr: 'Période couverte', en: 'Period covered' } },
+    {
+      name: 'description',
+      type: 'textarea',
+      localized: true,
+      label: { fr: 'Précision', en: 'Details' },
+    },
+    {
+      name: 'period',
+      type: 'text',
+      localized: true,
+      label: { fr: 'Période couverte', en: 'Period covered' },
+    },
     iconField(),
     {
       type: 'row',
       fields: [
         { name: 'verifiedBy', type: 'text', label: { fr: 'Validé par', en: 'Verified by' } },
-        { name: 'verificationDate', type: 'date', label: { fr: 'Date de vérification', en: 'Verification date' } },
+        {
+          name: 'verificationDate',
+          type: 'date',
+          label: { fr: 'Date de vérification', en: 'Verification date' },
+        },
       ],
     },
     sourceField,

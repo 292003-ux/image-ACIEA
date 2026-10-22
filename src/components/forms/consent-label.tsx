@@ -13,7 +13,11 @@ export function ConsentLabel() {
     <>
       {t.rich('consent', {
         link: (chunks) => (
-          <NextLink href={href} className="underline underline-offset-2 hover:text-leaf" target="_blank">
+          <NextLink
+            href={href}
+            className="underline underline-offset-2 hover:text-leaf"
+            target="_blank"
+          >
             {chunks}
           </NextLink>
         ),

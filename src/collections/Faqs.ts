@@ -7,10 +7,20 @@ export const Faqs: CollectionConfig = {
   ...editorialCollection,
   labels: { singular: 'FAQ', plural: 'FAQ' },
   defaultSort: 'order',
-  admin: { useAsTitle: 'question', group: contentGroup, defaultColumns: ['question', 'scope', '_status'] },
+  admin: {
+    useAsTitle: 'question',
+    group: contentGroup,
+    defaultColumns: ['question', 'scope', '_status'],
+  },
   fields: [
     { name: 'question', type: 'text', required: true, localized: true, label: 'Question' },
-    { name: 'answer', type: 'textarea', required: true, localized: true, label: { fr: 'Réponse', en: 'Answer' } },
+    {
+      name: 'answer',
+      type: 'textarea',
+      required: true,
+      localized: true,
+      label: { fr: 'Réponse', en: 'Answer' },
+    },
     {
       name: 'scope',
       type: 'select',

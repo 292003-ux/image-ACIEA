@@ -1,7 +1,13 @@
 import { cn } from '@/lib/utils'
 
 /** Topographic contour lines — evokes terrain, hydrology and geospatial data. */
-export function TopoLines({ className, animated = true }: { className?: string; animated?: boolean }) {
+export function TopoLines({
+  className,
+  animated = true,
+}: {
+  className?: string
+  animated?: boolean
+}) {
   const paths = Array.from({ length: 14 }, (_, i) => {
     const o = i * 26
     return `M-50 ${120 + o} C 180 ${40 + o}, 320 ${220 + o}, 560 ${120 + o} S 900 ${10 + o}, 1180 ${140 + o} S 1500 ${260 + o}, 1700 ${120 + o}`

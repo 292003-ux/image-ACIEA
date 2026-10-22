@@ -17,11 +17,15 @@ export async function purgeExpiredSubmissions(payload: Payload): Promise<number>
     })
     deleted += result.docs.length
   }
-  if (deleted > 0) payload.logger.info(`Retention: ${deleted} submission(s) older than ${months} months deleted.`)
+  if (deleted > 0)
+    payload.logger.info(`Retention: ${deleted} submission(s) older than ${months} months deleted.`)
   return deleted
 }
 
-export const purgeExpiredSubmissionsTask: TaskConfig<{ input: object; output: { deleted: number } }> = {
+export const purgeExpiredSubmissionsTask: TaskConfig<{
+  input: object
+  output: { deleted: number }
+}> = {
   slug: 'purgeExpiredSubmissions',
   label: 'Purge expired form submissions',
   schedule: [{ cron: '30 3 * * *', queue: 'maintenance' }],

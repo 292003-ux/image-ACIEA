@@ -1,7 +1,4 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/sora';
-@import '@fontsource-variable/playfair-display';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -21,7 +18,7 @@
   --color-digital: #00ba89;
   --color-digital-300: #5fdcb9;
   --color-gold: #d5ae62;
-  --color-gold-600: #a9853f;
+  --color-gold-600: #806224;
   --color-gold-100: #f5ead2;
   --color-ivory: #f6f7f2;
   --color-ivory-200: #ecefe5;
@@ -43,9 +40,9 @@
   --color-warning-bg: #fdf3dc;
 
   /* Typography */
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Sora Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Playfair Display Variable', Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
 
   /* Fluid type scale */
   --text-display: clamp(2.5rem, 1.6rem + 4.2vw, 5.25rem);
@@ -73,6 +70,28 @@
   --animate-dash: dash 18s linear infinite;
   --animate-sweep: sweep 6s linear infinite;
   --animate-fade-up: fade-up 1s var(--ease-out-soft) both;
+  --animate-rise: rise 1s var(--ease-out-soft) both;
+  --animate-fade-in: fade-in 0.35s var(--ease-out-soft) both;
+}
+
+/* Transform-only entrance: keeps the element painted (counts for LCP). */
+@keyframes rise {
+  from {
+    transform: translateY(24px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes fade-up {
@@ -161,6 +180,14 @@
     outline: 3px solid var(--color-gold);
     outline-offset: 3px;
     border-radius: 6px;
+  }
+  /* Lighter experience on small screens / modest phones: decorative loops are frozen. */
+  @media (max-width: 767px) {
+    .animate-dash,
+    .animate-sweep,
+    .animate-pulse-dot {
+      animation: none !important;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     html {

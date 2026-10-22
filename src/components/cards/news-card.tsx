@@ -28,14 +28,21 @@ export async function NewsCard({
       )}
     >
       {!compact && (
-        <div className={cn('relative overflow-hidden', featured ? 'aspect-[16/10] lg:aspect-auto lg:w-[55%]' : 'aspect-[16/10]')}>
+        <div
+          className={cn(
+            'relative overflow-hidden',
+            featured ? 'aspect-[16/10] lg:aspect-auto lg:w-[55%]' : 'aspect-[16/10]',
+          )}
+        >
           <CmsImage
             media={article.coverImage}
             className="absolute inset-0"
             imgClassName="transition-transform duration-700 group-hover:scale-[1.04]"
             placeholderSeed={article.slug}
             priority={priority}
-            sizes={featured ? '(min-width: 1024px) 640px, 100vw' : '(min-width: 1024px) 400px, 100vw'}
+            sizes={
+              featured ? '(min-width: 1024px) 640px, 100vw' : '(min-width: 1024px) 400px, 100vw'
+            }
           />
         </div>
       )}
@@ -47,7 +54,12 @@ export async function NewsCard({
           </time>
           {article._isFallback && <Badge tone="neutral">{tc('fallbackBadge')}</Badge>}
         </div>
-        <h3 className={cn('mt-4 font-display leading-snug font-semibold text-forest', featured ? 'text-h3' : 'text-lg')}>
+        <h3
+          className={cn(
+            'mt-4 font-display leading-snug font-semibold text-forest',
+            featured ? 'text-h3' : 'text-lg',
+          )}
+        >
           <Link
             href={{ pathname: '/news/[slug]', params: { slug: article.slug } }}
             className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
@@ -55,7 +67,12 @@ export async function NewsCard({
             {article.title}
           </Link>
         </h3>
-        <p className={cn('mt-3 leading-relaxed text-ink-muted', featured ? 'line-clamp-5 text-lead' : 'line-clamp-3 text-[0.95rem]')}>
+        <p
+          className={cn(
+            'mt-3 leading-relaxed text-ink-muted',
+            featured ? 'line-clamp-5 text-lead' : 'line-clamp-3 text-[0.95rem]',
+          )}
+        >
           {article.excerpt}
         </p>
         <span className="mt-auto pt-6 text-sm font-semibold text-leaf" aria-hidden="true">

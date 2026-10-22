@@ -5,7 +5,13 @@ import { Badge } from '@/components/ui/badge'
 import type { Partner } from '@/payload-types'
 import { formatDate, isSafeExternalUrl } from '@/lib/utils'
 
-export async function PartnerCard({ partner, detailed = false }: { partner: Partner; detailed?: boolean }) {
+export async function PartnerCard({
+  partner,
+  detailed = false,
+}: {
+  partner: Partner
+  detailed?: boolean
+}) {
   const t = await getTranslations('partners')
   const tc = await getTranslations('common')
   const locale = await getLocale()
@@ -14,9 +20,18 @@ export async function PartnerCard({ partner, detailed = false }: { partner: Part
       <div className="flex items-start gap-5">
         <div className="grid size-20 shrink-0 place-items-center overflow-hidden rounded-2xl bg-ivory ring-1 ring-forest/8">
           {partner.logo && typeof partner.logo === 'object' ? (
-            <CmsImage media={partner.logo} size="thumbnail" className="size-full" imgClassName="object-contain p-2" sizes="80px" showProvenance={false} />
+            <CmsImage
+              media={partner.logo}
+              size="thumbnail"
+              className="size-full"
+              imgClassName="object-contain p-2"
+              sizes="80px"
+              showProvenance={false}
+            />
           ) : (
-            <span className="font-display text-lg font-bold text-forest">{partner.acronym || partner.name.slice(0, 3)}</span>
+            <span className="px-1 text-center font-display text-sm leading-tight font-bold text-forest">
+              {partner.acronym || partner.name.slice(0, 3)}
+            </span>
           )}
         </div>
         <div className="min-w-0">
@@ -32,14 +47,17 @@ export async function PartnerCard({ partner, detailed = false }: { partner: Part
           <FileSignature className="size-4 text-gold-600" aria-hidden="true" />
           <span>
             {partner.agreementType}
-            {partner.agreementDate && ` · ${t('signedOn', { date: formatDate(partner.agreementDate, locale) })}`}
+            {partner.agreementDate &&
+              ` · ${t('signedOn', { date: formatDate(partner.agreementDate, locale) })}`}
           </span>
         </p>
       )}
-      {partner.description && <p className="mt-4 leading-relaxed text-ink-muted">{partner.description}</p>}
+      {partner.description && (
+        <p className="mt-4 leading-relaxed text-ink-muted">{partner.description}</p>
+      )}
       {detailed && partner.collaborationAreas && partner.collaborationAreas.length > 0 && (
         <div className="mt-5">
-          <p className="eyebrow mb-3 text-leaf">{t('areas')}</p>
+          <p className="mb-3 eyebrow text-leaf">{t('areas')}</p>
           <ul className="space-y-2">
             {partner.collaborationAreas.map((a) => (
               <li key={a.id} className="flex gap-2.5 text-sm text-ink">
@@ -52,14 +70,24 @@ export async function PartnerCard({ partner, detailed = false }: { partner: Part
       )}
       <div className="mt-auto flex flex-wrap gap-x-5 gap-y-2 pt-6 text-sm font-semibold">
         {isSafeExternalUrl(partner.website) && (
-          <a href={partner.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-leaf hover:underline">
+          <a
+            href={partner.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-leaf hover:underline"
+          >
             {t('visitWebsite')}
             <ExternalLink className="size-3.5" aria-hidden="true" />
             <span className="sr-only">{tc('openInNewTab')}</span>
           </a>
         )}
         {isSafeExternalUrl(partner.sourceUrl) && (
-          <a href={partner.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-ink-muted hover:text-forest hover:underline">
+          <a
+            href={partner.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-ink-muted hover:text-forest hover:underline"
+          >
             {tc('officialSource')}
             <ExternalLink className="size-3.5" aria-hidden="true" />
             <span className="sr-only">{tc('openInNewTab')}</span>

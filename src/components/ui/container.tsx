@@ -20,7 +20,7 @@ export function Section({
 }: React.ComponentProps<'section'> & { tone?: Tone; containerClassName?: string }) {
   return (
     <section className={cn('relative py-20 md:py-28', toneClass[tone], className)} {...props}>
-      <div className={cn('container-page relative', containerClassName)}>{children}</div>
+      <div className={cn('relative container-page', containerClassName)}>{children}</div>
     </section>
   )
 }

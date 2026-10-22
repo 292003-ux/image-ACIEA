@@ -31,7 +31,12 @@ export async function ProjectCard({
         list ? 'flex-col sm:flex-row' : 'flex-col',
       )}
     >
-      <div className={cn('relative overflow-hidden', list ? 'aspect-[16/10] sm:aspect-auto sm:w-72 sm:shrink-0' : 'aspect-[16/10]')}>
+      <div
+        className={cn(
+          'relative overflow-hidden',
+          list ? 'aspect-[16/10] sm:aspect-auto sm:w-72 sm:shrink-0' : 'aspect-[16/10]',
+        )}
+      >
         <CmsImage
           media={project.coverImage}
           className="absolute inset-0"
@@ -59,7 +64,9 @@ export async function ProjectCard({
             {project.title}
           </Link>
         </h3>
-        <p className="mt-3 line-clamp-3 text-[0.95rem] leading-relaxed text-ink-muted">{project.excerpt}</p>
+        <p className="mt-3 line-clamp-3 text-[0.95rem] leading-relaxed text-ink-muted">
+          {project.excerpt}
+        </p>
         <div className="mt-auto flex items-center justify-between gap-4 pt-6">
           {place ? (
             <span className="flex items-center gap-1.5 text-sm text-ink-muted">
@@ -69,13 +76,19 @@ export async function ProjectCard({
           ) : (
             <span />
           )}
-          <span className="group/btn flex items-center gap-1.5 text-sm font-semibold text-leaf" aria-hidden="true">
+          <span
+            className="group/btn flex items-center gap-1.5 text-sm font-semibold text-leaf"
+            aria-hidden="true"
+          >
             {t('viewProject')}
             <ArrowGlyph className="size-4 transition-transform group-hover:translate-x-1" />
           </span>
         </div>
       </div>
-      <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-gold to-digital transition-transform duration-500 group-hover:scale-x-100" />
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-gold to-digital transition-transform duration-500 group-hover:scale-x-100"
+      />
     </article>
   )
 }

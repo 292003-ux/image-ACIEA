@@ -15,14 +15,24 @@ export const AboutPage: GlobalConfig = {
           label: { fr: 'Présentation', en: 'Overview' },
           fields: [
             heroGroup(),
-            { name: 'presentation', type: 'richText', localized: true, label: { fr: 'Présentation générale', en: 'Overview' } },
+            {
+              name: 'presentation',
+              type: 'richText',
+              localized: true,
+              label: { fr: 'Présentation générale', en: 'Overview' },
+            },
             { name: 'presentationImage', type: 'upload', relationTo: 'media', label: 'Image' },
           ],
         },
         {
           label: { fr: 'Histoire', en: 'History' },
           fields: [
-            { name: 'historyIntro', type: 'richText', localized: true, label: { fr: 'Introduction', en: 'Introduction' } },
+            {
+              name: 'historyIntro',
+              type: 'richText',
+              localized: true,
+              label: { fr: 'Introduction', en: 'Introduction' },
+            },
             {
               name: 'milestones',
               type: 'array',
@@ -31,7 +41,12 @@ export const AboutPage: GlobalConfig = {
                 {
                   type: 'row',
                   fields: [
-                    { name: 'date', type: 'date', required: true, admin: { date: { pickerAppearance: 'dayOnly' } } },
+                    {
+                      name: 'date',
+                      type: 'date',
+                      required: true,
+                      admin: { date: { pickerAppearance: 'dayOnly' } },
+                    },
                     {
                       name: 'datePrecision',
                       type: 'select',
@@ -77,15 +92,33 @@ export const AboutPage: GlobalConfig = {
         {
           label: { fr: 'Gouvernance', en: 'Governance' },
           fields: [
-            { name: 'governance', type: 'richText', localized: true, label: { fr: 'Gouvernance', en: 'Governance' } },
+            {
+              name: 'governance',
+              type: 'richText',
+              localized: true,
+              label: { fr: 'Gouvernance', en: 'Governance' },
+            },
             {
               name: 'presidentMessage',
               type: 'group',
               label: { fr: 'Message du président', en: 'Message from the president' },
               fields: [
-                { name: 'enabled', type: 'checkbox', defaultValue: false, label: { fr: 'Afficher (texte officiel validé)', en: 'Display (approved official text)' } },
+                {
+                  name: 'enabled',
+                  type: 'checkbox',
+                  defaultValue: false,
+                  label: {
+                    fr: 'Afficher (texte officiel validé)',
+                    en: 'Display (approved official text)',
+                  },
+                },
                 localizedTextarea('text', { fr: 'Texte officiel', en: 'Official text' }),
-                { name: 'author', type: 'relationship', relationTo: 'team-members', label: { fr: 'Signataire', en: 'Signatory' } },
+                {
+                  name: 'author',
+                  type: 'relationship',
+                  relationTo: 'team-members',
+                  label: { fr: 'Signataire', en: 'Signatory' },
+                },
               ],
             },
             {
@@ -93,7 +126,10 @@ export const AboutPage: GlobalConfig = {
               type: 'upload',
               relationTo: 'documents',
               hasMany: true,
-              label: { fr: 'Documents institutionnels (statuts, rapports…)', en: 'Institutional documents' },
+              label: {
+                fr: 'Documents institutionnels (statuts, rapports…)',
+                en: 'Institutional documents',
+              },
             },
           ],
         },

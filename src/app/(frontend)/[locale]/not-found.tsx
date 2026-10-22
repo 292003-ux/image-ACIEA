@@ -11,8 +11,10 @@ export default async function NotFound() {
     <section className="relative flex min-h-[85dvh] items-center overflow-hidden bg-night pt-28 pb-20 text-white">
       <TopoLines className="absolute inset-0 opacity-50" />
       <div aria-hidden="true" className="absolute inset-0 bg-grid opacity-40" />
-      <div className="container-page relative text-center">
-        <p className="font-display text-[clamp(5rem,18vw,11rem)] leading-none font-bold text-gradient-gold">404</p>
+      <div className="relative container-page text-center">
+        <p className="text-gradient-gold font-display text-[clamp(5rem,18vw,11rem)] leading-none font-bold">
+          404
+        </p>
         <div className="mx-auto mt-4 grid size-14 place-items-center rounded-2xl bg-white/8 text-digital">
           <Compass className="size-7" aria-hidden="true" />
         </div>

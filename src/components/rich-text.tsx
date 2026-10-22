@@ -14,7 +14,10 @@ export function RichText({
 }
 
 /** Plain text excerpt from Lexical JSON (used for meta descriptions & search snippets). */
-export function lexicalToPlainText(data: SerializedEditorState | null | undefined, max = 300): string {
+export function lexicalToPlainText(
+  data: SerializedEditorState | null | undefined,
+  max = 300,
+): string {
   if (!data?.root) return ''
   const out: string[] = []
   const walk = (node: { text?: string; children?: unknown[] }) => {

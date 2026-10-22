@@ -26,7 +26,13 @@ export const Partners: CollectionConfig = {
     defaultColumns: ['name', 'category', 'agreementDate', '_status'],
   },
   fields: [
-    { name: 'name', type: 'text', required: true, localized: true, label: { fr: 'Nom officiel', en: 'Official name' } },
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+      localized: true,
+      label: { fr: 'Nom officiel', en: 'Official name' },
+    },
     { name: 'acronym', type: 'text', localized: true, label: { fr: 'Sigle', en: 'Acronym' } },
     { name: 'logo', type: 'upload', relationTo: 'media', label: 'Logo' },
     { name: 'website', type: 'text', label: { fr: 'Site officiel', en: 'Official website' } },
@@ -36,12 +42,21 @@ export const Partners: CollectionConfig = {
       required: true,
       label: { fr: 'Catégorie', en: 'Category' },
       options: [
-        { value: 'institutional', label: { fr: 'Partenaire institutionnel', en: 'Institutional partner' } },
+        {
+          value: 'institutional',
+          label: { fr: 'Partenaire institutionnel', en: 'Institutional partner' },
+        },
         { value: 'technical', label: { fr: 'Partenaire technique', en: 'Technical partner' } },
         { value: 'scientific', label: { fr: 'Partenaire scientifique', en: 'Scientific partner' } },
         { value: 'financial', label: { fr: 'Partenaire financier', en: 'Financial partner' } },
-        { value: 'technological', label: { fr: 'Partenaire technologique', en: 'Technology partner' } },
-        { value: 'community', label: { fr: 'Organisation communautaire', en: 'Community organisation' } },
+        {
+          value: 'technological',
+          label: { fr: 'Partenaire technologique', en: 'Technology partner' },
+        },
+        {
+          value: 'community',
+          label: { fr: 'Organisation communautaire', en: 'Community organisation' },
+        },
       ],
     },
     {
@@ -59,7 +74,11 @@ export const Partners: CollectionConfig = {
           localized: true,
           label: { fr: 'Cadre formel (ex. protocole d’accord)', en: 'Formal framework (e.g. MoU)' },
         },
-        { name: 'agreementDate', type: 'date', label: { fr: 'Date de signature', en: 'Signature date' } },
+        {
+          name: 'agreementDate',
+          type: 'date',
+          label: { fr: 'Date de signature', en: 'Signature date' },
+        },
       ],
     },
     {
@@ -67,7 +86,7 @@ export const Partners: CollectionConfig = {
       type: 'array',
       localized: true,
       label: { fr: 'Axes de collaboration', en: 'Areas of collaboration' },
-      fields: [{ name: 'text', type: 'text', required: true }],
+      fields: [{ name: 'text', type: 'text', required: true, label: { fr: 'Texte', en: 'Text' } }],
     },
     {
       ...sourceField,
@@ -86,7 +105,13 @@ export const Partners: CollectionConfig = {
         }
       },
     } as TextField,
-    { name: 'order', type: 'number', defaultValue: 0, label: { fr: 'Ordre', en: 'Order' }, admin: { position: 'sidebar' } },
+    {
+      name: 'order',
+      type: 'number',
+      defaultValue: 0,
+      label: { fr: 'Ordre', en: 'Order' },
+      admin: { position: 'sidebar' },
+    },
     slugField('name'),
     ...editorialFields,
   ],

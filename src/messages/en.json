@@ -134,7 +134,9 @@
     "basedIn": "Based in Ouagadougou",
     "foundedLabel": "Year founded",
     "hqLabel": "Headquarters",
-    "domainsCountLabel": "Focus areas"
+    "domainsCountLabel": "Focus areas",
+    "testimonialsEyebrow": "Testimonials",
+    "testimonialsTitle": "Voices on the Alliance"
   },
   "projects": {
     "title": "Projects & Impact",

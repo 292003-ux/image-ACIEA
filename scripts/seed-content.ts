@@ -60,7 +60,10 @@ export const MEDIA: MediaSeed[] = [
       fr: 'Rassemblement en plein air sous les arbres autour d’une bannière « Espace Jeunes — Arbre et culture »',
       en: 'Outdoor gathering under trees around an “Espace Jeunes — Arbre et culture” banner',
     },
-    caption: { fr: 'Activité autour de l’arbre et de la jeunesse', en: 'Activity on trees and youth' },
+    caption: {
+      fr: 'Activité autour de l’arbre et de la jeunesse',
+      en: 'Activity on trees and youth',
+    },
     provenance: 'official',
     gallery: true,
   },
@@ -93,7 +96,10 @@ export const MEDIA: MediaSeed[] = [
       fr: 'Délégation de l’ACIEA reçue à l’Ambassade du Royaume d’Arabie saoudite au Burkina Faso',
       en: 'ACIEA delegation received at the Embassy of the Kingdom of Saudi Arabia in Burkina Faso',
     },
-    caption: { fr: 'Audience à l’Ambassade d’Arabie saoudite — 6 mai 2025', en: 'Meeting at the Saudi Embassy — 6 May 2025' },
+    caption: {
+      fr: 'Audience à l’Ambassade d’Arabie saoudite — 6 mai 2025',
+      en: 'Meeting at the Saudi Embassy — 6 May 2025',
+    },
     provenance: 'official',
     gallery: true,
   },
@@ -104,7 +110,10 @@ export const MEDIA: MediaSeed[] = [
       fr: 'Délégation de l’ACIEA et représentants du SP/CNDD, 30 mai 2025',
       en: 'ACIEA delegation and SP/CNDD representatives, 30 May 2025',
     },
-    caption: { fr: 'Rencontre avec le SP/CNDD — 30 mai 2025', en: 'Meeting with SP/CNDD — 30 May 2025' },
+    caption: {
+      fr: 'Rencontre avec le SP/CNDD — 30 mai 2025',
+      en: 'Meeting with SP/CNDD — 30 May 2025',
+    },
     provenance: 'official',
     gallery: true,
   },
@@ -115,7 +124,10 @@ export const MEDIA: MediaSeed[] = [
       fr: 'Délégation de l’ACIEA à la Mairie centrale de Ouagadougou',
       en: 'ACIEA delegation at Ouagadougou central town hall',
     },
-    caption: { fr: 'Mairie centrale de Ouagadougou — 22 juillet 2025', en: 'Ouagadougou town hall — 22 July 2025' },
+    caption: {
+      fr: 'Mairie centrale de Ouagadougou — 22 juillet 2025',
+      en: 'Ouagadougou town hall — 22 July 2025',
+    },
     provenance: 'official',
     gallery: true,
   },
@@ -131,7 +143,10 @@ export const MEDIA: MediaSeed[] = [
   {
     key: 'wateraid',
     file: 'FG.jpg',
-    alt: { fr: 'Membres de l’ACIEA dans les locaux de WaterAid', en: 'ACIEA members at WaterAid offices' },
+    alt: {
+      fr: 'Membres de l’ACIEA dans les locaux de WaterAid',
+      en: 'ACIEA members at WaterAid offices',
+    },
     provenance: 'official',
     gallery: true,
   },
@@ -148,7 +163,10 @@ export const MEDIA: MediaSeed[] = [
   {
     key: 'atelier',
     file: 'pournous.jpg',
-    alt: { fr: 'Séance de travail en salle informatique', en: 'Working session in a computer room' },
+    alt: {
+      fr: 'Séance de travail en salle informatique',
+      en: 'Working session in a computer room',
+    },
     caption: { fr: 'Séance de travail', en: 'Working session' },
     provenance: 'official',
     gallery: true,
@@ -156,7 +174,10 @@ export const MEDIA: MediaSeed[] = [
   {
     key: 'rencontre',
     file: 'TGTGR.jpg',
-    alt: { fr: 'Délégation de l’ACIEA lors d’une rencontre institutionnelle', en: 'ACIEA delegation at an institutional meeting' },
+    alt: {
+      fr: 'Délégation de l’ACIEA lors d’une rencontre institutionnelle',
+      en: 'ACIEA delegation at an institutional meeting',
+    },
     caption: { fr: 'Rencontre institutionnelle', en: 'Institutional meeting' },
     provenance: 'official',
     gallery: true,
@@ -164,7 +185,10 @@ export const MEDIA: MediaSeed[] = [
   {
     key: 'rencontre2',
     file: 'OTRE.jpg',
-    alt: { fr: 'Délégation de l’ACIEA reçue dans un bureau institutionnel', en: 'ACIEA delegation received in an institutional office' },
+    alt: {
+      fr: 'Délégation de l’ACIEA reçue dans un bureau institutionnel',
+      en: 'ACIEA delegation received in an institutional office',
+    },
     caption: { fr: 'Rencontre institutionnelle', en: 'Institutional meeting' },
     provenance: 'official',
     gallery: true,
@@ -172,7 +196,10 @@ export const MEDIA: MediaSeed[] = [
   {
     key: 'presentation',
     file: 'sithao.jpg',
-    alt: { fr: 'Membres de l’ACIEA lors d’une présentation', en: 'ACIEA members during a presentation' },
+    alt: {
+      fr: 'Membres de l’ACIEA lors d’une présentation',
+      en: 'ACIEA members during a presentation',
+    },
     caption: { fr: 'Présentation publique', en: 'Public presentation' },
     provenance: 'official',
     gallery: true,
@@ -188,7 +215,10 @@ export const SETTINGS = {
     fr: 'Alliance pour l’innovation climatique et l’action écologique',
     en: 'Alliance for Climate Innovation and Ecological Action',
   },
-  tagline: { fr: 'Innovons ensemble pour un avenir durable', en: 'Innovating together for a sustainable future' },
+  tagline: {
+    fr: 'Innovons ensemble pour un avenir durable',
+    en: 'Innovating together for a sustainable future',
+  },
   description: {
     fr: 'Organisation à but non lucratif basée à Ouagadougou, l’ACIEA mobilise l’innovation, la science et l’engagement des jeunes au service du climat, de l’eau et des écosystèmes.',
     en: 'A non-profit organisation based in Ouagadougou, ACIEA mobilises innovation, science and youth engagement for the climate, water and ecosystems.',
@@ -296,7 +326,10 @@ export const DOMAINS: {
   {
     slug: 'innovation-numerique-ia',
     icon: 'brain-circuit',
-    title: { fr: 'Innovation numérique et intelligence artificielle', en: 'Digital innovation and artificial intelligence' },
+    title: {
+      fr: 'Innovation numérique et intelligence artificielle',
+      en: 'Digital innovation and artificial intelligence',
+    },
     summary: {
       fr: 'Mettre le numérique, la donnée et l’intelligence artificielle au service de l’action environnementale et de l’aide à la décision.',
       en: 'Harnessing digital tools, data and artificial intelligence for environmental action and decision support.',
@@ -333,14 +366,25 @@ export const DOMAINS: {
       en: 'ACIEA aims to base its initiatives on reliable data and rigorous methods, and to contribute knowledge useful to decision-makers and communities.',
     },
     points: {
-      fr: ['Collecte et analyse de données', 'Coopération avec les universités et centres de recherche', 'Diffusion des connaissances'],
-      en: ['Data collection and analysis', 'Cooperation with universities and research centres', 'Knowledge sharing'],
+      fr: [
+        'Collecte et analyse de données',
+        'Coopération avec les universités et centres de recherche',
+        'Diffusion des connaissances',
+      ],
+      en: [
+        'Data collection and analysis',
+        'Cooperation with universities and research centres',
+        'Knowledge sharing',
+      ],
     },
   },
   {
     slug: 'education-engagement',
     icon: 'graduation-cap',
-    title: { fr: 'Éducation environnementale et engagement communautaire', en: 'Environmental education and community engagement' },
+    title: {
+      fr: 'Éducation environnementale et engagement communautaire',
+      en: 'Environmental education and community engagement',
+    },
     summary: {
       fr: 'Former, sensibiliser et mobiliser les jeunes et les communautés pour faire de chacun un acteur de la transition écologique.',
       en: 'Training, raising awareness and mobilising young people and communities so that everyone becomes an actor of the ecological transition.',
@@ -372,7 +416,10 @@ export const DOMAINS: {
 
 export const GWP_PARTNER = {
   slug: 'gwp-afrique-de-l-ouest',
-  name: { fr: 'Global Water Partnership Afrique de l’Ouest', en: 'Global Water Partnership West Africa' },
+  name: {
+    fr: 'Global Water Partnership Afrique de l’Ouest',
+    en: 'Global Water Partnership West Africa',
+  },
   acronym: { fr: 'GWP-AO', en: 'GWP-WA' },
   website: 'https://gwpo-gwp.org/afrique-ouest/',
   category: 'institutional' as const,
@@ -669,7 +716,8 @@ Both parties expressed their wish to build partnerships for sustainable developm
     category: 'institutional',
     cover: 'wateraid',
     draft: true,
-    reviewNote: 'Date exacte à confirmer (publication Facebook tronquée : « Le mercredi 2… »). Contenu à compléter.',
+    reviewNote:
+      'Date exacte à confirmer (publication Facebook tronquée : « Le mercredi 2… »). Contenu à compléter.',
     title: {
       fr: 'Rencontre entre l’ACIEA et le Directeur pays de WaterAid',
       en: 'ACIEA meets the WaterAid Country Director',
@@ -678,7 +726,10 @@ Both parties expressed their wish to build partnerships for sustainable developm
       fr: 'Une opportunité de collaboration prometteuse. (Brouillon — date et contenu à confirmer.)',
       en: 'A promising collaboration opportunity. (Draft — date and content to be confirmed.)',
     },
-    content: { fr: 'Contenu à compléter à partir de la publication officielle.', en: 'Content to be completed from the official post.' },
+    content: {
+      fr: 'Contenu à compléter à partir de la publication officielle.',
+      en: 'Content to be completed from the official post.',
+    },
     sourceUrl: FB_URL,
   },
   {
@@ -692,8 +743,14 @@ Both parties expressed their wish to build partnerships for sustainable developm
       fr: 'Climat, jeunesse et innovation : l’ACIEA reçue par l’Ambassade du Brésil',
       en: 'Climate, youth and innovation: ACIEA received by the Embassy of Brazil',
     },
-    excerpt: { fr: 'Brouillon — date et contenu à confirmer.', en: 'Draft — date and content to be confirmed.' },
-    content: { fr: 'Contenu à compléter à partir de la publication officielle.', en: 'Content to be completed from the official post.' },
+    excerpt: {
+      fr: 'Brouillon — date et contenu à confirmer.',
+      en: 'Draft — date and content to be confirmed.',
+    },
+    content: {
+      fr: 'Contenu à compléter à partir de la publication officielle.',
+      en: 'Content to be completed from the official post.',
+    },
     sourceUrl: FB_URL,
   },
   {
@@ -702,9 +759,13 @@ Both parties expressed their wish to build partnerships for sustainable developm
     category: 'field',
     cover: 'arbre',
     draft: true,
-    reviewNote: 'Vidéo « Journée nationale de l’arbre 2025 » publiée sur Facebook : date, lieu et contenu à confirmer.',
+    reviewNote:
+      'Vidéo « Journée nationale de l’arbre 2025 » publiée sur Facebook : date, lieu et contenu à confirmer.',
     title: { fr: 'Journée nationale de l’arbre 2025', en: 'National Tree Day 2025' },
-    excerpt: { fr: 'Brouillon — date, lieu et contenu à confirmer.', en: 'Draft — date, place and content to be confirmed.' },
+    excerpt: {
+      fr: 'Brouillon — date, lieu et contenu à confirmer.',
+      en: 'Draft — date, place and content to be confirmed.',
+    },
     content: { fr: 'Contenu à compléter.', en: 'Content to be completed.' },
     sourceUrl: FB_URL,
   },
@@ -750,17 +811,41 @@ SAAGDO was designed to meet this need by combining citizen contributions, enviro
     },
     activities: {
       fr: [
-        { title: 'Application mobile', description: 'Outil de contribution et de collecte d’informations.' },
-        { title: 'Plateforme de gestion', description: 'Centralisation, traitement et visualisation des données.' },
+        {
+          title: 'Application mobile',
+          description: 'Outil de contribution et de collecte d’informations.',
+        },
+        {
+          title: 'Plateforme de gestion',
+          description: 'Centralisation, traitement et visualisation des données.',
+        },
       ],
       en: [
-        { title: 'Mobile application', description: 'Tool for contributing and collecting information.' },
-        { title: 'Management platform', description: 'Centralising, processing and visualising data.' },
+        {
+          title: 'Mobile application',
+          description: 'Tool for contributing and collecting information.',
+        },
+        {
+          title: 'Management platform',
+          description: 'Centralising, processing and visualising data.',
+        },
       ],
     },
     achievements: {
-      fr: [{ text: 'Protocole d’accord signé avec le GWP Afrique de l’Ouest le 3 juillet 2026', verified: true, sourceUrl: GWP_URL }],
-      en: [{ text: 'Memorandum of Understanding signed with GWP West Africa on 3 July 2026', verified: true, sourceUrl: GWP_URL }],
+      fr: [
+        {
+          text: 'Protocole d’accord signé avec le GWP Afrique de l’Ouest le 3 juillet 2026',
+          verified: true,
+          sourceUrl: GWP_URL,
+        },
+      ],
+      en: [
+        {
+          text: 'Memorandum of Understanding signed with GWP West Africa on 3 July 2026',
+          verified: true,
+          sourceUrl: GWP_URL,
+        },
+      ],
     },
     audience: {
       fr: 'Communautés, collectivités, services techniques et acteurs de l’eau et de l’assainissement.',
@@ -789,26 +874,67 @@ Le camp a voulu montrer qu’avec peu de moyens mais beaucoup de volonté, il es
 The camp set out to show that with few resources but strong commitment, local solutions to global challenges are possible.`,
     },
     objectives: {
-      fr: ['Outiller les jeunes avec des solutions pratiques', 'Promouvoir l’éco-citoyenneté', 'Agir concrètement pour la nature'],
-      en: ['Equip young people with practical solutions', 'Promote eco-citizenship', 'Take concrete action for nature'],
+      fr: [
+        'Outiller les jeunes avec des solutions pratiques',
+        'Promouvoir l’éco-citoyenneté',
+        'Agir concrètement pour la nature',
+      ],
+      en: [
+        'Equip young people with practical solutions',
+        'Promote eco-citizenship',
+        'Take concrete action for nature',
+      ],
     },
     activities: {
       fr: [
-        { title: 'Agriculture hors-sol', description: 'Alternative innovante face aux défis de la sécurité alimentaire et du changement climatique.' },
-        { title: 'Recyclage des pneus usagés', description: 'Transformer les déchets en ressources utiles pour réduire la pollution.' },
-        { title: 'Éco-citoyenneté', description: 'Comprendre son rôle et ses responsabilités dans la construction d’un avenir durable.' },
+        {
+          title: 'Agriculture hors-sol',
+          description:
+            'Alternative innovante face aux défis de la sécurité alimentaire et du changement climatique.',
+        },
+        {
+          title: 'Recyclage des pneus usagés',
+          description: 'Transformer les déchets en ressources utiles pour réduire la pollution.',
+        },
+        {
+          title: 'Éco-citoyenneté',
+          description:
+            'Comprendre son rôle et ses responsabilités dans la construction d’un avenir durable.',
+        },
         { title: 'Reboisement', description: 'Action de terrain menée par les participants.' },
       ],
       en: [
-        { title: 'Soilless farming', description: 'An innovative response to food security and climate challenges.' },
-        { title: 'Recycling used tyres', description: 'Turning waste into useful resources to reduce pollution.' },
-        { title: 'Eco-citizenship', description: 'Understanding one’s role and responsibilities in building a sustainable future.' },
+        {
+          title: 'Soilless farming',
+          description: 'An innovative response to food security and climate challenges.',
+        },
+        {
+          title: 'Recycling used tyres',
+          description: 'Turning waste into useful resources to reduce pollution.',
+        },
+        {
+          title: 'Eco-citizenship',
+          description:
+            'Understanding one’s role and responsibilities in building a sustainable future.',
+        },
         { title: 'Tree planting', description: 'Field action carried out by participants.' },
       ],
     },
     achievements: {
-      fr: [{ text: 'Camp organisé du 2 au 8 septembre 2025 à Komsilga avec des ateliers pratiques et une action de reboisement', verified: true, sourceUrl: FB_URL }],
-      en: [{ text: 'Camp held from 2 to 8 September 2025 in Komsilga with hands-on workshops and a tree-planting action', verified: true, sourceUrl: FB_URL }],
+      fr: [
+        {
+          text: 'Camp organisé du 2 au 8 septembre 2025 à Komsilga avec des ateliers pratiques et une action de reboisement',
+          verified: true,
+          sourceUrl: FB_URL,
+        },
+      ],
+      en: [
+        {
+          text: 'Camp held from 2 to 8 September 2025 in Komsilga with hands-on workshops and a tree-planting action',
+          verified: true,
+          sourceUrl: FB_URL,
+        },
+      ],
     },
     audience: { fr: 'Jeunes.', en: 'Young people.' },
   },
@@ -820,8 +946,14 @@ The camp set out to show that with few resources but strong commitment, local so
 
 export const HOMEPAGE = {
   hero: {
-    eyebrow: { fr: 'Alliance for Climate Innovation and Ecological Action', en: 'Alliance for Climate Innovation and Ecological Action' },
-    title: { fr: 'Innover pour le climat. Agir pour un avenir durable.', en: 'Innovating for the climate. Acting for a sustainable future.' },
+    eyebrow: {
+      fr: 'Alliance for Climate Innovation and Ecological Action',
+      en: 'Alliance for Climate Innovation and Ecological Action',
+    },
+    title: {
+      fr: 'Innover pour le climat. Agir pour un avenir durable.',
+      en: 'Innovating for the climate. Acting for a sustainable future.',
+    },
     subtitle: {
       fr: 'Basée à Ouagadougou, l’ACIEA est une organisation à but non lucratif qui réunit innovation, science et engagement citoyen pour protéger l’environnement et renforcer la résilience climatique au Burkina Faso et en Afrique de l’Ouest.',
       en: 'Based in Ouagadougou, ACIEA is a non-profit organisation bringing together innovation, science and civic engagement to protect the environment and strengthen climate resilience in Burkina Faso and West Africa.',
@@ -829,7 +961,10 @@ export const HOMEPAGE = {
   },
   intro: {
     eyebrow: { fr: 'Qui sommes-nous', en: 'Who we are' },
-    title: { fr: 'Une alliance tournée vers les solutions', en: 'An alliance focused on solutions' },
+    title: {
+      fr: 'Une alliance tournée vers les solutions',
+      en: 'An alliance focused on solutions',
+    },
     text: {
       fr: 'Face à l’urgence climatique et à la dégradation des écosystèmes, l’ACIEA a fait le choix de l’action. Créée en 2024 à Ouagadougou, l’Alliance rassemble des jeunes engagés, des profils scientifiques et techniques et des acteurs de terrain.\n\nNotre conviction : l’innovation, la donnée et l’engagement collectif permettent de concevoir des solutions durables, adaptées aux réalités locales.',
       en: 'Faced with the climate emergency and ecosystem degradation, ACIEA has chosen action. Founded in 2024 in Ouagadougou, the Alliance brings together committed young people, scientific and technical profiles and field actors.\n\nOur conviction: innovation, data and collective engagement make it possible to design sustainable solutions suited to local realities.',
@@ -864,7 +999,10 @@ export const HOMEPAGE = {
 export const ABOUT = {
   hero: {
     eyebrow: { fr: 'À propos', en: 'About' },
-    title: { fr: 'Une alliance de jeunes engagés pour l’innovation climatique', en: 'An alliance of committed young people for climate innovation' },
+    title: {
+      fr: 'Une alliance de jeunes engagés pour l’innovation climatique',
+      en: 'An alliance of committed young people for climate innovation',
+    },
     subtitle: {
       fr: 'L’ACIEA conjugue innovation, science et action de terrain pour relever les défis environnementaux du Burkina Faso et de l’Afrique de l’Ouest.',
       en: 'ACIEA combines innovation, science and field action to tackle environmental challenges in Burkina Faso and West Africa.',
@@ -887,14 +1025,80 @@ ACIEA works alongside national and international partners to protect the environ
     en: 'Since its creation in 2024, ACIEA has engaged with national institutions, local authorities and international partners while carrying out field actions with young people. The milestones below are documented by official publications.',
   },
   milestones: [
-    { date: '2024-06-30T12:00:00.000Z', precision: 'year', title: { fr: 'Création de l’ACIEA à Ouagadougou', en: 'ACIEA founded in Ouagadougou' }, description: { fr: 'Naissance de l’Alliance for Climate Innovation and Ecological Action.', en: 'The Alliance for Climate Innovation and Ecological Action is born.' }, sourceUrl: LINKEDIN_URL },
-    { date: '2025-05-06T12:00:00.000Z', precision: 'day', title: { fr: 'Audience à l’Ambassade du Royaume d’Arabie saoudite', en: 'Meeting at the Embassy of Saudi Arabia' }, sourceUrl: FB_URL },
-    { date: '2025-05-20T12:00:00.000Z', precision: 'day', title: { fr: 'Échange avec l’Ambassade du Royaume des Pays-Bas', en: 'Exchange with the Embassy of the Netherlands' }, sourceUrl: FB_URL },
-    { date: '2025-05-30T12:00:00.000Z', precision: 'day', title: { fr: 'Rencontre avec le SP/CNDD', en: 'Meeting with SP/CNDD' }, sourceUrl: FB_URL },
-    { date: '2025-07-08T12:00:00.000Z', precision: 'day', title: { fr: 'Rencontre avec le Ministère de l’Environnement, de l’Eau et de l’Assainissement', en: 'Meeting with the Ministry of Environment, Water and Sanitation' }, sourceUrl: FB_URL },
-    { date: '2025-07-22T12:00:00.000Z', precision: 'day', title: { fr: 'Rencontre avec la Mairie centrale de Ouagadougou', en: 'Meeting with Ouagadougou central town hall' }, sourceUrl: FB_URL },
-    { date: '2025-09-02T12:00:00.000Z', precision: 'day', title: { fr: 'Camp Vacances Éco-Citoyen à Komsilga (2–8 septembre)', en: 'Eco-Citizen Holiday Camp in Komsilga (2–8 September)' }, sourceUrl: FB_URL },
-    { date: '2026-07-03T12:00:00.000Z', precision: 'day', title: { fr: 'Protocole d’accord avec le GWP Afrique de l’Ouest', en: 'Memorandum of Understanding with GWP West Africa' }, description: { fr: 'Partenariat pour la gestion durable de l’eau, la résilience climatique et l’innovation numérique, autour de SAAGDO.', en: 'Partnership on sustainable water management, climate resilience and digital innovation, centred on SAAGDO.' }, sourceUrl: GWP_URL },
+    {
+      date: '2024-06-30T12:00:00.000Z',
+      precision: 'year',
+      title: { fr: 'Création de l’ACIEA à Ouagadougou', en: 'ACIEA founded in Ouagadougou' },
+      description: {
+        fr: 'Naissance de l’Alliance for Climate Innovation and Ecological Action.',
+        en: 'The Alliance for Climate Innovation and Ecological Action is born.',
+      },
+      sourceUrl: LINKEDIN_URL,
+    },
+    {
+      date: '2025-05-06T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Audience à l’Ambassade du Royaume d’Arabie saoudite',
+        en: 'Meeting at the Embassy of Saudi Arabia',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-05-20T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Échange avec l’Ambassade du Royaume des Pays-Bas',
+        en: 'Exchange with the Embassy of the Netherlands',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-05-30T12:00:00.000Z',
+      precision: 'day',
+      title: { fr: 'Rencontre avec le SP/CNDD', en: 'Meeting with SP/CNDD' },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-07-08T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Rencontre avec le Ministère de l’Environnement, de l’Eau et de l’Assainissement',
+        en: 'Meeting with the Ministry of Environment, Water and Sanitation',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-07-22T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Rencontre avec la Mairie centrale de Ouagadougou',
+        en: 'Meeting with Ouagadougou central town hall',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-09-02T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Camp Vacances Éco-Citoyen à Komsilga (2–8 septembre)',
+        en: 'Eco-Citizen Holiday Camp in Komsilga (2–8 September)',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2026-07-03T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Protocole d’accord avec le GWP Afrique de l’Ouest',
+        en: 'Memorandum of Understanding with GWP West Africa',
+      },
+      description: {
+        fr: 'Partenariat pour la gestion durable de l’eau, la résilience climatique et l’innovation numérique, autour de SAAGDO.',
+        en: 'Partnership on sustainable water management, climate resilience and digital innovation, centred on SAAGDO.',
+      },
+      sourceUrl: GWP_URL,
+    },
   ],
   mission: {
     fr: 'Promouvoir des solutions innovantes, durables et adaptées aux réalités locales face aux défis environnementaux et climatiques, en renforçant les capacités des communautés et l’engagement citoyen, en particulier des jeunes et des femmes.',
@@ -905,10 +1109,38 @@ ACIEA works alongside national and international partners to protect the environ
     en: 'A sustainable transformation driven by ecological innovation, serving communities and the planet, for a prosperous, ecological and united Burkina Faso.',
   },
   values: [
-    { icon: 'leaf', title: { fr: 'Écologie', en: 'Ecology' }, description: { fr: 'Protéger les écosystèmes et les ressources naturelles dont dépendent les populations.', en: 'Protecting the ecosystems and natural resources people depend on.' } },
-    { icon: 'lightbulb', title: { fr: 'Innovation', en: 'Innovation' }, description: { fr: 'Mobiliser la créativité, la science et le numérique pour des solutions nouvelles.', en: 'Harnessing creativity, science and digital tools for new solutions.' } },
-    { icon: 'recycle', title: { fr: 'Salubrité', en: 'Sanitation' }, description: { fr: 'Promouvoir un cadre de vie sain, la gestion des déchets et l’assainissement.', en: 'Promoting healthy living environments, waste management and sanitation.' } },
-    { icon: 'sun', title: { fr: 'Énergie durable', en: 'Sustainable energy' }, description: { fr: 'Encourager des choix énergétiques sobres et respectueux de l’environnement.', en: 'Encouraging energy choices that are efficient and environmentally friendly.' } },
+    {
+      icon: 'leaf',
+      title: { fr: 'Écologie', en: 'Ecology' },
+      description: {
+        fr: 'Protéger les écosystèmes et les ressources naturelles dont dépendent les populations.',
+        en: 'Protecting the ecosystems and natural resources people depend on.',
+      },
+    },
+    {
+      icon: 'lightbulb',
+      title: { fr: 'Innovation', en: 'Innovation' },
+      description: {
+        fr: 'Mobiliser la créativité, la science et le numérique pour des solutions nouvelles.',
+        en: 'Harnessing creativity, science and digital tools for new solutions.',
+      },
+    },
+    {
+      icon: 'recycle',
+      title: { fr: 'Salubrité', en: 'Sanitation' },
+      description: {
+        fr: 'Promouvoir un cadre de vie sain, la gestion des déchets et l’assainissement.',
+        en: 'Promoting healthy living environments, waste management and sanitation.',
+      },
+    },
+    {
+      icon: 'sun',
+      title: { fr: 'Énergie durable', en: 'Sustainable energy' },
+      description: {
+        fr: 'Encourager des choix énergétiques sobres et respectueux de l’environnement.',
+        en: 'Encouraging energy choices that are efficient and environmentally friendly.',
+      },
+    },
   ],
   commitments: {
     fr: [
@@ -937,7 +1169,10 @@ The detailed composition of its bodies (general assembly, executive office) as w
 export const SAAGDO = {
   hero: {
     eyebrow: { fr: 'Plateforme numérique environnementale', en: 'Environmental digital platform' },
-    title: { fr: 'SAAGDO : mettre la donnée environnementale au service de l’action.', en: 'SAAGDO: putting environmental data to work for action.' },
+    title: {
+      fr: 'SAAGDO : mettre la donnée environnementale au service de l’action.',
+      en: 'SAAGDO: putting environmental data to work for action.',
+    },
     subtitle: {
       fr: 'SAAGDO associe une application mobile et une plateforme de gestion pour renforcer la surveillance environnementale, la cartographie citoyenne et l’anticipation des risques de pollution liés à l’eau et à l’assainissement.',
       en: 'SAAGDO combines a mobile application and a management platform to strengthen environmental monitoring, citizen mapping and the anticipation of water- and sanitation-related pollution risks.',
@@ -948,30 +1183,142 @@ export const SAAGDO = {
     en: 'Preventing water- and sanitation-related pollution requires reliable, up-to-date and shared information. Several obstacles currently hold back action.',
   },
   problems: [
-    { icon: 'droplets', title: { fr: 'Pollution des ressources en eau', en: 'Water resource pollution' }, description: { fr: 'Rejets, dépôts de déchets et défaillances d’assainissement menacent la qualité de l’eau.', en: 'Discharges, waste dumping and sanitation failures threaten water quality.' } },
-    { icon: 'map', title: { fr: 'Collecte d’informations', en: 'Information collection' }, description: { fr: 'Les observations de terrain sont dispersées et rarement consolidées.', en: 'Field observations are scattered and rarely consolidated.' } },
-    { icon: 'eye', title: { fr: 'Surveillance environnementale', en: 'Environmental monitoring' }, description: { fr: 'Un suivi régulier des sites sensibles est difficile à organiser.', en: 'Regular monitoring of sensitive sites is hard to organise.' } },
-    { icon: 'globe', title: { fr: 'Accès aux données', en: 'Data access' }, description: { fr: 'Les données utiles restent souvent peu accessibles aux acteurs concernés.', en: 'Useful data often remains hard to access for stakeholders.' } },
-    { icon: 'users', title: { fr: 'Participation des communautés', en: 'Community participation' }, description: { fr: 'Les citoyens manquent d’outils simples pour signaler et suivre les problèmes.', en: 'Citizens lack simple tools to report and follow up on issues.' } },
-    { icon: 'scale', title: { fr: 'Aide à la décision', en: 'Decision support' }, description: { fr: 'Les décideurs ont besoin d’informations synthétiques pour anticiper.', en: 'Decision-makers need synthesised information to anticipate.' } },
+    {
+      icon: 'droplets',
+      title: { fr: 'Pollution des ressources en eau', en: 'Water resource pollution' },
+      description: {
+        fr: 'Rejets, dépôts de déchets et défaillances d’assainissement menacent la qualité de l’eau.',
+        en: 'Discharges, waste dumping and sanitation failures threaten water quality.',
+      },
+    },
+    {
+      icon: 'map',
+      title: { fr: 'Collecte d’informations', en: 'Information collection' },
+      description: {
+        fr: 'Les observations de terrain sont dispersées et rarement consolidées.',
+        en: 'Field observations are scattered and rarely consolidated.',
+      },
+    },
+    {
+      icon: 'eye',
+      title: { fr: 'Surveillance environnementale', en: 'Environmental monitoring' },
+      description: {
+        fr: 'Un suivi régulier des sites sensibles est difficile à organiser.',
+        en: 'Regular monitoring of sensitive sites is hard to organise.',
+      },
+    },
+    {
+      icon: 'globe',
+      title: { fr: 'Accès aux données', en: 'Data access' },
+      description: {
+        fr: 'Les données utiles restent souvent peu accessibles aux acteurs concernés.',
+        en: 'Useful data often remains hard to access for stakeholders.',
+      },
+    },
+    {
+      icon: 'users',
+      title: { fr: 'Participation des communautés', en: 'Community participation' },
+      description: {
+        fr: 'Les citoyens manquent d’outils simples pour signaler et suivre les problèmes.',
+        en: 'Citizens lack simple tools to report and follow up on issues.',
+      },
+    },
+    {
+      icon: 'scale',
+      title: { fr: 'Aide à la décision', en: 'Decision support' },
+      description: {
+        fr: 'Les décideurs ont besoin d’informations synthétiques pour anticiper.',
+        en: 'Decision-makers need synthesised information to anticipate.',
+      },
+    },
   ],
   solutionIntro: {
     fr: 'SAAGDO repose sur deux composantes complémentaires et sur trois fonctions clés, telles que décrites dans le cadre du partenariat avec le GWP Afrique de l’Ouest.',
     en: 'SAAGDO relies on two complementary components and three key functions, as described in the partnership with GWP West Africa.',
   },
   components: [
-    { icon: 'cpu', title: { fr: 'Application mobile', en: 'Mobile application' }, description: { fr: 'Pour contribuer depuis le terrain et remonter des observations.', en: 'To contribute from the field and report observations.' } },
-    { icon: 'line-chart', title: { fr: 'Plateforme de gestion', en: 'Management platform' }, description: { fr: 'Pour centraliser, traiter et exploiter les informations.', en: 'To centralise, process and use information.' } },
-    { icon: 'map', title: { fr: 'Cartographie participative', en: 'Participatory mapping' }, description: { fr: 'Pour localiser les observations et partager une vision commune du territoire.', en: 'To locate observations and share a common view of the territory.' } },
-    { icon: 'satellite', title: { fr: 'Surveillance environnementale', en: 'Environmental monitoring' }, description: { fr: 'Pour suivre l’évolution des situations dans le temps.', en: 'To track how situations evolve over time.' } },
-    { icon: 'brain-circuit', title: { fr: 'Analyse et prévision des risques', en: 'Risk analysis and prediction' }, description: { fr: 'Pour anticiper les risques de pollution liés à l’eau et à l’assainissement.', en: 'To anticipate water- and sanitation-related pollution risks.' } },
+    {
+      icon: 'cpu',
+      title: { fr: 'Application mobile', en: 'Mobile application' },
+      description: {
+        fr: 'Pour contribuer depuis le terrain et remonter des observations.',
+        en: 'To contribute from the field and report observations.',
+      },
+    },
+    {
+      icon: 'line-chart',
+      title: { fr: 'Plateforme de gestion', en: 'Management platform' },
+      description: {
+        fr: 'Pour centraliser, traiter et exploiter les informations.',
+        en: 'To centralise, process and use information.',
+      },
+    },
+    {
+      icon: 'map',
+      title: { fr: 'Cartographie participative', en: 'Participatory mapping' },
+      description: {
+        fr: 'Pour localiser les observations et partager une vision commune du territoire.',
+        en: 'To locate observations and share a common view of the territory.',
+      },
+    },
+    {
+      icon: 'satellite',
+      title: { fr: 'Surveillance environnementale', en: 'Environmental monitoring' },
+      description: {
+        fr: 'Pour suivre l’évolution des situations dans le temps.',
+        en: 'To track how situations evolve over time.',
+      },
+    },
+    {
+      icon: 'brain-circuit',
+      title: { fr: 'Analyse et prévision des risques', en: 'Risk analysis and prediction' },
+      description: {
+        fr: 'Pour anticiper les risques de pollution liés à l’eau et à l’assainissement.',
+        en: 'To anticipate water- and sanitation-related pollution risks.',
+      },
+    },
   ],
   flow: [
-    { icon: 'users', title: { fr: 'Contribution terrain', en: 'Field contribution' }, description: { fr: 'Citoyens et agents signalent une observation via l’application mobile.', en: 'Citizens and field agents report an observation via the mobile app.' } },
-    { icon: 'satellite', title: { fr: 'Collecte des données', en: 'Data collection' }, description: { fr: 'Les observations sont regroupées sur la plateforme de gestion.', en: 'Observations are gathered on the management platform.' } },
-    { icon: 'brain-circuit', title: { fr: 'Traitement et analyse', en: 'Processing and analysis' }, description: { fr: 'Les informations sont structurées et analysées pour identifier des risques.', en: 'Information is structured and analysed to identify risks.' } },
-    { icon: 'map', title: { fr: 'Cartographie', en: 'Mapping' }, description: { fr: 'Les résultats sont restitués sur des cartes lisibles.', en: 'Results are presented on readable maps.' } },
-    { icon: 'scale', title: { fr: 'Aide à la décision', en: 'Decision support' }, description: { fr: 'Les acteurs disposent d’informations utiles pour agir et anticiper.', en: 'Stakeholders get useful information to act and anticipate.' } },
+    {
+      icon: 'users',
+      title: { fr: 'Contribution terrain', en: 'Field contribution' },
+      description: {
+        fr: 'Citoyens et agents signalent une observation via l’application mobile.',
+        en: 'Citizens and field agents report an observation via the mobile app.',
+      },
+    },
+    {
+      icon: 'satellite',
+      title: { fr: 'Collecte des données', en: 'Data collection' },
+      description: {
+        fr: 'Les observations sont regroupées sur la plateforme de gestion.',
+        en: 'Observations are gathered on the management platform.',
+      },
+    },
+    {
+      icon: 'brain-circuit',
+      title: { fr: 'Traitement et analyse', en: 'Processing and analysis' },
+      description: {
+        fr: 'Les informations sont structurées et analysées pour identifier des risques.',
+        en: 'Information is structured and analysed to identify risks.',
+      },
+    },
+    {
+      icon: 'map',
+      title: { fr: 'Cartographie', en: 'Mapping' },
+      description: {
+        fr: 'Les résultats sont restitués sur des cartes lisibles.',
+        en: 'Results are presented on readable maps.',
+      },
+    },
+    {
+      icon: 'scale',
+      title: { fr: 'Aide à la décision', en: 'Decision support' },
+      description: {
+        fr: 'Les acteurs disposent d’informations utiles pour agir et anticiper.',
+        en: 'Stakeholders get useful information to act and anticipate.',
+      },
+    },
   ],
   partnershipText: {
     fr: 'Le 3 juillet 2026, l’ACIEA et le Global Water Partnership Afrique de l’Ouest (GWP-AO) ont signé, au Secrétariat du GWP-AO à Ouagadougou, un protocole d’accord portant sur la gestion durable des ressources en eau, la résilience climatique et l’innovation numérique. Le déploiement de SAAGDO est au cœur de ce partenariat.',
@@ -990,7 +1337,10 @@ export const FAQS: { scope: 'saagdo' | 'partners' | 'general'; q: L; a: L }[] = 
   },
   {
     scope: 'saagdo',
-    q: { fr: 'La démonstration de cette page utilise-t-elle des données réelles ?', en: 'Does the demo on this page use real data?' },
+    q: {
+      fr: 'La démonstration de cette page utilise-t-elle des données réelles ?',
+      en: 'Does the demo on this page use real data?',
+    },
     a: {
       fr: 'Non. Toutes les valeurs, points et signalements affichés dans la démonstration sont fictifs et générés pour illustrer le fonctionnement de l’interface. Ils ne proviennent d’aucune collecte réelle.',
       en: 'No. All values, points and reports shown in the demo are fictitious and generated to illustrate how the interface works. They do not come from any real data collection.',
@@ -998,7 +1348,10 @@ export const FAQS: { scope: 'saagdo' | 'partners' | 'general'; q: L; a: L }[] = 
   },
   {
     scope: 'saagdo',
-    q: { fr: 'Comment accéder à la plateforme SAAGDO ?', en: 'How can I access the SAAGDO platform?' },
+    q: {
+      fr: 'Comment accéder à la plateforme SAAGDO ?',
+      en: 'How can I access the SAAGDO platform?',
+    },
     a: {
       fr: 'La plateforme opérationnelle n’est pas accessible depuis ce site pour le moment. Le lien officiel sera publié ici dès qu’il sera disponible. Pour toute demande, utilisez le formulaire de collaboration.',
       en: 'The operational platform is not accessible from this website yet. The official link will be published here as soon as it is available. For any request, please use the collaboration form.',
@@ -1006,7 +1359,10 @@ export const FAQS: { scope: 'saagdo' | 'partners' | 'general'; q: L; a: L }[] = 
   },
   {
     scope: 'saagdo',
-    q: { fr: 'Quel est le rôle du GWP Afrique de l’Ouest ?', en: 'What is GWP West Africa’s role?' },
+    q: {
+      fr: 'Quel est le rôle du GWP Afrique de l’Ouest ?',
+      en: 'What is GWP West Africa’s role?',
+    },
     a: {
       fr: 'Le GWP Afrique de l’Ouest et l’ACIEA ont signé un protocole d’accord le 3 juillet 2026 portant sur la gestion durable des ressources en eau, la résilience climatique et l’innovation numérique, dont le déploiement de SAAGDO est l’élément central.',
       en: 'GWP West Africa and ACIEA signed a Memorandum of Understanding on 3 July 2026 on sustainable water management, climate resilience and digital innovation, with the deployment of SAAGDO at its core.',
@@ -1022,7 +1378,10 @@ export const FAQS: { scope: 'saagdo' | 'partners' | 'general'; q: L; a: L }[] = 
   },
   {
     scope: 'partners',
-    q: { fr: 'Quels types de partenariats l’ACIEA recherche-t-elle ?', en: 'What kinds of partnerships does ACIEA seek?' },
+    q: {
+      fr: 'Quels types de partenariats l’ACIEA recherche-t-elle ?',
+      en: 'What kinds of partnerships does ACIEA seek?',
+    },
     a: {
       fr: 'Institutionnels, techniques, scientifiques, technologiques, communautaires ou financiers : toute coopération cohérente avec nos domaines d’intervention peut être étudiée.',
       en: 'Institutional, technical, scientific, technological, community or financial: any cooperation consistent with our focus areas can be considered.',
@@ -1038,7 +1397,10 @@ export const FAQS: { scope: 'saagdo' | 'partners' | 'general'; q: L; a: L }[] = 
   },
   {
     scope: 'partners',
-    q: { fr: 'Que deviennent les informations transmises ?', en: 'What happens to the information I send?' },
+    q: {
+      fr: 'Que deviennent les informations transmises ?',
+      en: 'What happens to the information I send?',
+    },
     a: {
       fr: 'Elles sont enregistrées de façon sécurisée et consultées uniquement par les administrateurs habilités de l’ACIEA, pour la durée de conservation indiquée dans la politique de confidentialité.',
       en: 'It is stored securely and only accessed by authorised ACIEA administrators, for the retention period stated in the privacy policy.',
@@ -1050,7 +1412,10 @@ export const PAGES: { slug: string; title: L; intro: L; content: L }[] = [
   {
     slug: 'legal',
     title: { fr: 'Mentions légales', en: 'Legal notice' },
-    intro: { fr: 'Informations légales relatives au site de l’ACIEA.', en: 'Legal information about the ACIEA website.' },
+    intro: {
+      fr: 'Informations légales relatives au site de l’ACIEA.',
+      en: 'Legal information about the ACIEA website.',
+    },
     content: {
       fr: `## Éditeur du site
 
@@ -1183,7 +1548,10 @@ You may request access, rectification or deletion of your data, or withdraw your
   {
     slug: 'terms',
     title: { fr: 'Conditions d’utilisation', en: 'Terms of use' },
-    intro: { fr: 'Règles d’utilisation du site de l’ACIEA.', en: 'Rules for using the ACIEA website.' },
+    intro: {
+      fr: 'Règles d’utilisation du site de l’ACIEA.',
+      en: 'Rules for using the ACIEA website.',
+    },
     content: {
       fr: `## Objet
 

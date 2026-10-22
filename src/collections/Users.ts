@@ -74,11 +74,25 @@ export const Users: CollectionConfig = {
         if (!req.user) return data
         const target = data.role as Role | undefined
         if (target && actor && ROLE_RANK[target] > ROLE_RANK[actor]) {
-          throw new APIError('Vous ne pouvez pas attribuer un rôle supérieur au vôtre.', 403, undefined, true)
+          throw new APIError(
+            'Vous ne pouvez pas attribuer un rôle supérieur au vôtre.',
+            403,
+            undefined,
+            true,
+          )
         }
         // Admins cannot modify super administrators.
-        if (operation === 'update' && originalDoc?.role === 'superadmin' && !isSuperAdmin(req.user)) {
-          throw new APIError('Seul un super administrateur peut modifier ce compte.', 403, undefined, true)
+        if (
+          operation === 'update' &&
+          originalDoc?.role === 'superadmin' &&
+          !isSuperAdmin(req.user)
+        ) {
+          throw new APIError(
+            'Seul un super administrateur peut modifier ce compte.',
+            403,
+            undefined,
+            true,
+          )
         }
         return data
       },
@@ -87,11 +101,21 @@ export const Users: CollectionConfig = {
       async ({ req, id }) => {
         if (!req.user) return
         if (req.user.id === id) {
-          throw new APIError('Vous ne pouvez pas supprimer votre propre compte.', 403, undefined, true)
+          throw new APIError(
+            'Vous ne pouvez pas supprimer votre propre compte.',
+            403,
+            undefined,
+            true,
+          )
         }
         const target = await req.payload.findByID({ collection: 'users', id, depth: 0, req })
         if (target.role === 'superadmin' && !isSuperAdmin(req.user)) {
-          throw new APIError('Seul un super administrateur peut supprimer ce compte.', 403, undefined, true)
+          throw new APIError(
+            'Seul un super administrateur peut supprimer ce compte.',
+            403,
+            undefined,
+            true,
+          )
         }
       },
     ],

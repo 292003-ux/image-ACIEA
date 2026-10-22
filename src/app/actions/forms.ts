@@ -31,7 +31,11 @@ function localeOf(formData: FormData): 'fr' | 'en' {
   return typeof l === 'string' && isLocale(l) ? l : 'fr'
 }
 
-async function guard(formData: FormData, bucket: string, limit: number): Promise<FormResult | null> {
+async function guard(
+  formData: FormData,
+  bucket: string,
+  limit: number,
+): Promise<FormResult | null> {
   const fp = await clientFingerprint()
   if (!rateLimit(`${bucket}:${fp}`, { limit, windowMs: 10 * 60 * 1000 }).ok) {
     return { ok: false, error: 'rateLimited' }
@@ -43,7 +47,11 @@ async function guard(formData: FormData, bucket: string, limit: number): Promise
 }
 
 /** Sends an internal notification if SMTP and recipients are configured. Never throws. */
-async function notify(payload: Payload, subject: string, lines: string[]): Promise<'sent' | 'failed' | 'not-configured'> {
+async function notify(
+  payload: Payload,
+  subject: string,
+  lines: string[],
+): Promise<'sent' | 'failed' | 'not-configured'> {
   if (!process.env.SMTP_HOST) return 'not-configured'
   try {
     const settings = await payload.findGlobal({ slug: 'site-settings', depth: 0 })
@@ -77,7 +85,8 @@ export async function submitContact(formData: FormData): Promise<FormResult> {
   const parsed = contactSchema.safeParse(
     fields(formData, ['name', 'email', 'organization', 'subject', 'message', 'consent']),
   )
-  if (!parsed.success) return { ok: false, error: 'validation', fieldErrors: flattenZodErrors(parsed.error) }
+  if (!parsed.success)
+    return { ok: false, error: 'validation', fieldErrors: flattenZodErrors(parsed.error) }
   const data = parsed.data
   try {
     const payload = await getPayload()
@@ -135,7 +144,8 @@ export async function submitPartnership(formData: FormData): Promise<FormResult>
       'consent',
     ]),
   )
-  if (!parsed.success) return { ok: false, error: 'validation', fieldErrors: flattenZodErrors(parsed.error) }
+  if (!parsed.success)
+    return { ok: false, error: 'validation', fieldErrors: flattenZodErrors(parsed.error) }
 
   // Attachment: optional, strictly checked (size, declared type and file signature).
   const file = formData.get('attachment')
@@ -150,7 +160,8 @@ export async function submitPartnership(formData: FormData): Promise<FormResult>
     const buffer = Buffer.from(await file.arrayBuffer())
     const kind = sniffDocumentType(buffer.subarray(0, 8))
     const expected = file.type === 'application/pdf' ? 'pdf' : 'docx'
-    if (kind !== expected) return { ok: false, error: 'fileType', fieldErrors: { attachment: 'fileType' } }
+    if (kind !== expected)
+      return { ok: false, error: 'fileType', fieldErrors: { attachment: 'fileType' } }
     upload = {
       data: buffer,
       mimetype: file.type,
@@ -164,7 +175,12 @@ export async function submitPartnership(formData: FormData): Promise<FormResult>
   try {
     const payload = await getPayload()
     const attachment = upload
-      ? await payload.create({ collection: 'submission-files', data: {}, file: upload, overrideAccess: true })
+      ? await payload.create({
+          collection: 'submission-files',
+          data: {},
+          file: upload,
+          overrideAccess: true,
+        })
       : null
     const doc = await payload.create({
       collection: 'partnership-requests',
@@ -185,15 +201,19 @@ export async function submitPartnership(formData: FormData): Promise<FormResult>
         status: 'new',
       },
     })
-    const notification = await notify(payload, `Nouvelle demande de partenariat — ${data.organization}`, [
-      `Nom : ${data.fullName} (${data.position})`,
-      `Organisation : ${data.organization} — ${data.country}`,
-      `Email : ${data.email}`,
-      `Type : ${data.collaborationType}`,
-      `Objet : ${data.subject}`,
-      '',
-      data.message,
-    ])
+    const notification = await notify(
+      payload,
+      `Nouvelle demande de partenariat — ${data.organization}`,
+      [
+        `Nom : ${data.fullName} (${data.position})`,
+        `Organisation : ${data.organization} — ${data.country}`,
+        `Email : ${data.email}`,
+        `Type : ${data.collaborationType}`,
+        `Objet : ${data.subject}`,
+        '',
+        data.message,
+      ],
+    )
     await payload.update({
       collection: 'partnership-requests',
       id: doc.id,
@@ -213,7 +233,8 @@ export async function subscribeNewsletter(formData: FormData): Promise<FormResul
   const blocked = await guard(formData, 'newsletter', 5)
   if (blocked) return blocked
   const parsed = newsletterSchema.safeParse(fields(formData, ['email', 'consent']))
-  if (!parsed.success) return { ok: false, error: 'validation', fieldErrors: flattenZodErrors(parsed.error) }
+  if (!parsed.success)
+    return { ok: false, error: 'validation', fieldErrors: flattenZodErrors(parsed.error) }
   const email = parsed.data.email.toLowerCase()
   try {
     const payload = await getPayload()
@@ -235,7 +256,12 @@ export async function subscribeNewsletter(formData: FormData): Promise<FormResul
       unsubscribeToken: randomBytes(24).toString('hex'),
     }
     if (current) {
-      await payload.update({ collection: 'newsletter-subscriptions', id: current.id, data, overrideAccess: true })
+      await payload.update({
+        collection: 'newsletter-subscriptions',
+        id: current.id,
+        data,
+        overrideAccess: true,
+      })
     } else {
       await payload.create({ collection: 'newsletter-subscriptions', data, overrideAccess: true })
     }

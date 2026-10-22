@@ -10,9 +10,10 @@ const turnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)
 /**
  * Content-Security-Policy.
  * - 'unsafe-inline' scripts are required by Next.js hydration without nonces (documented trade-off).
- * - Map tiles come from OpenStreetMap; extend TILE_HOSTS if another provider is configured.
+ * - The project map is self-hosted vector data; if a tile provider is enabled
+ *   (NEXT_PUBLIC_MAP_TILE_URL), list its hosts in MAP_TILE_HOSTS.
  */
-const tileHosts = (process.env.MAP_TILE_HOSTS || 'https://*.tile.openstreetmap.org').split(',')
+const tileHosts = (process.env.MAP_TILE_HOSTS || '').split(',').filter(Boolean)
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}${turnstile ? ' https://challenges.cloudflare.com' : ''}`,
@@ -34,9 +35,16 @@ const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'X-Frame-Options', value: 'DENY' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-  { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()' },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+  },
   { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
-  ...(isDev ? [] : [{ key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' }]),
+  ...(isDev
+    ? []
+    : [
+        { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+      ]),
 ]
 
 const nextConfig: NextConfig = {
@@ -46,7 +54,11 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [360, 480, 640, 768, 1024, 1280, 1536, 1920],
-    localPatterns: [{ pathname: '/api/media/file/**' }, { pathname: '/brand/**' }, { pathname: '/images/**' }],
+    localPatterns: [
+      { pathname: '/api/media/file/**' },
+      { pathname: '/brand/**' },
+      { pathname: '/images/**' },
+    ],
   },
   experimental: {
     serverActions: { bodySizeLimit: '6mb' },
@@ -56,9 +68,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     // Legacy / convenience URLs.
-    return [
-      { source: '/admin/login/', destination: '/admin/login', permanent: true },
-    ]
+    return [{ source: '/admin/login/', destination: '/admin/login', permanent: true }]
   },
 }
 

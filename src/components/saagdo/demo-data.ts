@@ -40,8 +40,16 @@ export function forecastSeries() {
   const observed = series(3, 42, 9, 8)
   const projected = series(4, 50, 8, 5)
   return [
-    ...observed.map((v, i) => ({ week: `S${i + 1}`, observed: v, forecast: null as number | null })),
-    ...projected.map((v, i) => ({ week: `S${i + 9}`, observed: null as number | null, forecast: v })),
+    ...observed.map((v, i) => ({
+      week: `S${i + 1}`,
+      observed: v,
+      forecast: null as number | null,
+    })),
+    ...projected.map((v, i) => ({
+      week: `S${i + 9}`,
+      observed: null as number | null,
+      forecast: v,
+    })),
   ].map((d, i) => (i === 7 ? { ...d, forecast: d.observed } : d))
 }
 
@@ -53,7 +61,12 @@ export const DEMO_RISK_BY_ZONE = [
   { zone: 'Zone E', value: 55 },
 ]
 
-export type DemoReport = { id: string; type: 'waste' | 'wastewater' | 'colour' | 'latrine'; status: 'open' | 'review' | 'done'; ago: number }
+export type DemoReport = {
+  id: string
+  type: 'waste' | 'wastewater' | 'colour' | 'latrine'
+  status: 'open' | 'review' | 'done'
+  ago: number
+}
 
 export const DEMO_REPORTS: DemoReport[] = [
   { id: 'R-13', type: 'waste', status: 'done', ago: 26 },

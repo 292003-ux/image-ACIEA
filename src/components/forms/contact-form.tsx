@@ -12,25 +12,50 @@ import { AntiSpamFields, Field, FormAlert } from './fields'
 import { Turnstile } from './turnstile'
 import { useServerForm } from './use-server-form'
 
-export function ContactForm({ defaultSubject = 'general' }: { defaultSubject?: (typeof CONTACT_SUBJECTS)[number] }) {
+export function ContactForm({
+  defaultSubject = 'general',
+}: {
+  defaultSubject?: (typeof CONTACT_SUBJECTS)[number]
+}) {
   const t = useTranslations('forms')
   const te = useTranslations('forms.errors')
   const form = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: '', email: '', organization: '', subject: defaultSubject, message: '', consent: false },
+    defaultValues: {
+      name: '',
+      email: '',
+      organization: '',
+      subject: defaultSubject,
+      message: '',
+      consent: false,
+    },
     mode: 'onBlur',
   })
   const { ref, onSubmit, result, submitting } = useServerForm(form, submitContact)
   const err = (k: keyof ContactInput) => form.formState.errors[k]?.message as string | undefined
 
   return (
-    <form ref={ref} onSubmit={onSubmit} noValidate className="relative grid gap-5 sm:grid-cols-2" data-testid="contact-form">
+    <form
+      ref={ref}
+      onSubmit={onSubmit}
+      noValidate
+      className="relative grid gap-5 sm:grid-cols-2"
+      data-testid="contact-form"
+    >
       <AntiSpamFields />
       <Field id="contact-name" label={t('name')} required error={err('name')}>
         {(p) => <input {...p} {...form.register('name')} autoComplete="name" />}
       </Field>
       <Field id="contact-email" label={t('email')} required error={err('email')}>
-        {(p) => <input {...p} {...form.register('email')} type="email" autoComplete="email" inputMode="email" />}
+        {(p) => (
+          <input
+            {...p}
+            {...form.register('email')}
+            type="email"
+            autoComplete="email"
+            inputMode="email"
+          />
+        )}
       </Field>
       <Field id="contact-organization" label={t('organization')} error={err('organization')}>
         {(p) => <input {...p} {...form.register('organization')} autoComplete="organization" />}
@@ -46,8 +71,21 @@ export function ContactForm({ defaultSubject = 'general' }: { defaultSubject?: (
           </select>
         )}
       </Field>
-      <Field id="contact-message" label={t('message')} required error={err('message')} className="sm:col-span-2">
-        {(p) => <textarea {...p} {...form.register('message')} rows={6} className={`${p.className} resize-y`} />}
+      <Field
+        id="contact-message"
+        label={t('message')}
+        required
+        error={err('message')}
+        className="sm:col-span-2"
+      >
+        {(p) => (
+          <textarea
+            {...p}
+            {...form.register('message')}
+            rows={6}
+            className={`${p.className} resize-y`}
+          />
+        )}
       </Field>
       <div className="sm:col-span-2">
         <label className="flex items-start gap-3 text-sm leading-relaxed text-ink-muted">
@@ -63,7 +101,11 @@ export function ContactForm({ defaultSubject = 'general' }: { defaultSubject?: (
           </span>
         </label>
         {err('consent') && (
-          <p id="contact-consent-error" role="alert" className="mt-2 text-sm font-medium text-danger">
+          <p
+            id="contact-consent-error"
+            role="alert"
+            className="mt-2 text-sm font-medium text-danger"
+          >
             {te(err('consent') as never)}
           </p>
         )}
@@ -71,8 +113,15 @@ export function ContactForm({ defaultSubject = 'general' }: { defaultSubject?: (
       <Turnstile />
       <div className="flex flex-col gap-4 sm:col-span-2">
         {result?.ok && <FormAlert tone="success">{t('success')}</FormAlert>}
-        {result && !result.ok && <FormAlert tone="error">{te(result.error ?? 'generic')}</FormAlert>}
-        <Button type="submit" size="lg" disabled={submitting} className="w-full sm:w-auto sm:self-start">
+        {result && !result.ok && (
+          <FormAlert tone="error">{te(result.error ?? 'generic')}</FormAlert>
+        )}
+        <Button
+          type="submit"
+          size="lg"
+          disabled={submitting}
+          className="w-full sm:w-auto sm:self-start"
+        >
           {submitting ? t('submitting') : t('submit')}
           {!submitting && <ArrowGlyph />}
         </Button>

@@ -2,7 +2,9 @@ import type { CollectionConfig } from 'payload'
 import { editorialFields } from '@/fields/editorial'
 import { editorialCollection, institutionGroup } from './_shared'
 
-export const TEAM_GROUPS = ['board', 'executive', 'team', 'advisors'] as const
+import { TEAM_GROUPS } from '@/lib/constants'
+
+export { TEAM_GROUPS }
 
 export const TeamMembers: CollectionConfig = {
   slug: 'team-members',
@@ -36,8 +38,18 @@ export const TeamMembers: CollectionConfig = {
         { value: 'advisors', label: { fr: 'Conseillers', en: 'Advisors' } },
       ],
     },
-    { name: 'photo', type: 'upload', relationTo: 'media', label: { fr: 'Portrait', en: 'Portrait' } },
-    { name: 'bio', type: 'textarea', localized: true, label: { fr: 'Biographie validée', en: 'Approved biography' } },
+    {
+      name: 'photo',
+      type: 'upload',
+      relationTo: 'media',
+      label: { fr: 'Portrait', en: 'Portrait' },
+    },
+    {
+      name: 'bio',
+      type: 'textarea',
+      localized: true,
+      label: { fr: 'Biographie validée', en: 'Approved biography' },
+    },
     { name: 'linkedin', type: 'text', label: 'LinkedIn' },
     {
       name: 'consentToPublish',
@@ -48,7 +60,13 @@ export const TeamMembers: CollectionConfig = {
         en: 'Person consents to publication of their portrait',
       },
     },
-    { name: 'order', type: 'number', defaultValue: 100, label: { fr: 'Ordre', en: 'Order' }, admin: { position: 'sidebar' } },
+    {
+      name: 'order',
+      type: 'number',
+      defaultValue: 100,
+      label: { fr: 'Ordre', en: 'Order' },
+      admin: { position: 'sidebar' },
+    },
     ...editorialFields,
   ],
 }

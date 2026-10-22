@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { anyone, isEditorOrAbove, staffOnly } from '@/access/roles'
-import { auditHooks } from '@/hooks/audit'
+import { auditAfterChange, auditAfterDelete } from '@/hooks/audit'
+import { revalidateAfterChange, revalidateAfterDelete } from '@/hooks/revalidate'
 
 /** Public documents attached to publications, projects and institutional pages. */
 export const Documents: CollectionConfig = {
@@ -30,7 +31,13 @@ export const Documents: CollectionConfig = {
     ],
   },
   fields: [
-    { name: 'title', type: 'text', required: true, localized: true, label: { fr: 'Titre', en: 'Title' } },
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      localized: true,
+      label: { fr: 'Titre', en: 'Title' },
+    },
     {
       name: 'description',
       type: 'textarea',
@@ -38,5 +45,8 @@ export const Documents: CollectionConfig = {
       label: { fr: 'Description', en: 'Description' },
     },
   ],
-  hooks: auditHooks,
+  hooks: {
+    afterChange: [auditAfterChange, revalidateAfterChange],
+    afterDelete: [auditAfterDelete, revalidateAfterDelete],
+  },
 }

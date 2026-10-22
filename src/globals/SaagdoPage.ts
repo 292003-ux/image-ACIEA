@@ -25,22 +25,41 @@ export const SaagdoPage: GlobalConfig = {
           label: { fr: 'Présentation', en: 'Overview' },
           fields: [
             heroGroup(),
-            localizedTextarea('problemIntro', { fr: 'Problématique — introduction', en: 'Challenge — introduction' }),
+            localizedTextarea('problemIntro', {
+              fr: 'Problématique — introduction',
+              en: 'Challenge — introduction',
+            }),
             cards('problems', { fr: 'Enjeux', en: 'Challenges' }),
-            localizedTextarea('solutionIntro', { fr: 'Solution — introduction', en: 'Solution — introduction' }),
+            localizedTextarea('solutionIntro', {
+              fr: 'Solution — introduction',
+              en: 'Solution — introduction',
+            }),
             cards('components', { fr: 'Composantes documentées', en: 'Documented components' }),
-            cards('flow', { fr: 'Fonctionnement conceptuel (étapes)', en: 'Conceptual flow (steps)' }),
+            cards('flow', {
+              fr: 'Fonctionnement conceptuel (étapes)',
+              en: 'Conceptual flow (steps)',
+            }),
           ],
         },
         {
           label: { fr: 'Partenariat & accès', en: 'Partnership & access' },
           fields: [
-            localizedTextarea('partnershipText', { fr: 'Cadre du partenariat GWP-AO', en: 'GWP-WA partnership framework' }),
-            { name: 'partnershipSourceUrl', type: 'text', label: { fr: 'Source officielle', en: 'Official source' } },
+            localizedTextarea('partnershipText', {
+              fr: 'Cadre du partenariat GWP-AO',
+              en: 'GWP-WA partnership framework',
+            }),
+            {
+              name: 'partnershipSourceUrl',
+              type: 'text',
+              label: { fr: 'Source officielle', en: 'Official source' },
+            },
             {
               name: 'platformUrl',
               type: 'text',
-              label: { fr: 'URL officielle de la plateforme SAAGDO', en: 'Official SAAGDO platform URL' },
+              label: {
+                fr: 'URL officielle de la plateforme SAAGDO',
+                en: 'Official SAAGDO platform URL',
+              },
               admin: {
                 description: {
                   fr: 'Laisser vide tant que la plateforme n’est pas publiquement accessible : le bouton reste désactivé.',
@@ -52,7 +71,10 @@ export const SaagdoPage: GlobalConfig = {
               name: 'showDemo',
               type: 'checkbox',
               defaultValue: true,
-              label: { fr: 'Afficher la démonstration (données fictives)', en: 'Show demo (fictitious data)' },
+              label: {
+                fr: 'Afficher la démonstration (données fictives)',
+                en: 'Show demo (fictitious data)',
+              },
             },
           ],
         },

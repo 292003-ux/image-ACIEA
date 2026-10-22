@@ -45,16 +45,40 @@ export function lexical(markdown: string) {
         listType: 'bullet',
         tag: 'ul',
         start: 1,
-        children: lines.map((l, i) => ({ type: 'listitem', ...base, value: i + 1, children: inline(l.slice(2)) })),
+        children: lines.map((l, i) => ({
+          type: 'listitem',
+          ...base,
+          value: i + 1,
+          children: inline(l.slice(2)),
+        })),
       })
     } else if (lines[0]?.startsWith('### ')) {
-      children.push({ type: 'heading', ...base, tag: 'h3', children: inline(lines.join(' ').slice(4)) })
+      children.push({
+        type: 'heading',
+        ...base,
+        tag: 'h3',
+        children: inline(lines.join(' ').slice(4)),
+      })
     } else if (lines[0]?.startsWith('## ')) {
-      children.push({ type: 'heading', ...base, tag: 'h2', children: inline(lines.join(' ').slice(3)) })
+      children.push({
+        type: 'heading',
+        ...base,
+        tag: 'h2',
+        children: inline(lines.join(' ').slice(3)),
+      })
     } else if (lines[0]?.startsWith('> ')) {
-      children.push({ type: 'quote', ...base, children: inline(lines.map((l) => l.replace(/^>\s?/, '')).join(' ')) })
+      children.push({
+        type: 'quote',
+        ...base,
+        children: inline(lines.map((l) => l.replace(/^>\s?/, '')).join(' ')),
+      })
     } else {
-      children.push({ type: 'paragraph', ...base, textFormat: 0, children: inline(lines.join(' ')) })
+      children.push({
+        type: 'paragraph',
+        ...base,
+        textFormat: 0,
+        children: inline(lines.join(' ')),
+      })
     }
   }
   return { root: { type: 'root', ...base, children } } as never

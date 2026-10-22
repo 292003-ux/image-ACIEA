@@ -1,7 +1,15 @@
 import type { GlobalConfig } from 'payload'
 import { settingsGlobal } from './_shared'
 
-export const SOCIAL_PLATFORMS = ['facebook', 'linkedin', 'x', 'youtube', 'instagram', 'tiktok', 'whatsapp'] as const
+export const SOCIAL_PLATFORMS = [
+  'facebook',
+  'linkedin',
+  'x',
+  'youtube',
+  'instagram',
+  'tiktok',
+  'whatsapp',
+] as const
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
@@ -14,24 +22,65 @@ export const SiteSettings: GlobalConfig = {
         {
           label: { fr: 'Identité', en: 'Identity' },
           fields: [
-            { name: 'organizationName', type: 'text', localized: true, required: true, label: { fr: 'Nom officiel', en: 'Official name' } },
-            { name: 'shortName', type: 'text', required: true, defaultValue: 'ACIEA', label: { fr: 'Sigle', en: 'Acronym' } },
-            { name: 'tagline', type: 'text', localized: true, label: { fr: 'Devise', en: 'Motto' } },
-            { name: 'description', type: 'textarea', localized: true, label: { fr: 'Présentation courte', en: 'Short description' } },
+            {
+              name: 'organizationName',
+              type: 'text',
+              localized: true,
+              required: true,
+              label: { fr: 'Nom officiel', en: 'Official name' },
+            },
+            {
+              name: 'shortName',
+              type: 'text',
+              required: true,
+              defaultValue: 'ACIEA',
+              label: { fr: 'Sigle', en: 'Acronym' },
+            },
+            {
+              name: 'tagline',
+              type: 'text',
+              localized: true,
+              label: { fr: 'Devise', en: 'Motto' },
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              localized: true,
+              label: { fr: 'Présentation courte', en: 'Short description' },
+            },
             {
               type: 'row',
               fields: [
-                { name: 'logo', type: 'upload', relationTo: 'media', label: { fr: 'Logo officiel', en: 'Official logo' } },
+                {
+                  name: 'logo',
+                  type: 'upload',
+                  relationTo: 'media',
+                  label: { fr: 'Logo officiel', en: 'Official logo' },
+                },
                 { name: 'favicon', type: 'upload', relationTo: 'media', label: 'Favicon' },
               ],
             },
-            { name: 'foundedYear', type: 'number', label: { fr: 'Année de création', en: 'Year founded' } },
-            { name: 'legalStatus', type: 'text', localized: true, label: { fr: 'Statut juridique', en: 'Legal status' } },
+            {
+              name: 'foundedYear',
+              type: 'number',
+              label: { fr: 'Année de création', en: 'Year founded' },
+            },
+            {
+              name: 'legalStatus',
+              type: 'text',
+              localized: true,
+              label: { fr: 'Statut juridique', en: 'Legal status' },
+            },
             {
               name: 'registrationNumber',
               type: 'text',
               label: { fr: 'N° de récépissé / enregistrement', en: 'Registration number' },
-              admin: { description: { fr: 'À renseigner pour les mentions légales.', en: 'Required for the legal notice.' } },
+              admin: {
+                description: {
+                  fr: 'À renseigner pour les mentions légales.',
+                  en: 'Required for the legal notice.',
+                },
+              },
             },
           ],
         },
@@ -40,14 +89,37 @@ export const SiteSettings: GlobalConfig = {
           fields: [
             { name: 'email', type: 'email', label: { fr: 'Email public', en: 'Public email' } },
             { name: 'phone', type: 'text', label: { fr: 'Téléphone public', en: 'Public phone' } },
-            { name: 'address', type: 'textarea', localized: true, label: { fr: 'Adresse', en: 'Address' } },
-            { name: 'city', type: 'text', defaultValue: 'Ouagadougou', label: { fr: 'Ville', en: 'City' } },
-            { name: 'country', type: 'text', localized: true, label: { fr: 'Pays', en: 'Country' } },
+            {
+              name: 'address',
+              type: 'textarea',
+              localized: true,
+              label: { fr: 'Adresse', en: 'Address' },
+            },
+            {
+              name: 'city',
+              type: 'text',
+              defaultValue: 'Ouagadougou',
+              label: { fr: 'Ville', en: 'City' },
+            },
+            {
+              name: 'country',
+              type: 'text',
+              localized: true,
+              label: { fr: 'Pays', en: 'Country' },
+            },
             {
               type: 'row',
               fields: [
-                { name: 'hqLatitude', type: 'number', label: { fr: 'Latitude du siège', en: 'HQ latitude' } },
-                { name: 'hqLongitude', type: 'number', label: { fr: 'Longitude du siège', en: 'HQ longitude' } },
+                {
+                  name: 'hqLatitude',
+                  type: 'number',
+                  label: { fr: 'Latitude du siège', en: 'HQ latitude' },
+                },
+                {
+                  name: 'hqLongitude',
+                  type: 'number',
+                  label: { fr: 'Longitude du siège', en: 'HQ longitude' },
+                },
               ],
             },
             {
@@ -64,7 +136,12 @@ export const SiteSettings: GlobalConfig = {
                 {
                   type: 'row',
                   fields: [
-                    { name: 'platform', type: 'select', required: true, options: SOCIAL_PLATFORMS.map((v) => ({ value: v, label: v })) },
+                    {
+                      name: 'platform',
+                      type: 'select',
+                      required: true,
+                      options: SOCIAL_PLATFORMS.map((v) => ({ value: v, label: v })),
+                    },
                     { name: 'url', type: 'text', required: true },
                     { name: 'verified', type: 'checkbox', defaultValue: false },
                   ],
@@ -114,7 +191,12 @@ export const SiteSettings: GlobalConfig = {
           label: { fr: 'SEO & langues', en: 'SEO & languages' },
           fields: [
             { name: 'defaultMetaTitle', type: 'text', localized: true, label: 'Meta title' },
-            { name: 'defaultMetaDescription', type: 'textarea', localized: true, label: 'Meta description' },
+            {
+              name: 'defaultMetaDescription',
+              type: 'textarea',
+              localized: true,
+              label: 'Meta description',
+            },
             { name: 'defaultOgImage', type: 'upload', relationTo: 'media', label: 'Open Graph' },
             {
               name: 'englishValidated',

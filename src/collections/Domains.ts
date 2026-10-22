@@ -19,7 +19,13 @@ export const Domains: CollectionConfig = {
     defaultColumns: ['title', 'order', '_status', 'reviewStatus'],
   },
   fields: [
-    { name: 'title', type: 'text', required: true, localized: true, label: { fr: 'Titre', en: 'Title' } },
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      localized: true,
+      label: { fr: 'Titre', en: 'Title' },
+    },
     {
       name: 'summary',
       type: 'textarea',
@@ -39,7 +45,7 @@ export const Domains: CollectionConfig = {
       type: 'array',
       localized: true,
       label: { fr: 'Axes de travail', en: 'Lines of work' },
-      fields: [{ name: 'text', type: 'text', required: true }],
+      fields: [{ name: 'text', type: 'text', required: true, label: { fr: 'Texte', en: 'Text' } }],
     },
     {
       type: 'row',

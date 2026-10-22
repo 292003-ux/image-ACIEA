@@ -6,14 +6,14 @@ import { COLLABORATION_TYPES, CONTACT_SUBJECTS } from './constants'
  * Error messages are translation keys from `forms.errors`.
  */
 const text = (min: number, max: number) =>
-  z
-    .string({ error: 'required' })
-    .trim()
-    .min(1, 'required')
-    .min(min, 'tooShort')
-    .max(max, 'tooLong')
+  z.string({ error: 'required' }).trim().min(1, 'required').min(min, 'tooShort').max(max, 'tooLong')
 
-const email = z.string({ error: 'required' }).trim().min(1, 'required').max(254, 'tooLong').email('email')
+const email = z
+  .string({ error: 'required' })
+  .trim()
+  .min(1, 'required')
+  .max(254, 'tooLong')
+  .email('email')
 
 const consent = z
   .union([z.literal('on'), z.literal('true'), z.literal(true), z.boolean(), z.undefined()])
@@ -71,7 +71,21 @@ export function flattenZodErrors(error: z.ZodError): Record<string, string> {
 
 /** Magic-number check: the declared MIME type must match the file content. */
 export function sniffDocumentType(bytes: Uint8Array): 'pdf' | 'docx' | null {
-  if (bytes.length >= 4 && bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46) return 'pdf'
-  if (bytes.length >= 4 && bytes[0] === 0x50 && bytes[1] === 0x4b && bytes[2] === 0x03 && bytes[3] === 0x04) return 'docx'
+  if (
+    bytes.length >= 4 &&
+    bytes[0] === 0x25 &&
+    bytes[1] === 0x50 &&
+    bytes[2] === 0x44 &&
+    bytes[3] === 0x46
+  )
+    return 'pdf'
+  if (
+    bytes.length >= 4 &&
+    bytes[0] === 0x50 &&
+    bytes[1] === 0x4b &&
+    bytes[2] === 0x03 &&
+    bytes[3] === 0x04
+  )
+    return 'docx'
   return null
 }

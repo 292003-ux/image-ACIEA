@@ -83,12 +83,24 @@ export function pathForSlug(
 
 type CmsLink = NonNullable<Navigation['header']>[number]
 
-function resolveCmsLink(link: CmsLink | NonNullable<CmsLink['children']>[number], locale: Locale): ResolvedLink | null {
+function resolveCmsLink(
+  link: CmsLink | NonNullable<CmsLink['children']>[number],
+  locale: Locale,
+): ResolvedLink | null {
   if (link.route) {
-    return { label: link.label, href: pathFor(link.route as StaticPathname, locale), description: link.description ?? undefined }
+    return {
+      label: link.label,
+      href: pathFor(link.route as StaticPathname, locale),
+      description: link.description ?? undefined,
+    }
   }
   if (isSafeExternalUrl(link.url)) {
-    return { label: link.label, href: link.url, external: true, description: link.description ?? undefined }
+    return {
+      label: link.label,
+      href: link.url,
+      external: true,
+      description: link.description ?? undefined,
+    }
   }
   return null
 }
@@ -136,12 +148,17 @@ export async function resolveFooterColumns(
   if (cms?.footerColumns?.length) {
     return cms.footerColumns.map((col) => ({
       title: col.title,
-      links: (col.links ?? []).map((l) => resolveCmsLink(l, locale)).filter((l): l is ResolvedLink => !!l),
+      links: (col.links ?? [])
+        .map((l) => resolveCmsLink(l, locale))
+        .filter((l): l is ResolvedLink => !!l),
     }))
   }
   const t = await getTranslations({ locale, namespace: 'nav' })
   const tf = await getTranslations({ locale, namespace: 'footer' })
-  const link = (key: string, route: StaticPathname) => ({ label: t(key as never), href: pathFor(route, locale) })
+  const link = (key: string, route: StaticPathname) => ({
+    label: t(key as never),
+    href: pathFor(route, locale),
+  })
   return [
     {
       title: tf('navigation'),

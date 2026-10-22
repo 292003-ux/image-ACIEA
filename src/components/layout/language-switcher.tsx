@@ -9,7 +9,13 @@ import { cn } from '@/lib/utils'
 const NAMES = { fr: 'Français', en: 'English' } as const
 
 /** Keeps the current page (and slug) when switching language. */
-export function LanguageSwitcher({ tone = 'dark', className }: { tone?: 'dark' | 'light'; className?: string }) {
+export function LanguageSwitcher({
+  tone = 'dark',
+  className,
+}: {
+  tone?: 'dark' | 'light'
+  className?: string
+}) {
   const locale = useLocale()
   const pathname = usePathname()
   const params = useParams<{ slug?: string }>()
@@ -26,12 +32,17 @@ export function LanguageSwitcher({ tone = 'dark', className }: { tone?: 'dark' |
     >
       {locales.map((l) => {
         const current = l === locale
-        const href = (params?.slug ? { pathname, params: { slug: params.slug } } : { pathname }) as never
+        const href = (
+          params?.slug ? { pathname, params: { slug: params.slug } } : { pathname }
+        ) as never
         return current ? (
           <span
             key={l}
             aria-current="true"
-            className={cn('rounded-full px-2.5 py-1.5 uppercase', tone === 'dark' ? 'bg-forest text-white' : 'bg-white text-forest')}
+            className={cn(
+              'rounded-full px-2.5 py-1.5 uppercase',
+              tone === 'dark' ? 'bg-forest text-white' : 'bg-white text-forest',
+            )}
           >
             <span aria-hidden="true">{l}</span>
             <span className="sr-only">{NAMES[l]}</span>
@@ -43,10 +54,12 @@ export function LanguageSwitcher({ tone = 'dark', className }: { tone?: 'dark' |
             locale={l}
             hrefLang={l}
             lang={l}
-            aria-label={t('switchTo', { language: NAMES[l] })}
+            aria-label={`${l.toUpperCase()} — ${t('switchTo', { language: NAMES[l] })}`}
             className={cn(
               'rounded-full px-2.5 py-1.5 uppercase transition-colors',
-              tone === 'dark' ? 'text-forest/70 hover:text-forest' : 'text-white/75 hover:text-white',
+              tone === 'dark'
+                ? 'text-forest/70 hover:text-forest'
+                : 'text-white/75 hover:text-white',
             )}
           >
             {l}

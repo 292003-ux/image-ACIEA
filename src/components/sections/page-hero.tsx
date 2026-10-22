@@ -40,8 +40,23 @@ export function PageHero({
     >
       {hasImage && (
         <>
-          <CmsImage media={image} size="hero" priority sizes="100vw" className="absolute inset-0 -z-20" showProvenance={false} />
-          <div aria-hidden="true" className={cn('absolute inset-0 -z-10', tone === 'forest' ? 'bg-gradient-to-r from-forest via-forest/90 to-forest/55' : 'bg-gradient-to-r from-night via-night/92 to-night/60')} />
+          <CmsImage
+            media={image}
+            size="hero"
+            priority
+            sizes="100vw"
+            className="absolute inset-0 -z-20"
+            showProvenance={false}
+          />
+          <div
+            aria-hidden="true"
+            className={cn(
+              'absolute inset-0 -z-10',
+              tone === 'forest'
+                ? 'bg-gradient-to-r from-forest via-forest/90 to-forest/55'
+                : 'bg-gradient-to-r from-night via-night/92 to-night/60',
+            )}
+          />
         </>
       )}
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-grid opacity-40" />
@@ -50,13 +65,16 @@ export function PageHero({
       ) : (
         <NetworkField className="absolute inset-y-0 right-0 -z-10 h-full w-full opacity-70 md:w-2/3" />
       )}
-      <div aria-hidden="true" className="absolute -bottom-32 -left-20 -z-10 size-[28rem] rounded-full bg-leaf/25 blur-[110px]" />
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-32 -left-20 -z-10 size-[28rem] rounded-full bg-leaf/25 blur-[110px]"
+      />
       <div className="container-page">
         <Breadcrumbs items={crumbs} />
-        <div className="mt-8 grid items-end gap-10 lg:grid-cols-12">
+        <div className="mt-8 grid grid-cols-1 items-end gap-10 lg:grid-cols-12">
           <div className={cn(aside ? 'lg:col-span-7' : 'lg:col-span-9')}>
             {eyebrow && (
-              <p className="eyebrow mb-5 inline-flex items-center gap-3 text-gold">
+              <p className="mb-5 inline-flex items-center gap-3 eyebrow text-gold">
                 <span aria-hidden="true" className="h-px w-8 bg-gold/70" />
                 {eyebrow}
               </p>
@@ -68,7 +86,10 @@ export function PageHero({
           {aside && <div className="lg:col-span-5">{aside}</div>}
         </div>
       </div>
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"
+      />
     </section>
   )
 }

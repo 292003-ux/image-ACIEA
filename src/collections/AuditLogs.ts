@@ -44,6 +44,10 @@ export const AuditLogs: CollectionConfig = {
     { name: 'summary', type: 'text' },
     { name: 'user', type: 'relationship', relationTo: 'users' },
     { name: 'userEmail', type: 'text' },
-    { name: 'ipNetwork', type: 'text', label: { fr: 'Réseau IP (anonymisé)', en: 'IP network (anonymised)' } },
+    {
+      name: 'ipNetwork',
+      type: 'text',
+      label: { fr: 'Réseau IP (anonymisé)', en: 'IP network (anonymised)' },
+    },
   ],
 }

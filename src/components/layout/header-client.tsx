@@ -26,11 +26,25 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`)
 }
 
-function NavLink({ link, className, onNavigate }: { link: ResolvedLink; className?: string; onNavigate?: () => void }) {
+function NavLink({
+  link,
+  className,
+  onNavigate,
+}: {
+  link: ResolvedLink
+  className?: string
+  onNavigate?: () => void
+}) {
   const t = useTranslations('common')
   if (link.external) {
     return (
-      <a href={link.href} target="_blank" rel="noopener noreferrer" className={className} onClick={onNavigate}>
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        onClick={onNavigate}
+      >
         {link.label}
         <span className="sr-only"> {t('openInNewTab')}</span>
       </a>
@@ -43,13 +57,24 @@ function NavLink({ link, className, onNavigate }: { link: ResolvedLink; classNam
   )
 }
 
-function DesktopItem({ item, pathname, solid }: { item: ResolvedLink; pathname: string; solid: boolean }) {
+function DesktopItem({
+  item,
+  pathname,
+  solid,
+}: {
+  item: ResolvedLink
+  pathname: string
+  solid: boolean
+}) {
   const tc = useTranslations('common')
   const [open, setOpen] = React.useState(false)
   const ref = React.useRef<HTMLLIElement>(null)
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+  // A mouse user's hover already opened the menu: the following click must not close it.
+  const openedByHover = React.useRef(false)
   const id = React.useId()
-  const active = isActive(pathname, item.href) || !!item.children?.some((c) => isActive(pathname, c.href))
+  const active =
+    isActive(pathname, item.href) || !!item.children?.some((c) => isActive(pathname, c.href))
   const mega = (item.children?.length ?? 0) > 5 || item.children?.some((c) => c.icon)
 
   React.useEffect(() => {
@@ -64,15 +89,25 @@ function DesktopItem({ item, pathname, solid }: { item: ResolvedLink; pathname: 
     }
   }, [open])
 
-  React.useEffect(() => setOpen(false), [pathname])
+  // Close the menu when the route changes (state reset during render, no effect needed).
+  const [prevPath, setPrevPath] = React.useState(pathname)
+  if (prevPath !== pathname) {
+    setPrevPath(pathname)
+    setOpen(false)
+  }
 
   const base = cn(
-    'relative inline-flex h-10 items-center gap-1 whitespace-nowrap rounded-full px-2.5 text-[0.875rem] font-medium transition-colors 2xl:px-3',
-    solid ? 'text-ink hover:bg-forest/6 hover:text-forest' : 'text-white/85 hover:bg-white/10 hover:text-white',
+    'relative inline-flex h-10 items-center gap-1 rounded-full px-2.5 text-[0.875rem] font-medium whitespace-nowrap transition-colors 2xl:px-3',
+    solid
+      ? 'text-ink hover:bg-forest/6 hover:text-forest'
+      : 'text-white/85 hover:bg-white/10 hover:text-white',
     active && (solid ? 'text-forest' : 'text-white'),
   )
   const indicator = active && (
-    <span aria-hidden="true" className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gold" />
+    <span
+      aria-hidden="true"
+      className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gold"
+    />
   )
 
   if (!item.children?.length) {
@@ -91,8 +126,10 @@ function DesktopItem({ item, pathname, solid }: { item: ResolvedLink; pathname: 
       onMouseEnter={() => {
         if (closeTimer.current) clearTimeout(closeTimer.current)
         setOpen(true)
+        openedByHover.current = true
       }}
       onMouseLeave={() => {
+        openedByHover.current = false
         closeTimer.current = setTimeout(() => setOpen(false), 140)
       }}
     >
@@ -101,10 +138,20 @@ function DesktopItem({ item, pathname, solid }: { item: ResolvedLink; pathname: 
         className={base}
         aria-expanded={open}
         aria-controls={id}
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => {
+          if (openedByHover.current) {
+            openedByHover.current = false
+            setOpen(true)
+            return
+          }
+          setOpen((o) => !o)
+        }}
       >
         {item.label}
-        <ChevronDown aria-hidden="true" className={cn('size-3.5 transition-transform duration-300', open && 'rotate-180')} />
+        <ChevronDown
+          aria-hidden="true"
+          className={cn('size-3.5 transition-transform duration-300', open && 'rotate-180')}
+        />
         {indicator}
       </button>
       <div
@@ -112,7 +159,9 @@ function DesktopItem({ item, pathname, solid }: { item: ResolvedLink; pathname: 
         className={cn(
           'absolute top-full left-1/2 z-50 pt-3 transition-all duration-300 ease-[var(--ease-out-soft)]',
           mega ? 'w-[min(46rem,90vw)]' : 'w-80',
-          open ? 'visible -translate-x-1/2 translate-y-0 opacity-100' : 'invisible -translate-x-1/2 -translate-y-1 opacity-0',
+          open
+            ? 'visible -translate-x-1/2 translate-y-0 opacity-100'
+            : 'invisible -translate-x-1/2 -translate-y-1 opacity-0',
         )}
       >
         <div className="overflow-hidden rounded-2xl border border-forest/8 bg-white/98 p-2 shadow-lift backdrop-blur-xl">
@@ -132,9 +181,13 @@ function DesktopItem({ item, pathname, solid }: { item: ResolvedLink; pathname: 
                     </span>
                   )}
                   <span>
-                    <span className="block font-display text-sm font-semibold text-forest">{child.label}</span>
+                    <span className="block font-display text-sm font-semibold text-forest">
+                      {child.label}
+                    </span>
                     {child.description && (
-                      <span className="mt-0.5 block text-[0.8rem] leading-snug text-ink-muted">{child.description}</span>
+                      <span className="mt-0.5 block text-[0.8rem] leading-snug text-ink-muted">
+                        {child.description}
+                      </span>
                     )}
                   </span>
                 </NextLink>
@@ -143,7 +196,10 @@ function DesktopItem({ item, pathname, solid }: { item: ResolvedLink; pathname: 
           </ul>
           <div className="mt-1 flex items-center justify-between rounded-xl bg-forest px-4 py-3 text-white">
             <span className="text-xs text-white/70">{item.label}</span>
-            <NextLink href={item.href} className="group/btn inline-flex items-center gap-1.5 text-sm font-semibold text-gold">
+            <NextLink
+              href={item.href}
+              className="group/btn inline-flex items-center gap-1.5 text-sm font-semibold text-gold"
+            >
               <span>{tc('seeAll')}</span>
               <ArrowGlyph className="size-3.5" />
             </NextLink>
@@ -169,7 +225,11 @@ export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchH
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  React.useEffect(() => setMobileOpen(false), [pathname])
+  const [prevPath, setPrevPath] = React.useState(pathname)
+  if (prevPath !== pathname) {
+    setPrevPath(pathname)
+    setMobileOpen(false)
+  }
 
   const solid = scrolled
 
@@ -190,7 +250,12 @@ export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchH
         <nav aria-label={t('mainNav')} className="hidden xl:block">
           <ul className="flex items-center">
             {items.map((item) => (
-              <DesktopItem key={item.href + item.label} item={item} pathname={pathname} solid={solid} />
+              <DesktopItem
+                key={item.href + item.label}
+                item={item}
+                pathname={pathname}
+                solid={solid}
+              />
             ))}
           </ul>
         </nav>
@@ -209,7 +274,10 @@ export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchH
           <LanguageSwitcher tone={solid ? 'dark' : 'light'} className="hidden sm:flex" />
           <NextLink
             href={ctaHref}
-            className={cn(buttonVariants({ variant: solid ? 'primary' : 'gold', size: 'sm' }), 'hidden md:inline-flex')}
+            className={cn(
+              buttonVariants({ variant: solid ? 'primary' : 'gold', size: 'sm' }),
+              'hidden md:inline-flex',
+            )}
           >
             {t('collaborate')}
             <ArrowGlyph />
@@ -219,25 +287,36 @@ export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchH
             <Dialog.Trigger
               className={cn(
                 'grid size-11 place-items-center rounded-full xl:hidden',
-                solid ? 'bg-forest text-white' : 'bg-white/10 text-white ring-1 ring-white/20 backdrop-blur',
+                solid
+                  ? 'bg-forest text-white'
+                  : 'bg-white/10 text-white ring-1 ring-white/20 backdrop-blur',
               )}
               aria-label={t('openMenu')}
             >
               <Menu className="size-5" aria-hidden="true" />
             </Dialog.Trigger>
             <Dialog.Portal>
-              <Dialog.Overlay className="fixed inset-0 z-50 bg-night/60 backdrop-blur-sm data-[state=open]:animate-in" />
+              <Dialog.Overlay className="data-[state=open]:animate-in fixed inset-0 z-50 bg-night/60 backdrop-blur-sm" />
               <Dialog.Content className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col overflow-hidden bg-forest text-white shadow-2xl outline-none">
-                <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-grid opacity-40" />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-grid opacity-40"
+                />
                 <div className="relative flex h-[4.5rem] items-center justify-between px-5">
                   <Dialog.Title className="sr-only">{t('mainNav')}</Dialog.Title>
                   <Dialog.Description className="sr-only">ACIEA</Dialog.Description>
                   {logo}
-                  <Dialog.Close className="grid size-11 place-items-center rounded-full bg-white/10 ring-1 ring-white/20" aria-label={t('closeMenu')}>
+                  <Dialog.Close
+                    className="grid size-11 place-items-center rounded-full bg-white/10 ring-1 ring-white/20"
+                    aria-label={t('closeMenu')}
+                  >
                     <X className="size-5" aria-hidden="true" />
                   </Dialog.Close>
                 </div>
-                <nav aria-label={t('mainNav')} className="relative flex-1 overflow-y-auto px-5 pb-8">
+                <nav
+                  aria-label={t('mainNav')}
+                  className="relative flex-1 overflow-y-auto px-5 pb-8"
+                >
                   <ul className="divide-y divide-white/10 border-y border-white/10">
                     {items.map((item) => {
                       const hasChildren = !!item.children?.length
@@ -253,34 +332,48 @@ export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchH
                                 onClick={() => setExpanded(isOpen ? null : item.href)}
                               >
                                 {item.label}
-                                <ChevronDown aria-hidden="true" className={cn('size-5 text-gold transition-transform', isOpen && 'rotate-180')} />
+                                <ChevronDown
+                                  aria-hidden="true"
+                                  className={cn(
+                                    'size-5 text-gold transition-transform',
+                                    isOpen && 'rotate-180',
+                                  )}
+                                />
                               </button>
-                              <div className={cn('grid transition-all duration-300', isOpen ? 'grid-rows-[1fr] pb-3' : 'grid-rows-[0fr]')}>
+                              <div
+                                className={cn(
+                                  'grid transition-all duration-300',
+                                  isOpen ? 'grid-rows-[1fr] pb-3' : 'grid-rows-[0fr]',
+                                )}
+                              >
                                 <ul className="overflow-hidden">
                                   {(item.children!.some((c) => c.href === item.href)
                                     ? item.children!
                                     : [{ label: tc('seeAll'), href: item.href }, ...item.children!]
                                   ).map((child) => (
-                                      <li key={child.href}>
-                                        <NextLink
-                                          href={child.href}
-                                          className={cn(
-                                            'flex min-h-11 items-center rounded-lg px-3 text-[0.95rem] text-white/80 hover:bg-white/8 hover:text-white',
-                                            pathname === child.href && 'bg-white/8 text-white',
-                                          )}
-                                          tabIndex={isOpen ? 0 : -1}
-                                        >
-                                          {child.label}
-                                        </NextLink>
-                                      </li>
-                                    ))}
+                                    <li key={child.href}>
+                                      <NextLink
+                                        href={child.href}
+                                        className={cn(
+                                          'flex min-h-11 items-center rounded-lg px-3 text-[0.95rem] text-white/80 hover:bg-white/8 hover:text-white',
+                                          pathname === child.href && 'bg-white/8 text-white',
+                                        )}
+                                        tabIndex={isOpen ? 0 : -1}
+                                      >
+                                        {child.label}
+                                      </NextLink>
+                                    </li>
+                                  ))}
                                 </ul>
                               </div>
                             </>
                           ) : (
                             <NavLink
                               link={item}
-                              className={cn('flex min-h-14 items-center py-3 font-display text-lg font-semibold', isActive(pathname, item.href) && 'text-gold')}
+                              className={cn(
+                                'flex min-h-14 items-center py-3 font-display text-lg font-semibold',
+                                isActive(pathname, item.href) && 'text-gold',
+                              )}
                             />
                           )}
                         </li>
@@ -288,7 +381,10 @@ export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchH
                     })}
                   </ul>
                   <div className="mt-8 flex flex-col gap-4">
-                    <NextLink href={ctaHref} className={cn(buttonVariants({ variant: 'gold', size: 'lg' }), 'w-full')}>
+                    <NextLink
+                      href={ctaHref}
+                      className={cn(buttonVariants({ variant: 'gold', size: 'lg' }), 'w-full')}
+                    >
                       {t('collaborate')}
                       <ArrowGlyph />
                     </NextLink>

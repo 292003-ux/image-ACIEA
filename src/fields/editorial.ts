@@ -19,7 +19,10 @@ export const reviewStatusField: Field = {
   options: [
     { value: 'draft', label: { fr: 'Brouillon', en: 'Draft' } },
     { value: 'in-review', label: { fr: 'Soumis à relecture', en: 'In review' } },
-    { value: 'changes-requested', label: { fr: 'Modifications demandées', en: 'Changes requested' } },
+    {
+      value: 'changes-requested',
+      label: { fr: 'Modifications demandées', en: 'Changes requested' },
+    },
     { value: 'approved', label: { fr: 'Validé', en: 'Approved' } },
   ],
   admin: {

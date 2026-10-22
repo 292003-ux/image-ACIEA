@@ -21,12 +21,41 @@ export const PartnershipRequests: CollectionConfig = {
   },
   access: { read: adminsOnly, create: nobody, update: adminsOnly, delete: adminsOnly },
   fields: [
-    { name: 'fullName', type: 'text', required: true, label: { fr: 'Nom complet', en: 'Full name' }, admin: { readOnly: true } },
-    { name: 'organization', type: 'text', required: true, label: { fr: 'Organisation', en: 'Organisation' }, admin: { readOnly: true } },
-    { name: 'position', type: 'text', required: true, label: { fr: 'Fonction', en: 'Position' }, admin: { readOnly: true } },
+    {
+      name: 'fullName',
+      type: 'text',
+      required: true,
+      label: { fr: 'Nom complet', en: 'Full name' },
+      admin: { readOnly: true },
+    },
+    {
+      name: 'organization',
+      type: 'text',
+      required: true,
+      label: { fr: 'Organisation', en: 'Organisation' },
+      admin: { readOnly: true },
+    },
+    {
+      name: 'position',
+      type: 'text',
+      required: true,
+      label: { fr: 'Fonction', en: 'Position' },
+      admin: { readOnly: true },
+    },
     { name: 'email', type: 'email', required: true, admin: { readOnly: true } },
-    { name: 'phone', type: 'text', label: { fr: 'Téléphone', en: 'Phone' }, admin: { readOnly: true } },
-    { name: 'country', type: 'text', required: true, label: { fr: 'Pays', en: 'Country' }, admin: { readOnly: true } },
+    {
+      name: 'phone',
+      type: 'text',
+      label: { fr: 'Téléphone', en: 'Phone' },
+      admin: { readOnly: true },
+    },
+    {
+      name: 'country',
+      type: 'text',
+      required: true,
+      label: { fr: 'Pays', en: 'Country' },
+      admin: { readOnly: true },
+    },
     {
       name: 'collaborationType',
       type: 'select',
@@ -35,7 +64,13 @@ export const PartnershipRequests: CollectionConfig = {
       options: COLLABORATION_TYPES.map((value) => ({ value, label: value })),
       admin: { readOnly: true },
     },
-    { name: 'subject', type: 'text', required: true, label: { fr: 'Objet', en: 'Subject' }, admin: { readOnly: true } },
+    {
+      name: 'subject',
+      type: 'text',
+      required: true,
+      label: { fr: 'Objet', en: 'Subject' },
+      admin: { readOnly: true },
+    },
     { name: 'message', type: 'textarea', required: true, admin: { readOnly: true } },
     {
       name: 'attachment',
@@ -54,7 +89,12 @@ export const PartnershipRequests: CollectionConfig = {
       async ({ doc, req }) => {
         const id = typeof doc.attachment === 'object' ? doc.attachment?.id : doc.attachment
         if (id) {
-          await req.payload.delete({ collection: 'submission-files', id, overrideAccess: true, req })
+          await req.payload.delete({
+            collection: 'submission-files',
+            id,
+            overrideAccess: true,
+            req,
+          })
         }
       },
     ],

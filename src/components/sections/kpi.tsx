@@ -1,10 +1,9 @@
 'use client'
 
-import { animate, useInView, useReducedMotion } from 'motion/react'
 import * as React from 'react'
 import { Icon } from '@/components/icon'
 
-/** Count-up KPI. Only ever used with verified, published figures. */
+/** Count-up KPI (dependency-free). Only ever used with verified, published figures. */
 export function KpiCard({
   value,
   label,
@@ -21,22 +20,41 @@ export function KpiCard({
   locale: string
 }) {
   const ref = React.useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true })
-  const reduce = useReducedMotion()
-  const fmt = React.useMemo(() => new Intl.NumberFormat(locale === 'en' ? 'en-GB' : 'fr-FR'), [locale])
-  const [display, setDisplay] = React.useState(reduce ? value : 0)
+  const fmt = React.useMemo(
+    () => new Intl.NumberFormat(locale === 'en' ? 'en-GB' : 'fr-FR'),
+    [locale],
+  )
+  // Server HTML shows the real figure; the count-up only runs client-side once visible.
+  const [animated, setAnimated] = React.useState<number | null>(null)
+  const display = animated ?? value
 
   React.useEffect(() => {
-    if (!inView || reduce) {
-      setDisplay(value)
-      return
+    const el = ref.current
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    let frame = 0
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return
+      io.disconnect()
+      const start = performance.now()
+      const tick = (now: number) => {
+        const p = Math.min(1, (now - start) / 1400)
+        setAnimated(Math.round(value * (1 - Math.pow(1 - p, 3))))
+        if (p < 1) frame = requestAnimationFrame(tick)
+      }
+      frame = requestAnimationFrame(tick)
+    })
+    io.observe(el)
+    return () => {
+      io.disconnect()
+      cancelAnimationFrame(frame)
     }
-    const controls = animate(0, value, { duration: 1.6, ease: [0.22, 1, 0.36, 1], onUpdate: (v) => setDisplay(Math.round(v)) })
-    return () => controls.stop()
-  }, [inView, reduce, value])
+  }, [value])
 
   return (
-    <div ref={ref} className="relative overflow-hidden rounded-[var(--radius-card)] bg-white/[0.04] p-7 ring-1 ring-white/10">
+    <div
+      ref={ref}
+      className="relative overflow-hidden rounded-[var(--radius-card)] bg-white/[0.04] p-7 ring-1 ring-white/10"
+    >
       <Icon name={icon} className="size-6 text-digital" />
       <p className="mt-6 font-display text-[clamp(2.4rem,2rem+1.6vw,3.4rem)] leading-none font-semibold text-white tabular-nums">
         <span aria-hidden="true">{fmt.format(display)}</span>

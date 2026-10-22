@@ -29,16 +29,28 @@ export async function buildMetadata({
   noIndex?: boolean
   type?: 'website' | 'article'
   publishedTime?: string | null
-  seo?: { metaTitle?: string | null; metaDescription?: string | null; ogImage?: Media | number | null; noIndex?: boolean | null } | null
+  seo?: {
+    metaTitle?: string | null
+    metaDescription?: string | null
+    ogImage?: Media | number | null
+    noIndex?: boolean | null
+  } | null
 }): Promise<Metadata> {
-  const [settings, t] = await Promise.all([getSiteSettings(locale), getTranslations({ locale, namespace: 'meta' })])
+  const [settings, t] = await Promise.all([
+    getSiteSettings(locale),
+    getTranslations({ locale, namespace: 'meta' }),
+  ])
   const siteName = settings?.defaultMetaTitle || t('siteName')
   const finalTitle = seo?.metaTitle || title || siteName
   const finalDescription =
-    seo?.metaDescription || description || settings?.defaultMetaDescription || t('defaultDescription')
+    seo?.metaDescription ||
+    description ||
+    settings?.defaultMetaDescription ||
+    t('defaultDescription')
   const img = mediaUrl(seo?.ogImage ?? image ?? settings?.defaultOgImage ?? null, 'hero')
   const languages: Record<string, string> = {}
-  for (const l of locales) languages[l === 'fr' ? 'fr-BF' : 'en'] = absoluteUrl(getPathname({ href, locale: l }))
+  for (const l of locales)
+    languages[l === 'fr' ? 'fr-BF' : 'en'] = absoluteUrl(getPathname({ href, locale: l }))
   languages['x-default'] = absoluteUrl(getPathname({ href, locale: 'fr' }))
   const canonical = absoluteUrl(getPathname({ href, locale }))
 

@@ -7,8 +7,13 @@ import { cn } from '@/lib/utils'
 
 export const Accordion = AccordionPrimitive.Root
 
-export function AccordionItem({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Item>) {
-  return <AccordionPrimitive.Item className={cn('border-b border-current/10', className)} {...props} />
+export function AccordionItem({
+  className,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Item>) {
+  return (
+    <AccordionPrimitive.Item className={cn('border-b border-current/10', className)} {...props} />
+  )
 }
 
 export function AccordionTrigger({
@@ -47,7 +52,7 @@ export function AccordionContent({
       className="overflow-hidden data-[state=closed]:animate-none"
       {...props}
     >
-      <div className={cn('pb-6 pr-12 leading-relaxed opacity-80', className)}>{children}</div>
+      <div className={cn('pr-12 pb-6 leading-relaxed opacity-80', className)}>{children}</div>
     </AccordionPrimitive.Content>
   )
 }

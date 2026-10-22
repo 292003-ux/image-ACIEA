@@ -6,9 +6,14 @@ import type { Event } from '@/payload-types'
 
 export type EventTiming = 'upcoming' | 'ongoing' | 'past'
 
-export function eventTiming(event: Pick<Event, 'startDate' | 'endDate'>, now = new Date()): EventTiming {
+export function eventTiming(
+  event: Pick<Event, 'startDate' | 'endDate'>,
+  now = new Date(),
+): EventTiming {
   const start = new Date(event.startDate)
-  const end = event.endDate ? new Date(event.endDate) : new Date(start.getTime() + 1000 * 60 * 60 * 6)
+  const end = event.endDate
+    ? new Date(event.endDate)
+    : new Date(start.getTime() + 1000 * 60 * 60 * 6)
   if (now < start) return 'upcoming'
   if (now <= end) return 'ongoing'
   return 'past'
@@ -19,9 +24,14 @@ export async function EventCard({ event }: { event: Event }) {
   const locale = await getLocale()
   const timing = eventTiming(event)
   const start = new Date(event.startDate)
-  const fmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'fr-FR', { timeZone: 'Africa/Ouagadougou' })
+  const fmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'fr-FR', {
+    timeZone: 'Africa/Ouagadougou',
+  })
   const day = fmt.formatToParts(start).find((p) => p.type === 'day')?.value
-  const month = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'fr-FR', { month: 'short', timeZone: 'Africa/Ouagadougou' }).format(start)
+  const month = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'fr-FR', {
+    month: 'short',
+    timeZone: 'Africa/Ouagadougou',
+  }).format(start)
   const year = start.getFullYear()
   return (
     <article className="group relative flex gap-5 rounded-[var(--radius-card)] bg-white p-6 shadow-soft ring-1 ring-forest/5 transition-all hover:shadow-lift">
@@ -35,14 +45,20 @@ export async function EventCard({ event }: { event: Event }) {
           {event.cancelled ? (
             <Badge tone="danger">{t('cancelled')}</Badge>
           ) : (
-            <Badge tone={timing === 'upcoming' ? 'gold' : timing === 'ongoing' ? 'leaf' : 'neutral'} dot>
+            <Badge
+              tone={timing === 'upcoming' ? 'gold' : timing === 'ongoing' ? 'leaf' : 'neutral'}
+              dot
+            >
               {t(timing)}
             </Badge>
           )}
           {event.format && <Badge tone="forest">{t(`format.${event.format}`)}</Badge>}
         </div>
         <h3 className="mt-3 font-display text-lg leading-snug font-semibold text-forest">
-          <Link href={{ pathname: '/events/[slug]', params: { slug: event.slug } }} className="after:absolute after:inset-0 after:content-['']">
+          <Link
+            href={{ pathname: '/events/[slug]', params: { slug: event.slug } }}
+            className="after:absolute after:inset-0 after:content-['']"
+          >
             {event.title}
           </Link>
         </h3>

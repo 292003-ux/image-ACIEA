@@ -16,7 +16,12 @@ export const Homepage: GlobalConfig = {
             localizedText('eyebrow', { fr: 'Surtitre', en: 'Eyebrow' }),
             localizedText('title', { fr: 'Titre principal', en: 'Main title' }),
             localizedTextarea('subtitle', { fr: 'Sous-titre', en: 'Subtitle' }),
-            { name: 'image', type: 'upload', relationTo: 'media', label: { fr: 'Image principale', en: 'Main image' } },
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+              label: { fr: 'Image principale', en: 'Main image' },
+            },
             {
               name: 'mosaic',
               type: 'upload',
@@ -29,7 +34,10 @@ export const Homepage: GlobalConfig = {
               name: 'video',
               type: 'upload',
               relationTo: 'media',
-              label: { fr: 'Vidéo d’arrière-plan (MP4/WebM légère, facultative)', en: 'Background video (light MP4/WebM, optional)' },
+              label: {
+                fr: 'Vidéo d’arrière-plan (MP4/WebM légère, facultative)',
+                en: 'Background video (light MP4/WebM, optional)',
+              },
             },
           ],
         },
@@ -42,7 +50,12 @@ export const Homepage: GlobalConfig = {
             localizedTextarea('text', { fr: 'Texte', en: 'Text' }),
             localizedTextarea('mission', { fr: 'Mission (encadré)', en: 'Mission (highlight)' }),
             { name: 'image', type: 'upload', relationTo: 'media', label: 'Image' },
-            { name: 'secondaryImage', type: 'upload', relationTo: 'media', label: { fr: 'Image secondaire', en: 'Secondary image' } },
+            {
+              name: 'secondaryImage',
+              type: 'upload',
+              relationTo: 'media',
+              label: { fr: 'Image secondaire', en: 'Secondary image' },
+            },
           ],
         },
         {

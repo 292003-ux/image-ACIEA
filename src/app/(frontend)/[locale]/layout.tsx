@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type * as React from 'react'
-import { Toaster } from 'sonner'
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
 import { SiteBanners } from '@/components/layout/site-banners'
@@ -12,6 +11,7 @@ import { isLocale, locales } from '@/i18n/routing'
 import { getSiteSettings } from '@/lib/queries'
 import { jsonLd } from '@/lib/seo'
 import { absoluteUrl } from '@/lib/utils'
+import { inter, playfair, sora } from '@/fonts'
 import '../globals.css'
 
 // Content is managed in the CMS and must be fresh as soon as it is published.
@@ -27,10 +27,17 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
   const { locale } = await params
   if (!isLocale(locale)) return {}
-  const [settings, t] = await Promise.all([getSiteSettings(locale), getTranslations({ locale, namespace: 'meta' })])
+  const [settings, t] = await Promise.all([
+    getSiteSettings(locale),
+    getTranslations({ locale, namespace: 'meta' }),
+  ])
   const siteName = settings?.defaultMetaTitle || t('siteName')
   const favicon = mediaUrl(settings?.favicon ?? settings?.logo ?? null, 'thumbnail')
   return {
@@ -53,7 +60,10 @@ export default async function LocaleLayout({
   const { locale } = await params
   if (!isLocale(locale)) notFound()
   setRequestLocale(locale)
-  const [settings, t] = await Promise.all([getSiteSettings(locale), getTranslations({ locale, namespace: 'common' })])
+  const [settings, t] = await Promise.all([
+    getSiteSettings(locale),
+    getTranslations({ locale, namespace: 'common' }),
+  ])
   const socials = (settings?.socials ?? []).filter((s) => s.verified).map((s) => s.url)
   const organization = {
     '@context': 'https://schema.org',
@@ -62,14 +72,23 @@ export default async function LocaleLayout({
     alternateName: settings?.shortName || 'ACIEA',
     url: absoluteUrl(`/${locale}`),
     ...(settings?.foundedYear ? { foundingDate: String(settings.foundedYear) } : {}),
-    address: { '@type': 'PostalAddress', addressLocality: settings?.city || 'Ouagadougou', addressCountry: 'BF' },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: settings?.city || 'Ouagadougou',
+      addressCountry: 'BF',
+    },
     ...(settings?.email ? { email: settings.email } : {}),
     ...(socials.length ? { sameAs: socials } : {}),
-    ...(mediaUrl(settings?.logo ?? null) ? { logo: absoluteUrl(mediaUrl(settings?.logo ?? null)!) } : {}),
+    ...(mediaUrl(settings?.logo ?? null)
+      ? { logo: absoluteUrl(mediaUrl(settings?.logo ?? null)!) }
+      : {}),
   }
 
   return (
-    <html lang={locale === 'fr' ? 'fr' : 'en'} className="scroll-smooth">
+    <html
+      lang={locale === 'fr' ? 'fr' : 'en'}
+      className={`${inter.variable} ${sora.variable} ${playfair.variable} scroll-smooth`}
+    >
       <body className="min-h-dvh antialiased">
         <NextIntlClientProvider>
           <a
@@ -84,7 +103,6 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer locale={locale} />
-          <Toaster position="bottom-center" richColors />
         </NextIntlClientProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organization)} />
       </body>

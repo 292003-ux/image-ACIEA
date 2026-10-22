@@ -11,7 +11,11 @@ export async function Header({ locale }: { locale: Locale }) {
     getDomains(locale),
   ])
   const items = await resolveHeaderNav(locale, nav, domains)
-  const logoProps = { logo: settings?.logo, shortName: settings?.shortName || 'ACIEA', tagline: settings?.organizationName }
+  const logoProps = {
+    logo: settings?.logo,
+    shortName: settings?.shortName || 'ACIEA',
+    tagline: settings?.organizationName,
+  }
   return (
     <HeaderClient
       items={items}

@@ -34,6 +34,14 @@ export default buildConfig({
       robots: 'noindex, nofollow',
     },
     dateFormat: 'dd/MM/yyyy HH:mm',
+    // No third-party avatar service (Gravatar) — keeps the CSP strict and protects privacy.
+    avatar: 'default',
+    components: {
+      graphics: {
+        Logo: '/components/admin/admin-brand#AdminLogo',
+        Icon: '/components/admin/admin-brand#AdminIcon',
+      },
+    },
     importMap: { baseDir: path.resolve(dirname) },
   },
   collections,

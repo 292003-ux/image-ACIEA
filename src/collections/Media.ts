@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { anyone, isEditorOrAbove, staffOnly } from '@/access/roles'
-import { auditHooks } from '@/hooks/audit'
+import { auditAfterChange, auditAfterDelete } from '@/hooks/audit'
+import { revalidateAfterChange, revalidateAfterDelete } from '@/hooks/revalidate'
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -25,7 +26,11 @@ export const Media: CollectionConfig = {
     formatOptions: { format: 'webp', options: { quality: 82 } },
     resizeOptions: { width: 2400, withoutEnlargement: true },
     imageSizes: [
-      { name: 'thumbnail', width: 480, formatOptions: { format: 'webp', options: { quality: 78 } } },
+      {
+        name: 'thumbnail',
+        width: 480,
+        formatOptions: { format: 'webp', options: { quality: 78 } },
+      },
       { name: 'card', width: 900, formatOptions: { format: 'webp', options: { quality: 80 } } },
       { name: 'hero', width: 1920, formatOptions: { format: 'webp', options: { quality: 80 } } },
     ],
@@ -56,7 +61,10 @@ export const Media: CollectionConfig = {
       options: [
         { value: 'official', label: { fr: 'Photo officielle ACIEA', en: 'Official ACIEA photo' } },
         { value: 'field', label: { fr: 'Photo de terrain validée', en: 'Validated field photo' } },
-        { value: 'illustrative', label: { fr: 'Visuel d’illustration', en: 'Illustrative visual' } },
+        {
+          value: 'illustrative',
+          label: { fr: 'Visuel d’illustration', en: 'Illustrative visual' },
+        },
         { value: 'to-verify', label: { fr: 'À vérifier', en: 'To verify' } },
       ],
       admin: {
@@ -82,5 +90,8 @@ export const Media: CollectionConfig = {
       admin: { position: 'sidebar' },
     },
   ],
-  hooks: auditHooks,
+  hooks: {
+    afterChange: [auditAfterChange, revalidateAfterChange],
+    afterDelete: [auditAfterDelete, revalidateAfterDelete],
+  },
 }

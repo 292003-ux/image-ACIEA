@@ -5,7 +5,11 @@ import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { absoluteUrl } from '@/lib/utils'
 
-export type Crumb = { label: string; href?: React.ComponentProps<typeof Link>['href']; url?: string }
+export type Crumb = {
+  label: string
+  href?: React.ComponentProps<typeof Link>['href']
+  url?: string
+}
 
 export async function Breadcrumbs({
   items,
@@ -30,7 +34,12 @@ export async function Breadcrumbs({
   }
   return (
     <nav aria-label={t('breadcrumb')} className={cn('text-sm', className)}>
-      <ol className={cn('flex flex-wrap items-center gap-1.5', tone === 'dark' ? 'text-white/65' : 'text-ink-muted')}>
+      <ol
+        className={cn(
+          'flex flex-wrap items-center gap-1.5',
+          tone === 'dark' ? 'text-white/65' : 'text-ink-muted',
+        )}
+      >
         {all.map((c, i) => {
           const last = i === all.length - 1
           return (
@@ -38,12 +47,21 @@ export async function Breadcrumbs({
               {c.href && !last ? (
                 <Link
                   href={c.href}
-                  className={cn('rounded transition-colors', tone === 'dark' ? 'hover:text-white' : 'hover:text-forest')}
+                  className={cn(
+                    'rounded transition-colors',
+                    tone === 'dark' ? 'hover:text-white' : 'hover:text-forest',
+                  )}
                 >
                   {c.label}
                 </Link>
               ) : (
-                <span aria-current={last ? 'page' : undefined} className={cn(last && (tone === 'dark' ? 'text-white' : 'text-forest'), 'line-clamp-1')}>
+                <span
+                  aria-current={last ? 'page' : undefined}
+                  className={cn(
+                    last && (tone === 'dark' ? 'text-white' : 'text-forest'),
+                    'line-clamp-1',
+                  )}
+                >
                   {c.label}
                 </span>
               )}
@@ -52,7 +70,10 @@ export async function Breadcrumbs({
           )
         })}
       </ol>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
     </nav>
   )
 }
