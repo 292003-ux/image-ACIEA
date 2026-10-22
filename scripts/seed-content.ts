@@ -1025,8 +1025,8 @@ It upholds the values of ecology, innovation, sanitation and sustainable energy.
 ACIEA works alongside national and international partners to protect the environment and improve people’s living conditions.`,
   },
   historyIntro: {
-    fr: 'Depuis sa création en 2024, l’ACIEA a multiplié les échanges avec les institutions nationales, les collectivités et les partenaires internationaux, tout en menant des actions de terrain auprès des jeunes. Les jalons ci-dessous sont documentés par des publications officielles.',
-    en: 'Since its creation in 2024, ACIEA has engaged with national institutions, local authorities and international partners while carrying out field actions with young people. The milestones below are documented by official publications.',
+    fr: 'Depuis sa création en 2024, l’ACIEA a multiplié les échanges avec les institutions nationales, les collectivités et les partenaires internationaux, tout en menant des actions de terrain auprès des jeunes.',
+    en: 'Since its creation in 2024, ACIEA has engaged with national institutions, local authorities and international partners while carrying out field actions with young people.',
   },
   milestones: [
     {

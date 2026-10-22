@@ -70,4 +70,4 @@ limitées par adresse IP.
 - **Traiter une demande** : Demandes reçues → ouvrir → changer le statut (Nouveau, En cours, Répondu, Clôturé, Spam).
   Les pièces jointes ne sont téléchargeables que par les administrateurs connectés.
 - **Durée de conservation** : Paramètres → Formulaires & données (purge automatique quotidienne).
-- **Menus** : Paramètres → Menus (laisser vide pour la navigation par défaut).
+- **Menus** : Paramètres → Menus (laisser vide pour la navigation par défaut : À propos · Nos actions · SAAGDO · Actualités · Contact, plus le bouton « Devenir partenaire »). Dans le pied de page, Événements, Publications et Galerie n’apparaissent que lorsqu’ils ont du contenu publié.

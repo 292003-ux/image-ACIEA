@@ -6,9 +6,9 @@ test.describe('mobile', () => {
     await page.getByRole('button', { name: 'Ouvrir le menu' }).click()
     const dialog = page.getByRole('dialog')
     await expect(dialog).toBeVisible()
-    await dialog.getByRole('button', { name: /Projets & Impact/ }).click()
-    await dialog.getByRole('link', { name: 'Projets achevés' }).click()
-    await expect(page).toHaveURL(/\/fr\/projets\/acheves$/)
+    await dialog.getByRole('button', { name: /Nos actions/ }).click()
+    await dialog.getByRole('link', { name: 'Tous les projets' }).click()
+    await expect(page).toHaveURL(/\/fr\/projets$/)
     await expect(page.getByRole('dialog')).toHaveCount(0)
   })
 

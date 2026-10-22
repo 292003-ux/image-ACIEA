@@ -3,23 +3,35 @@ import NextLink from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { NewsletterForm } from '@/components/forms/newsletter-form'
 import type { Locale } from '@/i18n/routing'
-import { pathFor, pathForSlug, resolveFooterColumns } from '@/lib/navigation'
-import { getDomains, getNavigation, getSiteSettings } from '@/lib/queries'
+import { pathFor, resolveFooterColumns } from '@/lib/navigation'
+import {
+  getEvents,
+  getGalleryMedia,
+  getNavigation,
+  getPublications,
+  getSiteSettings,
+} from '@/lib/queries'
 import { isSafeExternalUrl } from '@/lib/utils'
 import { LanguageSwitcher } from './language-switcher'
 import { Logo } from './logo'
 import { PLATFORM_NAMES, SocialIcon } from './social-icon'
 
 export async function Footer({ locale }: { locale: Locale }) {
-  const [settings, nav, domains, t, tn, tc] = await Promise.all([
+  const [settings, nav, events, publications, gallery, t, tn, tc] = await Promise.all([
     getSiteSettings(locale),
     getNavigation(locale),
-    getDomains(locale),
+    getEvents(locale),
+    getPublications(locale, { limit: 1 }),
+    getGalleryMedia(locale),
     getTranslations({ locale, namespace: 'footer' }),
     getTranslations({ locale, namespace: 'nav' }),
     getTranslations({ locale, namespace: 'common' }),
   ])
-  const columns = await resolveFooterColumns(locale, nav)
+  const columns = await resolveFooterColumns(locale, nav, {
+    events: events.length > 0,
+    publications: publications.totalDocs > 0,
+    gallery: gallery.length > 0,
+  })
   const socials = (settings?.socials ?? []).filter((s) => s.verified && isSafeExternalUrl(s.url))
   const year = new Date().getFullYear()
   const linkClass = 'text-sm text-white/70 transition-colors hover:text-gold'
@@ -69,7 +81,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             )}
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-5">
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-5">
             {columns.map((col) => (
               <div key={col.title}>
                 <p className="mb-4 eyebrow text-gold">{col.title}</p>
@@ -95,21 +107,6 @@ export async function Footer({ locale }: { locale: Locale }) {
                 </ul>
               </div>
             ))}
-            <div>
-              <p className="mb-4 eyebrow text-gold">{t('domains')}</p>
-              <ul className="space-y-2.5">
-                {domains.map((d) => (
-                  <li key={d.id}>
-                    <NextLink
-                      href={pathForSlug('/domains/[slug]', d.slug, locale)}
-                      className={linkClass}
-                    >
-                      {d.title}
-                    </NextLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           <div className="lg:col-span-3">

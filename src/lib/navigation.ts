@@ -22,44 +22,19 @@ type DefaultItem = {
   domains?: boolean
 }
 
+// Five entries only: sections without published content stay out of the menu.
 const DEFAULT_HEADER: DefaultItem[] = [
+  { key: 'about', route: '/about' },
   {
-    key: 'about',
-    route: '/about',
-    children: [
-      { key: 'aboutOverview', route: '/about', descKey: 'aboutOverview' },
-      { key: 'history', route: '/about/history', descKey: 'history' },
-      { key: 'mission', route: '/about/mission', descKey: 'mission' },
-      { key: 'governance', route: '/about/governance', descKey: 'governance' },
-      { key: 'team', route: '/about/team', descKey: 'team' },
-    ],
-  },
-  { key: 'domains', route: '/domains', domains: true },
-  {
-    key: 'projects',
+    key: 'actions',
     route: '/projects',
     children: [
+      { key: 'domains', route: '/domains', descKey: 'domains' },
       { key: 'projectsAll', route: '/projects', descKey: 'projectsAll' },
-      { key: 'projectsOngoing', route: '/projects/ongoing', descKey: 'projectsOngoing' },
-      { key: 'projectsCompleted', route: '/projects/completed', descKey: 'projectsCompleted' },
     ],
   },
   { key: 'saagdo', route: '/saagdo' },
-  {
-    key: 'news',
-    route: '/news',
-    children: [
-      { key: 'newsArticles', route: '/news', descKey: 'newsArticles' },
-      { key: 'events', route: '/events', descKey: 'events' },
-      { key: 'publications', route: '/publications', descKey: 'publications' },
-      { key: 'reports', route: '/publications/reports', descKey: 'reports' },
-      { key: 'gallery', route: '/gallery', descKey: 'gallery' },
-    ],
-  },
-  {
-    key: 'partners',
-    route: '/partners',
-  },
+  { key: 'newsArticles', route: '/news' },
   { key: 'contact', route: '/contact' },
 ]
 
@@ -141,9 +116,13 @@ export async function resolveHeaderNav(
   })
 }
 
+/** Which optional sections have published content (they are linked only then). */
+export type ContentPresence = { events: boolean; publications: boolean; gallery: boolean }
+
 export async function resolveFooterColumns(
   locale: Locale,
   cms: Navigation | null,
+  presence: ContentPresence,
 ): Promise<{ title: string; links: ResolvedLink[] }[]> {
   if (cms?.footerColumns?.length) {
     return cms.footerColumns.map((col) => ({
@@ -164,22 +143,21 @@ export async function resolveFooterColumns(
       title: tf('navigation'),
       links: [
         link('about', '/about'),
-        link('projects', '/projects'),
+        link('actions', '/projects'),
         link('saagdo', '/saagdo'),
         link('newsArticles', '/news'),
-        link('events', '/events'),
-        link('publications', '/publications'),
-        link('gallery', '/gallery'),
+        ...(presence.events ? [link('events', '/events')] : []),
+        ...(presence.publications ? [link('publications', '/publications')] : []),
+        ...(presence.gallery ? [link('gallery', '/gallery')] : []),
       ],
     },
     {
-      title: t('partners'),
+      title: tf('getInvolved'),
       links: [
         link('partners', '/partners'),
         link('becomePartner', '/partners/become'),
         link('join', '/join'),
         link('contact', '/contact'),
-        link('search', '/search'),
       ],
     },
   ]

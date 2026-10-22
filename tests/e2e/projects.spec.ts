@@ -24,7 +24,7 @@ test.describe('projects catalogue', () => {
     await expect(page.getByRole('heading', { level: 3, name: /SAAGDO/ })).toBeVisible()
   })
 
-  test('opens a project sheet with verified facts only', async ({ page }) => {
+  test('opens a project sheet', async ({ page }) => {
     await page.goto('/fr/projets')
     await page
       .getByRole('link', { name: /Camp Vacances Éco-Citoyen 2025/ })
@@ -34,7 +34,7 @@ test.describe('projects catalogue', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
       /Camp Vacances Éco-Citoyen 2025/,
     )
-    await expect(page.getByRole('heading', { name: 'Réalisations vérifiées' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Réalisations' })).toBeVisible()
     await expect(page.getByText('Fiche d’identité')).toBeVisible()
   })
 
