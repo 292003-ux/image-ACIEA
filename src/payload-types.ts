@@ -2088,6 +2088,11 @@ export interface SaagdoPage {
    */
   platformUrl?: string | null;
   /**
+   * With the app screenshot, replaces the illustrative mock-up (home and SAAGDO page).
+   */
+  screenshotPlatform?: (number | null) | Media;
+  screenshotApp?: (number | null) | Media;
+  /**
    * Played on the page, under the intro (light MP4, only loaded on click).
    */
   video?: (number | null) | Media;
@@ -2441,6 +2446,8 @@ export interface SaagdoPageSelect<T extends boolean = true> {
   partnershipText?: T;
   partnershipSourceUrl?: T;
   platformUrl?: T;
+  screenshotPlatform?: T;
+  screenshotApp?: T;
   video?: T;
   videoPoster?: T;
   videoUrl?: T;

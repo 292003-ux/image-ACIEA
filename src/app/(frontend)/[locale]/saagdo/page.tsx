@@ -9,6 +9,7 @@ import { Reveal } from '@/components/motion/reveal'
 import { SaagdoDemoLoader } from '@/components/saagdo/demo-loader'
 import { FlowDiagram } from '@/components/saagdo/flow-diagram'
 import { SaagdoMockup } from '@/components/saagdo/mockup'
+import { SaagdoScreens } from '@/components/saagdo/screens'
 import {
   Accordion,
   AccordionContent,
@@ -153,7 +154,14 @@ export default async function SaagdoPage({ params }: Props) {
               )}
             </div>
             <div className="lg:col-span-6">
-              <SaagdoMockup label={tc('fictitious')} locale={locale} />
+              {asMedia(page?.screenshotPlatform) ? (
+                <SaagdoScreens
+                  platform={asMedia(page?.screenshotPlatform)!}
+                  app={asMedia(page?.screenshotApp)}
+                />
+              ) : (
+                <SaagdoMockup label={tc('fictitious')} locale={locale} />
+              )}
             </div>
           </div>
         </div>

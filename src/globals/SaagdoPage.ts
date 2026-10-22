@@ -68,6 +68,30 @@ export const SaagdoPage: GlobalConfig = {
               },
             },
             {
+              name: 'screenshotPlatform',
+              type: 'upload',
+              relationTo: 'media',
+              label: {
+                fr: 'Capture de la plateforme (ordinateur)',
+                en: 'Platform screenshot (desktop)',
+              },
+              admin: {
+                description: {
+                  fr: 'Avec la capture de l’application, remplace la maquette illustrative (accueil et page SAAGDO).',
+                  en: 'With the app screenshot, replaces the illustrative mock-up (home and SAAGDO page).',
+                },
+              },
+            },
+            {
+              name: 'screenshotApp',
+              type: 'upload',
+              relationTo: 'media',
+              label: {
+                fr: 'Capture de l’application (téléphone)',
+                en: 'App screenshot (phone)',
+              },
+            },
+            {
               name: 'video',
               type: 'upload',
               relationTo: 'media',

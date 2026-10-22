@@ -804,6 +804,8 @@ async function main() {
       partnershipSourceUrl: C.GWP_URL,
       platformUrl: '',
       // The same presentation is played on the page from `video`.
+      screenshotPlatform: media['saagdo-capture-plateforme'] ?? null,
+      screenshotApp: media['saagdo-capture-application'] ?? null,
       video: media['video-saagdo'] ?? null,
       videoPoster: media['video-saagdo-affiche'] ?? null,
       videoUrl: '',

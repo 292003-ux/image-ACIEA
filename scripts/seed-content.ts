@@ -38,6 +38,24 @@ export type MediaSeed = {
 
 export const MEDIA: MediaSeed[] = [
   {
+    key: 'saagdo-capture-plateforme',
+    file: 'saagdo-capture-plateforme.png',
+    alt: {
+      fr: 'Plateforme de gestion SAAGDO : carte des signalements à Ouagadougou, avec leur statut (en attente, en cours, terminé, police, rejeté)',
+      en: 'SAAGDO management platform: map of reports in Ouagadougou with their status (pending, in progress, done, police, rejected)',
+    },
+    provenance: 'official',
+  },
+  {
+    key: 'saagdo-capture-application',
+    file: 'saagdo-capture-application.png',
+    alt: {
+      fr: 'Application mobile SAAGDO : accueil avec « Signaler un déchet », « Brigade LAABAL » et la carte des toilettes publiques',
+      en: 'SAAGDO mobile app: home screen with “Report waste”, “LAABAL brigade” and the public toilets map',
+    },
+    provenance: 'official',
+  },
+  {
     key: 'video-aciea',
     file: 'presentation-aciea.mp4',
     video: true,

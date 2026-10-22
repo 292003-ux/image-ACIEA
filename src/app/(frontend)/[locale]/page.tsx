@@ -14,7 +14,14 @@ import { Section } from '@/components/ui/container'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { isLocale, type Locale } from '@/i18n/routing'
 import { pathFor, pathForSlug } from '@/lib/navigation'
-import { getDomains, getFeaturedProjects, getHomepage, getNews, getPartners } from '@/lib/queries'
+import {
+  getDomains,
+  getFeaturedProjects,
+  getHomepage,
+  getNews,
+  getPartners,
+  getSaagdoPage,
+} from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 import type { Media } from '@/payload-types'
@@ -31,7 +38,7 @@ export default async function HomePage({ params }: Props) {
   const { locale: raw } = await params
   const locale = raw as Locale
   setRequestLocale(locale)
-  const [t, tn, home, domains, projects, partners, news] = await Promise.all([
+  const [t, tn, home, domains, projects, partners, news, saagdoPage] = await Promise.all([
     getTranslations({ locale, namespace: 'home' }),
     getTranslations({ locale, namespace: 'nav' }),
     getHomepage(locale),
@@ -39,6 +46,7 @@ export default async function HomePage({ params }: Props) {
     getFeaturedProjects(locale, 4),
     getPartners(locale),
     getNews(locale, { limit: 3 }),
+    getSaagdoPage(locale),
   ])
   const intro = home?.intro
   const asMedia = (m: unknown) => (m && typeof m === 'object' ? (m as Media) : null)
@@ -167,7 +175,15 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <SaagdoFeature locale={locale} title={home?.saagdo?.title} text={home?.saagdo?.text} />
+      <SaagdoFeature
+        locale={locale}
+        title={home?.saagdo?.title}
+        text={home?.saagdo?.text}
+        screens={{
+          platform: asMedia(saagdoPage?.screenshotPlatform),
+          app: asMedia(saagdoPage?.screenshotApp),
+        }}
+      />
 
       {/* News + partners */}
       <Section tone="ivory">
