@@ -19,11 +19,10 @@ test.describe('editorial content', () => {
     expect(ldTypes).toContain('NewsArticle')
   })
 
-  test('filters news by category', async ({ page }) => {
+  test('lists the news without category filters', async ({ page }) => {
     await page.goto('/fr/actualites')
-    await page.getByRole('link', { name: 'Partenariat', exact: true }).click()
-    await expect(page).toHaveURL(/category=partnership/)
     await expect(page.getByRole('link', { name: /formalisent/ }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Partenariat', exact: true })).toHaveCount(0)
   })
 
   test('downloads an authorised publication', async ({ page }) => {
