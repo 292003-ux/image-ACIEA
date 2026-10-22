@@ -105,7 +105,7 @@ renseigner à la mise en production.
 
 - Accueil, bloc « Qui sommes-nous » : présentation de l’ACIEA par ses membres (1 min 35, `assets/source/videos/presentation-aciea.mp4`).
 - Page SAAGDO : présentation de l’application par l’équipe (3 min, en anglais sous-titré, `presentation-saagdo.mp4`).
-- Réencodées en MP4 H.264 léger (8 et 10 Mo) ; rien n’est téléchargé avant que le visiteur appuie sur lecture.
+- Réencodées en MP4 H.264 léger (8 et 10 Mo). Lecture automatique sans le son (seule permise par les navigateurs), bouton « Activer le son », pause possible ; mise en pause hors écran, pas de lecture automatique en mode économie de données ou « réduire les animations ».
 
 Toujours non publiés faute d’information : rapports et documents, événements à venir,
 témoignages, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom

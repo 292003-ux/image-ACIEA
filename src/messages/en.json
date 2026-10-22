@@ -38,7 +38,8 @@
     "share": "Share",
     "provisional": "Provisional content",
     "translationFallback": "This content has not been translated yet: the original French version is shown.",
-    "fallbackBadge": "Original version"
+    "fallbackBadge": "Original version",
+    "unmute": "Turn sound on"
   },
   "nav": {
     "home": "Home",
