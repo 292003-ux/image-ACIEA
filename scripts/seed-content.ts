@@ -1605,7 +1605,7 @@ export const TEAM: {
   },
   {
     name: 'TASSEMBEDO Fonzia',
-    position: { fr: 'Secrétaire général·e', en: 'Secretary General' },
+    position: { fr: 'Secrétaire générale', en: 'Secretary General' },
     file: 'secretariat-tassembedo-fonzia.jpg',
   },
 ]

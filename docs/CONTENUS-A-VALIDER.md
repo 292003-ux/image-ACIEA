@@ -79,11 +79,11 @@ son contenu n’a pas pu être repris ni vérifié.
 Seuls trois profils sont publiés : noms, fonctions et consentement à la publication confirmés par l’ACIEA.
 Les 23 profils créés auparavant à partir des noms de fichiers sont dépubliés (consentement décoché, données conservées).
 
-| Fonction             | Nom                               | Portrait                                                              |
-| -------------------- | --------------------------------- | --------------------------------------------------------------------- |
-| Président            | ILBOUDO Dieudonné                 | `president-ilboudo-dieudonne.jpg` (recadrage d’une photo fournie)     |
-| Vice-présidente      | SAMBORE Daho Nadia Doriane Leslie | `vice-presidente-sambore-doriane.jpg` (recadrage d’une photo fournie) |
-| Secrétaire général·e | TASSEMBEDO Fonzia                 | `secretariat-tassembedo-fonzia.jpg` (recadrage d’une photo fournie)   |
+| Fonction            | Nom                               | Portrait                                                              |
+| ------------------- | --------------------------------- | --------------------------------------------------------------------- |
+| Président           | ILBOUDO Dieudonné                 | `president-ilboudo-dieudonne.jpg` (recadrage d’une photo fournie)     |
+| Vice-présidente     | SAMBORE Daho Nadia Doriane Leslie | `vice-presidente-sambore-doriane.jpg` (recadrage d’une photo fournie) |
+| Secrétaire générale | TASSEMBEDO Fonzia                 | `secretariat-tassembedo-fonzia.jpg` (recadrage d’une photo fournie)   |
 
 Toujours non publiés faute d’information : message du président, rapports et documents, événements à venir,
 témoignages, mentions légales complètes, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
