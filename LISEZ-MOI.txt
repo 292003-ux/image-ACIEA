@@ -1,2 +1,0 @@
-Aperçu statique du site ACIEA (FR/EN). Ouvrez index.html.
-Inactifs : carte interactive, formulaires, démonstration SAAGDO, administration.
