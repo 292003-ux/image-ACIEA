@@ -19,9 +19,8 @@ export async function generateMetadata({ params }: Props) {
 export default async function EventsPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const [t, tn, events] = await Promise.all([
+  const [t, events] = await Promise.all([
     getTranslations({ locale, namespace: 'events' }),
-    getTranslations({ locale, namespace: 'nav' }),
     getEvents(locale),
   ])
   const now = new Date()
@@ -31,12 +30,7 @@ export default async function EventsPage({ params }: Props) {
   const past = events.filter((e) => eventTiming(e, now) === 'past')
   return (
     <>
-      <PageHero
-        eyebrow={tn('news')}
-        title={t('title')}
-        description={t('intro')}
-        crumbs={[{ label: t('title') }]}
-      />
+      <PageHero title={t('title')} description={t('intro')} crumbs={[{ label: t('title') }]} />
       <Section tone="ivory">
         <section aria-labelledby="upcoming">
           <h2 id="upcoming" className="font-display text-h3 font-semibold text-forest">

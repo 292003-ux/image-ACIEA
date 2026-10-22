@@ -35,9 +35,8 @@ export async function generateMetadata({ params }: Props) {
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const [t, tn, about, team] = await Promise.all([
+  const [t, about, team] = await Promise.all([
     getTranslations({ locale, namespace: 'about' }),
-    getTranslations({ locale, namespace: 'nav' }),
     getAboutPage(locale),
     getTeam(locale),
   ])
@@ -100,7 +99,7 @@ export default async function AboutPage({ params }: Props) {
       <Section tone="ivory">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeading eyebrow={tn('history')} title={t('historyTitle')} />
+            <SectionHeading title={t('historyTitle')} />
             <RichText data={about?.historyIntro} className="mt-6 text-ink-muted" />
           </div>
           <div className="lg:col-span-7">
@@ -124,7 +123,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Team */}
       <Section tone="ivory">
-        <SectionHeading eyebrow={tn('team')} title={t('teamTitle')} description={t('teamIntro')} />
+        <SectionHeading title={t('teamTitle')} description={t('teamIntro')} />
         <div className="mt-12">
           {team.length ? (
             <TeamGrid members={team} />

@@ -196,7 +196,6 @@ export default async function SaagdoPage({ params }: Props) {
                 description: f.description,
                 icon: f.icon,
               }))}
-              disclaimer={t('flowDisclaimer')}
             />
           </div>
         </div>

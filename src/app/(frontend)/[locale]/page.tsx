@@ -13,14 +13,7 @@ import { Section } from '@/components/ui/container'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { isLocale, type Locale } from '@/i18n/routing'
 import { pathFor, pathForSlug } from '@/lib/navigation'
-import {
-  getDomains,
-  getFeaturedProjects,
-  getHomepage,
-  getNews,
-  getPartners,
-  getSiteSettings,
-} from '@/lib/queries'
+import { getDomains, getFeaturedProjects, getHomepage, getNews, getPartners } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 
@@ -36,26 +29,22 @@ export default async function HomePage({ params }: Props) {
   const { locale: raw } = await params
   const locale = raw as Locale
   setRequestLocale(locale)
-  const [t, tn, home, settings, domains, projects, partners, news] = await Promise.all([
+  const [t, tn, home, domains, projects, partners, news] = await Promise.all([
     getTranslations({ locale, namespace: 'home' }),
     getTranslations({ locale, namespace: 'nav' }),
     getHomepage(locale),
-    getSiteSettings(locale),
     getDomains(locale),
-    getFeaturedProjects(locale, 3),
+    getFeaturedProjects(locale, 4),
     getPartners(locale),
     getNews(locale, { limit: 3 }),
   ])
   const intro = home?.intro
+  // SAAGDO has its own section just below: keep it out of the project cards.
+  const otherProjects = projects.filter((p) => p.slug !== 'saagdo').slice(0, 3)
 
   return (
     <>
-      <HomeHero
-        hero={home?.hero}
-        locale={locale}
-        foundedYear={settings?.foundedYear}
-        domainsCount={domains.length}
-      />
+      <HomeHero hero={home?.hero} locale={locale} />
 
       {/* Presentation */}
       <Section id="presentation" tone="ivory" className="overflow-hidden">
@@ -68,12 +57,6 @@ export default async function HomePage({ params }: Props) {
                   <p key={i}>{p}</p>
                 ))}
               </div>
-            )}
-            {intro?.mission && (
-              <blockquote className="relative mt-10 rounded-2xl border-l-2 border-gold bg-white p-6 shadow-soft">
-                <p className="mb-2 eyebrow text-gold-600">{t('missionLabel')}</p>
-                <p className="font-serif text-xl leading-snug text-forest">{intro.mission}</p>
-              </blockquote>
             )}
             <NextLink
               href={pathFor('/about', locale)}
@@ -151,9 +134,14 @@ export default async function HomePage({ params }: Props) {
               </li>
             ))}
           </ul>
-          {projects.length > 0 && (
-            <ul className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {projects.map((p, i) => (
+          {otherProjects.length > 0 && (
+            <ul
+              className={cn(
+                'mt-14 grid gap-6 md:grid-cols-2',
+                otherProjects.length > 2 && 'lg:grid-cols-3',
+              )}
+            >
+              {otherProjects.map((p, i) => (
                 <Reveal as="li" key={p.id} delay={i * 0.08}>
                   <ProjectCard project={p} />
                 </Reveal>

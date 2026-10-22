@@ -621,6 +621,14 @@ async function main() {
 
   // 9. FAQs
   for (const [i, f] of C.FAQS.entries()) {
+    if (f.retired) {
+      await payload.delete({
+        collection: 'faqs',
+        where: { and: [{ scope: { equals: f.scope } }, { order: { equals: i } }] },
+        context: ctx,
+      })
+      continue
+    }
     await upsert(
       payload,
       'faqs',

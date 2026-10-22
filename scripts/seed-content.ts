@@ -970,8 +970,8 @@ export const HOMEPAGE = {
       en: 'An alliance focused on solutions',
     },
     text: {
-      fr: 'Face à l’urgence climatique et à la dégradation des écosystèmes, l’ACIEA a fait le choix de l’action. Créée en 2024 à Ouagadougou, l’Alliance rassemble des jeunes engagés, des profils scientifiques et techniques et des acteurs de terrain.\n\nNotre conviction : l’innovation, la donnée et l’engagement collectif permettent de concevoir des solutions durables, adaptées aux réalités locales.',
-      en: 'Faced with the climate emergency and ecosystem degradation, ACIEA has chosen action. Founded in 2024 in Ouagadougou, the Alliance brings together committed young people, scientific and technical profiles and field actors.\n\nOur conviction: innovation, data and collective engagement make it possible to design sustainable solutions suited to local realities.',
+      fr: 'Face à l’urgence climatique et à la dégradation des écosystèmes, l’ACIEA a fait le choix de l’action. Créée en 2024, l’Alliance rassemble des jeunes engagés, des profils scientifiques et techniques et des acteurs de terrain.\n\nNotre conviction : l’innovation, la donnée et l’engagement collectif permettent de concevoir des solutions durables, adaptées aux réalités locales.',
+      en: 'Faced with the climate emergency and ecosystem degradation, ACIEA has chosen action. Founded in 2024, the Alliance brings together committed young people, scientific and technical profiles and field actors.\n\nOur conviction: innovation, data and collective engagement make it possible to design sustainable solutions suited to local realities.',
     },
     mission: {
       fr: 'Promouvoir des solutions innovantes, durables et adaptées aux réalités locales face aux défis environnementaux, en renforçant les capacités des communautés et l’engagement citoyen.',
@@ -980,8 +980,8 @@ export const HOMEPAGE = {
   },
   saagdo: {
     title: {
-      fr: 'SAAGDO — L’innovation numérique au service de la surveillance environnementale.',
-      en: 'SAAGDO — Digital innovation for environmental monitoring.',
+      fr: 'SAAGDO — Surveiller l’eau, prévenir les pollutions.',
+      en: 'SAAGDO — Monitoring water, preventing pollution.',
     },
     text: {
       fr: 'Une application mobile et une plateforme de gestion pour renforcer la surveillance environnementale, la cartographie citoyenne et l’anticipation des risques de pollution liés à l’eau et à l’assainissement.',
@@ -1013,16 +1013,12 @@ export const ABOUT = {
     },
   },
   presentation: {
-    fr: `L’Alliance for Climate Innovation and Ecological Action (ACIEA) — Alliance pour l’innovation climatique et l’action écologique — est une organisation à but non lucratif basée à Ouagadougou, au Burkina Faso, créée en 2024.
+    fr: `Organisation à but non lucratif, l’ACIEA porte haut les valeurs de l’écologie, de l’innovation, de la salubrité et de l’énergie durable. Ses actions couvrent la lutte contre le changement climatique et l’adaptation, la gestion durable de l’eau, la protection de la biodiversité, l’innovation numérique, la recherche et l’éducation environnementale.
 
-Elle porte haut les valeurs de l’écologie, de l’innovation, de la salubrité et de l’énergie durable. Ses actions couvrent la lutte contre le changement climatique et l’adaptation, la gestion durable de l’eau, la protection de la biodiversité, l’innovation numérique, la recherche et l’éducation environnementale.
+Elle œuvre aux côtés de partenaires nationaux et internationaux pour la protection de l’environnement et l’amélioration des conditions de vie des populations.`,
+    en: `A non-profit organisation, ACIEA upholds the values of ecology, innovation, sanitation and sustainable energy. Its work covers climate change mitigation and adaptation, sustainable water management, biodiversity protection, digital innovation, research and environmental education.
 
-L’ACIEA œuvre aux côtés de partenaires nationaux et internationaux pour la protection de l’environnement et l’amélioration des conditions de vie des populations.`,
-    en: `The Alliance for Climate Innovation and Ecological Action (ACIEA) is a non-profit organisation based in Ouagadougou, Burkina Faso, founded in 2024.
-
-It upholds the values of ecology, innovation, sanitation and sustainable energy. Its work covers climate change mitigation and adaptation, sustainable water management, biodiversity protection, digital innovation, research and environmental education.
-
-ACIEA works alongside national and international partners to protect the environment and improve people’s living conditions.`,
+It works alongside national and international partners to protect the environment and improve people’s living conditions.`,
   },
   historyIntro: {
     fr: 'Depuis sa création en 2024, l’ACIEA a multiplié les échanges avec les institutions nationales, les collectivités et les partenaires internationaux, tout en menant des actions de terrain auprès des jeunes.',
@@ -1033,10 +1029,6 @@ ACIEA works alongside national and international partners to protect the environ
       date: '2024-06-30T12:00:00.000Z',
       precision: 'year',
       title: { fr: 'Création de l’ACIEA à Ouagadougou', en: 'ACIEA founded in Ouagadougou' },
-      description: {
-        fr: 'Naissance de l’Alliance for Climate Innovation and Ecological Action.',
-        en: 'The Alliance for Climate Innovation and Ecological Action is born.',
-      },
       sourceUrl: LINKEDIN_URL,
     },
     {
@@ -1330,9 +1322,16 @@ export const SAAGDO = {
   },
 }
 
-export const FAQS: { scope: 'saagdo' | 'partners' | 'general'; q: L; a: L }[] = [
+/** `retired` entries repeated the page they sit on: the seed removes them (order stays stable). */
+export const FAQS: {
+  scope: 'saagdo' | 'partners' | 'general'
+  q: L
+  a: L
+  retired?: boolean
+}[] = [
   {
     scope: 'saagdo',
+    retired: true,
     q: { fr: 'Qu’est-ce que SAAGDO ?', en: 'What is SAAGDO?' },
     a: {
       fr: 'SAAGDO est une solution numérique portée par l’ACIEA, associant une application mobile et une plateforme de gestion. Elle vise à renforcer la surveillance environnementale, la cartographie citoyenne et l’anticipation des risques de pollution liés à l’eau et à l’assainissement.',
@@ -1341,6 +1340,7 @@ export const FAQS: { scope: 'saagdo' | 'partners' | 'general'; q: L; a: L }[] = 
   },
   {
     scope: 'saagdo',
+    retired: true,
     q: {
       fr: 'La démonstration de cette page utilise-t-elle des données réelles ?',
       en: 'Does the demo on this page use real data?',
