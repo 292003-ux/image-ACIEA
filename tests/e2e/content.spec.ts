@@ -48,15 +48,12 @@ test.describe('editorial content', () => {
     await expect(page.getByRole('heading', { name: /Actualités/ })).toBeVisible()
   })
 
-  test('SAAGDO demo is interactive and labelled as fictitious', async ({ page }) => {
+  test('SAAGDO page shows the real app, its features and the video', async ({ page }) => {
     await page.goto('/fr/saagdo')
-    await expect(page.getByText(/toutes les données affichées sont fictives/)).toBeVisible()
-    await page.getByRole('tab', { name: 'Participation citoyenne' }).click()
-    await page.getByRole('button', { name: 'Simuler une contribution' }).click()
-    await expect(page.getByText('Contribution simulée ajoutée localement')).toBeVisible()
-    await expect(page.getByText('Accéder à la plateforme').first()).toHaveAttribute(
-      'aria-disabled',
-      'true',
-    )
+    await expect(page.getByRole('heading', { name: 'Ce que permet SAAGDO' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Signaler un déchet' })).toBeVisible()
+    await expect(page.locator('video')).toHaveCount(1)
+    await expect(page.getByAltText(/Plateforme de gestion SAAGDO/)).toBeVisible()
+    await expect(page.getByText(/fictiv/i)).toHaveCount(0)
   })
 })

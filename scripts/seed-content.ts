@@ -1359,49 +1359,58 @@ export const SAAGDO = {
       },
     },
   ],
+  // Features as shown in the team's presentation video and the app/platform screenshots.
   solutionIntro: {
-    fr: 'SAAGDO repose sur deux composantes complémentaires et sur trois fonctions clés, telles que décrites dans le cadre du partenariat avec le GWP Afrique de l’Ouest.',
-    en: 'SAAGDO relies on two complementary components and three key functions, as described in the partnership with GWP West Africa.',
+    fr: 'Une application pour les citoyens, une plateforme pour ceux qui agissent sur le terrain.',
+    en: 'An app for citizens, a platform for those who act on the ground.',
   },
   components: [
     {
-      icon: 'cpu',
-      title: { fr: 'Application mobile', en: 'Mobile application' },
+      icon: 'megaphone',
+      title: { fr: 'Signaler un déchet', en: 'Report waste' },
       description: {
-        fr: 'Pour contribuer depuis le terrain et remonter des observations.',
-        en: 'To contribute from the field and report observations.',
+        fr: 'Le citoyen prend en photo un dépôt de déchets et le signale en quelques secondes depuis l’application.',
+        en: 'Citizens photograph a waste dump and report it in seconds from the app.',
       },
     },
     {
-      icon: 'line-chart',
-      title: { fr: 'Plateforme de gestion', en: 'Management platform' },
+      icon: 'shield-check',
+      title: { fr: 'Brigade LAABAL', en: 'LAABAL brigade' },
       description: {
-        fr: 'Pour centraliser, traiter et exploiter les informations.',
-        en: 'To centralise, process and use information.',
+        fr: 'Un signalement anonyme, adressé directement à la brigade LAABAL.',
+        en: 'An anonymous report, sent straight to the LAABAL brigade.',
+      },
+    },
+    {
+      icon: 'recycle',
+      title: { fr: 'Transmission et suivi', en: 'Routing and follow-up' },
+      description: {
+        fr: 'Chaque signalement est transmis à la mairie ou à la brigade LAABAL, puis suivi jusqu’au nettoyage : en attente, en cours, terminé.',
+        en: 'Each report is sent to the town hall or the LAABAL brigade, then followed until clean-up: pending, in progress, done.',
       },
     },
     {
       icon: 'map',
-      title: { fr: 'Cartographie participative', en: 'Participatory mapping' },
+      title: { fr: 'Toilettes publiques', en: 'Public toilets' },
       description: {
-        fr: 'Pour localiser les observations et partager une vision commune du territoire.',
-        en: 'To locate observations and share a common view of the territory.',
+        fr: 'Une carte des toilettes publiques disponibles à Ouagadougou.',
+        en: 'A map of the public toilets available in Ouagadougou.',
       },
     },
     {
-      icon: 'satellite',
-      title: { fr: 'Surveillance environnementale', en: 'Environmental monitoring' },
+      icon: 'line-chart',
+      title: { fr: 'Tableau de bord', en: 'Dashboard' },
       description: {
-        fr: 'Pour suivre l’évolution des situations dans le temps.',
-        en: 'To track how situations evolve over time.',
+        fr: 'Pour les gestionnaires : carte des signalements, statistiques et gestion des utilisateurs.',
+        en: 'For managers: report map, statistics and user management.',
       },
     },
     {
-      icon: 'brain-circuit',
-      title: { fr: 'Analyse et prévision des risques', en: 'Risk analysis and prediction' },
+      icon: 'users',
+      title: { fr: 'Concours citoyen', en: 'Citizen challenge' },
       description: {
-        fr: 'Pour anticiper les risques de pollution liés à l’eau et à l’assainissement.',
-        en: 'To anticipate water- and sanitation-related pollution risks.',
+        fr: 'Un classement des utilisateurs les plus actifs et un concours fondé sur des actions réelles.',
+        en: 'A ranking of the most active users and a challenge based on real actions.',
       },
     },
   ],

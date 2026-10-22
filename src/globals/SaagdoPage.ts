@@ -25,20 +25,25 @@ export const SaagdoPage: GlobalConfig = {
           label: { fr: 'Présentation', en: 'Overview' },
           fields: [
             heroGroup(),
-            localizedTextarea('problemIntro', {
-              fr: 'Problématique — introduction',
-              en: 'Challenge — introduction',
-            }),
-            cards('problems', { fr: 'Enjeux', en: 'Challenges' }),
+            // No longer shown on the page (kept so existing content is not lost).
+            localizedTextarea(
+              'problemIntro',
+              { fr: 'Problématique — introduction', en: 'Challenge — introduction' },
+              { admin: { hidden: true } },
+            ),
+            { ...cards('problems', { fr: 'Enjeux', en: 'Challenges' }), admin: { hidden: true } },
             localizedTextarea('solutionIntro', {
-              fr: 'Solution — introduction',
-              en: 'Solution — introduction',
+              fr: 'Fonctionnalités — introduction',
+              en: 'Features — introduction',
             }),
-            cards('components', { fr: 'Composantes documentées', en: 'Documented components' }),
-            cards('flow', {
-              fr: 'Fonctionnement conceptuel (étapes)',
-              en: 'Conceptual flow (steps)',
-            }),
+            cards('components', { fr: 'Fonctionnalités', en: 'Features' }),
+            {
+              ...cards('flow', {
+                fr: 'Fonctionnement conceptuel (étapes)',
+                en: 'Conceptual flow (steps)',
+              }),
+              admin: { hidden: true },
+            },
           ],
         },
         {
@@ -128,6 +133,8 @@ export const SaagdoPage: GlobalConfig = {
               name: 'showDemo',
               type: 'checkbox',
               defaultValue: true,
+              // The fictitious demo was replaced by real screenshots and the video.
+              admin: { hidden: true },
               label: {
                 fr: 'Afficher la démonstration (données fictives)',
                 en: 'Show demo (fictitious data)',

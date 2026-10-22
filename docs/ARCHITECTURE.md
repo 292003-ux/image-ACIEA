@@ -79,4 +79,4 @@ Typographies auto-hébergées : Sora (titres), Inter (texte), Playfair Display (
 Composants réutilisables : `Button`, `Badge`, `SectionHeading`, `Section`, `Breadcrumbs` (+ JSON-LD),
 `Accordion`, onglets, `EmptyState`, `Skeleton`, `Pagination`, `FilterChips`, champs de formulaire,
 cartes (projet, actualité, partenaire, équipe, document, événement, domaine), `PageHero`, `CtaBanner`,
-`Milestones`, `KpiCard`, `GalleryGrid` (lightbox), carte Leaflet, maquette et démo SAAGDO.
+`Milestones`, `KpiCard`, `GalleryGrid` (lightbox), carte Leaflet, captures SAAGDO (maquette illustrative en secours), lecteur vidéo.
