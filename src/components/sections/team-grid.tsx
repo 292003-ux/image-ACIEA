@@ -1,0 +1,15 @@
+import { TeamCard } from '@/components/cards/team-card'
+import { Reveal } from '@/components/motion/reveal'
+import type { TeamMember } from '@/payload-types'
+
+export function TeamGrid({ members }: { members: TeamMember[] }) {
+  return (
+    <ul className="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
+      {members.map((m, i) => (
+        <Reveal as="li" key={m.id} delay={(i % 4) * 0.05}>
+          <TeamCard member={m} />
+        </Reveal>
+      ))}
+    </ul>
+  )
+}

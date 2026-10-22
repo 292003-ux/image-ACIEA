@@ -1,0 +1,92 @@
+# Production stack for a single VPS (e.g. OVHcloud, Ubuntu Server).
+#   docker compose --env-file .env.production up -d --build
+# See docs/DEPLOIEMENT.md.
+name: aciea
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-aciea}
+      POSTGRES_USER: ${POSTGRES_USER:-aciea}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-aciea} -d ${POSTGRES_DB:-aciea}']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [internal]
+    # Never exposed publicly.
+
+  migrate:
+    build:
+      context: .
+      target: tools
+      args:
+        NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:?NEXT_PUBLIC_SERVER_URL is required}
+    command: ['pnpm', 'migrate']
+    env_file: .env.production
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-aciea}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-aciea}
+      PAYLOAD_DISABLE_AUTORUN: 'true'
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [internal]
+    restart: 'no'
+
+  app:
+    build:
+      context: .
+      target: runner
+      args:
+        NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL}
+        NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY:-}
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-aciea}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-aciea}
+      PAYLOAD_DB_PUSH: 'false'
+      MEDIA_DIR: /app/media
+      DOCUMENTS_DIR: /app/media/documents
+      PRIVATE_UPLOADS_DIR: /app/uploads/private
+    volumes:
+      - media:/app/media
+      - private-uploads:/app/uploads/private
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    networks: [internal]
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?SITE_DOMAIN is required}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+    networks: [internal]
+
+volumes:
+  db-data:
+  media:
+  private-uploads:
+  caddy-data:
+  caddy-config:
+
+networks:
+  internal:

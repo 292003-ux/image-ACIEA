@@ -1,0 +1,60 @@
+import {
+  BrainCircuit,
+  Cpu,
+  Droplets,
+  Eye,
+  FlaskConical,
+  Globe,
+  GraduationCap,
+  Handshake,
+  HeartHandshake,
+  Leaf,
+  Lightbulb,
+  LineChart,
+  type LucideIcon,
+  Map,
+  Megaphone,
+  Microscope,
+  Recycle,
+  Satellite,
+  Scale,
+  ShieldCheck,
+  Sprout,
+  Sun,
+  ThermometerSun,
+  Trees,
+  Users,
+} from 'lucide-react'
+import type { IconName } from '@/fields/icon'
+
+const ICONS: Record<IconName, LucideIcon> = {
+  'thermometer-sun': ThermometerSun,
+  droplets: Droplets,
+  leaf: Leaf,
+  trees: Trees,
+  cpu: Cpu,
+  'brain-circuit': BrainCircuit,
+  microscope: Microscope,
+  'graduation-cap': GraduationCap,
+  users: Users,
+  map: Map,
+  satellite: Satellite,
+  sprout: Sprout,
+  recycle: Recycle,
+  sun: Sun,
+  'shield-check': ShieldCheck,
+  handshake: Handshake,
+  globe: Globe,
+  'line-chart': LineChart,
+  megaphone: Megaphone,
+  lightbulb: Lightbulb,
+  scale: Scale,
+  eye: Eye,
+  'heart-handshake': HeartHandshake,
+  'flask-conical': FlaskConical,
+}
+
+export function Icon({ name, className }: { name?: string | null; className?: string }) {
+  const Comp = (name && ICONS[name as IconName]) || Leaf
+  return <Comp aria-hidden="true" className={className} strokeWidth={1.6} />
+}
