@@ -194,16 +194,18 @@ function DesktopItem({
               </li>
             ))}
           </ul>
-          <div className="mt-1 flex items-center justify-between rounded-xl bg-forest px-4 py-3 text-white">
-            <span className="text-xs text-white/70">{item.label}</span>
-            <NextLink
-              href={item.href}
-              className="group/btn inline-flex items-center gap-1.5 text-sm font-semibold text-gold"
-            >
-              <span>{tc('seeAll')}</span>
-              <ArrowGlyph className="size-3.5" />
-            </NextLink>
-          </div>
+          {!item.children!.some((c) => c.href === item.href) && (
+            <div className="mt-1 flex items-center justify-between rounded-xl bg-forest px-4 py-3 text-white">
+              <span className="text-xs text-white/70">{item.label}</span>
+              <NextLink
+                href={item.href}
+                className="group/btn inline-flex items-center gap-1.5 text-sm font-semibold text-gold"
+              >
+                <span>{tc('seeAll')}</span>
+                <ArrowGlyph className="size-3.5" />
+              </NextLink>
+            </div>
+          )}
         </div>
       </div>
     </li>
