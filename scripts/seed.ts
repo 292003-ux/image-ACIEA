@@ -95,6 +95,7 @@ async function seedMedia(payload: Payload) {
       showInGallery: !!m.gallery,
       credit: 'ACIEA',
       seedKey: m.key,
+      ...(m.focal ? { focalX: m.focal.x, focalY: m.focal.y } : {}),
     }
     let id: number
     if (existing.docs[0]) {
@@ -371,6 +372,8 @@ async function main() {
         country: 'Afrique de l’Ouest',
         coordinatesVerified: false,
       },
+      coverImage: media['equipe-saagdo'],
+      gallery: [media['equipe-saagdo'], media['signature-gwp']].filter(Boolean),
       partners: [gwpId],
       relatedNews: [newsIds['protocole-accord-gwp-afrique-de-l-ouest']],
       links: [{ label: 'Annonce officielle du GWP-AO', url: C.GWP_URL }],

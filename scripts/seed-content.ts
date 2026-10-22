@@ -30,9 +30,41 @@ export type MediaSeed = {
   caption?: L
   provenance: 'official' | 'field' | 'illustrative' | 'to-verify'
   gallery?: boolean
+  /** Focal point (%) kept visible when the image is cropped. */
+  focal?: { x: number; y: number }
 }
 
 export const MEDIA: MediaSeed[] = [
+  {
+    key: 'signature-gwp',
+    file: 'signature-protocole-gwp-ao.jpg',
+    alt: {
+      fr: 'Les représentants de l’ACIEA et du GWP Afrique de l’Ouest présentent le protocole d’accord signé, devant une bannière du GWP',
+      en: 'ACIEA and GWP West Africa representatives hold up the signed memorandum of understanding in front of a GWP banner',
+    },
+    caption: {
+      fr: 'Signature du protocole d’accord ACIEA – GWP Afrique de l’Ouest',
+      en: 'Signing of the ACIEA – GWP West Africa memorandum of understanding',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 40 },
+  },
+  {
+    key: 'equipe-saagdo',
+    file: 'equipe-saagdo.jpg',
+    alt: {
+      fr: 'Cinq jeunes de l’équipe SAAGDO se tiennent la main, en t-shirts « SAAGDO — Ensemble pour une ville propre »',
+      en: 'Five young members of the SAAGDO team hold hands, wearing “SAAGDO — Ensemble pour une ville propre” T-shirts',
+    },
+    caption: {
+      fr: 'L’équipe SAAGDO — « Ensemble pour une ville propre »',
+      en: 'The SAAGDO team — “Together for a clean city”',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 15 },
+  },
   {
     key: 'logo',
     file: 'ccc.jpg',
@@ -495,6 +527,7 @@ export const NEWS: NewsSeed[] = [
     slug: 'protocole-accord-gwp-afrique-de-l-ouest',
     publishedAt: '2026-07-03T12:00:00.000Z',
     category: 'partnership',
+    cover: 'signature-gwp',
     title: {
       fr: 'L’ACIEA et le GWP Afrique de l’Ouest formalisent un partenariat stratégique',
       en: 'ACIEA and GWP West Africa formalise a strategic partnership',
