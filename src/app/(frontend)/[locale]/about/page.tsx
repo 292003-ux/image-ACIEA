@@ -1,4 +1,4 @@
-import { FileText, Quote, Users } from 'lucide-react'
+import { FileText, Users } from 'lucide-react'
 import NextLink from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { DomainCard } from '@/components/cards/domain-card'
@@ -10,6 +10,7 @@ import { RichText } from '@/components/rich-text'
 import { CtaBanner } from '@/components/sections/cta-banner'
 import { Milestones } from '@/components/sections/milestones'
 import { PageHero } from '@/components/sections/page-hero'
+import { PresidentMessage } from '@/components/sections/president-message'
 import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import { Section } from '@/components/ui/container'
 import { EmptyState } from '@/components/ui/empty-state'
@@ -19,7 +20,7 @@ import type { Locale } from '@/i18n/routing'
 import { pathFor } from '@/lib/navigation'
 import { getAboutPage, getDomains, getTeam } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
-import type { Document, TeamMember } from '@/payload-types'
+import type { Document } from '@/payload-types'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -50,11 +51,6 @@ export default async function AboutPage({ params }: Props) {
   const docs = (about?.institutionalDocuments ?? []).filter(
     (d): d is Document => typeof d === 'object',
   )
-  const president = about?.presidentMessage
-  const presidentAuthor =
-    president?.author && typeof president.author === 'object'
-      ? (president.author as TeamMember)
-      : null
 
   return (
     <>
@@ -185,30 +181,12 @@ export default async function AboutPage({ params }: Props) {
             <RichText data={about?.governance} className="mt-6 text-ink-muted" />
           </div>
           <div className="lg:col-span-6">
-            <div className="relative h-full rounded-[1.75rem] bg-ivory p-8 ring-1 ring-forest/5 md:p-10">
-              <Quote className="size-10 text-gold" aria-hidden="true" />
-              <p className="mt-6 eyebrow text-leaf">{t('presidentTitle')}</p>
-              {president?.enabled && president.text ? (
-                <>
-                  <blockquote className="mt-4 font-serif text-xl leading-relaxed whitespace-pre-line text-forest">
-                    {president.text}
-                  </blockquote>
-                  {presidentAuthor && (
-                    <p className="mt-6 text-sm font-semibold text-forest">
-                      {presidentAuthor.name}
-                      {presidentAuthor.position && (
-                        <span className="font-normal text-ink-muted">
-                          {' '}
-                          — {presidentAuthor.position}
-                        </span>
-                      )}
-                    </p>
-                  )}
-                </>
-              ) : (
-                <p className="mt-4 text-ink-muted">{t('presidentPending')}</p>
-              )}
-            </div>
+            <PresidentMessage
+              message={about?.presidentMessage}
+              locale={locale}
+              variant="excerpt"
+              className="h-full bg-ivory"
+            />
           </div>
         </div>
       </Section>

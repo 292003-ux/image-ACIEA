@@ -495,6 +495,14 @@ async function main() {
           en: `Portrait of ${m.name}`,
         })
       : null
+    if (photo && m.focal) {
+      await payload.update({
+        collection: 'media',
+        id: photo,
+        data: { focalX: m.focal.x, focalY: m.focal.y },
+        context: ctx,
+      })
+    }
     await upsert(
       payload,
       'team-members',
@@ -665,6 +673,12 @@ async function main() {
   })
 
   const A = C.ABOUT
+  const president = await payload.find({
+    collection: 'team-members',
+    where: { name: { equals: C.TEAM[0]!.name } },
+    limit: 1,
+    depth: 0,
+  })
   const aboutFr = {
     ...published,
     hero: {
@@ -692,7 +706,11 @@ async function main() {
     })),
     commitments: A.commitments.fr.map((text) => ({ text })),
     governance: lexical(A.governance.fr),
-    presidentMessage: { enabled: false },
+    presidentMessage: {
+      enabled: true,
+      text: C.PRESIDENT_MESSAGE.fr,
+      author: president.docs[0]?.id ?? null,
+    },
   }
   await payload.updateGlobal({
     slug: 'about-page',
@@ -728,6 +746,7 @@ async function main() {
         text: A.commitments.en[i],
       })),
       governance: lexical(A.governance.en),
+      presidentMessage: { ...aboutCurrent.presidentMessage, text: C.PRESIDENT_MESSAGE.en },
     } as never,
   })
 

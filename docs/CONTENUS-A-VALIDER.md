@@ -41,7 +41,6 @@ son contenu n’a pas pu être repris ni vérifié.
 - **Équipe** : seul le bureau exécutif est publié (voir « Équipe : bureau exécutif » ci-dessous).
   Les autres portraits de `assets/source/photos/` restent non publiés. Pour en ajouter : _Institution → Équipe_
   (cocher le consentement pour publier).
-- **Message du président** : en attente du texte officiel (À propos → Gouvernance).
 - **Indicateurs d’impact** : aucun chiffre publié ; la section affiche un état « en cours de consolidation »
   et les jalons documentés.
 - **Témoignages** : aucun.
@@ -85,6 +84,11 @@ Les 23 profils créés auparavant à partir des noms de fichiers sont dépublié
 | Vice-présidente     | SAMBORE Daho Nadia Doriane Leslie | `vice-presidente-sambore-doriane.jpg` (recadrage d’une photo fournie) |
 | Secrétaire générale | TASSEMBEDO Fonzia                 | `secretariat-tassembedo-fonzia.jpg` (recadrage d’une photo fournie)   |
 
-Toujours non publiés faute d’information : message du président, rapports et documents, événements à venir,
+### Mot du président (fourni par l’ACIEA le 22/10/2026)
+
+Publié tel quel en français sur « À propos » (premier paragraphe) et « Gouvernance » (texte complet),
+signé ILBOUDO Dieudonné, Président. **La traduction anglaise est à valider** par l’ACIEA.
+
+Toujours non publiés faute d’information : rapports et documents, événements à venir,
 témoignages, mentions légales complètes, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
 (fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).
