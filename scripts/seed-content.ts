@@ -38,6 +38,63 @@ export type MediaSeed = {
 
 export const MEDIA: MediaSeed[] = [
   {
+    key: 'ecoworld',
+    file: 'prix-ecoworld-moscou.jpg',
+    alt: {
+      fr: 'Remise du prix EcoWorld 2025 à l’ACIEA lors de la cérémonie à Moscou',
+      en: 'EcoWorld 2025 award presented to ACIEA at the ceremony in Moscow',
+    },
+    caption: { fr: 'Prix EcoWorld 2025 — Moscou', en: 'EcoWorld 2025 award — Moscow' },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 45 },
+  },
+  {
+    key: 'mairie-2026',
+    file: 'saagdo-mairie-ouagadougou-2026.jpg',
+    alt: {
+      fr: 'Délégation de l’ACIEA reçue à la Mairie centrale de Ouagadougou pour présenter SAAGDO',
+      en: 'ACIEA delegation received at Ouagadougou City Hall to present SAAGDO',
+    },
+    caption: {
+      fr: 'Présentation de SAAGDO à la Mairie centrale de Ouagadougou — janvier 2026',
+      en: 'SAAGDO presented at Ouagadougou City Hall — January 2026',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 35 },
+  },
+  {
+    key: 'gwp-2026-reunion',
+    file: 'reunion-gwp-ao-mars-2026.jpg',
+    alt: {
+      fr: 'Séance de travail entre l’ACIEA et le GWP Afrique de l’Ouest dans les locaux du GWP-AO',
+      en: 'Working session between ACIEA and GWP West Africa at the GWP-WA office',
+    },
+    caption: {
+      fr: 'Séance de travail avec le GWP Afrique de l’Ouest — mars 2026',
+      en: 'Working session with GWP West Africa — March 2026',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 35 },
+  },
+  {
+    key: 'gwp-2026',
+    file: 'rencontre-gwp-ao-mars-2026.jpg',
+    alt: {
+      fr: 'Membres de l’ACIEA et du GWP Afrique de l’Ouest réunis à Ouagadougou',
+      en: 'ACIEA and GWP West Africa members together in Ouagadougou',
+    },
+    caption: {
+      fr: 'Rencontre avec le GWP Afrique de l’Ouest — mars 2026',
+      en: 'Meeting with GWP West Africa — March 2026',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 40 },
+  },
+  {
     key: 'meea',
     file: 'rencontre-ministere-environnement.jpg',
     alt: {
@@ -869,6 +926,7 @@ Both parties expressed their wish to build partnerships for sustainable developm
     slug: 'prix-ecoworld-2025-moscou',
     publishedAt: '2026-02-06T12:00:00.000Z',
     category: 'event',
+    cover: 'ecoworld',
     title: {
       fr: 'L’ACIEA récompensée au concours international EcoWorld 2025',
       en: 'ACIEA awarded at the EcoWorld 2025 international competition',
@@ -913,6 +971,7 @@ The Alliance dedicates this distinction to African youth committed to the climat
     slug: 'rencontre-gwp-ao-saagdo-mars-2026',
     publishedAt: '2026-03-23T12:00:00.000Z',
     category: 'partnership',
+    cover: 'gwp-2026-reunion',
     title: {
       fr: 'L’ACIEA présente SAAGDO au GWP Afrique de l’Ouest',
       en: 'ACIEA presents SAAGDO to GWP West Africa',
@@ -939,6 +998,7 @@ The meeting was an important step towards strategic collaboration on innovation,
     slug: 'saagdo-presente-mairie-ouagadougou-2026',
     publishedAt: '2026-01-22T12:00:00.000Z',
     category: 'innovation',
+    cover: 'mairie-2026',
     title: {
       fr: 'SAAGDO présentée à la Mairie centrale de Ouagadougou',
       en: 'SAAGDO presented at Ouagadougou Central Town Hall',
@@ -1091,27 +1151,24 @@ For a clean, resilient Burkina Faso looking towards an ecological future.`,
   },
   {
     slug: 'audience-ambassade-bresil',
-    publishedAt: '2025-05-01T12:00:00.000Z',
+    publishedAt: '2025-05-02T12:00:00.000Z',
     category: 'institutional',
     cover: 'bresil',
-    draft: true,
-    reviewNote:
-      'Texte repris de la publication Facebook ; date de l’audience à confirmer avant publication.',
     title: {
       fr: 'Climat, jeunesse et innovation : l’ACIEA reçue par l’Ambassade du Brésil',
       en: 'Climate, youth and innovation: ACIEA received by the Embassy of Brazil',
     },
     excerpt: {
-      fr: 'Une délégation conduite par la vice-présidente a présenté l’ACIEA et ses projets à l’Ambassade du Brésil au Burkina Faso.',
-      en: 'A delegation led by the vice-president presented ACIEA and its projects to the Embassy of Brazil in Burkina Faso.',
+      fr: 'Le 2 mai 2025, une délégation conduite par la vice-présidente a présenté l’ACIEA et ses projets à l’Ambassade du Brésil au Burkina Faso.',
+      en: 'On 2 May 2025, a delegation led by the vice-president presented ACIEA and its projects to the Embassy of Brazil in Burkina Faso.',
     },
     content: {
-      fr: `L’Ambassade du Brésil au Burkina Faso, à travers Madame ILBOUDO Tigsba Elielle Sadou, assistante de l’Ambassadrice, a accueilli une délégation de l’ACIEA conduite par Madame SAMBORE Daho Nadia Doriane Leslie, vice-présidente, pour une audience officielle consacrée à la présentation de l’organisation et de ses projets phares.
+      fr: `Le 2 mai 2025, l’Ambassade du Brésil au Burkina Faso, à travers Madame ILBOUDO Tigsba Elielle Sadou, assistante de l’Ambassadrice, a accueilli une délégation de l’ACIEA conduite par Madame SAMBORE Daho Nadia Doriane Leslie, vice-présidente, pour une audience officielle consacrée à la présentation de l’organisation et de ses projets phares.
 
 Cette rencontre s’inscrit dans la volonté de l’ACIEA de promouvoir des partenariats entre pays du Sud, en plaçant l’intelligence artificielle et les technologies numériques au cœur des réponses aux défis climatiques et environnementaux.
 
 L’assistante de l’Ambassadrice a salué l’approche de l’ACIEA, exprimé l’intérêt du Brésil pour des échanges techniques autour des innovations durables et prodigué des conseils pour structurer ses initiatives et renforcer sa visibilité.`,
-      en: `The Embassy of Brazil in Burkina Faso, through Mrs ILBOUDO Tigsba Elielle Sadou, assistant to the Ambassador, received an ACIEA delegation led by Mrs SAMBORE Daho Nadia Doriane Leslie, vice-president, for an official meeting to present the organisation and its flagship projects.
+      en: `On 2 May 2025, the Embassy of Brazil in Burkina Faso, through Mrs ILBOUDO Tigsba Elielle Sadou, assistant to the Ambassador, received an ACIEA delegation led by Mrs SAMBORE Daho Nadia Doriane Leslie, vice-president, for an official meeting to present the organisation and its flagship projects.
 
 The meeting reflects ACIEA’s aim to build partnerships between countries of the Global South, with artificial intelligence and digital technologies at the heart of responses to climate and environmental challenges.
 
@@ -1452,6 +1509,15 @@ It works alongside national and international partners to protect the environmen
       precision: 'year',
       title: { fr: 'Création de l’ACIEA à Ouagadougou', en: 'ACIEA founded in Ouagadougou' },
       sourceUrl: LINKEDIN_URL,
+    },
+    {
+      date: '2025-05-02T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Audience à l’Ambassade du Brésil',
+        en: 'Meeting at the Embassy of Brazil',
+      },
+      sourceUrl: FB_URL,
     },
     {
       date: '2025-05-06T12:00:00.000Z',

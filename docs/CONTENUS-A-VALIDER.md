@@ -32,7 +32,6 @@ son contenu n’a pas pu être repris ni vérifié.
 | Élément                                                    | Raison                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------- |
 | Actualité « Rencontre avec le Directeur pays de WaterAid » | Date exacte et texte tronqués dans l’export          |
-| Actualité « Audience à l’Ambassade du Brésil »             | Date et texte tronqués                               |
 | Actualité « Journée nationale de l’arbre 2025 »            | Date, lieu et contenu non documentés                 |
 | Projet « Modèle de fiche projet »                          | Gabarit à dupliquer pour documenter d’autres projets |
 
@@ -120,8 +119,8 @@ Nouvelles actualités : prix EcoWorld 2025 (Moscou, 6 févr. 2026, avec la lettr
 SAAGDO à la Mairie centrale (22 janv. 2026), SAAGDO au SITAHO 2025 (7 nov. 2025), Assemblée générale (2 nov. —
 **année 2025 déduite de l’ordre des publications**), 7ᵉ Salon International de l’Arbre (16 juil. 2025), Journée
 mondiale de l’environnement (5 juin 2025). La Journée nationale de l’arbre (21 juin 2025, Loumbila, avec le SP/REDD+)
-est publiée et complète le projet « Reboisement ». L’audience à l’Ambassade du Brésil a son texte mais reste en
-brouillon : **date à confirmer**.
+est publiée et complète le projet « Reboisement ». L’audience à l’Ambassade du Brésil est publiée
+au **2 mai 2025** (date confirmée par l’association).
 
 Rencontre avec le GWP-AO publiée au **23 mars 2026** : la publication indique 2025, mais le Dr Amadou Lamine NDIAYE
 n’est Secrétaire exécutif du GWP-AO que depuis janvier 2026 (allAfrica, 14/01/2026). Dates recoupées avec la presse :
@@ -132,9 +131,9 @@ Non publiées faute de date ou parce qu’elles ne concernent pas une action de 
 SAMOUIDI Bruno François (soutenance), lancement de « Bâtisseurs de Cités » saison 3 sur BF1, prix BCARE d’un membre,
 journée de reboisement au 2iE (juillet 2025, mentionnée dans le projet Reboisement).
 
-Photos à fournir : prix EcoWorld, SAAGDO à la Mairie (janv. 2026), Assemblée générale, Journée mondiale de
-l’environnement.
+Photos ajoutées : prix EcoWorld, SAAGDO à la Mairie (janv. 2026), rencontre GWP-AO (mars 2026). Photos encore à
+fournir : Assemblée générale, Journée mondiale de l’environnement.
 
 Toujours non publiés faute d’information : rapports et documents, événements à venir,
-témoignages, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
+témoignages, portraits sans nom
 (fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).
