@@ -123,7 +123,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Team */}
       <Section tone="ivory">
-        <SectionHeading title={t('teamTitle')} />
+        <SectionHeading title={t('teamTitle')} align="center" />
         <div className="mt-12">
           {team.length ? (
             <TeamGrid members={team} />
