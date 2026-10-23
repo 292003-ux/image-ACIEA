@@ -23,7 +23,6 @@ export async function Header({ locale }: { locale: Locale }) {
       logoDark={<Logo {...logoProps} tone="dark" compact />}
       homeHref={pathFor('/', locale)}
       ctaHref={pathFor('/partners/become', locale)}
-      searchHref={pathFor('/search', locale)}
     />
   )
 }

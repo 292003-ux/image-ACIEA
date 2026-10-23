@@ -34,7 +34,7 @@ export default async function NewsPage({ params, searchParams }: Props) {
   const page = Math.max(1, Number.parseInt(sp.page ?? '1', 10) || 1)
   const [t, news] = await Promise.all([
     getTranslations({ locale, namespace: 'news' }),
-    getNews(locale, { page, limit: 10 }),
+    getNews(locale, { page, limit: 30 }),
   ])
   const [first, ...rest] = news.docs
   const featureFirst = page === 1 && first

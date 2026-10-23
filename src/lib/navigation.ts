@@ -132,27 +132,21 @@ export async function resolveFooterColumns(
     label: t(key as never),
     href: pathFor(route, locale),
   })
+  // The header already lists the main pages: the footer only adds what it does not.
+  const extra = [
+    ...(presence.events ? [link('events', '/events')] : []),
+    ...(presence.publications ? [link('publications', '/publications')] : []),
+    ...(presence.gallery ? [link('gallery', '/gallery')] : []),
+  ]
   return [
-    {
-      title: tf('navigation'),
-      links: [
-        link('about', '/about'),
-        link('actions', '/projects'),
-        link('saagdo', '/saagdo'),
-        link('newsArticles', '/news'),
-        ...(presence.events ? [link('events', '/events')] : []),
-        ...(presence.publications ? [link('publications', '/publications')] : []),
-        ...(presence.gallery ? [link('gallery', '/gallery')] : []),
-      ],
-    },
     {
       title: tf('getInvolved'),
       links: [
         link('partners', '/partners'),
         link('becomePartner', '/partners/become'),
         link('join', '/join'),
-        link('contact', '/contact'),
       ],
     },
+    ...(extra.length ? [{ title: tf('explore'), links: extra }] : []),
   ]
 }

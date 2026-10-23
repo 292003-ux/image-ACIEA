@@ -10,10 +10,13 @@ export async function NewsCard({
   article,
   variant = 'default',
   priority,
+  linked = true,
 }: {
   article: WithFallback<News>
   variant?: 'default' | 'featured' | 'compact'
   priority?: boolean
+  /** false: a plain card showing the whole summary, with no link to the article. */
+  linked?: boolean
 }) {
   const locale = await getLocale()
   const t = await getTranslations('news')
@@ -23,7 +26,8 @@ export async function NewsCard({
   return (
     <article
       className={cn(
-        'group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] bg-white shadow-soft ring-1 ring-forest/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-lift',
+        'group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] bg-white shadow-soft ring-1 ring-forest/5',
+        linked && 'transition-all duration-500 hover:-translate-y-1 hover:shadow-lift',
         featured && 'lg:flex-row',
       )}
     >
@@ -37,7 +41,9 @@ export async function NewsCard({
           <CmsImage
             media={article.coverImage}
             className="absolute inset-0"
-            imgClassName="transition-transform duration-700 group-hover:scale-[1.04]"
+            imgClassName={
+              linked ? 'transition-transform duration-700 group-hover:scale-[1.04]' : undefined
+            }
             placeholderSeed={article.slug}
             priority={priority}
             sizes={
@@ -64,24 +70,31 @@ export async function NewsCard({
             featured ? 'text-h3' : 'text-lg',
           )}
         >
-          <Link
-            href={{ pathname: '/news/[slug]', params: { slug: article.slug } }}
-            className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
-          >
-            {article.title}
-          </Link>
+          {linked ? (
+            <Link
+              href={{ pathname: '/news/[slug]', params: { slug: article.slug } }}
+              className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+            >
+              {article.title}
+            </Link>
+          ) : (
+            article.title
+          )}
         </h3>
         <p
           className={cn(
             'mt-3 leading-relaxed text-ink-muted',
-            featured ? 'line-clamp-5 text-lead' : 'line-clamp-3 text-[0.95rem]',
+            featured ? 'text-lead' : 'text-[0.95rem]',
+            linked && (featured ? 'line-clamp-5' : 'line-clamp-3'),
           )}
         >
           {article.excerpt}
         </p>
-        <span className="mt-auto pt-6 text-sm font-semibold text-leaf" aria-hidden="true">
-          {tc('readMore')} →
-        </span>
+        {linked && (
+          <span className="mt-auto pt-6 text-sm font-semibold text-leaf" aria-hidden="true">
+            {tc('readMore')} →
+          </span>
+        )}
       </div>
     </article>
   )

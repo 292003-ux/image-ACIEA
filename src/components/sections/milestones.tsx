@@ -1,11 +1,11 @@
-import { ExternalLink } from 'lucide-react'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getLocale } from 'next-intl/server'
 import { Reveal } from '@/components/motion/reveal'
 import type { AboutPage } from '@/payload-types'
-import { cn, formatDate, isSafeExternalUrl } from '@/lib/utils'
+import { cn, formatDate } from '@/lib/utils'
 
 type Milestone = NonNullable<AboutPage['milestones']>[number]
 
+/** Sources stay in the CMS for editors; the timeline itself shows no outbound links. */
 export async function Milestones({
   items,
   tone = 'light',
@@ -16,7 +16,6 @@ export async function Milestones({
   limit?: number
 }) {
   const locale = await getLocale()
-  const tc = await getTranslations('common')
   const sorted = [...items].sort((a, b) => +new Date(b.date) - +new Date(a.date)).slice(0, limit)
   const dark = tone === 'dark'
   return (
@@ -64,20 +63,6 @@ export async function Milestones({
             >
               {m.description}
             </p>
-          )}
-          {isSafeExternalUrl(m.sourceUrl) && (
-            <a
-              href={m.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                'mt-2 inline-flex items-center gap-1 text-xs font-semibold hover:underline',
-                dark ? 'text-digital-300' : 'text-leaf',
-              )}
-            >
-              {tc('source')} <ExternalLink className="size-3" aria-hidden="true" />
-              <span className="sr-only">{tc('openInNewTab')}</span>
-            </a>
           )}
         </Reveal>
       ))}

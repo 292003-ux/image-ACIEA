@@ -1,4 +1,3 @@
-import NextLink from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { NewsCard } from '@/components/cards/news-card'
 import { ProjectCard } from '@/components/cards/project-card'
@@ -7,11 +6,9 @@ import { Icon } from '@/components/icon'
 import { CmsImage } from '@/components/media/cms-image'
 import { VideoPlayer } from '@/components/media/video-player'
 import { Reveal } from '@/components/motion/reveal'
-import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import { Section } from '@/components/ui/container'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { isLocale, type Locale } from '@/i18n/routing'
-import { pathFor, pathForSlug } from '@/lib/navigation'
 import { getDomains, getFeaturedProjects, getHomepage, getNews } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { cn } from '@/lib/utils'
@@ -114,18 +111,14 @@ export default async function HomePage({ params }: Props) {
           <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {domains.map((d) => (
               <li key={d.id}>
-                <NextLink
-                  href={pathForSlug('/domains/[slug]', d.slug, locale)}
-                  className="group flex h-full items-center gap-4 rounded-2xl bg-ivory p-4 ring-1 ring-forest/5 transition-all hover:bg-white hover:shadow-soft"
-                >
-                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-leaf-50 text-leaf transition-colors group-hover:bg-forest group-hover:text-gold">
+                <div className="flex h-full items-center gap-4 rounded-2xl bg-ivory p-4 ring-1 ring-forest/5">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-leaf-50 text-leaf">
                     <Icon name={d.icon} className="size-5" />
                   </span>
                   <span className="font-display leading-snug font-semibold text-forest">
                     {d.title}
                   </span>
-                  <ArrowGlyph className="ml-auto size-4 shrink-0 text-leaf opacity-0 transition-opacity group-hover:opacity-100" />
-                </NextLink>
+                </div>
               </li>
             ))}
           </ul>
@@ -138,7 +131,7 @@ export default async function HomePage({ params }: Props) {
             >
               {projects.map((p, i) => (
                 <Reveal as="li" key={p.id} delay={i * 0.08}>
-                  <ProjectCard project={p} />
+                  <ProjectCard project={p} linked={false} />
                 </Reveal>
               ))}
             </ul>
@@ -146,27 +139,15 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* News + partners */}
+      {/* News */}
       <Section tone="ivory">
         {news.docs.length > 0 && (
           <>
-            <SectionHeading
-              eyebrow={t('newsEyebrow')}
-              title={t('newsTitle')}
-              action={
-                <NextLink
-                  href={pathFor('/news', locale)}
-                  className={buttonVariants({ variant: 'outline' })}
-                >
-                  {t('newsCta')}
-                  <ArrowGlyph />
-                </NextLink>
-              }
-            />
+            <SectionHeading eyebrow={t('newsEyebrow')} title={t('newsTitle')} />
             <ul className="mt-14 grid gap-6 lg:grid-cols-3">
               {news.docs.map((n, i) => (
                 <Reveal as="li" key={n.id} delay={i * 0.08}>
-                  <NewsCard article={n} />
+                  <NewsCard article={n} linked={false} />
                 </Reveal>
               ))}
             </ul>
