@@ -1,5 +1,4 @@
-import { ExternalLink, PlayCircle } from 'lucide-react'
-import NextLink from 'next/link'
+import { ExternalLink } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { NetworkField } from '@/components/decor/network-field'
 import { Icon } from '@/components/icon'
@@ -10,10 +9,9 @@ import { SaagdoMockup } from '@/components/saagdo/mockup'
 import { SaagdoScreens } from '@/components/saagdo/screens'
 import { Badge } from '@/components/ui/badge'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
-import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { SectionHeading } from '@/components/ui/section-heading'
 import type { Locale } from '@/i18n/routing'
-import { pathFor, pathForSlug } from '@/lib/navigation'
 import { getNewsBySlug, getPartners, getProjectBySlug, getSaagdoPage } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { isSafeExternalUrl } from '@/lib/utils'
@@ -50,7 +48,6 @@ export default async function SaagdoPage({ params }: Props) {
   const mouPhoto = asMedia(mouNews?.coverImage)
   const gwp = partners.find((p) => p.slug === 'gwp-afrique-de-l-ouest')
   const platformUrl = isSafeExternalUrl(page?.platformUrl) ? page.platformUrl : null
-  const videoUrl = isSafeExternalUrl(page?.videoUrl) ? page.videoUrl : null
 
   return (
     <div className="bg-night text-white">
@@ -87,13 +84,8 @@ export default async function SaagdoPage({ params }: Props) {
                 })()}
               </h1>
               <p className="mt-6 text-lead text-white/72">{page?.hero?.subtitle}</p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                {video && (
-                  <a href="#video" className={buttonVariants({ variant: 'digital', size: 'lg' })}>
-                    <PlayCircle aria-hidden="true" /> {t('watchVideo')}
-                  </a>
-                )}
-                {platformUrl && (
+              {platformUrl && (
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                   <a
                     href={platformUrl}
                     target="_blank"
@@ -102,22 +94,7 @@ export default async function SaagdoPage({ params }: Props) {
                   >
                     {t('openPlatform')} <ExternalLink aria-hidden="true" />
                   </a>
-                )}
-              </div>
-              {videoUrl && (
-                <a
-                  href={videoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mt-8 inline-flex items-center gap-3 font-semibold text-white hover:text-digital"
-                >
-                  <PlayCircle
-                    className="size-10 text-digital transition-transform group-hover:scale-110"
-                    aria-hidden="true"
-                  />
-                  {t('watchVideo')}
-                  <span className="sr-only">{tc('openInNewTab')}</span>
-                </a>
+                </div>
               )}
             </div>
             <div className="lg:col-span-6">
@@ -201,29 +178,6 @@ export default async function SaagdoPage({ params }: Props) {
               title={t('partnershipTitle')}
             />
             <p className="mt-6 text-lead text-white/75">{page?.partnershipText}</p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              {isSafeExternalUrl(page?.partnershipSourceUrl) && (
-                <a
-                  href={page.partnershipSourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonVariants({ variant: 'light' })}
-                >
-                  {tc('officialSource')} <ExternalLink aria-hidden="true" />
-                  <span className="sr-only">{tc('openInNewTab')}</span>
-                </a>
-              )}
-              <NextLink
-                href={pathForSlug(
-                  '/news/[slug]',
-                  'protocole-accord-gwp-afrique-de-l-ouest',
-                  locale,
-                )}
-                className={buttonVariants({ variant: 'ghost' }) + ' text-white hover:bg-white/10'}
-              >
-                {tc('readMore')} <ArrowGlyph />
-              </NextLink>
-            </div>
           </div>
           <div className="lg:col-span-5">
             {mouPhoto ? (
@@ -247,31 +201,6 @@ export default async function SaagdoPage({ params }: Props) {
                 <p className="mt-4 text-white/75">{gwp?.name ?? 'Global Water Partnership'}</p>
               </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* H. CTA */}
-      <section className="pb-24">
-        <div className="container-page">
-          <div className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-digital/25 via-forest to-night-800 p-10 ring-1 ring-digital/30 md:p-16">
-            <NetworkField className="absolute inset-0 -z-10 size-full opacity-40" />
-            <h2 className="max-w-3xl text-h2 font-semibold">{t('ctaTitle')}</h2>
-            <p className="mt-5 max-w-2xl text-lead text-white/75">{t('ctaText')}</p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <NextLink
-                href={pathFor('/contact', locale) + '?subject=saagdo'}
-                className={buttonVariants({ variant: 'light', size: 'lg' })}
-              >
-                {t('ctaLearn')}
-              </NextLink>
-              <NextLink
-                href={pathFor('/partners/become', locale) + '?type=saagdo'}
-                className={buttonVariants({ variant: 'digital', size: 'lg' })}
-              >
-                {t('ctaCollab')} <ArrowGlyph />
-              </NextLink>
-            </div>
           </div>
         </div>
       </section>
