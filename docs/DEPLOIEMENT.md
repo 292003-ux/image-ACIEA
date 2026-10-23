@@ -62,7 +62,12 @@ Renseigner `.env.production` :
 ```bash
 docker compose --env-file .env.production up -d --build
 # Le service "migrate" applique les migrations puis s’arrête ; "app" démarre ensuite.
-docker compose --env-file .env.production run --rm migrate pnpm seed   # contenus initiaux + super admin
+# Contenus initiaux + super admin. Les volumes de médias doivent être montés, sinon les
+# photos importées restent dans le conteneur jetable et le site les sert en erreur 500.
+docker compose --env-file .env.production run --rm \
+  -e MEDIA_DIR=/app/media -e DOCUMENTS_DIR=/app/media/documents -e PRIVATE_UPLOADS_DIR=/app/uploads/private \
+  -v aciea_media:/app/media -v aciea_private-uploads:/app/uploads/private \
+  migrate pnpm seed
 curl -fsS https://aciea-burkina.org/api/health
 ```
 
