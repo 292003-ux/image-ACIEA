@@ -1,10 +1,8 @@
-import { Landmark } from 'lucide-react'
 import NextLink from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { NewsCard } from '@/components/cards/news-card'
 import { ProjectCard } from '@/components/cards/project-card'
 import { HomeHero } from '@/components/home/hero'
-import { SaagdoFeature } from '@/components/home/saagdo-feature'
 import { Icon } from '@/components/icon'
 import { CmsImage } from '@/components/media/cms-image'
 import { VideoPlayer } from '@/components/media/video-player'
@@ -14,14 +12,7 @@ import { Section } from '@/components/ui/container'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { isLocale, type Locale } from '@/i18n/routing'
 import { pathFor, pathForSlug } from '@/lib/navigation'
-import {
-  getDomains,
-  getFeaturedProjects,
-  getHomepage,
-  getNews,
-  getPartners,
-  getSaagdoPage,
-} from '@/lib/queries'
+import { getDomains, getFeaturedProjects, getHomepage, getNews } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 import type { Media } from '@/payload-types'
@@ -38,21 +29,17 @@ export default async function HomePage({ params }: Props) {
   const { locale: raw } = await params
   const locale = raw as Locale
   setRequestLocale(locale)
-  const [t, tn, home, domains, projects, partners, news, saagdoPage] = await Promise.all([
+  const [t, tn, home, domains, projects, news] = await Promise.all([
     getTranslations({ locale, namespace: 'home' }),
     getTranslations({ locale, namespace: 'nav' }),
     getHomepage(locale),
     getDomains(locale),
-    getFeaturedProjects(locale, 4),
-    getPartners(locale),
+    getFeaturedProjects(locale, 3),
     getNews(locale, { limit: 3 }),
-    getSaagdoPage(locale),
   ])
   const intro = home?.intro
   const asMedia = (m: unknown) => (m && typeof m === 'object' ? (m as Media) : null)
   const introVideo = asMedia(intro?.video)
-  // SAAGDO has its own section just below: keep it out of the project cards.
-  const otherProjects = projects.filter((p) => p.slug !== 'saagdo').slice(0, 3)
 
   return (
     <>
@@ -70,13 +57,6 @@ export default async function HomePage({ params }: Props) {
                 ))}
               </div>
             )}
-            <NextLink
-              href={pathFor('/about', locale)}
-              className={cn(buttonVariants({ variant: 'primary', size: 'lg' }), 'mt-10')}
-            >
-              {t('introCta')}
-              <ArrowGlyph />
-            </NextLink>
           </Reveal>
           <Reveal className="relative lg:col-span-6" delay={0.15}>
             <div className="relative mx-auto max-w-lg lg:ml-auto">
@@ -94,7 +74,7 @@ export default async function HomePage({ params }: Props) {
                   poster={asMedia(intro?.videoPoster)}
                   className="relative mx-auto max-w-[22rem]"
                   videoClassName="aspect-[9/16] rounded-[2rem] shadow-lift"
-                  captionClassName="mt-4 text-center text-sm text-ink-muted"
+                  showCaption={false}
                 />
               ) : (
                 <>
@@ -130,15 +110,6 @@ export default async function HomePage({ params }: Props) {
             eyebrow={tn('actions')}
             title={t('domainsTitle')}
             description={t('domainsText')}
-            action={
-              <NextLink
-                href={pathFor('/projects', locale)}
-                className={buttonVariants({ variant: 'outline' })}
-              >
-                {t('projectsCta')}
-                <ArrowGlyph />
-              </NextLink>
-            }
           />
           <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {domains.map((d) => (
@@ -158,14 +129,14 @@ export default async function HomePage({ params }: Props) {
               </li>
             ))}
           </ul>
-          {otherProjects.length > 0 && (
+          {projects.length > 0 && (
             <ul
               className={cn(
                 'mt-14 grid gap-6 md:grid-cols-2',
-                otherProjects.length > 2 && 'lg:grid-cols-3',
+                projects.length > 2 && 'lg:grid-cols-3',
               )}
             >
-              {otherProjects.map((p, i) => (
+              {projects.map((p, i) => (
                 <Reveal as="li" key={p.id} delay={i * 0.08}>
                   <ProjectCard project={p} />
                 </Reveal>
@@ -174,16 +145,6 @@ export default async function HomePage({ params }: Props) {
           )}
         </div>
       </section>
-
-      <SaagdoFeature
-        locale={locale}
-        title={home?.saagdo?.title}
-        text={home?.saagdo?.text}
-        screens={{
-          platform: asMedia(saagdoPage?.screenshotPlatform),
-          app: asMedia(saagdoPage?.screenshotApp),
-        }}
-      />
 
       {/* News + partners */}
       <Section tone="ivory">
@@ -210,42 +171,6 @@ export default async function HomePage({ params }: Props) {
               ))}
             </ul>
           </>
-        )}
-        {partners.length > 0 && (
-          <div
-            className={cn(
-              'flex flex-col gap-6 md:flex-row md:items-center',
-              news.docs.length > 0 && 'mt-20 border-t border-forest/10 pt-12',
-            )}
-          >
-            <p className="shrink-0 eyebrow text-leaf">{t('partnersEyebrow')}</p>
-            <ul className="flex flex-wrap gap-3">
-              {partners.map((p) => (
-                <li key={p.id}>
-                  <NextLink
-                    href={pathFor('/partners', locale)}
-                    className="flex items-center gap-3 rounded-full bg-white py-2 pr-5 pl-2 text-sm font-semibold text-forest ring-1 ring-forest/8 transition-shadow hover:shadow-soft"
-                  >
-                    <span className="grid size-9 shrink-0 place-items-center overflow-hidden rounded-full bg-ivory">
-                      {p.logo && typeof p.logo === 'object' ? (
-                        <CmsImage
-                          media={p.logo}
-                          size="thumbnail"
-                          sizes="36px"
-                          className="size-full"
-                          imgClassName="object-contain p-1"
-                          showProvenance={false}
-                        />
-                      ) : (
-                        <Landmark className="size-4 text-forest/70" aria-hidden="true" />
-                      )}
-                    </span>
-                    {p.acronym || p.name}
-                  </NextLink>
-                </li>
-              ))}
-            </ul>
-          </div>
         )}
       </Section>
     </>
