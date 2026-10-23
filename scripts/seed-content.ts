@@ -38,6 +38,48 @@ export type MediaSeed = {
 
 export const MEDIA: MediaSeed[] = [
   {
+    key: 'ecoworld',
+    file: 'prix-ecoworld-moscou.jpg',
+    alt: {
+      fr: 'Remise du prix EcoWorld 2025 à l’ACIEA lors de la cérémonie à Moscou',
+      en: 'EcoWorld 2025 award presented to ACIEA at the ceremony in Moscow',
+    },
+    caption: { fr: 'Prix EcoWorld 2025 — Moscou', en: 'EcoWorld 2025 award — Moscow' },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 45 },
+  },
+  {
+    key: 'mairie-2026',
+    file: 'saagdo-mairie-ouagadougou-2026.jpg',
+    alt: {
+      fr: 'Délégation de l’ACIEA reçue à la Mairie centrale de Ouagadougou pour présenter SAAGDO',
+      en: 'ACIEA delegation received at Ouagadougou City Hall to present SAAGDO',
+    },
+    caption: {
+      fr: 'Présentation de SAAGDO à la Mairie centrale de Ouagadougou — janvier 2026',
+      en: 'SAAGDO presented at Ouagadougou City Hall — January 2026',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 35 },
+  },
+  {
+    key: 'gwp-2026',
+    file: 'rencontre-gwp-ao-mars-2026.jpg',
+    alt: {
+      fr: 'Membres de l’ACIEA et du GWP Afrique de l’Ouest réunis à Ouagadougou',
+      en: 'ACIEA and GWP West Africa members together in Ouagadougou',
+    },
+    caption: {
+      fr: 'Rencontre avec le GWP Afrique de l’Ouest — mars 2026',
+      en: 'Meeting with GWP West Africa — March 2026',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 40 },
+  },
+  {
     key: 'meea',
     file: 'rencontre-ministere-environnement.jpg',
     alt: {
@@ -869,6 +911,7 @@ Both parties expressed their wish to build partnerships for sustainable developm
     slug: 'prix-ecoworld-2025-moscou',
     publishedAt: '2026-02-06T12:00:00.000Z',
     category: 'event',
+    cover: 'ecoworld',
     title: {
       fr: 'L’ACIEA récompensée au concours international EcoWorld 2025',
       en: 'ACIEA awarded at the EcoWorld 2025 international competition',
@@ -913,6 +956,7 @@ The Alliance dedicates this distinction to African youth committed to the climat
     slug: 'rencontre-gwp-ao-saagdo-mars-2026',
     publishedAt: '2026-03-23T12:00:00.000Z',
     category: 'partnership',
+    cover: 'gwp-2026',
     title: {
       fr: 'L’ACIEA présente SAAGDO au GWP Afrique de l’Ouest',
       en: 'ACIEA presents SAAGDO to GWP West Africa',
@@ -939,6 +983,7 @@ The meeting was an important step towards strategic collaboration on innovation,
     slug: 'saagdo-presente-mairie-ouagadougou-2026',
     publishedAt: '2026-01-22T12:00:00.000Z',
     category: 'innovation',
+    cover: 'mairie-2026',
     title: {
       fr: 'SAAGDO présentée à la Mairie centrale de Ouagadougou',
       en: 'SAAGDO presented at Ouagadougou Central Town Hall',

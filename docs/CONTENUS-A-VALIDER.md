@@ -131,8 +131,8 @@ Non publiées faute de date ou parce qu’elles ne concernent pas une action de 
 SAMOUIDI Bruno François (soutenance), lancement de « Bâtisseurs de Cités » saison 3 sur BF1, prix BCARE d’un membre,
 journée de reboisement au 2iE (juillet 2025, mentionnée dans le projet Reboisement).
 
-Photos à fournir : prix EcoWorld, SAAGDO à la Mairie (janv. 2026), Assemblée générale, Journée mondiale de
-l’environnement.
+Photos ajoutées : prix EcoWorld, SAAGDO à la Mairie (janv. 2026), rencontre GWP-AO (mars 2026). Photos encore à
+fournir : Assemblée générale, Journée mondiale de l’environnement.
 
 Toujours non publiés faute d’information : rapports et documents, événements à venir,
 témoignages, portraits sans nom
