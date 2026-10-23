@@ -35,8 +35,9 @@ export async function ProjectsCatalog({
   searchParams,
   fixedStatus,
   pathname,
-  showMap = true,
-  showImpact = true,
+  // Both blocks are off by default since 22/10/2026 (ACIEA asked for a simpler page).
+  showMap = false,
+  showImpact = false,
 }: {
   locale: Locale
   searchParams: CatalogSearchParams

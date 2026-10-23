@@ -38,17 +38,10 @@ test.describe('projects catalogue', () => {
     await expect(page.getByText('Fiche d’identité')).toBeVisible()
   })
 
-  test('the map renders without third-party tiles', async ({ page }) => {
-    const external: string[] = []
-    page.on('request', (r) => {
-      const u = new URL(r.url())
-      if (!['localhost', '127.0.0.1'].includes(u.hostname)) external.push(r.url())
-    })
+  test('the catalogue shows no map or impact block', async ({ page }) => {
     await page.goto('/fr/projets')
-    await page.locator('#map-title').scrollIntoViewIfNeeded()
-    await expect(page.locator('.leaflet-container')).toBeVisible()
-    await expect(page.locator('.leaflet-interactive').first()).toBeVisible()
-    expect(external).toEqual([])
+    await expect(page.locator('#map-title')).toHaveCount(0)
+    await expect(page.getByRole('heading', { name: 'Indicateurs d’impact' })).toHaveCount(0)
   })
 
   test('unpublished project templates are not public', async ({ page }) => {
