@@ -21,6 +21,7 @@ export const Partners: CollectionConfig = {
   },
   defaultSort: 'order',
   admin: {
+    description: { fr: 'Page « Partenaires ».', en: '“Partners” page.' },
     useAsTitle: 'name',
     group: institutionGroup,
     defaultColumns: ['name', 'category', 'agreementDate', '_status'],

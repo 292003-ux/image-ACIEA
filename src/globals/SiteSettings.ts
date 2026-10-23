@@ -14,6 +14,13 @@ export const SOCIAL_PLATFORMS = [
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   ...settingsGlobal,
+  admin: {
+    ...settingsGlobal.admin,
+    description: {
+      fr: 'Logo, coordonnées, réseaux sociaux et référencement, utilisés sur tout le site.',
+      en: 'Logo, contact details, social networks and SEO, used across the site.',
+    },
+  },
   label: { fr: 'Paramètres du site', en: 'Site settings' },
   fields: [
     {

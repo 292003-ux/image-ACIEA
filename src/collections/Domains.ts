@@ -14,6 +14,10 @@ export const Domains: CollectionConfig = {
   },
   defaultSort: 'order',
   admin: {
+    description: {
+      fr: 'Domaines d’intervention affichés sur la page d’accueil.',
+      en: 'Focus areas shown on the homepage.',
+    },
     useAsTitle: 'title',
     group: contentGroup,
     defaultColumns: ['title', 'order', '_status', 'reviewStatus'],

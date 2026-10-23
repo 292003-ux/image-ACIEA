@@ -27,6 +27,10 @@ export const Projects: CollectionConfig = {
   },
   defaultSort: '-startDate',
   admin: {
+    description: {
+      fr: 'Projets de la page « Nos actions » ; ceux mis en avant apparaissent aussi sur l’accueil.',
+      en: 'Projects on the “Our work” page; featured ones also appear on the homepage.',
+    },
     useAsTitle: 'title',
     group: contentGroup,
     defaultColumns: ['title', 'status', 'startDate', '_status', 'reviewStatus'],

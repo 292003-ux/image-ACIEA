@@ -30,6 +30,8 @@ export const ImpactMetrics: CollectionConfig = {
   },
   defaultSort: 'order',
   admin: {
+    // Not shown on the site any more; hidden so editors are not misled.
+    hidden: true,
     useAsTitle: 'label',
     group: institutionGroup,
     defaultColumns: ['label', 'value', 'verificationDate', '_status'],

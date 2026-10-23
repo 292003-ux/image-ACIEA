@@ -22,6 +22,10 @@ export const Users: CollectionConfig = {
     plural: { fr: 'Comptes administrateurs', en: 'Admin accounts' },
   },
   admin: {
+    description: {
+      fr: 'Comptes qui peuvent se connecter à l’administration, avec leur rôle.',
+      en: 'Accounts that can sign in to the admin, with their role.',
+    },
     useAsTitle: 'name',
     defaultColumns: ['name', 'email', 'role', 'updatedAt'],
     group: { fr: 'Administration', en: 'Administration' },

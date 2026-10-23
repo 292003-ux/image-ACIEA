@@ -15,6 +15,10 @@ export const PartnershipRequests: CollectionConfig = {
     plural: { fr: 'Demandes de partenariat', en: 'Partnership requests' },
   },
   admin: {
+    description: {
+      fr: 'Demandes envoyées avec les formulaires « Devenir partenaire » et « Rejoindre l’ACIEA ».',
+      en: 'Requests sent with the “Become a partner” and “Join ACIEA” forms.',
+    },
     useAsTitle: 'subject',
     group: inboxGroup,
     defaultColumns: ['subject', 'organization', 'collaborationType', 'status', 'createdAt'],

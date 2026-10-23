@@ -4,6 +4,13 @@ import { localizedText, localizedTextarea, pageGlobal } from './_shared'
 export const Homepage: GlobalConfig = {
   slug: 'homepage',
   ...pageGlobal,
+  admin: {
+    ...pageGlobal.admin,
+    description: {
+      fr: 'Textes, photos et vidéo de la page d’accueil.',
+      en: 'Texts, photos and video of the homepage.',
+    },
+  },
   label: { fr: 'Accueil', en: 'Homepage' },
   fields: [
     {
@@ -80,6 +87,8 @@ export const Homepage: GlobalConfig = {
         {
           label: 'SAAGDO',
           name: 'saagdo',
+          // No longer shown on the homepage (kept so existing content is not lost).
+          admin: { condition: () => false },
           fields: [
             localizedText('title', { fr: 'Titre', en: 'Title' }),
             localizedTextarea('text', { fr: 'Texte', en: 'Text' }),
@@ -88,6 +97,8 @@ export const Homepage: GlobalConfig = {
         {
           label: { fr: 'Appel à l’action', en: 'Call to action' },
           name: 'cta',
+          // No longer shown on the homepage (kept so existing content is not lost).
+          admin: { condition: () => false },
           fields: [
             localizedText('title', { fr: 'Titre', en: 'Title' }),
             localizedTextarea('text', { fr: 'Texte', en: 'Text' }),

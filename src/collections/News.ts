@@ -17,6 +17,10 @@ export const News: CollectionConfig = {
   },
   defaultSort: '-publishedAt',
   admin: {
+    description: {
+      fr: 'Page « Actualités » ; les 3 plus récentes apparaissent aussi sur l’accueil.',
+      en: '“News” page; the 3 most recent also appear on the homepage.',
+    },
     useAsTitle: 'title',
     group: contentGroup,
     defaultColumns: ['title', 'category', 'publishedAt', '_status', 'reviewStatus'],

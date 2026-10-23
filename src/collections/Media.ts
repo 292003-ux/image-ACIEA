@@ -10,6 +10,10 @@ export const Media: CollectionConfig = {
     plural: { fr: 'Médias', en: 'Media' },
   },
   admin: {
+    description: {
+      fr: 'Toutes les photos et vidéos du site. Ajoutez une image ici, puis choisissez-la dans une actualité, un projet ou une page.',
+      en: 'All photos and videos of the site. Add an image here, then pick it in a news item, project or page.',
+    },
     group: { fr: 'Médiathèque', en: 'Library' },
     defaultColumns: ['filename', 'alt', 'provenance', 'updatedAt'],
   },

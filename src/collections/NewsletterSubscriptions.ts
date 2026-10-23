@@ -10,6 +10,10 @@ export const NewsletterSubscriptions: CollectionConfig = {
     plural: { fr: 'Abonnés newsletter', en: 'Newsletter subscribers' },
   },
   admin: {
+    description: {
+      fr: 'Personnes inscrites à la lettre d’information (formulaire en bas du site).',
+      en: 'People subscribed to the newsletter (form at the bottom of the site).',
+    },
     useAsTitle: 'email',
     group: inboxGroup,
     defaultColumns: ['email', 'status', 'locale', 'createdAt'],
