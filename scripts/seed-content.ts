@@ -65,6 +65,21 @@ export const MEDIA: MediaSeed[] = [
     focal: { x: 50, y: 35 },
   },
   {
+    key: 'gwp-2026-reunion',
+    file: 'reunion-gwp-ao-mars-2026.jpg',
+    alt: {
+      fr: 'Séance de travail entre l’ACIEA et le GWP Afrique de l’Ouest dans les locaux du GWP-AO',
+      en: 'Working session between ACIEA and GWP West Africa at the GWP-WA office',
+    },
+    caption: {
+      fr: 'Séance de travail avec le GWP Afrique de l’Ouest — mars 2026',
+      en: 'Working session with GWP West Africa — March 2026',
+    },
+    provenance: 'official',
+    gallery: true,
+    focal: { x: 50, y: 35 },
+  },
+  {
     key: 'gwp-2026',
     file: 'rencontre-gwp-ao-mars-2026.jpg',
     alt: {
@@ -956,7 +971,7 @@ The Alliance dedicates this distinction to African youth committed to the climat
     slug: 'rencontre-gwp-ao-saagdo-mars-2026',
     publishedAt: '2026-03-23T12:00:00.000Z',
     category: 'partnership',
-    cover: 'gwp-2026',
+    cover: 'gwp-2026-reunion',
     title: {
       fr: 'L’ACIEA présente SAAGDO au GWP Afrique de l’Ouest',
       en: 'ACIEA presents SAAGDO to GWP West Africa',
