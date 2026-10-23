@@ -1,4 +1,4 @@
-import { ExternalLink, FlaskConical, Lock, PlayCircle } from 'lucide-react'
+import { ExternalLink, PlayCircle } from 'lucide-react'
 import NextLink from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { NetworkField } from '@/components/decor/network-field'
@@ -6,25 +6,17 @@ import { Icon } from '@/components/icon'
 import { CmsImage } from '@/components/media/cms-image'
 import { VideoPlayer } from '@/components/media/video-player'
 import { Reveal } from '@/components/motion/reveal'
-import { SaagdoDemoLoader } from '@/components/saagdo/demo-loader'
-import { FlowDiagram } from '@/components/saagdo/flow-diagram'
 import { SaagdoMockup } from '@/components/saagdo/mockup'
 import { SaagdoScreens } from '@/components/saagdo/screens'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import { SectionHeading } from '@/components/ui/section-heading'
 import type { Locale } from '@/i18n/routing'
 import { pathFor, pathForSlug } from '@/lib/navigation'
-import { getFaqs, getNewsBySlug, getPartners, getProjectBySlug, getSaagdoPage } from '@/lib/queries'
-import { buildMetadata, jsonLd } from '@/lib/seo'
-import { cn, isSafeExternalUrl } from '@/lib/utils'
+import { getNewsBySlug, getPartners, getProjectBySlug, getSaagdoPage } from '@/lib/queries'
+import { buildMetadata } from '@/lib/seo'
+import { isSafeExternalUrl } from '@/lib/utils'
 import type { Media } from '@/payload-types'
 
 type Props = { params: Promise<{ locale: Locale }> }
@@ -43,11 +35,10 @@ export async function generateMetadata({ params }: Props) {
 export default async function SaagdoPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const [t, tc, page, faqs, partners, project, mouNews] = await Promise.all([
+  const [t, tc, page, partners, project, mouNews] = await Promise.all([
     getTranslations({ locale, namespace: 'saagdo' }),
     getTranslations({ locale, namespace: 'common' }),
     getSaagdoPage(locale),
-    getFaqs(locale, 'saagdo'),
     getPartners(locale),
     getProjectBySlug('saagdo', locale),
     getNewsBySlug('protocole-accord-gwp-afrique-de-l-ouest', locale),
@@ -63,18 +54,6 @@ export default async function SaagdoPage({ params }: Props) {
 
   return (
     <div className="bg-night text-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={jsonLd({
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: faqs.map((f) => ({
-            '@type': 'Question',
-            name: f.question,
-            acceptedAnswer: { '@type': 'Answer', text: f.answer },
-          })),
-        })}
-      />
       {/* A. Hero */}
       <section className="relative isolate overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-grid" />
@@ -88,7 +67,7 @@ export default async function SaagdoPage({ params }: Props) {
         />
         <div className="container-page">
           <Breadcrumbs items={[{ label: 'SAAGDO' }]} />
-          <div className="mt-10 grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
             <div className="lg:col-span-6">
               <Badge tone="digital" dot>
                 {page?.hero?.eyebrow}
@@ -109,34 +88,22 @@ export default async function SaagdoPage({ params }: Props) {
               </h1>
               <p className="mt-6 text-lead text-white/72">{page?.hero?.subtitle}</p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                {platformUrl ? (
+                {video && (
+                  <a href="#video" className={buttonVariants({ variant: 'digital', size: 'lg' })}>
+                    <PlayCircle aria-hidden="true" /> {t('watchVideo')}
+                  </a>
+                )}
+                {platformUrl && (
                   <a
                     href={platformUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={buttonVariants({ variant: 'digital', size: 'lg' })}
+                    className={buttonVariants({ variant: 'light', size: 'lg' })}
                   >
                     {t('openPlatform')} <ExternalLink aria-hidden="true" />
                   </a>
-                ) : (
-                  <span
-                    className={cn(
-                      buttonVariants({ variant: 'light', size: 'lg' }),
-                      'cursor-not-allowed',
-                    )}
-                    aria-disabled="true"
-                    title={t('platformUnavailable')}
-                  >
-                    <Lock aria-hidden="true" /> {t('openPlatform')}
-                  </span>
                 )}
-                <a href="#demo" className={buttonVariants({ variant: 'digital', size: 'lg' })}>
-                  {t('demoTitle')} <ArrowGlyph />
-                </a>
               </div>
-              {!platformUrl && (
-                <p className="mt-4 text-sm text-white/55">{t('platformUnavailable')}</p>
-              )}
               {videoUrl && (
                 <a
                   href={videoUrl}
@@ -168,7 +135,7 @@ export default async function SaagdoPage({ params }: Props) {
       </section>
 
       {video ? (
-        <section className="pb-24 md:pb-28">
+        <section id="video" className="scroll-mt-28 pb-24 md:pb-28">
           <VideoPlayer
             video={video}
             poster={asMedia(page?.videoPoster) ?? teamPhoto}
@@ -196,31 +163,6 @@ export default async function SaagdoPage({ params }: Props) {
         )
       )}
 
-      {/* B. Problem */}
-      <section
-        className="relative border-t border-white/8 py-24 md:py-28"
-        aria-labelledby="problem"
-      >
-        <div className="container-page">
-          <SectionHeading
-            id="problem"
-            tone="dark"
-            eyebrow={t('problemEyebrow')}
-            title={t('problemTitle')}
-            description={page?.problemIntro}
-          />
-          <ul className="mt-14 grid gap-px overflow-hidden rounded-[1.5rem] bg-white/8 ring-1 ring-white/8 sm:grid-cols-2 lg:grid-cols-3">
-            {(page?.problems ?? []).map((p, i) => (
-              <Reveal as="li" key={p.id ?? i} delay={(i % 3) * 0.06} className="bg-night p-8">
-                <Icon name={p.icon} className="size-7 text-gold" />
-                <h3 className="mt-5 font-display text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/62">{p.description}</p>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* C. Solution */}
       <section className="relative bg-night-800 py-24 md:py-28" aria-labelledby="solution">
         <div aria-hidden="true" className="absolute inset-0 bg-dots opacity-50" />
@@ -232,7 +174,7 @@ export default async function SaagdoPage({ params }: Props) {
             title={t('solutionTitle')}
             description={page?.solutionIntro}
           />
-          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {(page?.components ?? []).map((c, i) => (
               <Reveal as="li" key={c.id ?? i} delay={i * 0.06}>
                 <div className="group h-full rounded-[1.25rem] bg-white/[0.04] p-6 ring-1 ring-white/10 transition-all hover:bg-white/[0.07] hover:ring-digital/40">
@@ -247,50 +189,6 @@ export default async function SaagdoPage({ params }: Props) {
           </ul>
         </div>
       </section>
-
-      {/* D. Flow */}
-      <section className="py-24 md:py-28" aria-labelledby="flow">
-        <div className="container-page">
-          <SectionHeading id="flow" tone="dark" eyebrow={t('flowEyebrow')} title={t('flowTitle')} />
-          <div className="mt-14">
-            <FlowDiagram
-              steps={(page?.flow ?? []).map((f) => ({
-                title: f.title ?? '',
-                description: f.description,
-                icon: f.icon,
-              }))}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* E. Demo */}
-      {page?.showDemo !== false && (
-        <section
-          id="demo"
-          className="scroll-mt-24 border-y border-white/8 bg-night-800 py-24 md:py-28"
-          aria-labelledby="demo-title"
-        >
-          <div className="container-page">
-            <SectionHeading
-              id="demo-title"
-              tone="dark"
-              eyebrow={t('demoEyebrow')}
-              title={t('demoTitle')}
-            />
-            <p
-              role="note"
-              className="mt-6 flex max-w-3xl items-start gap-3 rounded-xl bg-gold/10 px-4 py-3 text-sm text-gold ring-1 ring-gold/30"
-            >
-              <FlaskConical className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-              {t('demoDisclaimer')}
-            </p>
-            <div className="mt-10">
-              <SaagdoDemoLoader />
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* F. Partnership */}
       <section className="py-24 md:py-28" aria-labelledby="partnership">
@@ -352,27 +250,6 @@ export default async function SaagdoPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {/* G. FAQ */}
-      {faqs.length > 0 && (
-        <section className="border-t border-white/8 py-24 md:py-28" aria-labelledby="faq">
-          <div className="container-page grid grid-cols-1 gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <SectionHeading id="faq" tone="dark" title={t('faqTitle')} />
-            </div>
-            <div className="lg:col-span-8">
-              <Accordion type="single" collapsible className="text-white">
-                {faqs.map((f) => (
-                  <AccordionItem key={f.id} value={String(f.id)}>
-                    <AccordionTrigger>{f.question}</AccordionTrigger>
-                    <AccordionContent>{f.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* H. CTA */}
       <section className="pb-24">

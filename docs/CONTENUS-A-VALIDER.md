@@ -107,6 +107,13 @@ renseigner à la mise en production.
 - Page SAAGDO : présentation de l’application par l’équipe (3 min, en anglais sous-titré, `presentation-saagdo.mp4`).
 - Réencodées en MP4 H.264 léger (8 et 10 Mo). Lecture automatique sans le son (seule permise par les navigateurs), bouton « Activer le son », pause possible ; mise en pause hors écran, pas de lecture automatique en mode économie de données ou « réduire les animations ».
 
+### Page SAAGDO simplifiée (22/10/2026)
+
+La démonstration aux données fictives, le schéma de fonctionnement, la section « Problématique » et la FAQ sont
+retirés. La page montre les captures réelles, la vidéo de l’équipe et six fonctionnalités décrites d’après la vidéo
+et les captures (signalement avec photo, brigade LAABAL anonyme, transmission à la mairie ou à la brigade et suivi,
+toilettes publiques, tableau de bord, concours) : **à relire par l’équipe SAAGDO**.
+
 Toujours non publiés faute d’information : rapports et documents, événements à venir,
 témoignages, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
 (fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).

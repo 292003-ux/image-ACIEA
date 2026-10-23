@@ -8,6 +8,7 @@ import { TEAM_GROUPS } from '@/lib/constants'
 import type { Locale } from '@/i18n/routing'
 import { getTeam } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
+import { cn } from '@/lib/utils'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -46,9 +47,13 @@ export default async function TeamPage({ params }: Props) {
           <div className="space-y-20">
             {groups.map((g) => (
               <section key={g.key} aria-labelledby={`team-${g.key}`}>
+                {/* A single body is already named by the page title. */}
                 <h2
                   id={`team-${g.key}`}
-                  className="mb-10 font-display text-h3 font-semibold text-forest"
+                  className={cn(
+                    'mb-10 font-display text-h3 font-semibold text-forest',
+                    groups.length === 1 && 'sr-only',
+                  )}
                 >
                   {t(`groups.${g.key}`)}
                 </h2>

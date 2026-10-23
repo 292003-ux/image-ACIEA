@@ -19,11 +19,10 @@ test.describe('editorial content', () => {
     expect(ldTypes).toContain('NewsArticle')
   })
 
-  test('filters news by category', async ({ page }) => {
+  test('lists the news without category filters', async ({ page }) => {
     await page.goto('/fr/actualites')
-    await page.getByRole('link', { name: 'Partenariat', exact: true }).click()
-    await expect(page).toHaveURL(/category=partnership/)
     await expect(page.getByRole('link', { name: /formalisent/ }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Partenariat', exact: true })).toHaveCount(0)
   })
 
   test('downloads an authorised publication', async ({ page }) => {
@@ -48,15 +47,12 @@ test.describe('editorial content', () => {
     await expect(page.getByRole('heading', { name: /Actualités/ })).toBeVisible()
   })
 
-  test('SAAGDO demo is interactive and labelled as fictitious', async ({ page }) => {
+  test('SAAGDO page shows the real app, its features and the video', async ({ page }) => {
     await page.goto('/fr/saagdo')
-    await expect(page.getByText(/toutes les données affichées sont fictives/)).toBeVisible()
-    await page.getByRole('tab', { name: 'Participation citoyenne' }).click()
-    await page.getByRole('button', { name: 'Simuler une contribution' }).click()
-    await expect(page.getByText('Contribution simulée ajoutée localement')).toBeVisible()
-    await expect(page.getByText('Accéder à la plateforme').first()).toHaveAttribute(
-      'aria-disabled',
-      'true',
-    )
+    await expect(page.getByRole('heading', { name: 'Ce que permet SAAGDO' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Signaler un déchet' })).toBeVisible()
+    await expect(page.locator('video')).toHaveCount(1)
+    await expect(page.getByAltText(/Plateforme de gestion SAAGDO/)).toBeVisible()
+    await expect(page.getByText(/fictiv/i)).toHaveCount(0)
   })
 })

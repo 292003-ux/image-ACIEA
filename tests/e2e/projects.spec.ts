@@ -34,7 +34,7 @@ test.describe('projects catalogue', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
       /Camp Vacances Éco-Citoyen 2025/,
     )
-    await expect(page.getByRole('heading', { name: 'Réalisations' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Activités' })).toBeVisible()
     await expect(page.getByText('Fiche d’identité')).toBeVisible()
   })
 

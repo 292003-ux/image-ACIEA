@@ -22,17 +22,11 @@ type DefaultItem = {
   domains?: boolean
 }
 
-// Five entries only: sections without published content stay out of the menu.
+// Six plain links (no drop-downs): sections without published content stay out of the menu.
 const DEFAULT_HEADER: DefaultItem[] = [
+  { key: 'home', route: '/' },
   { key: 'about', route: '/about' },
-  {
-    key: 'actions',
-    route: '/projects',
-    children: [
-      { key: 'domains', route: '/domains', descKey: 'domains' },
-      { key: 'projectsAll', route: '/projects', descKey: 'projectsAll' },
-    ],
-  },
+  { key: 'actions', route: '/projects' },
   { key: 'saagdo', route: '/saagdo' },
   { key: 'newsArticles', route: '/news' },
   { key: 'contact', route: '/contact' },

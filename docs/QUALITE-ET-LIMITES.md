@@ -64,8 +64,8 @@ fortement bridé (indice de performance de la machine de test : 1 226, inférieu
 
 Optimisations déjà appliquées : cache des lectures CMS avec invalidation à la publication (TTFB
 0,8 s → 0,05–0,1 s), polices auto-hébergées préchargées avec métriques de repli (CLS 0,2 → 0),
-suppression de la librairie d’animation (~150 Ko), formulaire newsletter sans dépendance, démo SAAGDO
-et carte chargées à la demande, animations décoratives gelées sur mobile, images WebP/AVIF responsives.
+suppression de la librairie d’animation (~150 Ko), formulaire newsletter sans dépendance,
+carte chargée à la demande, démo SAAGDO et sa librairie de graphiques retirées, animations décoratives gelées sur mobile, images WebP/AVIF responsives.
 
 Pistes suivantes (non réalisées) : rendu statique/ISR des pages publiques (le cache par tags est déjà
 en place), réduction du nombre de composants client sur l’accueil, CDN devant Caddy, image du hero

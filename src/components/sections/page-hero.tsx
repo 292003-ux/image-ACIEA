@@ -71,7 +71,7 @@ export function PageHero({
       />
       <div className="container-page">
         <Breadcrumbs items={crumbs} />
-        <div className="mt-8 grid grid-cols-1 items-end gap-10 lg:grid-cols-12">
+        <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12">
           <div className={cn(aside ? 'lg:col-span-7' : 'lg:col-span-9')}>
             {eyebrow && (
               <p className="mb-5 inline-flex items-center gap-3 eyebrow text-gold">

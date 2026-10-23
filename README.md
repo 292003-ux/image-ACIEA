@@ -19,7 +19,7 @@ Le projet réunit dans une seule application :
 | Interface       | Tailwind CSS 4, primitives Radix (style shadcn/ui), Lucide, animations CSS |
 | i18n            | next-intl (URL localisées `/fr/...`, `/en/...`, hreflang)                  |
 | Formulaires     | React Hook Form + Zod (validation client **et** serveur)                   |
-| Carte / graphes | Leaflet (contours Natural Earth auto-hébergés), Recharts                   |
+| Carte / graphes | Leaflet (contours Natural Earth auto-hébergés)                             |
 | Qualité         | ESLint, Prettier, Vitest (unitaires + intégration), Playwright + axe       |
 | Déploiement     | Docker (image standalone), Docker Compose, Caddy (HTTPS automatique)       |
 
@@ -54,5 +54,5 @@ sinon via l’écran de création de compte de `/admin`.
   annonce officielle du GWP Afrique de l’Ouest). Chaque fait daté renvoie à sa source.
 - **Pas de faux chiffres** : les indicateurs d’impact ne s’affichent que s’ils sont publiés **avec** une
   date de vérification et un responsable de validation (règle appliquée côté serveur).
-- **Démonstration SAAGDO** clairement étiquetée « données fictives ».
+- **SAAGDO** présentée avec de vraies captures de l’application et la vidéo de l’équipe.
 - **Traductions anglaises** signalées comme non validées tant que l’ACIEA ne les a pas approuvées.

@@ -8,9 +8,12 @@ import { formatDate, isSafeExternalUrl } from '@/lib/utils'
 export async function PartnerCard({
   partner,
   detailed = false,
+  compact = false,
 }: {
   partner: Partner
   detailed?: boolean
+  /** Name and agreement only, where the surrounding page already tells the story. */
+  compact?: boolean
 }) {
   const t = await getTranslations('partners')
   const tc = await getTranslations('common')
@@ -54,7 +57,7 @@ export async function PartnerCard({
           </span>
         </p>
       )}
-      {partner.description && (
+      {!compact && partner.description && (
         <p className="mt-4 leading-relaxed text-ink-muted">{partner.description}</p>
       )}
       {detailed && partner.collaborationAreas && partner.collaborationAreas.length > 0 && (

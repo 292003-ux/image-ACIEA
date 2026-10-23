@@ -10,12 +10,14 @@ export function VideoPlayer({
   className,
   videoClassName,
   captionClassName,
+  showCaption = true,
 }: {
   video: Media
   poster?: Media | null
   className?: string
   videoClassName?: string
   captionClassName?: string
+  showCaption?: boolean
 }) {
   const src = mediaUrl(video)
   if (!src) return null
@@ -28,7 +30,9 @@ export function VideoPlayer({
         label={video.alt}
         className={cn('w-full bg-night object-cover', videoClassName)}
       />
-      {video.caption && <figcaption className={captionClassName}>{video.caption}</figcaption>}
+      {showCaption && video.caption && (
+        <figcaption className={captionClassName}>{video.caption}</figcaption>
+      )}
     </figure>
   )
 }
