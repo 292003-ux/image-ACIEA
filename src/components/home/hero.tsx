@@ -1,14 +1,10 @@
 import { ArrowDown } from 'lucide-react'
-import NextLink from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { NetworkField } from '@/components/decor/network-field'
 import { TopoLines } from '@/components/decor/topo-lines'
 import { CmsImage, mediaUrl } from '@/components/media/cms-image'
-import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
 import type { Locale } from '@/i18n/routing'
-import { pathFor } from '@/lib/navigation'
 import type { Homepage, Media } from '@/payload-types'
-import { cn } from '@/lib/utils'
 import { HeroMotion } from './hero-motion'
 
 export async function HomeHero({
@@ -82,21 +78,6 @@ export async function HomeHero({
           {hero?.subtitle && (
             <p className="mt-7 max-w-2xl text-lead text-white/78">{hero.subtitle}</p>
           )}
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <NextLink
-              href={pathFor('/about', locale)}
-              className={cn(buttonVariants({ variant: 'gold', size: 'lg' }))}
-            >
-              {t('ctaDiscover')}
-              <ArrowGlyph />
-            </NextLink>
-            <NextLink
-              href={pathFor('/projects', locale)}
-              className={cn(buttonVariants({ variant: 'light', size: 'lg' }))}
-            >
-              {t('ctaExplore')}
-            </NextLink>
-          </div>
         </HeroMotion>
 
         {mosaic.length > 0 && (
