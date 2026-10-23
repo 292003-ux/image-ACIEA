@@ -12,7 +12,6 @@ import {
   getSiteSettings,
 } from '@/lib/queries'
 import { isSafeExternalUrl } from '@/lib/utils'
-import { LanguageSwitcher } from './language-switcher'
 import { Logo } from './logo'
 import { PLATFORM_NAMES, SocialIcon } from './social-icon'
 
@@ -51,9 +50,6 @@ export async function Footer({ locale }: { locale: Locale }) {
               shortName={settings?.shortName || 'ACIEA'}
               tagline={settings?.organizationName}
             />
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
-              {settings?.description || t('about')}
-            </p>
             {settings?.tagline && (
               <p className="mt-5 font-serif text-lg text-gold italic">« {settings.tagline} »</p>
             )}
@@ -149,8 +145,7 @@ export async function Footer({ locale }: { locale: Locale }) {
 
         <div className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-white/55">
-            © {year} {settings?.shortName || 'ACIEA'} — {settings?.organizationName}. {t('rights')}{' '}
-            · {t('madeIn')}
+            © {year} {settings?.shortName || 'ACIEA'}. {t('rights')}
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3 text-xs text-white/60">
             <NextLink href={pathFor('/legal', locale)} className="hover:text-gold">
@@ -167,7 +162,6 @@ export async function Footer({ locale }: { locale: Locale }) {
             <a href="/admin" className="hover:text-gold" rel="nofollow">
               {t('admin')}
             </a>
-            <LanguageSwitcher tone="light" />
           </div>
         </div>
       </div>
