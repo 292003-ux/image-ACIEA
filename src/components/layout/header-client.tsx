@@ -1,7 +1,7 @@
 'use client'
 
 import * as Dialog from '@radix-ui/react-dialog'
-import { ChevronDown, Menu, Search, X } from 'lucide-react'
+import { ChevronDown, Menu, X } from 'lucide-react'
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
@@ -18,7 +18,6 @@ type Props = {
   logoDark: React.ReactNode
   homeHref: string
   ctaHref: string
-  searchHref: string
 }
 
 function isActive(pathname: string, href: string) {
@@ -212,7 +211,7 @@ function DesktopItem({
   )
 }
 
-export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchHref }: Props) {
+export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref }: Props) {
   const pathname = usePathname()
   const t = useTranslations('nav')
   const tc = useTranslations('common')
@@ -263,16 +262,6 @@ export function HeaderClient({ items, logo, logoDark, homeHref, ctaHref, searchH
         </nav>
 
         <div className="flex items-center gap-1.5 sm:gap-2">
-          <NextLink
-            href={searchHref}
-            aria-label={t('search')}
-            className={cn(
-              'grid size-10 place-items-center rounded-full transition-colors',
-              solid ? 'text-forest hover:bg-forest/6' : 'text-white hover:bg-white/10',
-            )}
-          >
-            <Search className="size-[1.1rem]" aria-hidden="true" />
-          </NextLink>
           <LanguageSwitcher tone={solid ? 'dark' : 'light'} className="hidden sm:flex" />
           <NextLink
             href={ctaHref}
