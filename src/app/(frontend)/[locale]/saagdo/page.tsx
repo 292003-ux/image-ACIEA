@@ -67,7 +67,7 @@ export default async function SaagdoPage({ params }: Props) {
         />
         <div className="container-page">
           <Breadcrumbs items={[{ label: 'SAAGDO' }]} />
-          <div className="mt-10 grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
             <div className="lg:col-span-6">
               <Badge tone="digital" dot>
                 {page?.hero?.eyebrow}

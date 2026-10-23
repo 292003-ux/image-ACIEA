@@ -128,7 +128,7 @@ export default async function ProjectPage({ params }: Props) {
               { label: project.title },
             ]}
           />
-          <div className="mt-8 grid grid-cols-1 gap-10 pb-14 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-10 pb-14 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <div className="flex flex-wrap gap-2">
                 {domains.map((d) => (

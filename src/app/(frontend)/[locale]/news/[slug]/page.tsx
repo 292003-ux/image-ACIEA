@@ -80,7 +80,7 @@ export default async function NewsArticlePage({ params }: Props) {
           <Breadcrumbs
             items={[{ label: t('title'), href: '/news', url: '/news' }, { label: article.title }]}
           />
-          <div className="mt-8 flex flex-wrap items-center gap-3 text-sm">
+          <div className="flex flex-wrap items-center gap-3 text-sm">
             <Badge tone="gold">{t(`categories.${article.category}`)}</Badge>
             <time dateTime={article.publishedAt} className="text-white/70">
               {formatDate(
