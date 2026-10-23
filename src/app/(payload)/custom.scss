@@ -1,4 +1,441 @@
-/* ACIEA admin theme accents */
-:root {
-  --theme-success-500: #237a57;
+/* ACIEA theme for the Payload admin: same palette and fonts as the public site. */
+
+@font-face {
+  font-family: 'ACIEA Inter';
+  src: url('../../fonts/inter-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ACIEA Sora';
+  src: url('../../fonts/sora-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+$forest: #103d30;
+$forest-900: #0a2a21;
+$leaf: #237a57;
+$leaf-600: #1d6a4b;
+$digital: #00ba89;
+$digital-300: #5fdcb9;
+$gold: #d5ae62;
+$ivory: #f6f7f2;
+$display: 'ACIEA Sora', 'ACIEA Inter', system-ui, sans-serif;
+
+@layer payload {
+  :root {
+    --font-body: 'ACIEA Inter', system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+    --style-radius-s: 6px;
+    --style-radius-m: 10px;
+    --style-radius-l: 16px;
+
+    /* Neutrals tinted towards the brand green (light ivory to night blue-green). */
+    --color-base-0: rgb(255, 255, 255);
+    --color-base-50: rgb(246, 247, 242);
+    --color-base-100: rgb(236, 238, 230);
+    --color-base-150: rgb(223, 227, 218);
+    --color-base-200: rgb(210, 215, 207);
+    --color-base-250: rgb(196, 204, 196);
+    --color-base-300: rgb(183, 192, 185);
+    --color-base-350: rgb(168, 179, 172);
+    --color-base-400: rgb(154, 165, 159);
+    --color-base-450: rgb(139, 152, 146);
+    --color-base-500: rgb(124, 138, 133);
+    --color-base-550: rgb(108, 123, 119);
+    --color-base-600: rgb(93, 108, 105);
+    --color-base-650: rgb(77, 92, 90);
+    --color-base-700: rgb(61, 77, 76);
+    --color-base-750: rgb(46, 62, 64);
+    --color-base-800: rgb(31, 47, 51);
+    --color-base-850: rgb(23, 39, 46);
+    --color-base-900: rgb(16, 30, 37);
+    --color-base-950: rgb(11, 22, 27);
+    --color-base-1000: rgb(5, 11, 14);
+
+    /* Payload's "success" scale (published badges, toasts) is blue by default: use the leaf green. */
+    --color-success-50: rgb(238, 247, 242);
+    --color-success-100: rgb(220, 239, 229);
+    --color-success-150: rgb(201, 231, 215);
+    --color-success-200: rgb(182, 223, 202);
+    --color-success-250: rgb(162, 215, 188);
+    --color-success-300: rgb(143, 207, 174);
+    --color-success-350: rgb(116, 186, 152);
+    --color-success-400: rgb(89, 165, 131);
+    --color-success-450: rgb(62, 143, 109);
+    --color-success-500: rgb(35, 122, 87);
+    --color-success-550: rgb(32, 110, 80);
+    --color-success-600: rgb(29, 98, 73);
+    --color-success-650: rgb(25, 86, 66);
+    --color-success-700: rgb(22, 74, 59);
+    --color-success-750: rgb(20, 65, 52);
+    --color-success-800: rgb(17, 57, 45);
+    --color-success-850: rgb(15, 48, 38);
+    --color-success-900: rgb(12, 40, 31);
+    --color-success-950: rgb(10, 31, 24);
+
+    --aciea-accent: #{$leaf};
+    --aciea-accent-hover: #{$leaf-600};
+    --aciea-on-accent: #fff;
+    --aciea-nav-bg: #{$forest};
+    --aciea-surface: var(--theme-elevation-0);
+    --aciea-page: var(--theme-elevation-50);
+  }
+
+  html[data-theme='dark'] {
+    --aciea-accent: #{$digital};
+    --aciea-accent-hover: #{$digital-300};
+    --aciea-on-accent: #{$forest-900};
+    --aciea-nav-bg: #{$forest-900};
+    --aciea-surface: var(--theme-elevation-50);
+    --aciea-page: var(--theme-elevation-0);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: $display;
+    letter-spacing: -0.01em;
+  }
+
+  /* Rich text editor: same body font as the rest of the admin. */
+  [data-lexical-editor='true'] {
+    font-family: var(--font-body);
+  }
+
+  /* Primary buttons ("Save", "Publish", "Login") in brand green instead of near-black. */
+  .btn--style-primary:not(.btn--disabled) {
+    --bg-color: var(--aciea-accent);
+    --hover-bg: var(--aciea-accent-hover);
+    --color: var(--aciea-on-accent);
+  }
+
+  /* ---------- Navigation ---------- */
+  .nav {
+    background: var(--aciea-nav-bg);
+    border-color: transparent;
+    color: $ivory;
+    --theme-text: #{$ivory};
+    --theme-elevation-400: rgb(246 247 242 / 0.55);
+    --theme-elevation-1000: #fff;
+    --theme-elevation-200: rgb(246 247 242 / 0.35);
+    --theme-elevation-100: rgb(246 247 242 / 0.12);
+  }
+
+  .nav__header,
+  .nav__controls {
+    background: var(--aciea-nav-bg);
+  }
+
+  .nav a,
+  .nav__link,
+  .nav__log-out {
+    color: $ivory;
+  }
+
+  .nav__log-out svg .stroke,
+  .nav__mobile-close svg .stroke {
+    stroke: $ivory;
+  }
+
+  .aciea-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: calc(var(--base) * 1.2);
+    font-family: $display;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-group__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav__link-indicator {
+    background: $digital;
+  }
+
+  .aciea-view-site {
+    display: inline-flex;
+    margin-top: calc(var(--base) * 0.75);
+    padding: 6px 14px;
+    border: 1px solid rgb(246 247 242 / 0.35);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      background: rgb(246 247 242 / 0.1);
+      border-color: $digital;
+    }
+  }
+
+  /* ---------- Dashboard ---------- */
+  .dashboard {
+    background: var(--aciea-page);
+    min-height: 100%;
+  }
+
+  .collections__label {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--theme-elevation-800);
+  }
+
+  .card {
+    background: var(--aciea-surface);
+    border-color: var(--theme-elevation-150);
+  }
+
+  .card--has-onclick:hover {
+    background: var(--aciea-surface);
+    border-color: var(--aciea-accent);
+    box-shadow: 0 10px 24px -14px rgb(16 61 48 / 0.35);
+  }
+
+  .card__title {
+    font-family: $display;
+    font-weight: 600;
+  }
+
+  .aciea-welcome {
+    display: grid;
+    gap: calc(var(--base) * 0.8);
+    margin-bottom: calc(var(--base) * 1.5);
+  }
+
+  .aciea-welcome__hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--base);
+    padding: calc(var(--base) * 1.4) calc(var(--base) * 1.6);
+    border-radius: var(--style-radius-l);
+    background: $forest;
+    color: $ivory;
+
+    /* Concentric rings echoing the logo's gold circle. */
+    &::after {
+      content: '';
+      position: absolute;
+      right: -90px;
+      top: -110px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgb(213 174 98 / 0.45);
+      box-shadow:
+        0 0 0 36px rgb(0 186 137 / 0.06),
+        0 0 0 80px rgb(0 186 137 / 0.04);
+      pointer-events: none;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .aciea-welcome__title {
+    margin: 0;
+    font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+    color: #fff;
+  }
+
+  .aciea-welcome__lead {
+    margin: 4px 0 0;
+    opacity: 0.8;
+  }
+
+  .aciea-welcome__site {
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: $digital;
+    color: $forest-900;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      background: $digital-300;
+    }
+  }
+
+  .aciea-welcome__shortcuts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: calc(var(--base) * 0.6);
+  }
+
+  .aciea-shortcut {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--theme-elevation-150);
+    border-radius: var(--style-radius-m);
+    background: var(--aciea-surface);
+    color: var(--theme-elevation-800);
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--aciea-accent);
+      box-shadow: 0 10px 24px -14px rgb(16 61 48 / 0.35);
+    }
+  }
+
+  .aciea-shortcut__icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--theme-success-100);
+    color: var(--theme-success-600);
+    font-size: 16px;
+  }
+
+  /* ---------- Login ---------- */
+  .aciea-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .aciea-logo__name {
+    font-family: $display;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .aciea-logo__tagline {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+
+  .aciea-login-panel {
+    display: none;
+  }
+
+  .aciea-login-heading {
+    margin: 0 0 var(--base);
+    font-size: 1.6rem;
+  }
+
+  @media (min-width: 1024px) {
+    .template-minimal:has(.aciea-login-panel) {
+      padding-left: calc(46% + 1.5rem);
+      background: var(--theme-elevation-0);
+    }
+
+    .template-minimal:has(.aciea-login-panel) .login__brand {
+      display: none;
+    }
+
+    .aciea-login-panel {
+      position: fixed;
+      inset: 0 54% 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 48px 56px;
+      background: $forest;
+      color: $ivory;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      &::before {
+        right: -160px;
+        bottom: -160px;
+        width: 520px;
+        height: 520px;
+        border: 1px solid rgb(213 174 98 / 0.5);
+        box-shadow:
+          0 0 0 60px rgb(0 186 137 / 0.06),
+          0 0 0 130px rgb(0 186 137 / 0.04);
+      }
+
+      &::after {
+        left: -120px;
+        top: 30%;
+        width: 260px;
+        height: 260px;
+        background: radial-gradient(circle, rgb(0 186 137 / 0.18), transparent 70%);
+      }
+
+      > * {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .aciea-login-panel__brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: $display;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .aciea-login-panel__text {
+      max-width: 30rem;
+
+      p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.6;
+        opacity: 0.8;
+      }
+    }
+
+    .aciea-login-panel__title {
+      margin-bottom: 12px !important;
+      font-family: $display;
+      font-size: clamp(2rem, 1.2rem + 1.6vw, 2.8rem) !important;
+      font-weight: 600;
+      line-height: 1.1 !important;
+      color: #fff;
+      opacity: 1 !important;
+    }
+
+    .aciea-login-panel__foot {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: $gold;
+    }
+  }
 }
