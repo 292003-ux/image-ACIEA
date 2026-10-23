@@ -908,6 +908,34 @@ The Alliance dedicates this distinction to African youth committed to the climat
     sourceUrl: FB_URL,
   },
   {
+    // The Facebook post says "23 mars 2025", but Dr Amadou Lamine NDIAYE became GWP-WA
+    // Executive Secretary in January 2026 (allAfrica, 14/01/2026): the meeting is in 2026.
+    slug: 'rencontre-gwp-ao-saagdo-mars-2026',
+    publishedAt: '2026-03-23T12:00:00.000Z',
+    category: 'partnership',
+    title: {
+      fr: 'L’ACIEA présente SAAGDO au GWP Afrique de l’Ouest',
+      en: 'ACIEA presents SAAGDO to GWP West Africa',
+    },
+    excerpt: {
+      fr: 'Le 23 mars 2026, la délégation de l’ACIEA a été reçue par le Secrétaire exécutif du GWP-AO pour présenter l’application SAAGDO et sa plateforme.',
+      en: 'On 23 March 2026, the ACIEA delegation was received by the GWP-WA Executive Secretary to present the SAAGDO app and platform.',
+    },
+    content: {
+      fr: `Le **23 mars 2026**, l’ACIEA a été reçue par le **Dr Amadou Lamine NDIAYE**, Secrétaire exécutif du Global Water Partnership – Afrique de l’Ouest (GWP-AO).
+
+La délégation a échangé autour du projet **SAAGDO**, en présentant l’application ainsi que la plateforme d’administration.
+
+Cette rencontre a marqué une étape importante vers des collaborations stratégiques pour l’innovation, la gestion durable de l’eau et la résilience climatique au Sahel. Elle a ouvert la voie au protocole d’accord signé le 3 juillet 2026.`,
+      en: `On **23 March 2026**, ACIEA was received by **Dr Amadou Lamine NDIAYE**, Executive Secretary of the Global Water Partnership – West Africa (GWP-WA).
+
+The delegation discussed the **SAAGDO** project and presented the app and its administration platform.
+
+The meeting was an important step towards strategic collaboration on innovation, sustainable water management and climate resilience in the Sahel. It paved the way for the Memorandum of Understanding signed on 3 July 2026.`,
+    },
+    sourceUrl: FB_URL,
+  },
+  {
     slug: 'saagdo-presente-mairie-ouagadougou-2026',
     publishedAt: '2026-01-22T12:00:00.000Z',
     category: 'innovation',
@@ -1008,16 +1036,16 @@ The initiatives presented included the young people’s **Eco-Citizen Holiday Ca
       en: 'ACIEA at the 7th International Tree Fair',
     },
     excerpt: {
-      fr: 'Le 16 juillet 2025, au parc Bangr-Wéogo, l’ACIEA a pris part au Salon International de l’Arbre, sur le thème « Arbre et culture ».',
-      en: 'On 16 July 2025, at Bangr-Wéogo park, ACIEA took part in the International Tree Fair, on the theme “Tree and culture”.',
+      fr: 'Le 16 juillet 2025, au parc Bangr-Weogo, l’ACIEA a pris part au Salon International de l’Arbre, sur le thème « Arbre et culture ».',
+      en: 'On 16 July 2025, at Bangr-Weogo park, ACIEA took part in the International Tree Fair, on the theme “Tree and culture”.',
     },
     content: {
-      fr: `Le mercredi **16 juillet 2025**, l’ACIEA a pris part à la 7ᵉ édition du **Salon International de l’Arbre (SIA)** au parc Bangr-Wéogo, à Ouagadougou.
+      fr: `Le mercredi **16 juillet 2025**, l’ACIEA a pris part à la 7ᵉ édition du **Salon International de l’Arbre (SIA)** au parc Bangr-Weogo, à Ouagadougou.
 
 Cette édition avait pour thème « Arbre et culture : rôle de la jeunesse sahélienne dans la préservation des valeurs culturelles de l’arbre face aux défis du changement climatique », avec pour slogan « Protéger l’arbre, inspirer l’avenir ». Elle a réuni experts, jeunes leaders, institutions et organisations de la société civile.
 
 Pour l’ACIEA, ce salon a renforcé son engagement pour l’éducation écologique et l’implication des jeunes dans la lutte contre le changement climatique. Il a aussi été l’occasion d’élargir son réseau et de partager sa vision d’une jeunesse sahélienne actrice du changement, capable d’allier traditions et innovation.`,
-      en: `On Wednesday **16 July 2025**, ACIEA took part in the 7th **International Tree Fair (SIA)** at Bangr-Wéogo park in Ouagadougou.
+      en: `On Wednesday **16 July 2025**, ACIEA took part in the 7th **International Tree Fair (SIA)** at Bangr-Weogo park in Ouagadougou.
 
 The theme was “Tree and culture: the role of Sahelian youth in preserving the cultural values of trees in the face of climate change”, with the slogan “Protect the tree, inspire the future”. It brought together experts, young leaders, institutions and civil society organisations.
 
@@ -1356,6 +1384,15 @@ It works alongside national and international partners to protect the environmen
     en: 'ACIEA engages with national institutions, local authorities and international partners while carrying out field actions with young people.',
   },
   milestones: [
+    {
+      date: '2026-03-23T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'SAAGDO présentée au Secrétaire exécutif du GWP-AO',
+        en: 'SAAGDO presented to the GWP-WA Executive Secretary',
+      },
+      sourceUrl: FB_URL,
+    },
     {
       date: '2026-02-06T12:00:00.000Z',
       precision: 'day',

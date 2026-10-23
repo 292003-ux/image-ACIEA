@@ -123,8 +123,12 @@ mondiale de l’environnement (5 juin 2025). La Journée nationale de l’arbre 
 est publiée et complète le projet « Reboisement ». L’audience à l’Ambassade du Brésil a son texte mais reste en
 brouillon : **date à confirmer**.
 
-Non publiées faute de date ou parce qu’elles ne concernent pas une action de l’ACIEA : rencontre avec le GWP-WA
-du « 23 mars 2025 » (**année à confirmer** : la publication est placée parmi celles de 2026), félicitations à
+Rencontre avec le GWP-AO publiée au **23 mars 2026** : la publication indique 2025, mais le Dr Amadou Lamine NDIAYE
+n’est Secrétaire exécutif du GWP-AO que depuis janvier 2026 (allAfrica, 14/01/2026). Dates recoupées avec la presse :
+SITAHO (7-8 nov. 2025, 2iE), SIA (16-19 juil. 2025, Bangr-Weogo), EcoWorld (cérémonie à Moscou début février 2026).
+Assemblée générale : 2025, puisqu’elle fixe la feuille de route 2026.
+
+Non publiées faute de date ou parce qu’elles ne concernent pas une action de l’ACIEA : félicitations à
 SAMOUIDI Bruno François (soutenance), lancement de « Bâtisseurs de Cités » saison 3 sur BF1, prix BCARE d’un membre,
 journée de reboisement au 2iE (juillet 2025, mentionnée dans le projet Reboisement).
 
