@@ -1091,27 +1091,24 @@ For a clean, resilient Burkina Faso looking towards an ecological future.`,
   },
   {
     slug: 'audience-ambassade-bresil',
-    publishedAt: '2025-05-01T12:00:00.000Z',
+    publishedAt: '2025-05-02T12:00:00.000Z',
     category: 'institutional',
     cover: 'bresil',
-    draft: true,
-    reviewNote:
-      'Texte repris de la publication Facebook ; date de l’audience à confirmer avant publication.',
     title: {
       fr: 'Climat, jeunesse et innovation : l’ACIEA reçue par l’Ambassade du Brésil',
       en: 'Climate, youth and innovation: ACIEA received by the Embassy of Brazil',
     },
     excerpt: {
-      fr: 'Une délégation conduite par la vice-présidente a présenté l’ACIEA et ses projets à l’Ambassade du Brésil au Burkina Faso.',
-      en: 'A delegation led by the vice-president presented ACIEA and its projects to the Embassy of Brazil in Burkina Faso.',
+      fr: 'Le 2 mai 2025, une délégation conduite par la vice-présidente a présenté l’ACIEA et ses projets à l’Ambassade du Brésil au Burkina Faso.',
+      en: 'On 2 May 2025, a delegation led by the vice-president presented ACIEA and its projects to the Embassy of Brazil in Burkina Faso.',
     },
     content: {
-      fr: `L’Ambassade du Brésil au Burkina Faso, à travers Madame ILBOUDO Tigsba Elielle Sadou, assistante de l’Ambassadrice, a accueilli une délégation de l’ACIEA conduite par Madame SAMBORE Daho Nadia Doriane Leslie, vice-présidente, pour une audience officielle consacrée à la présentation de l’organisation et de ses projets phares.
+      fr: `Le 2 mai 2025, l’Ambassade du Brésil au Burkina Faso, à travers Madame ILBOUDO Tigsba Elielle Sadou, assistante de l’Ambassadrice, a accueilli une délégation de l’ACIEA conduite par Madame SAMBORE Daho Nadia Doriane Leslie, vice-présidente, pour une audience officielle consacrée à la présentation de l’organisation et de ses projets phares.
 
 Cette rencontre s’inscrit dans la volonté de l’ACIEA de promouvoir des partenariats entre pays du Sud, en plaçant l’intelligence artificielle et les technologies numériques au cœur des réponses aux défis climatiques et environnementaux.
 
 L’assistante de l’Ambassadrice a salué l’approche de l’ACIEA, exprimé l’intérêt du Brésil pour des échanges techniques autour des innovations durables et prodigué des conseils pour structurer ses initiatives et renforcer sa visibilité.`,
-      en: `The Embassy of Brazil in Burkina Faso, through Mrs ILBOUDO Tigsba Elielle Sadou, assistant to the Ambassador, received an ACIEA delegation led by Mrs SAMBORE Daho Nadia Doriane Leslie, vice-president, for an official meeting to present the organisation and its flagship projects.
+      en: `On 2 May 2025, the Embassy of Brazil in Burkina Faso, through Mrs ILBOUDO Tigsba Elielle Sadou, assistant to the Ambassador, received an ACIEA delegation led by Mrs SAMBORE Daho Nadia Doriane Leslie, vice-president, for an official meeting to present the organisation and its flagship projects.
 
 The meeting reflects ACIEA’s aim to build partnerships between countries of the Global South, with artificial intelligence and digital technologies at the heart of responses to climate and environmental challenges.
 
@@ -1452,6 +1449,15 @@ It works alongside national and international partners to protect the environmen
       precision: 'year',
       title: { fr: 'Création de l’ACIEA à Ouagadougou', en: 'ACIEA founded in Ouagadougou' },
       sourceUrl: LINKEDIN_URL,
+    },
+    {
+      date: '2025-05-02T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Audience à l’Ambassade du Brésil',
+        en: 'Meeting at the Embassy of Brazil',
+      },
+      sourceUrl: FB_URL,
     },
     {
       date: '2025-05-06T12:00:00.000Z',
