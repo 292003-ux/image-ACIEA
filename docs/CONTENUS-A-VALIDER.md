@@ -114,6 +114,23 @@ retirés. La page montre les captures réelles, la vidéo de l’équipe et six 
 et les captures (signalement avec photo, brigade LAABAL anonyme, transmission à la mairie ou à la brigade et suivi,
 toilettes publiques, tableau de bord, concours) : **à relire par l’équipe SAAGDO**.
 
+### Publications Facebook ajoutées (23/10/2026, texte collé par l’ACIEA)
+
+Nouvelles actualités : prix EcoWorld 2025 (Moscou, 6 févr. 2026, avec la lettre de l’Ambassadeur du 19 févr. 2026),
+SAAGDO à la Mairie centrale (22 janv. 2026), SAAGDO au SITAHO 2025 (7 nov. 2025), Assemblée générale (2 nov. —
+**année 2025 déduite de l’ordre des publications**), 7ᵉ Salon International de l’Arbre (16 juil. 2025), Journée
+mondiale de l’environnement (5 juin 2025). La Journée nationale de l’arbre (21 juin 2025, Loumbila, avec le SP/REDD+)
+est publiée et complète le projet « Reboisement ». L’audience à l’Ambassade du Brésil a son texte mais reste en
+brouillon : **date à confirmer**.
+
+Non publiées faute de date ou parce qu’elles ne concernent pas une action de l’ACIEA : rencontre avec le GWP-WA
+du « 23 mars 2025 » (**année à confirmer** : la publication est placée parmi celles de 2026), félicitations à
+SAMOUIDI Bruno François (soutenance), lancement de « Bâtisseurs de Cités » saison 3 sur BF1, prix BCARE d’un membre,
+journée de reboisement au 2iE (juillet 2025, mentionnée dans le projet Reboisement).
+
+Photos à fournir : prix EcoWorld, SAAGDO à la Mairie (janv. 2026), Assemblée générale, Journée mondiale de
+l’environnement.
+
 Toujours non publiés faute d’information : rapports et documents, événements à venir,
 témoignages, actualité « Ambassade du Brésil » (date inconnue), portraits sans nom
 (fichiers numérotés, `presi.webp`, `moi.jpg`, `tall.png`) et doublons (`diebreee.jpeg`, `LANDRYYY.jpeg`, `ZEMODOOO.jpeg`, `simboro.jpg`).

@@ -340,7 +340,7 @@ async function main() {
         content: lexical(n.content.fr),
         category: n.category,
         publishedAt: n.publishedAt,
-        coverImage: n.cover ? media[n.cover] : undefined,
+        coverImage: n.cover ? media[n.cover] : null,
         sourceUrl: n.sourceUrl,
         authorName: 'ACIEA',
         reviewNotes: n.reviewNote,
@@ -474,7 +474,13 @@ async function main() {
       context: lexical(R.context.fr),
       achievements: R.achievements.fr,
       targetAudience: 'Membres et jeunes de l’Alliance.',
-      location: { scope: 'national', country: 'Burkina Faso', coordinatesVerified: false },
+      startDate: '2025-06-21T12:00:00.000Z',
+      location: {
+        scope: 'local',
+        locality: 'Loumbila',
+        country: 'Burkina Faso',
+        coordinatesVerified: false,
+      },
     },
     {
       title: R.title.en,

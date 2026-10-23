@@ -864,41 +864,258 @@ Both parties expressed their wish to build partnerships for sustainable developm
     },
     sourceUrl: FB_URL,
   },
+  // Added 23/10/2026 from the posts of the official Facebook page pasted by ACIEA.
+  {
+    slug: 'prix-ecoworld-2025-moscou',
+    publishedAt: '2026-02-06T12:00:00.000Z',
+    category: 'event',
+    title: {
+      fr: 'L’ACIEA récompensée au concours international EcoWorld 2025',
+      en: 'ACIEA awarded at the EcoWorld 2025 international competition',
+    },
+    excerpt: {
+      fr: 'Un prix dans la catégorie « programmes et projets jeunesse pour l’écologie et la protection de l’environnement », remis à Moscou le 6 février 2026.',
+      en: 'An award in the “youth programmes and projects in ecology and environmental protection” category, presented in Moscow on 6 February 2026.',
+    },
+    content: {
+      fr: `L’Alliance for Climate Innovation and Ecological Action (ACIEA) a été officiellement récompensée lors du concours international **EcoWorld 2025**, organisé par l’Académie russe des sciences naturelles.
+
+Le prix a été décerné dans la catégorie **« Youth Programs, Projects in the Field of Ecology and Environmental Protection »**, pour le travail éducatif et pratique de l’Alliance en faveur de la protection de l’environnement, notamment dans la lutte contre la désertification au Burkina Faso. L’ACIEA y participait avec son projet **SAAGDO**.
+
+## Une cérémonie à Moscou
+
+La cérémonie officielle de remise des prix s’est tenue à Moscou le **6 février 2026**, en présence de membres du Parlement russe et de représentants diplomatiques. L’Ambassade du Burkina Faso en Russie y était représentée par un délégué, qui a reçu le certificat au nom de l’Alliance.
+
+## Les félicitations de l’Ambassadeur
+
+Dans une lettre datée du **19 février 2026**, Son Excellence l’Ambassadeur du Burkina Faso en Fédération de Russie a adressé ses félicitations officielles à l’ACIEA pour cette participation, couronnée par la remise d’un diplôme par le jury.
+
+L’Alliance dédie cette distinction à la jeunesse africaine engagée pour le climat et à toutes celles et ceux qui œuvrent pour la restauration des terres au Burkina Faso.`,
+      en: `The Alliance for Climate Innovation and Ecological Action (ACIEA) received an official award at the **EcoWorld 2025** international competition, organised by the Russian Academy of Natural Sciences.
+
+The award was given in the **“Youth Programs, Projects in the Field of Ecology and Environmental Protection”** category, for the Alliance’s educational and practical work for environmental protection, notably against desertification in Burkina Faso. ACIEA took part with its **SAAGDO** project.
+
+## A ceremony in Moscow
+
+The official award ceremony took place in Moscow on **6 February 2026**, attended by members of the Russian Parliament and diplomatic representatives. The Embassy of Burkina Faso in Russia was represented by a delegate, who received the certificate on the Alliance’s behalf.
+
+## The Ambassador’s congratulations
+
+In a letter dated **19 February 2026**, His Excellency the Ambassador of Burkina Faso to the Russian Federation sent ACIEA his official congratulations on this participation, crowned by a diploma from the jury.
+
+The Alliance dedicates this distinction to African youth committed to the climate and to everyone working to restore land in Burkina Faso.`,
+    },
+    sourceUrl: FB_URL,
+  },
+  {
+    slug: 'saagdo-presente-mairie-ouagadougou-2026',
+    publishedAt: '2026-01-22T12:00:00.000Z',
+    category: 'innovation',
+    title: {
+      fr: 'SAAGDO présentée à la Mairie centrale de Ouagadougou',
+      en: 'SAAGDO presented at Ouagadougou Central Town Hall',
+    },
+    excerpt: {
+      fr: 'Le 22 janvier 2026, l’ACIEA a présenté l’application et la plateforme SAAGDO aux autorités municipales, qui ont exprimé leur volonté de collaborer à son déploiement.',
+      en: 'On 22 January 2026, ACIEA presented the SAAGDO app and platform to the municipal authorities, who expressed their wish to work together on its deployment.',
+    },
+    content: {
+      fr: `Le jeudi **22 janvier 2026**, une réunion de travail s’est tenue à la Mairie centrale de Ouagadougou entre l’ACIEA et les autorités municipales, représentées par le Président de la Délégation spéciale, Monsieur KONATÉ.
+
+L’équipe de l’ACIEA a présenté de façon complète l’application mobile **SAAGDO** et sa plateforme d’administration. Cette solution numérique citoyenne vise à améliorer le traitement et le suivi des dépotoirs non autorisés à Ouagadougou et à Bobo-Dioulasso : les citoyens signalent un dépotoir sauvage ou une pollution en prenant une photo avec leur téléphone, la géolocalisation étant intégrée automatiquement pour faciliter une intervention rapide des services concernés. L’application guide aussi les citoyens vers les toilettes publiques les plus proches.
+
+Les autorités municipales ont salué la pertinence et la portée environnementale et citoyenne de l’initiative, et exprimé leur volonté de collaborer étroitement avec l’ACIEA, en particulier pour l’engouement et le déploiement de l’application.`,
+      en: `On Thursday **22 January 2026**, a working meeting was held at Ouagadougou Central Town Hall between ACIEA and the municipal authorities, represented by the President of the Special Delegation, Mr KONATÉ.
+
+The ACIEA team gave a full presentation of the **SAAGDO** mobile app and its administration platform. This citizen digital solution aims to improve the handling and follow-up of unauthorised dumps in Ouagadougou and Bobo-Dioulasso: citizens report an illegal dump or any pollution by taking a photo with their phone, with geolocation added automatically so that the relevant services can act quickly. The app also guides citizens to the nearest public toilets.
+
+The municipal authorities praised the relevance and the environmental and civic reach of the initiative, and expressed their wish to work closely with ACIEA, in particular on the take-up and deployment of the app.`,
+    },
+    sourceUrl: FB_URL,
+  },
+  {
+    slug: 'saagdo-sitaho-2025',
+    publishedAt: '2025-11-07T12:00:00.000Z',
+    category: 'innovation',
+    cover: 'presentation',
+    title: {
+      fr: 'SAAGDO présentée au Salon International des Toilettes et de l’Hygiène (SITAHO 2025)',
+      en: 'SAAGDO presented at the International Toilet and Hygiene Fair (SITAHO 2025)',
+    },
+    excerpt: {
+      fr: 'Le 7 novembre 2025, au 2iE, l’ACIEA a présenté SAAGDO à des experts de l’hygiène et de l’assainissement.',
+      en: 'On 7 November 2025, at 2iE, ACIEA presented SAAGDO to hygiene and sanitation experts.',
+    },
+    content: {
+      fr: `Le **7 novembre 2025**, dans la salle de réunion du 2iE, l’ACIEA a présenté l’un de ses projets phares, **SAAGDO**, lors du Salon International des Toilettes et de l’Hygiène de Ouagadougou (SITAHO 2025).
+
+Cette présentation a permis d’échanger avec des experts, de répondre à leurs questions et de recueillir des retours pour améliorer la solution.
+
+SAAGDO est une plateforme numérique qui permet de cartographier les zones de pollution (tous types de déchets) et de guider les citoyens vers les toilettes publiques les plus proches grâce à une carte interactive. Une section « compétition » encourage les comportements écoresponsables en classant les citoyens les plus engagés.
+
+L’équipe a reçu de nombreuses félicitations pour la pertinence de la démarche et son intérêt pour l’hygiène et l’environnement urbain.`,
+      en: `On **7 November 2025**, in the 2iE meeting room, ACIEA presented one of its flagship projects, **SAAGDO**, at the Ouagadougou International Toilet and Hygiene Fair (SITAHO 2025).
+
+The presentation was a chance to talk with experts, answer their questions and gather feedback to improve the solution.
+
+SAAGDO is a digital platform that maps pollution areas (all types of waste) and guides citizens to the nearest public toilets with an interactive map. A “challenge” section encourages eco-friendly behaviour by ranking the most committed citizens.
+
+The team received many congratulations on the relevance of the approach and its value for hygiene and the urban environment.`,
+    },
+    sourceUrl: FB_URL,
+  },
+  {
+    slug: 'assemblee-generale-2025',
+    publishedAt: '2025-11-02T12:00:00.000Z',
+    category: 'institutional',
+    title: {
+      fr: 'Assemblée générale de l’ACIEA : cap sur 2026',
+      en: 'ACIEA General Assembly: setting the course for 2026',
+    },
+    excerpt: {
+      fr: 'Réunie le 2 novembre au Ministère de l’Environnement, de l’Eau et de l’Assainissement, l’Assemblée générale a dressé le bilan de l’année et fixé la feuille de route 2026.',
+      en: 'Meeting on 2 November at the Ministry of Environment, Water and Sanitation, the General Assembly reviewed the year and set the 2026 roadmap.',
+    },
+    content: {
+      fr: `L’ACIEA a tenu son **Assemblée générale le 2 novembre** dans la salle de conférence du Ministère de l’Environnement, de l’Eau et de l’Assainissement du Burkina Faso, avec la participation de ses membres, partenaires et collaborateurs.
+
+Cette rencontre a permis de :
+
+- dresser le bilan des actions et des succès de l’année ;
+- définir la feuille de route pour amplifier l’impact de l’Alliance en 2026 ;
+- fédérer les membres autour d’une vision commune : accélérer la transition écologique et climatique par l’innovation, l’engagement communautaire et la jeunesse.
+
+Parmi les initiatives présentées figurent le **Camp Vacances Éco-Citoyen** des jeunes et le projet **SAAGDO**, qui cartographie les zones de pollution et guide les citoyens vers les toilettes publiques.`,
+      en: `ACIEA held its **General Assembly on 2 November** in the conference room of Burkina Faso’s Ministry of Environment, Water and Sanitation, with its members, partners and collaborators.
+
+The meeting was used to:
+
+- review the year’s actions and successes;
+- set the roadmap to grow the Alliance’s impact in 2026;
+- bring members together around a shared vision: speeding up the ecological and climate transition through innovation, community engagement and youth.
+
+The initiatives presented included the young people’s **Eco-Citizen Holiday Camp** and the **SAAGDO** project, which maps pollution areas and guides citizens to public toilets.`,
+    },
+    sourceUrl: FB_URL,
+  },
+  {
+    slug: 'salon-international-arbre-2025',
+    publishedAt: '2025-07-16T12:00:00.000Z',
+    category: 'event',
+    cover: 'arbre',
+    title: {
+      fr: 'L’ACIEA au 7ᵉ Salon International de l’Arbre',
+      en: 'ACIEA at the 7th International Tree Fair',
+    },
+    excerpt: {
+      fr: 'Le 16 juillet 2025, au parc Bangr-Wéogo, l’ACIEA a pris part au Salon International de l’Arbre, sur le thème « Arbre et culture ».',
+      en: 'On 16 July 2025, at Bangr-Wéogo park, ACIEA took part in the International Tree Fair, on the theme “Tree and culture”.',
+    },
+    content: {
+      fr: `Le mercredi **16 juillet 2025**, l’ACIEA a pris part à la 7ᵉ édition du **Salon International de l’Arbre (SIA)** au parc Bangr-Wéogo, à Ouagadougou.
+
+Cette édition avait pour thème « Arbre et culture : rôle de la jeunesse sahélienne dans la préservation des valeurs culturelles de l’arbre face aux défis du changement climatique », avec pour slogan « Protéger l’arbre, inspirer l’avenir ». Elle a réuni experts, jeunes leaders, institutions et organisations de la société civile.
+
+Pour l’ACIEA, ce salon a renforcé son engagement pour l’éducation écologique et l’implication des jeunes dans la lutte contre le changement climatique. Il a aussi été l’occasion d’élargir son réseau et de partager sa vision d’une jeunesse sahélienne actrice du changement, capable d’allier traditions et innovation.`,
+      en: `On Wednesday **16 July 2025**, ACIEA took part in the 7th **International Tree Fair (SIA)** at Bangr-Wéogo park in Ouagadougou.
+
+The theme was “Tree and culture: the role of Sahelian youth in preserving the cultural values of trees in the face of climate change”, with the slogan “Protect the tree, inspire the future”. It brought together experts, young leaders, institutions and civil society organisations.
+
+For ACIEA, the fair strengthened its commitment to environmental education and to involving young people in climate action. It was also a chance to widen its network and share its vision of Sahelian youth driving change by combining tradition and innovation.`,
+    },
+    sourceUrl: FB_URL,
+  },
+  {
+    slug: 'journee-mondiale-environnement-2025',
+    publishedAt: '2025-06-05T12:00:00.000Z',
+    category: 'statement',
+    title: {
+      fr: 'Journée mondiale de l’environnement 2025 : agir contre la pollution plastique',
+      en: 'World Environment Day 2025: acting against plastic pollution',
+    },
+    excerpt: {
+      fr: 'Pour le 5 juin 2025, l’ACIEA appelle chaque citoyen et chaque institution à s’engager contre la pollution plastique.',
+      en: 'For 5 June 2025, ACIEA calls on every citizen and institution to act against plastic pollution.',
+    },
+    content: {
+      fr: `Chaque 5 juin, le monde célèbre la Journée mondiale de l’environnement, instaurée en 1972 par les Nations unies. En 2025, elle était placée sous le thème **« Lutter contre la pollution plastique »**, une menace qui étouffe les écosystèmes, pollue les sols et les eaux et met en péril la santé des populations.
+
+L’ACIEA appelle chaque citoyen, chaque institution et chaque acteur économique et social à s’engager, par des gestes simples :
+
+- réduire le plastique à usage unique ;
+- privilégier les emballages biodégradables ou réutilisables ;
+- adopter une consommation responsable ;
+- encourager l’innovation verte et les solutions locales durables.
+
+Pour un Burkina Faso propre, résilient et tourné vers un avenir écologique.`,
+      en: `Every 5 June, the world marks World Environment Day, established by the United Nations in 1972. In 2025 its theme was **“Beat plastic pollution”**, a threat that chokes ecosystems, pollutes soil and water and endangers people’s health.
+
+ACIEA calls on every citizen, institution and economic and social actor to act, through simple steps:
+
+- cut single-use plastic;
+- choose biodegradable or reusable packaging;
+- consume responsibly;
+- support green innovation and sustainable local solutions.
+
+For a clean, resilient Burkina Faso looking towards an ecological future.`,
+    },
+    sourceUrl: FB_URL,
+  },
   {
     slug: 'audience-ambassade-bresil',
     publishedAt: '2025-05-01T12:00:00.000Z',
     category: 'institutional',
     cover: 'bresil',
     draft: true,
-    reviewNote: 'Publication Facebook tronquée : date et contenu à confirmer avant publication.',
+    reviewNote:
+      'Texte repris de la publication Facebook ; date de l’audience à confirmer avant publication.',
     title: {
       fr: 'Climat, jeunesse et innovation : l’ACIEA reçue par l’Ambassade du Brésil',
       en: 'Climate, youth and innovation: ACIEA received by the Embassy of Brazil',
     },
     excerpt: {
-      fr: 'Brouillon — date et contenu à confirmer.',
-      en: 'Draft — date and content to be confirmed.',
+      fr: 'Une délégation conduite par la vice-présidente a présenté l’ACIEA et ses projets à l’Ambassade du Brésil au Burkina Faso.',
+      en: 'A delegation led by the vice-president presented ACIEA and its projects to the Embassy of Brazil in Burkina Faso.',
     },
     content: {
-      fr: 'Contenu à compléter à partir de la publication officielle.',
-      en: 'Content to be completed from the official post.',
+      fr: `L’Ambassade du Brésil au Burkina Faso, à travers Madame ILBOUDO Tigsba Elielle Sadou, assistante de l’Ambassadrice, a accueilli une délégation de l’ACIEA conduite par Madame SAMBORE Daho Nadia Doriane Leslie, vice-présidente, pour une audience officielle consacrée à la présentation de l’organisation et de ses projets phares.
+
+Cette rencontre s’inscrit dans la volonté de l’ACIEA de promouvoir des partenariats entre pays du Sud, en plaçant l’intelligence artificielle et les technologies numériques au cœur des réponses aux défis climatiques et environnementaux.
+
+L’assistante de l’Ambassadrice a salué l’approche de l’ACIEA, exprimé l’intérêt du Brésil pour des échanges techniques autour des innovations durables et prodigué des conseils pour structurer ses initiatives et renforcer sa visibilité.`,
+      en: `The Embassy of Brazil in Burkina Faso, through Mrs ILBOUDO Tigsba Elielle Sadou, assistant to the Ambassador, received an ACIEA delegation led by Mrs SAMBORE Daho Nadia Doriane Leslie, vice-president, for an official meeting to present the organisation and its flagship projects.
+
+The meeting reflects ACIEA’s aim to build partnerships between countries of the Global South, with artificial intelligence and digital technologies at the heart of responses to climate and environmental challenges.
+
+The Ambassador’s assistant praised ACIEA’s approach, expressed Brazil’s interest in technical exchanges on sustainable innovation and gave advice on structuring its initiatives and raising its profile.`,
     },
     sourceUrl: FB_URL,
   },
   {
     slug: 'journee-nationale-de-l-arbre-2025',
-    publishedAt: '2025-08-01T12:00:00.000Z',
+    publishedAt: '2025-06-21T12:00:00.000Z',
     category: 'field',
-    cover: 'arbre',
-    draft: true,
-    reviewNote:
-      'Vidéo « Journée nationale de l’arbre 2025 » publiée sur Facebook : date, lieu et contenu à confirmer.',
-    title: { fr: 'Journée nationale de l’arbre 2025', en: 'National Tree Day 2025' },
-    excerpt: {
-      fr: 'Brouillon — date, lieu et contenu à confirmer.',
-      en: 'Draft — date, place and content to be confirmed.',
+    cover: 'reboisement',
+    title: {
+      fr: 'Journée nationale de l’arbre : l’ACIEA reboise à Loumbila avec le SP/REDD+',
+      en: 'National Tree Day: ACIEA plants trees in Loumbila with SP/REDD+',
     },
-    content: { fr: 'Contenu à compléter.', en: 'Content to be completed.' },
+    excerpt: {
+      fr: 'Le 21 juin 2025, les membres de l’ACIEA ont mis des plants en terre à Loumbila, dans le cadre du défi national de cinq millions d’arbres plantés en une heure.',
+      en: 'On 21 June 2025, ACIEA members planted seedlings in Loumbila, as part of the national challenge to plant five million trees in one hour.',
+    },
+    content: {
+      fr: `À l’occasion de la **Journée nationale de l’arbre, le 21 juin 2025**, l’ACIEA a participé, en collaboration avec le Secrétariat permanent pour la REDD+ (SP/REDD+), à une opération nationale de reboisement organisée à **Loumbila**.
+
+Cette initiative s’inscrivait dans le défi national de planter **cinq millions d’arbres en une heure** sur l’ensemble du territoire, pour lutter contre la désertification et le changement climatique.
+
+La journée a réuni institutions publiques, partenaires techniques, organisations de la société civile et de nombreux jeunes. Les membres de l’ACIEA ont activement pris part à la mise en terre de plants, dans la continuité de leur engagement pour une écologie participative et inclusive.`,
+      en: `For **National Tree Day on 21 June 2025**, ACIEA took part, together with the Permanent Secretariat for REDD+ (SP/REDD+), in a national tree-planting operation in **Loumbila**.
+
+The initiative was part of the national challenge to plant **five million trees in one hour** across the country, to fight desertification and climate change.
+
+The day brought together public institutions, technical partners, civil society organisations and many young people. ACIEA members actively planted seedlings, in line with their commitment to participatory and inclusive ecology.`,
+    },
     sourceUrl: FB_URL,
   },
 ]
@@ -1139,6 +1356,60 @@ It works alongside national and international partners to protect the environmen
     en: 'ACIEA engages with national institutions, local authorities and international partners while carrying out field actions with young people.',
   },
   milestones: [
+    {
+      date: '2026-02-06T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Prix au concours international EcoWorld 2025 (Moscou)',
+        en: 'EcoWorld 2025 international award (Moscow)',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2026-01-22T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'SAAGDO présentée à la Mairie centrale de Ouagadougou',
+        en: 'SAAGDO presented at Ouagadougou Central Town Hall',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-11-07T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'SAAGDO présentée au SITAHO 2025',
+        en: 'SAAGDO presented at SITAHO 2025',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-11-02T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Assemblée générale de l’ACIEA',
+        en: 'ACIEA General Assembly',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-07-16T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Participation au 7ᵉ Salon International de l’Arbre',
+        en: 'Participation in the 7th International Tree Fair',
+      },
+      sourceUrl: FB_URL,
+    },
+    {
+      date: '2025-06-21T12:00:00.000Z',
+      precision: 'day',
+      title: {
+        fr: 'Journée nationale de l’arbre : reboisement à Loumbila',
+        en: 'National Tree Day: tree planting in Loumbila',
+      },
+      sourceUrl: FB_URL,
+    },
     {
       date: '2024-06-30T12:00:00.000Z',
       precision: 'year',
@@ -1808,33 +2079,22 @@ export const REFORESTATION = {
     en: 'Tree planting and National Tree Day 2025',
   },
   excerpt: {
-    fr: 'Actions de mise en terre de plants menées par les membres et les jeunes de l’Alliance, dont la participation à la Journée nationale de l’arbre 2025.',
-    en: 'Tree-planting actions carried out by the Alliance’s members and young people, including participation in National Tree Day 2025.',
+    fr: 'Mise en terre de plants à Loumbila pour la Journée nationale de l’arbre, le 21 juin 2025, avec le SP/REDD+, puis à Ouagadougou aux côtés du 2iE.',
+    en: 'Planting seedlings in Loumbila for National Tree Day on 21 June 2025 with SP/REDD+, then in Ouagadougou alongside 2iE.',
   },
   context: {
     fr: `Le reboisement est l’une des actions concrètes par lesquelles l’ACIEA mobilise les jeunes en faveur de la nature et de la résilience climatique.
 
-L’Alliance a publié sur sa page officielle une vidéo consacrée à sa participation à la **Journée nationale de l’arbre 2025**, ainsi que des photos de membres mettant en terre de jeunes plants.`,
+Le **21 juin 2025**, pour la Journée nationale de l’arbre, les membres de l’ACIEA ont mis des plants en terre à **Loumbila**, en collaboration avec le Secrétariat permanent pour la REDD+, dans le cadre du défi national de cinq millions d’arbres plantés en une heure.
+
+En juillet 2025, l’Alliance a également invité ses membres et sympathisants à une journée de reboisement aux côtés du 2iE, à Ouagadougou.`,
     en: `Tree planting is one of the practical ways ACIEA mobilises young people for nature and climate resilience.
 
-The Alliance published on its official page a video about its participation in **National Tree Day 2025**, along with photos of members planting seedlings.`,
+On **21 June 2025**, for National Tree Day, ACIEA members planted seedlings in **Loumbila**, together with the Permanent Secretariat for REDD+, as part of the national challenge to plant five million trees in one hour.
+
+In July 2025, the Alliance also brought its members and supporters to a tree-planting day alongside 2iE in Ouagadougou.`,
   },
-  achievements: {
-    fr: [
-      {
-        text: 'Participation à la Journée nationale de l’arbre 2025 (vidéo publiée sur la page officielle de l’ACIEA)',
-        verified: true,
-        sourceUrl: FB_URL,
-      },
-    ],
-    en: [
-      {
-        text: 'Participation in National Tree Day 2025 (video published on ACIEA’s official page)',
-        verified: true,
-        sourceUrl: FB_URL,
-      },
-    ],
-  },
+  achievements: { fr: [], en: [] },
 }
 
 export const WATERAID_NEWS = {
