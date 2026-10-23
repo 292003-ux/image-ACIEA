@@ -19,8 +19,8 @@ export const TeamMembers: CollectionConfig = {
     group: institutionGroup,
     defaultColumns: ['name', 'position', 'group', '_status'],
     description: {
-      fr: 'Publiez uniquement des fonctions et biographies validées par les personnes concernées.',
-      en: 'Only publish roles and biographies approved by the people concerned.',
+      fr: 'Section « La direction » de la page « À propos ». Publiez uniquement des fonctions et biographies validées par les personnes concernées.',
+      en: '“Leadership” section of the “About” page. Only publish roles and biographies approved by the people concerned.',
     },
   },
   fields: [

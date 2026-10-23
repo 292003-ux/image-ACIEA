@@ -17,6 +17,10 @@ export const Publications: CollectionConfig = {
   },
   defaultSort: '-publishedAt',
   admin: {
+    description: {
+      fr: 'Page « Publications » : son lien apparaît en bas du site dès qu’une publication est publiée.',
+      en: '“Publications” page: its link appears at the bottom of the site once one is published.',
+    },
     useAsTitle: 'title',
     group: contentGroup,
     defaultColumns: ['title', 'type', 'publishedAt', '_status'],

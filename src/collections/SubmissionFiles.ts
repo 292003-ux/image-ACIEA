@@ -14,7 +14,13 @@ export const SubmissionFiles: CollectionConfig = {
     singular: { fr: 'Pièce jointe reçue', en: 'Received attachment' },
     plural: { fr: 'Pièces jointes reçues', en: 'Received attachments' },
   },
-  admin: { group: { fr: 'Demandes reçues', en: 'Inbox' } },
+  admin: {
+    group: { fr: 'Demandes reçues', en: 'Inbox' },
+    description: {
+      fr: 'Pièces jointes envoyées avec les demandes. Privées.',
+      en: 'Attachments sent with requests. Private.',
+    },
+  },
   access: {
     read: adminsOnly,
     create: nobody,

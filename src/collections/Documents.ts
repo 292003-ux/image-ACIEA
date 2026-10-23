@@ -11,6 +11,10 @@ export const Documents: CollectionConfig = {
     plural: { fr: 'Documents', en: 'Documents' },
   },
   admin: {
+    description: {
+      fr: 'Fichiers à télécharger (statuts, rapports…), affichés sur la page « À propos » dès qu’il y en a.',
+      en: 'Downloadable files (statutes, reports…), shown on the “About” page once there are some.',
+    },
     group: { fr: 'Médiathèque', en: 'Library' },
     defaultColumns: ['title', 'filename', 'filesize', 'updatedAt'],
     useAsTitle: 'title',

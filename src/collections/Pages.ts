@@ -12,7 +12,15 @@ export const Pages: CollectionConfig = {
   slug: 'pages',
   ...editorialCollection,
   labels: { singular: { fr: 'Page', en: 'Page' }, plural: { fr: 'Pages', en: 'Pages' } },
-  admin: { useAsTitle: 'title', group: contentGroup, defaultColumns: ['title', 'slug', '_status'] },
+  admin: {
+    useAsTitle: 'title',
+    group: contentGroup,
+    defaultColumns: ['title', 'slug', '_status'],
+    description: {
+      fr: 'Pages de texte simples : mentions légales, confidentialité, conditions d’utilisation (liens en bas du site).',
+      en: 'Plain text pages: legal notice, privacy, terms of use (links at the bottom of the site).',
+    },
+  },
   fields: [
     {
       name: 'title',

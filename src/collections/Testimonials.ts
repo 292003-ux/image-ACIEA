@@ -26,7 +26,8 @@ export const Testimonials: CollectionConfig = {
     singular: { fr: 'Témoignage validé', en: 'Approved testimonial' },
     plural: { fr: 'Témoignages validés', en: 'Approved testimonials' },
   },
-  admin: { useAsTitle: 'authorName', group: institutionGroup },
+  // Not shown on the site any more; hidden so editors are not misled.
+  admin: { useAsTitle: 'authorName', group: institutionGroup, hidden: true },
   fields: [
     {
       name: 'quote',

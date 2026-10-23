@@ -8,6 +8,10 @@ export const Faqs: CollectionConfig = {
   labels: { singular: 'FAQ', plural: 'FAQ' },
   defaultSort: 'order',
   admin: {
+    description: {
+      fr: 'Questions fréquentes de la page « Partenaires ».',
+      en: 'Frequently asked questions on the “Partners” page.',
+    },
     useAsTitle: 'question',
     group: contentGroup,
     defaultColumns: ['question', 'scope', '_status'],

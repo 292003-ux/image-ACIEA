@@ -13,6 +13,10 @@ export const Events: CollectionConfig = {
   },
   defaultSort: '-startDate',
   admin: {
+    description: {
+      fr: 'Page « Événements » : son lien apparaît en bas du site dès qu’un événement est publié.',
+      en: '“Events” page: its link appears at the bottom of the site once one is published.',
+    },
     useAsTitle: 'title',
     group: contentGroup,
     defaultColumns: ['title', 'startDate', 'location', '_status'],

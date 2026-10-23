@@ -64,6 +64,10 @@ export const ContactSubmissions: CollectionConfig = {
     plural: { fr: 'Messages de contact', en: 'Contact messages' },
   },
   admin: {
+    description: {
+      fr: 'Messages envoyés avec le formulaire « Contact ». Données personnelles : ne pas diffuser.',
+      en: 'Messages sent with the “Contact” form. Personal data: do not share.',
+    },
     useAsTitle: 'subjectLine',
     group: inboxGroup,
     defaultColumns: ['subjectLine', 'name', 'email', 'status', 'createdAt'],

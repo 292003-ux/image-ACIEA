@@ -10,6 +10,10 @@ export const AuditLogs: CollectionConfig = {
   },
   defaultSort: '-createdAt',
   admin: {
+    description: {
+      fr: 'Historique : qui a publié, modifié ou supprimé quoi, et quand.',
+      en: 'History: who published, edited or deleted what, and when.',
+    },
     useAsTitle: 'summary',
     group: { fr: 'Administration', en: 'Administration' },
     defaultColumns: ['createdAt', 'action', 'entity', 'summary', 'userEmail'],

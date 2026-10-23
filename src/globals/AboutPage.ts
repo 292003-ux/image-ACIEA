@@ -6,6 +6,13 @@ import { heroGroup, localizedText, localizedTextarea, pageGlobal } from './_shar
 export const AboutPage: GlobalConfig = {
   slug: 'about-page',
   ...pageGlobal,
+  admin: {
+    ...pageGlobal.admin,
+    description: {
+      fr: 'Page « À propos » : présentation, histoire, valeurs, gouvernance, message du président.',
+      en: '“About” page: presentation, history, values, governance, president’s message.',
+    },
+  },
   label: { fr: 'À propos', en: 'About' },
   fields: [
     {

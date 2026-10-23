@@ -16,6 +16,13 @@ const cards = (name: string, label: { fr: string; en: string }) => ({
 export const SaagdoPage: GlobalConfig = {
   slug: 'saagdo-page',
   ...pageGlobal,
+  admin: {
+    ...pageGlobal.admin,
+    description: {
+      fr: 'Page « SAAGDO » : présentation, fonctionnalités, captures d’écran, vidéo, partenariat.',
+      en: '“SAAGDO” page: overview, features, screenshots, video, partnership.',
+    },
+  },
   label: 'SAAGDO',
   fields: [
     {
@@ -56,6 +63,8 @@ export const SaagdoPage: GlobalConfig = {
             {
               name: 'partnershipSourceUrl',
               type: 'text',
+              // No longer linked from the page (kept so existing content is not lost).
+              admin: { hidden: true },
               label: { fr: 'Source officielle', en: 'Official source' },
             },
             {
@@ -122,7 +131,9 @@ export const SaagdoPage: GlobalConfig = {
                 fr: 'Vidéo de présentation (lien)',
                 en: 'Presentation video (link)',
               },
+              // The page now plays the uploaded video file; the link button was removed.
               admin: {
+                hidden: true,
                 description: {
                   fr: 'Lien vers la vidéo publiée (Facebook, YouTube…). Affiche un bouton « Voir la vidéo » ; laisser vide pour le masquer.',
                   en: 'Link to the published video (Facebook, YouTube…). Shows a “Watch the video” button; leave empty to hide it.',
