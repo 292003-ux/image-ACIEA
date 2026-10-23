@@ -14,10 +14,13 @@ export async function ProjectCard({
   project,
   layout = 'grid',
   priority,
+  linked = true,
 }: {
   project: WithFallback<Project>
   layout?: 'grid' | 'list'
   priority?: boolean
+  /** false: a plain card showing the whole summary, with no link to the project sheet. */
+  linked?: boolean
 }) {
   const t = await getTranslations('projects')
   const tc = await getTranslations('common')
@@ -27,7 +30,8 @@ export async function ProjectCard({
   return (
     <article
       className={cn(
-        'group relative flex overflow-hidden rounded-[var(--radius-card)] bg-white shadow-soft ring-1 ring-forest/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-lift',
+        'group relative flex overflow-hidden rounded-[var(--radius-card)] bg-white shadow-soft ring-1 ring-forest/5',
+        linked && 'transition-all duration-500 hover:-translate-y-1 hover:shadow-lift',
         list ? 'flex-col sm:flex-row' : 'flex-col',
       )}
     >
@@ -40,7 +44,9 @@ export async function ProjectCard({
         <CmsImage
           media={project.coverImage}
           className="absolute inset-0"
-          imgClassName="transition-transform duration-700 group-hover:scale-[1.04]"
+          imgClassName={
+            linked ? 'transition-transform duration-700 group-hover:scale-[1.04]' : undefined
+          }
           placeholderSeed={project.slug}
           priority={priority}
           sizes={list ? '288px' : '(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw'}
@@ -57,14 +63,23 @@ export async function ProjectCard({
           {project._isFallback && <Badge tone="neutral">{tc('fallbackBadge')}</Badge>}
         </div>
         <h3 className="mt-3 font-display text-xl leading-snug font-semibold text-forest">
-          <Link
-            href={{ pathname: '/projects/[slug]', params: { slug: project.slug } }}
-            className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
-          >
-            {project.title}
-          </Link>
+          {linked ? (
+            <Link
+              href={{ pathname: '/projects/[slug]', params: { slug: project.slug } }}
+              className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+            >
+              {project.title}
+            </Link>
+          ) : (
+            project.title
+          )}
         </h3>
-        <p className="mt-3 line-clamp-3 text-[0.95rem] leading-relaxed text-ink-muted">
+        <p
+          className={cn(
+            'mt-3 text-[0.95rem] leading-relaxed text-ink-muted',
+            linked && 'line-clamp-3',
+          )}
+        >
           {project.excerpt}
         </p>
         <div className="mt-auto flex items-center justify-between gap-4 pt-6">
@@ -76,17 +91,20 @@ export async function ProjectCard({
           ) : (
             <span />
           )}
-          <span
-            className="group/btn flex items-center gap-1.5 text-sm font-semibold text-leaf"
-            aria-hidden="true"
-          >
-            {t('viewProject')}
-            <ArrowGlyph className="size-4 transition-transform group-hover:translate-x-1" />
-          </span>
+          {linked && (
+            <span
+              className="group/btn flex items-center gap-1.5 text-sm font-semibold text-leaf"
+              aria-hidden="true"
+            >
+              {t('viewProject')}
+              <ArrowGlyph className="size-4 transition-transform group-hover:translate-x-1" />
+            </span>
+          )}
         </div>
       </div>
       <span
         aria-hidden="true"
+        hidden={!linked}
         className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-gold to-digital transition-transform duration-500 group-hover:scale-x-100"
       />
     </article>

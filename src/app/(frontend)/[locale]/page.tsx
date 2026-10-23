@@ -7,11 +7,11 @@ import { Icon } from '@/components/icon'
 import { CmsImage } from '@/components/media/cms-image'
 import { VideoPlayer } from '@/components/media/video-player'
 import { Reveal } from '@/components/motion/reveal'
-import { ArrowGlyph, buttonVariants } from '@/components/ui/button'
+import { ArrowGlyph } from '@/components/ui/button'
 import { Section } from '@/components/ui/container'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { isLocale, type Locale } from '@/i18n/routing'
-import { pathFor, pathForSlug } from '@/lib/navigation'
+import { pathForSlug } from '@/lib/navigation'
 import { getDomains, getFeaturedProjects, getHomepage, getNews } from '@/lib/queries'
 import { buildMetadata } from '@/lib/seo'
 import { cn } from '@/lib/utils'
@@ -138,7 +138,7 @@ export default async function HomePage({ params }: Props) {
             >
               {projects.map((p, i) => (
                 <Reveal as="li" key={p.id} delay={i * 0.08}>
-                  <ProjectCard project={p} />
+                  <ProjectCard project={p} linked={false} />
                 </Reveal>
               ))}
             </ul>
@@ -146,27 +146,15 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* News + partners */}
+      {/* News */}
       <Section tone="ivory">
         {news.docs.length > 0 && (
           <>
-            <SectionHeading
-              eyebrow={t('newsEyebrow')}
-              title={t('newsTitle')}
-              action={
-                <NextLink
-                  href={pathFor('/news', locale)}
-                  className={buttonVariants({ variant: 'outline' })}
-                >
-                  {t('newsCta')}
-                  <ArrowGlyph />
-                </NextLink>
-              }
-            />
+            <SectionHeading eyebrow={t('newsEyebrow')} title={t('newsTitle')} />
             <ul className="mt-14 grid gap-6 lg:grid-cols-3">
               {news.docs.map((n, i) => (
                 <Reveal as="li" key={n.id} delay={i * 0.08}>
-                  <NewsCard article={n} />
+                  <NewsCard article={n} linked={false} />
                 </Reveal>
               ))}
             </ul>
